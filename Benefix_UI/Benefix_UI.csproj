@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F453CAB9-378A-48AA-BE1C-2D37005A4EE9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Genesis</RootNamespace>
+    <AssemblyName>Genesis</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministracionDeBeneficios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeBeneficios.Designer.cs">
+      <DependentUpon>AdministracionDeBeneficios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionDeEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeEquipos.Designer.cs">
+      <DependentUpon>AdministracionDeEquipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionDeFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeFamilias.Designer.cs">
+      <DependentUpon>AdministracionDeFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionDeGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeGrupos.Designer.cs">
+      <DependentUpon>AdministracionDeGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionDeObjetivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeObjetivos.Designer.cs">
+      <DependentUpon>AdministracionDeObjetivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionDeUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionDeUsuarios.Designer.cs">
+      <DependentUpon>AdministracionDeUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarBeneficios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarBeneficios.Designer.cs">
+      <DependentUpon>AsignarBeneficios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarCoordinador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarCoordinador.Designer.cs">
+      <DependentUpon>AsignarCoordinador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarGrupos.Designer.cs">
+      <DependentUpon>AsignarGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarPatentesAFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarPatentesAFamilias.Designer.cs">
+      <DependentUpon>AsignarPatentesAFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarPatentesAUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarPatentesAUsuarios.Designer.cs">
+      <DependentUpon>AsignarPatentesAUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarUsuarios.Designer.cs">
+      <DependentUpon>AsignarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogOut.Designer.cs">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema.Designer.cs">
+      <DependentUpon>Sistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarEmpleados.Designer.cs">
+      <DependentUpon>AsignarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarBitacora.Designer.cs">
+      <DependentUpon>ConsultarBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluarEmpleados.Designer.cs">
+      <DependentUpon>EvaluarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluarEquiposACargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluarEquiposACargo.Designer.cs">
+      <DependentUpon>EvaluarEquiposACargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiEstado.Designer.cs">
+      <DependentUpon>MiEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarIdioma.Designer.cs">
+      <DependentUpon>ModificarIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarStringDeConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarStringDeConexion.Designer.cs">
+      <DependentUpon>ModificarStringDeConexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealizarBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealizarBackup.Designer.cs">
+      <DependentUpon>RealizarBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealizarRestore.Designer.cs">
+      <DependentUpon>RealizarRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesDeBeneficiosPorEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesDeBeneficiosPorEmpleado.Designer.cs">
+      <DependentUpon>ReportesDeBeneficiosPorEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesDeObjetivosPorEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesDeObjetivosPorEmpleado.Designer.cs">
+      <DependentUpon>ReportesDeObjetivosPorEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesDeObjetivosPorEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesDeObjetivosPorEquipos.Designer.cs">
+      <DependentUpon>ReportesDeObjetivosPorEquipos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdministracionDeBeneficios.resx">
+      <DependentUpon>AdministracionDeBeneficios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionDeEquipos.resx">
+      <DependentUpon>AdministracionDeEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionDeFamilias.resx">
+      <DependentUpon>AdministracionDeFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionDeGrupos.resx">
+      <DependentUpon>AdministracionDeGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionDeObjetivos.resx">
+      <DependentUpon>AdministracionDeObjetivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionDeUsuarios.resx">
+      <DependentUpon>AdministracionDeUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarBeneficios.resx">
+      <DependentUpon>AsignarBeneficios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarCoordinador.resx">
+      <DependentUpon>AsignarCoordinador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarEmpleados.resx">
+      <DependentUpon>AsignarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarGrupos.resx">
+      <DependentUpon>AsignarGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarPatentesAFamilias.resx">
+      <DependentUpon>AsignarPatentesAFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarPatentesAUsuarios.resx">
+      <DependentUpon>AsignarPatentesAUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarUsuarios.resx">
+      <DependentUpon>AsignarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogOut.resx">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema.resx">
+      <DependentUpon>Sistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarBitacora.resx">
+      <DependentUpon>ConsultarBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluarEmpleados.resx">
+      <DependentUpon>EvaluarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluarEquiposACargo.resx">
+      <DependentUpon>EvaluarEquiposACargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiEstado.resx">
+      <DependentUpon>MiEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarIdioma.resx">
+      <DependentUpon>ModificarIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarStringDeConexion.resx">
+      <DependentUpon>ModificarStringDeConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RealizarBackup.resx">
+      <DependentUpon>RealizarBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RealizarRestore.resx">
+      <DependentUpon>RealizarRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesDeBeneficiosPorEmpleado.resx">
+      <DependentUpon>ReportesDeBeneficiosPorEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesDeObjetivosPorEmpleado.resx">
+      <DependentUpon>ReportesDeObjetivosPorEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesDeObjetivosPorEquipos.resx">
+      <DependentUpon>ReportesDeObjetivosPorEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\VC#\ObjectListView\ObjectListView\ObjectListView2012.csproj">
+      <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
+      <Name>ObjectListView2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Benefix_BLL\Benefix_BLL.csproj">
+      <Project>{8b9ea82a-4d00-4014-abe4-eeb2b0634bf7}</Project>
+      <Name>Benefix_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Benefix_DLL\Benefix_DLL.csproj">
+      <Project>{f1bd6b38-6e01-4490-ae45-1bfd9b7d38bb}</Project>
+      <Name>Benefix_DLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
