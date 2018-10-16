@@ -15,6 +15,7 @@ namespace Genesis
         public Sistema()
         {
             InitializeComponent();
+            GestorSistema gestorSistema = GestorSistema.ObtenerInstancia();
         }
 
         private void administraciónDeObjetivosToolStripMenuItem_Click(object sender, EventArgs e)

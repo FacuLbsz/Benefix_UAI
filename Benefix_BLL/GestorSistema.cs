@@ -8,17 +8,18 @@ using System.IO;
 public class GestorSistema
 {
 
-    private GestorSistema instancia;
+    private static GestorSistema instancia;
     public GestorDeUsuarios m_GestorDeUsuarios;
     public GestorDePatentes m_GestorDePatentes;
     public GestorIdioma m_GestorIdioma;
+    private BaseDeDatos baseDeDatos;
 
     private GestorSistema()
     {
-
+        baseDeDatos = BaseDeDatos.ObtenerInstancia();
     }
 
-    public GestorSistema ObtenerInstancia()
+    public static GestorSistema ObtenerInstancia()
     {
         if (instancia == null)
         {

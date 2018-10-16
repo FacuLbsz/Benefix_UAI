@@ -8,12 +8,11 @@ using System.IO;
 public class EventoBitacora
 {
 
-    int criticidad { get; set; }
-    String descripcion { get; set; }
-    DateTime fecha { get; set; }
-    String funcionalidad { get; set; }
-    Usuario usuario { get; set; }
-    Usuario m_Usuario { get; set; }
+    public int criticidad { get; set; }
+    public String descripcion { get; set; }
+    public DateTime fecha { get; set; }
+    public String funcionalidad { get; set; }
+    public Usuario usuario { get; set; }
 
     public EventoBitacora()
     {

@@ -8,17 +8,17 @@ using System.IO;
 public class Usuario
 {
 
-    String apellido { get; set; }
-    String contraseña { get; set; }
-    String email { get; set; }
-    int identificador { get; set; }
-    Idioma idioma { get; set; }
-    String nombre { get; set; }
-    String nombreUsuario { get; set; }
-    List<PatenteUsuario> patenteUsuarioAsignadas { get; set; }
-    Idioma m_Idioma { get; set; }
-    Familia m_Familia { get; set; }
-    Equipo m_Equipo { get; set; }
+    public String apellido { get; set; }
+    public String contraseña { get; set; }
+    public String email { get; set; }
+    public int identificador { get; set; }
+    public Idioma idioma { get; set; }
+    public String nombre { get; set; }
+    public String nombreUsuario { get; set; }
+    public List<PatenteUsuario> patenteUsuarioAsignadas { get; set; }
+    public Idioma m_Idioma { get; set; }
+    public Familia m_Familia { get; set; }
+    public Equipo m_Equipo { get; set; }
 
     public Usuario()
     {

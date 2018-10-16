@@ -2,23 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.Data;
 
 public class GestorDeUsuarios
 {
 
-    private GestorDeUsuarios instancia;
-    public GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
-    public GestorDeBitacora m_GestorDeBitacora;
-    public GestorDeEncriptacion m_GestorDeEncriptacion;
+    private static GestorDeUsuarios instancia;
+    private GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
+    private GestorDeBitacora m_GestorDeBitacora;
+    private GestorDeEncriptacion m_GestorDeEncriptacion;
+    private BaseDeDatos baseDeDatos;
 
     private GestorDeUsuarios()
     {
-
+        baseDeDatos = BaseDeDatos.ObtenerInstancia();
+        m_GestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
     }
 
-    public GestorDeUsuarios ObtenerInstancia()
+    public static GestorDeUsuarios ObtenerInstancia()
     {
         if (instancia == null)
         {
@@ -36,8 +37,45 @@ public class GestorDeUsuarios
 
     public List<Usuario> ConsultarUsuariosTodos()
     {
+        DataTable dataTable = baseDeDatos.ConsultarBase("SELECT * FROM USUARIO");
 
-        return null;
+        List<Usuario> usuarios = new List<Usuario>();
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Usuario usuario = new Usuario();
+
+            var nombreUsuario = Convert.ToString(row["nombreUsuario"]);
+            var stringList = new List<String>();
+            stringList.Add(nombreUsuario);
+
+
+            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(stringList)[0];
+            usuario.identificador = Convert.ToInt32(row["idUsuario"]);
+
+            usuarios.Add(usuario);
+        }
+        return usuarios;
+    }
+
+    public Usuario ObtenerUsuario(int idUsuario)
+    {
+        DataTable dataTable = baseDeDatos.ConsultarBase("SELECT * FROM USUARIO WHERE idUsuario = " + idUsuario);
+        List<Usuario> usuarios = new List<Usuario>();
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Usuario usuario = new Usuario();
+
+            var nombreUsuario = Convert.ToString(row["nombreUsuario"]);
+            var stringList = new List<String>();
+            stringList.Add(nombreUsuario);
+
+
+            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(stringList)[0];
+            usuario.identificador = Convert.ToInt32(row["idUsuario"]);
+
+            usuarios.Add(usuario);
+        }
+        return usuarios[0];
     }
 
     public int CrearUsuario(Usuario usuario)

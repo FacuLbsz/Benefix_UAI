@@ -9,14 +9,14 @@ using System.IO;
 public class GestorDeEncriptacion
 {
 
-    private GestorDeEncriptacion instancia;
+    private static GestorDeEncriptacion instancia;
 
     private GestorDeEncriptacion()
     {
 
     }
 
-    public GestorDeEncriptacion ObtenerInstancia()
+    public static GestorDeEncriptacion ObtenerInstancia()
     {
         if (instancia == null)
         {
@@ -29,19 +29,19 @@ public class GestorDeEncriptacion
     public List<String> DesencriptarAes(List<String> list)
     {
 
-        return null;
+        return list;
     }
 
     public List<String> EncriptarAes(List<String> list)
     {
 
-        return null;
+        return list;
     }
 
     public List<String> EncriptarMD5(List<String> list)
     {
 
-        return null;
+        return list;
     }
 
 }
