@@ -29,6 +29,12 @@ namespace Genesis
             mainForm.Closed += (s, args) => this.Close();
             mainForm.WindowState = FormWindowState.Maximized;
             mainForm.Show();
+
+            Usuario usuario = new Usuario() { identificador = 2 };
+            EventoBitacora evento = new EventoBitacora() { fecha = new DateTime(), descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
+
+            GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         }
 
         private void modificarStringButton_Click(object sender, EventArgs e)

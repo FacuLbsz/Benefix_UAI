@@ -53,8 +53,10 @@ public class BaseDeDatos
 
     public int ModificarBase(String query)
     {
-
-        return 0;
+        AbrirConexion();
+        var filasAfectadas = CrearComandoSQL(query).ExecuteNonQuery();
+        CerrarConexion();
+        return filasAfectadas;
     }
 
     private void AbrirConexion()

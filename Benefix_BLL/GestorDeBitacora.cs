@@ -74,7 +74,7 @@ public class GestorDeBitacora
             {
                 where = where + " AND ";
             }
-            where = where + " fecha between '" + fechaDesde.ToString() + "' and '" + fechaHasta.ToString() +"'";
+            where = where + " fecha between '" + fechaDesde.ToString() + "' and '" + fechaHasta.ToString() + "'";
         }
 
         if (where.Length > 0)
@@ -84,10 +84,11 @@ public class GestorDeBitacora
 
     }
 
-    public int RegistrarEvento(EventoBitacora evento)
+    public async void RegistrarEvento(EventoBitacora evento)
     {
+        String insertarEvento = "INSERT INTO Bitacora ( criticidad , descripcion , fecha , funcionalidad , Usuario_idUsuario , digitoVerificadorH) VALUES ({0},'{1}','{2}','{3}',{4},{5})";
+        baseDeDatos.ModificarBase(String.Format(insertarEvento, evento.criticidad, evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador, "1"));
 
-        return 0;
     }
 
 }
