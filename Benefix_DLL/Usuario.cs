@@ -9,12 +9,14 @@ public class Usuario
 {
 
     public String apellido { get; set; }
-    public String contraseña { get; set; }
+    public String contrasena { get; set; }
     public String email { get; set; }
     public int identificador { get; set; }
     public Idioma idioma { get; set; }
     public String nombre { get; set; }
     public String nombreUsuario { get; set; }
+    //SDC nuevo parametro si esta habilitado
+    public Boolean habilitado { get; set; }
     public List<PatenteUsuario> patenteUsuarioAsignadas { get; set; }
     public Idioma m_Idioma { get; set; }
     public Familia m_Familia { get; set; }

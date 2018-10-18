@@ -8,9 +8,9 @@ using System.IO;
 public class Patente
 {
 
-    int identificador { get; set; }
-    String nombre { get; set; }
-    PatenteUsuario m_PatenteUsuario { get; set; }
+    public int identificador { get; set; }
+    public String nombre { get; set; }
+    public PatenteUsuario m_PatenteUsuario { get; set; }
 
     public Patente()
     {

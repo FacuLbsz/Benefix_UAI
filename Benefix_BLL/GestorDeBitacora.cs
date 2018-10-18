@@ -44,7 +44,7 @@ public class GestorDeBitacora
             eventoBitacora.criticidad = Convert.ToInt32(row["criticidad"]);
             eventoBitacora.usuario = gestorDeUsuarios.ObtenerUsuario(Convert.ToInt32(row["Usuario_idUsuario"]));
             eventoBitacora.fecha = Convert.ToDateTime(row["fecha"]);
-            eventoBitacora.descripcion = Convert.ToString(row["descripcion"]);
+            eventoBitacora.descripcion = m_GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["descripcion"]));
             eventoBitacora.funcionalidad = Convert.ToString(row["funcionalidad"]);
 
             eventosBitacora.Add(eventoBitacora);

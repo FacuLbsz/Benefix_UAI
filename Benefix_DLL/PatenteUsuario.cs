@@ -8,11 +8,11 @@ using System.IO;
 public class PatenteUsuario
 {
 
-    Boolean esPermisivo { get; set; }
-    int identificador { get; set; }
-    Patente patente { get; set; }
-    Usuario usuario { get; set; }
-    Usuario m_Usuario { get; set; }
+     public Boolean esPermisivo { get; set; }
+     public int identificador { get; set; }
+     public Patente patente { get; set; }
+     public Usuario usuario { get; set; }
+     public Usuario m_Usuario { get; set; }
 
     public PatenteUsuario()
     {
