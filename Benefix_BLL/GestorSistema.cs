@@ -42,7 +42,7 @@ public class GestorSistema
 
         var map = new Dictionary<String, List<String>>();
         map.Add("BITACORA", new List<String>() { "criticidad", "descripcion", "fecha", "funcionalidad", "Usuario_idUsuario" });
-        map.Add("USUARIO", new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" });
+        //map.Add("USUARIO", new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" });
         map.Add("PATENTEUSUARIO", new List<String>() { "esPermisiva", "Patente_idPatente", "Usuario_idUsuario" });
         map.Add("FAMILIAPATENTE", new List<String>() { "Patente_idPatente", "Familia_idFamilia" });
         map.Add("BENEFICIO", new List<String>() { "descripcion", "puntaje" });
@@ -65,7 +65,7 @@ public class GestorSistema
 
         DataTable dataTable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM {0}", tabla));
 
-        List<String> digitosVHBitacora = new List<string>();
+        String digitosVHBitacora = "";
         foreach (DataRow eventoBitacora in dataTable.Rows)
         {
             List<String> argumentos = new List<String>();
@@ -81,16 +81,16 @@ public class GestorSistema
                 return 0;
             }
 
-            digitosVHBitacora.Add(digitoVH);
+            digitosVHBitacora = digitosVHBitacora + digitoVH;
         }
 
-        if (digitosVHBitacora.Count > 0)
+        if (digitosVHBitacora.Length > 0)
         {
             dataTable = baseDeDatos.ConsultarBase(String.Format("SELECT digitoVerificador FROM digitoverificadorvertical WHERE tabla = '{0}'", tabla));
 
             if (dataTable.Rows.Count > 0)
             {
-                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(gestorDeEncriptacion.EncriptarMD5(digitosVHBitacora)[0]))
+                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(gestorDeEncriptacion.EncriptarMD5(digitosVHBitacora)))
                 {
                     return 0;
                 }

@@ -41,7 +41,7 @@ public class GestorDeDigitoVerificador
             digitoVV = digitoVV + Convert.ToString(row["digitoVerificadorH"]);
         }
 
-        List<String> digitoVVMD5 = gestorDeEncriptacion.EncriptarMD5(new List<String>() { digitoVV });
+        String digitoVVMD5 = gestorDeEncriptacion.EncriptarMD5(digitoVV);
 
         DataTable digitoVVPrevio = baseDeDatos.ConsultarBase(String.Format("Select * From digitoverificadorvertical where tabla = '{0}'", tabla));
 
@@ -60,14 +60,13 @@ public class GestorDeDigitoVerificador
     public String ObtenerDigitoVH(List<String> argumentos)
     {
         String digitoVH = "";
-        List<String> argumentosEncriptados = gestorDeEncriptacion.EncriptarMD5(argumentos);
 
-        foreach (String arugmento in argumentosEncriptados)
+        foreach (String arugmento in argumentos)
         {
             digitoVH = digitoVH + arugmento;
         }
 
-        return digitoVH;
+        return gestorDeEncriptacion.EncriptarMD5(digitoVH);
     }
 
 }

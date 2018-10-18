@@ -44,12 +44,7 @@ public class GestorDeUsuarios
         {
             Usuario usuario = new Usuario();
 
-            var nombreUsuario = Convert.ToString(row["nombreUsuario"]);
-            var stringList = new List<String>();
-            stringList.Add(nombreUsuario);
-
-
-            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(stringList)[0];
+            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["nombreUsuario"]));
             usuario.identificador = Convert.ToInt32(row["idUsuario"]);
 
             usuarios.Add(usuario);
@@ -65,12 +60,8 @@ public class GestorDeUsuarios
         {
             Usuario usuario = new Usuario();
 
-            var nombreUsuario = Convert.ToString(row["nombreUsuario"]);
-            var stringList = new List<String>();
-            stringList.Add(nombreUsuario);
 
-
-            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(stringList)[0];
+            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["nombreUsuario"]));
             usuario.identificador = Convert.ToInt32(row["idUsuario"]);
 
             usuarios.Add(usuario);
