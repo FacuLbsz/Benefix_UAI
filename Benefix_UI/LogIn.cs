@@ -34,7 +34,7 @@ namespace Genesis
             mainForm.Show();
 
             Usuario usuario = new Usuario() { identificador = 1 };
-            EventoBitacora evento = new EventoBitacora() { fecha = new DateTime(), descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
+            EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
 
             GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
 
