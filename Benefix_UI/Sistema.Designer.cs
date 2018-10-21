@@ -1,4 +1,6 @@
-﻿namespace Genesis
+﻿using Genesis.Recursos_localizables;
+
+namespace Genesis
 {
     partial class Sistema
     {
@@ -77,7 +79,7 @@
             this.miEstadoToolStripMenuItem.AutoSize = false;
             this.miEstadoToolStripMenuItem.Name = "miEstadoToolStripMenuItem";
             this.miEstadoToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
-            this.miEstadoToolStripMenuItem.Text = "Mi estado";
+            this.miEstadoToolStripMenuItem.Text = StringResources.SistemaMenuItemMiEstado;
             this.miEstadoToolStripMenuItem.Click += new System.EventHandler(this.miEstadoToolStripMenuItem_Click);
             // 
             // evaluaciónToolStripMenuItem
@@ -86,13 +88,13 @@
             this.evaluarEquiposACargoToolStripMenuItem});
             this.evaluaciónToolStripMenuItem.Name = "evaluaciónToolStripMenuItem";
             this.evaluaciónToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
-            this.evaluaciónToolStripMenuItem.Text = "Evaluación";
+            this.evaluaciónToolStripMenuItem.Text = StringResources.SistemaMenuItemEvaluacion;
             // 
             // evaluarEquiposACargoToolStripMenuItem
             // 
             this.evaluarEquiposACargoToolStripMenuItem.Name = "evaluarEquiposACargoToolStripMenuItem";
             this.evaluarEquiposACargoToolStripMenuItem.Size = new System.Drawing.Size(285, 30);
-            this.evaluarEquiposACargoToolStripMenuItem.Text = "Evaluar equipos a cargo";
+            this.evaluarEquiposACargoToolStripMenuItem.Text = StringResources.SistemaMenuItemEvaluarEquiposACargo;
             this.evaluarEquiposACargoToolStripMenuItem.Click += new System.EventHandler(this.evaluarEquiposACargoToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
@@ -103,27 +105,27 @@
             this.beneficioPorEmpleadoToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(94, 29);
-            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Text = StringResources.SistemaMenuItemReportes;
             // 
             // objetivosPorEmpleadosToolStripMenuItem
             // 
             this.objetivosPorEmpleadosToolStripMenuItem.Name = "objetivosPorEmpleadosToolStripMenuItem";
             this.objetivosPorEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
-            this.objetivosPorEmpleadosToolStripMenuItem.Text = "Objetivos por empleados";
+            this.objetivosPorEmpleadosToolStripMenuItem.Text = StringResources.SistemaMenuItemObjetivosPorEmpleados;
             this.objetivosPorEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.objetivosPorEmpleadosToolStripMenuItem_Click);
             // 
             // objetivosPorEquipoToolStripMenuItem
             // 
             this.objetivosPorEquipoToolStripMenuItem.Name = "objetivosPorEquipoToolStripMenuItem";
             this.objetivosPorEquipoToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
-            this.objetivosPorEquipoToolStripMenuItem.Text = "Objetivos por equipo";
+            this.objetivosPorEquipoToolStripMenuItem.Text = StringResources.SistemaMenuItemObjetivosPorEquipo;
             this.objetivosPorEquipoToolStripMenuItem.Click += new System.EventHandler(this.objetivosPorEquipoToolStripMenuItem_Click);
             // 
             // beneficioPorEmpleadoToolStripMenuItem
             // 
             this.beneficioPorEmpleadoToolStripMenuItem.Name = "beneficioPorEmpleadoToolStripMenuItem";
             this.beneficioPorEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
-            this.beneficioPorEmpleadoToolStripMenuItem.Text = "Beneficio por empleado";
+            this.beneficioPorEmpleadoToolStripMenuItem.Text = StringResources.SistemaMenuItemBeneficioPorEmpleado;
             this.beneficioPorEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.beneficioPorEmpleadoToolStripMenuItem_Click);
             // 
             // administraciónToolStripMenuItem
@@ -137,55 +139,55 @@
             this.administraciónDeFamiliasToolStripMenuItem});
             this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
             this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(143, 29);
-            this.administraciónToolStripMenuItem.Text = "Administración";
+            this.administraciónToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracion;
             // 
             // administraciónDeObjetivosToolStripMenuItem
             // 
             this.administraciónDeObjetivosToolStripMenuItem.Name = "administraciónDeObjetivosToolStripMenuItem";
             this.administraciónDeObjetivosToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administraciónDeObjetivosToolStripMenuItem.Text = "Administración de objetivos";
+            this.administraciónDeObjetivosToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeObjetivos;
             this.administraciónDeObjetivosToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeObjetivosToolStripMenuItem_Click);
             // 
             // administraciónDeBeneficiosToolStripMenuItem
             // 
             this.administraciónDeBeneficiosToolStripMenuItem.Name = "administraciónDeBeneficiosToolStripMenuItem";
             this.administraciónDeBeneficiosToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administraciónDeBeneficiosToolStripMenuItem.Text = "Administración de beneficios";
+            this.administraciónDeBeneficiosToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeBeneficios;
             this.administraciónDeBeneficiosToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeBeneficiosToolStripMenuItem_Click);
             // 
             // administracionDeToolStripMenuItem
             // 
             this.administracionDeToolStripMenuItem.Name = "administracionDeToolStripMenuItem";
             this.administracionDeToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administracionDeToolStripMenuItem.Text = "Administración de equipos";
+            this.administracionDeToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeEquipos;
             this.administracionDeToolStripMenuItem.Click += new System.EventHandler(this.administracionDeToolStripMenuItem_Click);
             // 
             // administraciónDeGruposToolStripMenuItem
             // 
             this.administraciónDeGruposToolStripMenuItem.Name = "administraciónDeGruposToolStripMenuItem";
             this.administraciónDeGruposToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administraciónDeGruposToolStripMenuItem.Text = "Administración de grupos";
+            this.administraciónDeGruposToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeGrupos;
             this.administraciónDeGruposToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeGruposToolStripMenuItem_Click);
             // 
             // administraciónDeToolStripMenuItem
             // 
             this.administraciónDeToolStripMenuItem.Name = "administraciónDeToolStripMenuItem";
             this.administraciónDeToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administraciónDeToolStripMenuItem.Text = "Administración de usuarios";
+            this.administraciónDeToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeUsuarios;
             this.administraciónDeToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeToolStripMenuItem_Click);
             // 
             // administraciónDeFamiliasToolStripMenuItem
             // 
             this.administraciónDeFamiliasToolStripMenuItem.Name = "administraciónDeFamiliasToolStripMenuItem";
             this.administraciónDeFamiliasToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
-            this.administraciónDeFamiliasToolStripMenuItem.Text = "Administración de familias";
+            this.administraciónDeFamiliasToolStripMenuItem.Text = StringResources.SistemaMenuItemAdministracionDeFamilias;
             this.administraciónDeFamiliasToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeFamiliasToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
             this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
-            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem.Text = StringResources.SistemaMenuItemBitacora;
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
             // backUpToolStripMenuItem
@@ -201,14 +203,14 @@
             // 
             this.realizarBackUpToolStripMenuItem.Name = "realizarBackUpToolStripMenuItem";
             this.realizarBackUpToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.realizarBackUpToolStripMenuItem.Text = "Realizar Back Up";
+            this.realizarBackUpToolStripMenuItem.Text = StringResources.SistemaMenuItemRealizarBackUp;
             this.realizarBackUpToolStripMenuItem.Click += new System.EventHandler(this.realizarBackUpToolStripMenuItem_Click);
             // 
             // realizarRestoreToolStripMenuItem
             // 
             this.realizarRestoreToolStripMenuItem.Name = "realizarRestoreToolStripMenuItem";
             this.realizarRestoreToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.realizarRestoreToolStripMenuItem.Text = "Realizar restore";
+            this.realizarRestoreToolStripMenuItem.Text = StringResources.SistemaMenuItemRealizarRestore;
             this.realizarRestoreToolStripMenuItem.Click += new System.EventHandler(this.realizarRestoreToolStripMenuItem_Click);
             // 
             // idiomaToolStripMenuItem
@@ -218,7 +220,7 @@
             this.inglesToolStripMenuItem});
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
             this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
-            this.idiomaToolStripMenuItem.Text = "Idioma";
+            this.idiomaToolStripMenuItem.Text = StringResources.SistemaMenuItemIdioma;
             // 
             // españolToolStripMenuItem
             // 

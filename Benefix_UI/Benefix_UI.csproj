@@ -123,6 +123,21 @@
     <Compile Include="LogOut.Designer.cs">
       <DependentUpon>LogOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos localizables\StringResources.en-US.Designer.cs">
+      <DependentUpon>StringResources.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Recursos localizables\StringResources.es-ES.Designer.cs">
+      <DependentUpon>StringResources.es-ES.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Recursos localizables\StringResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +266,18 @@
     <EmbeddedResource Include="LogOut.resx">
       <DependentUpon>LogOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos localizables\StringResources.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos localizables\StringResources.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos localizables\StringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,5 +353,6 @@
       <Name>Benefix_DLL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
