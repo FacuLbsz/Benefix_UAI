@@ -79,6 +79,25 @@ public class GestorDePatentes
         return patentes;
     }
 
+    //SDC modificar por ObtenerPatentesNoAsignadasAUnUsuario
+    public List<Patente> ObtenerPatentesNoAsignadasAUnUsuario(Usuario usuario)
+    {
+        var dataTable = baseDeDatos.ConsultarBase(String.Format("Select * from Patente where patente.idPatente not in(SELECT PATENTE.idPatente FROM PATENTE inner join patenteusuario on patente.idPatente = patenteusuario.idPatente where patenteusuario.Usuario_idUsuario = {0})", usuario.identificador));
+        List<Patente> patentes = new List<Patente>();
+
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Patente patente = new Patente();
+
+            patente.identificador = Convert.ToInt32(row["idPatente"]);
+            patente.nombre = Convert.ToString(row["nombre"]);
+
+            patentes.Add(patente);
+
+        }
+        return patentes;
+    }
+
     //SDC Modificar parametro de salida como Lista de PatenteUsuario
     public List<PatenteUsuario> ObtenerPatentesParaUnUsuario(Usuario usuario)
     {
@@ -89,7 +108,7 @@ public class GestorDePatentes
         {
             PatenteUsuario patenteUsuario = new PatenteUsuario();
 
-            patenteUsuario.patente = new Patente() { identificador = Convert.ToInt32(row["idPatente"]), nombre = Convert.ToString(row["nombre"]) };
+            patenteUsuario.patente = new Patente() { identificador = Convert.ToInt32(row["Patente_idPatente"]), nombre = Convert.ToString(row["nombre"]) };
             patenteUsuario.usuario = new Usuario() { identificador = Convert.ToInt32(row["Usuario_idUsuario"]) };
             patenteUsuario.esPermisivo = Convert.ToBoolean(row["esPermisiva"]);
 

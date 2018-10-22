@@ -41,7 +41,9 @@ namespace Genesis
 
         private void asignarPatentesButton_Click(object sender, EventArgs e)
         {
-            var mainForm = new AsignarPatentesAUsuarios();
+            var usuario = new Usuario() { identificador = usuarioSeleccionado };
+
+            var mainForm = new AsignarPatentesAUsuarios(usuario);
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.ShowDialog();
         }

@@ -28,32 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
+            this.patentesDataGridView = new System.Windows.Forms.DataGridView();
+            this.patentes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guardarButton = new System.Windows.Forms.Button();
             this.asignarButton = new System.Windows.Forms.Button();
-            this.beneficiosAsignadosDataGridView = new System.Windows.Forms.DataGridView();
+            this.patentesAsignadosDataGridView = new System.Windows.Forms.DataGridView();
             this.desasignarButton = new System.Windows.Forms.Button();
-            this.patentes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patentesAsignadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permisivaRestringiva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).BeginInit();
+            this.permisivaRestringiva = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.patentesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patentesAsignadosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // beneficiosDataGridView
+            // patentesDataGridView
             // 
-            this.beneficiosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patentesDataGridView.AllowUserToAddRows = false;
+            this.patentesDataGridView.AllowUserToDeleteRows = false;
+            this.patentesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.patentesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patentesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patentes});
-            this.beneficiosDataGridView.Location = new System.Drawing.Point(649, 20);
-            this.beneficiosDataGridView.Name = "beneficiosDataGridView";
-            this.beneficiosDataGridView.ReadOnly = true;
-            this.beneficiosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 551);
-            this.beneficiosDataGridView.TabIndex = 55;
+            this.patentesDataGridView.Location = new System.Drawing.Point(649, 20);
+            this.patentesDataGridView.Name = "patentesDataGridView";
+            this.patentesDataGridView.ReadOnly = true;
+            this.patentesDataGridView.RowHeadersVisible = false;
+            this.patentesDataGridView.RowTemplate.Height = 28;
+            this.patentesDataGridView.Size = new System.Drawing.Size(240, 551);
+            this.patentesDataGridView.TabIndex = 55;
+            // 
+            // patentes
+            // 
+            this.patentes.DataPropertyName = "nombre";
+            this.patentes.HeaderText = "Patentes";
+            this.patentes.Name = "patentes";
+            this.patentes.ReadOnly = true;
             // 
             // guardarButton
             // 
@@ -73,21 +81,22 @@
             this.asignarButton.Text = "< Asignar";
             this.asignarButton.UseVisualStyleBackColor = true;
             // 
-            // beneficiosAsignadosDataGridView
+            // patentesAsignadosDataGridView
             // 
-            this.beneficiosAsignadosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosAsignadosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosAsignadosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosAsignadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosAsignadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patentesAsignadosDataGridView.AllowUserToAddRows = false;
+            this.patentesAsignadosDataGridView.AllowUserToDeleteRows = false;
+            this.patentesAsignadosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.patentesAsignadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patentesAsignadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patentesAsignadas,
             this.permisivaRestringiva});
-            this.beneficiosAsignadosDataGridView.Location = new System.Drawing.Point(18, 20);
-            this.beneficiosAsignadosDataGridView.Name = "beneficiosAsignadosDataGridView";
-            this.beneficiosAsignadosDataGridView.ReadOnly = true;
-            this.beneficiosAsignadosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosAsignadosDataGridView.Size = new System.Drawing.Size(291, 551);
-            this.beneficiosAsignadosDataGridView.TabIndex = 51;
+            this.patentesAsignadosDataGridView.Location = new System.Drawing.Point(18, 20);
+            this.patentesAsignadosDataGridView.Name = "patentesAsignadosDataGridView";
+            this.patentesAsignadosDataGridView.RowHeadersVisible = false;
+            this.patentesAsignadosDataGridView.RowTemplate.Height = 28;
+            this.patentesAsignadosDataGridView.Size = new System.Drawing.Size(291, 551);
+            this.patentesAsignadosDataGridView.TabIndex = 51;
+            this.patentesAsignadosDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.patentesAsignadosDataGridView_CellFormatting);
             // 
             // desasignarButton
             // 
@@ -98,14 +107,9 @@
             this.desasignarButton.Text = "Desasignar >";
             this.desasignarButton.UseVisualStyleBackColor = true;
             // 
-            // patentes
-            // 
-            this.patentes.HeaderText = "Patentes";
-            this.patentes.Name = "patentes";
-            this.patentes.ReadOnly = true;
-            // 
             // patentesAsignadas
             // 
+            this.patentesAsignadas.DataPropertyName = "patente.nombre";
             this.patentesAsignadas.FillWeight = 194.9239F;
             this.patentesAsignadas.HeaderText = "Patentes Asignadas";
             this.patentesAsignadas.Name = "patentesAsignadas";
@@ -113,38 +117,44 @@
             // 
             // permisivaRestringiva
             // 
+            this.permisivaRestringiva.DataPropertyName = "esPermisivo";
+            this.permisivaRestringiva.FalseValue = "false";
             this.permisivaRestringiva.FillWeight = 40F;
             this.permisivaRestringiva.HeaderText = "P/R";
             this.permisivaRestringiva.Name = "permisivaRestringiva";
-            this.permisivaRestringiva.ReadOnly = true;
+            this.permisivaRestringiva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.permisivaRestringiva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.permisivaRestringiva.TrueValue = "true";
             // 
-            // AsignarPatentes
+            // AsignarPatentesAUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 591);
-            this.Controls.Add(this.beneficiosDataGridView);
+            this.Controls.Add(this.patentesDataGridView);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(this.asignarButton);
-            this.Controls.Add(this.beneficiosAsignadosDataGridView);
+            this.Controls.Add(this.patentesAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
-            this.Name = "AsignarPatentes";
+            this.Name = "AsignarPatentesAUsuarios";
             this.Text = "Asignar patentes";
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
+            this.Load += new System.EventHandler(this.AsignarPatentesAUsuarios_Load);
+            this.Shown += new System.EventHandler(this.AsignarPatentesAUsuarios_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.patentesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patentesAsignadosDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView beneficiosDataGridView;
+        private System.Windows.Forms.DataGridView patentesDataGridView;
         private System.Windows.Forms.Button guardarButton;
         private System.Windows.Forms.Button asignarButton;
-        private System.Windows.Forms.DataGridView beneficiosAsignadosDataGridView;
+        private System.Windows.Forms.DataGridView patentesAsignadosDataGridView;
         private System.Windows.Forms.Button desasignarButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn patentes;
         private System.Windows.Forms.DataGridViewTextBoxColumn patentesAsignadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn permisivaRestringiva;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn permisivaRestringiva;
     }
 }
