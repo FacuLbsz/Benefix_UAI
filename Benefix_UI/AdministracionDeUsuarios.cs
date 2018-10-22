@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,10 +14,30 @@ namespace Genesis
 {
     public partial class AdministracionDeUsuarios : Form
     {
+        private GestorDeUsuarios gestorDeUsuarios;
+
+        private int usuarioSeleccionado = 0;
+
         public AdministracionDeUsuarios()
         {
             InitializeComponent();
+            gestorDeUsuarios = GestorDeUsuarios.ObtenerInstancia();
+
         }
+
+
+        private void AdministracionDeUsuarios_Load(object sender, EventArgs e)
+        {
+            ListarUsuarios();
+            LimpiarFormulario();
+        }
+
+        private void AdministracionDeUsuarios_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+
 
         private void asignarPatentesButton_Click(object sender, EventArgs e)
         {
@@ -26,7 +48,212 @@ namespace Genesis
 
         private void restablecerContraseñaButton_Click(object sender, EventArgs e)
         {
+            var contrasena = StringRandom(8);
+            Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, contrasena = contrasena };
 
+            gestorDeUsuarios.ModificarUsuario(usuario);
+            MessageBox.Show("La contraseña ha sido restablecida: \n" + contrasena);
+        }
+
+        private void nombreText_TextChanged(object sender, EventArgs e)
+        {
+            if (usuarioSeleccionado == 0 && nombreText.Text.Trim().Length > 0 && apellidoText.Text.Trim().Length > 0)
+                nombreDeUsuarioText.Text = nombreText.Text.Trim().Split(' ')[0] + "." + apellidoText.Text.Trim().Split(' ')[0];
+        }
+
+        private void apellidoText_TextChanged(object sender, EventArgs e)
+        {
+            if (usuarioSeleccionado == 0 && nombreText.Text.Trim().Length > 0 && apellidoText.Text.Trim().Length > 0)
+                nombreDeUsuarioText.Text = nombreText.Text.Trim().Split(' ')[0] + "." + apellidoText.Text.Trim().Split(' ')[0];
+        }
+
+        private void crearButton_Click(object sender, EventArgs e)
+        {
+
+            if (EsUnFormularioValido())
+            {
+                var nombreUsuario = nombreDeUsuarioText.Text;
+                var nombre = nombreText.Text;
+                var apellido = apellidoText.Text;
+                var email = emailText.Text;
+                var contrasena = StringRandom(8);
+
+                Usuario usuario = new Usuario() { nombreUsuario = nombreUsuario, nombre = nombre, apellido = apellido, email = email, contrasena = contrasena, habilitado = true };
+
+                try
+                {
+                    gestorDeUsuarios.CrearUsuario(usuario);
+                    MessageBox.Show("El usuario ha sido creado con existo, por favor guarde su contraseña: \n " + contrasena);
+                    LimpiarFormulario();
+                    ListarUsuarios();
+                }
+                catch (EntidadDuplicadaExcepcion excepcion)
+                {
+                    if (excepcion.atributo == "nombreUsuario")
+                    {
+                        nombreDeUsuarioText.Text = nombreDeUsuarioText.Text + StringRandom(2);
+                        MessageBox.Show("El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: " + nombreDeUsuarioText.Text);
+                        crearButton_Click(sender, e);
+                    }
+                    else if (excepcion.atributo == "email")
+                    {
+                        MessageBox.Show("El email ingresado ya se encuentra utilizado, por favor ingrese otro.");
+                    }
+                }
+            }
+
+
+
+
+        }
+
+        private String StringRandom(int cantidadDeCaracteres)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[cantidadDeCaracteres];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
+        }
+
+        private void ListarUsuarios()
+        {
+            //dataGridView1.Rows.Clear();
+            List<Usuario> usuarios = gestorDeUsuarios.ConsultarUsuarios();
+
+            dataGridView1.DataSource = usuarios;
+            dataGridView1.AutoGenerateColumns = false;
+
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (col.DataPropertyName != "nombreUsuario")
+                    col.Visible = false;
+            }
+
+            dataGridView1.ClearSelection();
+        }
+
+        private void LimpiarFormulario()
+        {
+            usuarioSeleccionado = 0;
+
+            nombreDeUsuarioText.Clear();
+            nombreText.Clear();
+            apellidoText.Clear();
+            emailText.Clear();
+
+            restablecerContraseñaButton.Enabled = false;
+            asignarPatentesButton.Enabled = false;
+            modificarButton.Enabled = false;
+            eliminarButton.Enabled = false;
+
+            crearButton.Enabled = true;
+
+            nombreText.Focus();
+        }
+
+        private bool EsUnFormularioValido()
+        {
+            var nombre = nombreText.Text;
+
+            if (nombre.Trim().Length == 0 || !Regex.IsMatch(nombre, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("El nombre es un campo requerido y puede contener solo letras.");
+                return false;
+            }
+
+            var apellido = apellidoText.Text;
+            if (apellido.Trim().Length == 0 || !Regex.IsMatch(apellido, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("El apellido es un campo requerido y puede contener solo letras.");
+                return false;
+            }
+
+            var email = emailText.Text;
+
+            if (email.Trim().Length > 0)
+            {
+                try
+                {
+                    MailAddress m = new MailAddress(email);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("El email ingresado no corresponde a un formato válido.");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("El email es un campo requerido.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void limpiarButton_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("SELECCIONADO: dataGridView1_SelectionChanged");
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+            restablecerContraseñaButton.Enabled = true;
+            asignarPatentesButton.Enabled = true;
+            modificarButton.Enabled = true;
+            eliminarButton.Enabled = true;
+
+            crearButton.Enabled = false;
+
+            Usuario usuarioSeleccionado = (Usuario)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].DataBoundItem;
+            Usuario usuario = gestorDeUsuarios.ObtenerUsuario(usuarioSeleccionado.identificador);
+
+            this.usuarioSeleccionado = usuarioSeleccionado.identificador;
+
+            nombreDeUsuarioText.Text = usuario.nombreUsuario;
+            nombreText.Text = usuario.nombre;
+            apellidoText.Text = usuario.apellido;
+            emailText.Text = usuario.email;
+
+            Console.WriteLine("SELECCIONADO: dataGridView1_CellContentClick");
+        }
+
+        private void modificarButton_Click(object sender, EventArgs e)
+        {
+            if (EsUnFormularioValido())
+            {
+                var nombre = nombreText.Text;
+                var apellido = apellidoText.Text;
+                var email = emailText.Text;
+
+                Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, nombre = nombre, apellido = apellido, email = email };
+
+                gestorDeUsuarios.ModificarUsuario(usuario);
+                MessageBox.Show("El usuario ha sido modificado con existo.");
+                LimpiarFormulario();
+                ListarUsuarios();
+            }
+        }
+
+        private void eliminarButton_Click(object sender, EventArgs e)
+        {
+            gestorDeUsuarios.EliminarUsuario(new Usuario() { identificador = usuarioSeleccionado });
+            MessageBox.Show("El usuario ha sido eliminado con existo.");
+            LimpiarFormulario();
+            ListarUsuarios();
         }
     }
 }

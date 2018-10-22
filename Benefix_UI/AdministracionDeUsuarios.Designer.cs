@@ -30,7 +30,7 @@
         {
             this.asignarPatentesButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.usuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restablecerContraseñaButton = new System.Windows.Forms.Button();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
@@ -64,19 +64,24 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.usuarios});
+            this.nombreUsuario});
             this.dataGridView1.Location = new System.Drawing.Point(29, 40);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(240, 551);
             this.dataGridView1.TabIndex = 46;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CurrentCellChanged);
             // 
-            // usuarios
+            // nombreUsuario
             // 
-            this.usuarios.HeaderText = "Usuarios";
-            this.usuarios.Name = "usuarios";
-            this.usuarios.ReadOnly = true;
+            this.nombreUsuario.DataPropertyName = "nombreUsuario";
+            this.nombreUsuario.HeaderText = "Usuarios";
+            this.nombreUsuario.Name = "nombreUsuario";
+            this.nombreUsuario.ReadOnly = true;
             // 
             // restablecerContraseñaButton
             // 
@@ -96,6 +101,7 @@
             this.eliminarButton.TabIndex = 52;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
@@ -105,6 +111,7 @@
             this.modificarButton.TabIndex = 51;
             this.modificarButton.Text = "Modificar";
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // crearButton
             // 
@@ -114,6 +121,7 @@
             this.crearButton.TabIndex = 50;
             this.crearButton.Text = "Crear";
             this.crearButton.UseVisualStyleBackColor = true;
+            this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
             // limpiarButton
             // 
@@ -123,6 +131,7 @@
             this.limpiarButton.TabIndex = 49;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // nombreDeUsuarioLabel
             // 
@@ -135,7 +144,9 @@
             // 
             // nombreDeUsuarioText
             // 
+            this.nombreDeUsuarioText.Enabled = false;
             this.nombreDeUsuarioText.Location = new System.Drawing.Point(319, 66);
+            this.nombreDeUsuarioText.MaxLength = 25;
             this.nombreDeUsuarioText.Name = "nombreDeUsuarioText";
             this.nombreDeUsuarioText.Size = new System.Drawing.Size(242, 26);
             this.nombreDeUsuarioText.TabIndex = 47;
@@ -152,9 +163,11 @@
             // nombreText
             // 
             this.nombreText.Location = new System.Drawing.Point(319, 127);
+            this.nombreText.MaxLength = 20;
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 56;
+            this.nombreText.TextChanged += new System.EventHandler(this.nombreText_TextChanged);
             // 
             // apellidoLabel
             // 
@@ -168,9 +181,11 @@
             // apellidoText
             // 
             this.apellidoText.Location = new System.Drawing.Point(319, 187);
+            this.apellidoText.MaxLength = 20;
             this.apellidoText.Name = "apellidoText";
             this.apellidoText.Size = new System.Drawing.Size(242, 26);
             this.apellidoText.TabIndex = 58;
+            this.apellidoText.TextChanged += new System.EventHandler(this.apellidoText_TextChanged);
             // 
             // emailLabel
             // 
@@ -210,6 +225,8 @@
             this.Controls.Add(this.nombreDeUsuarioText);
             this.Name = "AdministracionDeUsuarios";
             this.Text = "Administracion de usuarios";
+            this.Load += new System.EventHandler(this.AdministracionDeUsuarios_Load);
+            this.Shown += new System.EventHandler(this.AdministracionDeUsuarios_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -227,12 +244,12 @@
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Label nombreDeUsuarioLabel;
         private System.Windows.Forms.TextBox nombreDeUsuarioText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarios;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.TextBox nombreText;
         private System.Windows.Forms.Label apellidoLabel;
         private System.Windows.Forms.TextBox apellidoText;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
     }
 }

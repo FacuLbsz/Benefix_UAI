@@ -18,6 +18,7 @@ public class GestorDeUsuarios
     {
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
         m_GestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
+        m_GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
     }
 
     public static GestorDeUsuarios ObtenerInstancia()
@@ -51,7 +52,7 @@ public class GestorDeUsuarios
             Usuario usuario = new Usuario();
 
             usuario = PopularUsuarioDesdeBD(row);
-            //usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
+            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
 
             usuarios.Add(usuario);
         }
@@ -61,7 +62,7 @@ public class GestorDeUsuarios
     public Usuario ObtenerUsuario(int idUsuario)
     {
         Usuario usuario = ObtenerUsuarioBD(idUsuario);
-        //usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
+        usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
         return usuario;
     }
 
@@ -92,21 +93,23 @@ public class GestorDeUsuarios
 
     public int CrearUsuario(Usuario usuario)
     {
-        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE email = '{0}')", usuario.email)).Rows.Count > 0)
-        {
-            //TODO Throw exception de entidad repetida
+        if(VerificarEmail(usuario.email) == 1){
+
+            throw new EntidadDuplicadaExcepcion("email");
         }
 
         usuario.nombreUsuario = m_GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
 
-        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}')", usuario.nombreUsuario)).Rows.Count > 0)
+        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario)).Rows.Count > 0)
         {
-            //TODO Throw exception de entidad repetida
+            throw new EntidadDuplicadaExcepcion("nombreUsuario");
         }
 
         usuario.contrasena = m_GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
 
         var digitoVH = ObtenerDigitoVerificadorHDeUsuario(usuario);
+
+        usuario.idioma = new Idioma() { identificador = 1 };
 
         var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO USUARIO(nombreUsuario,contrasena,nombre,apellido,email,Idioma_idIdioma,habilitado,digitoVerificadorH) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},1,'{6}')", usuario.nombreUsuario, usuario.contrasena, usuario.nombre, usuario.apellido, usuario.email, usuario.idioma.identificador, digitoVH));
 
@@ -139,12 +142,12 @@ public class GestorDeUsuarios
         Usuario usuarioViejo = ObtenerUsuarioBD(usuario.identificador);
 
         String set = "";
-        if (usuario.nombre != null)
+        if (usuario.nombre != null && usuarioViejo.nombre != usuario.nombre)
         {
             usuarioViejo.nombre = usuario.nombre;
             set = String.Format(" nombre = '{0}' ", usuario.nombre);
         }
-        if (usuario.apellido != null)
+        if (usuario.apellido != null && usuarioViejo.apellido != usuario.apellido)
         {
             if (set.Length > 0)
             {
@@ -154,7 +157,7 @@ public class GestorDeUsuarios
             set = set + String.Format(" apellido = '{0}' ", usuario.apellido);
         }
 
-        if (usuario.email != null)
+        if (usuario.email != null && usuarioViejo.email != usuario.email)
         {
             if (set.Length > 0)
             {
@@ -203,15 +206,12 @@ public class GestorDeUsuarios
 
     private int VerificarEmail(String email)
     {
-        try
+        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE email = '{0}'", email)).Rows.Count > 0)
         {
-            MailAddress m = new MailAddress(email);
             return 1;
         }
-        catch (FormatException)
-        {
-            return 0;
-        }
+
+        return 0;
     }
 
     private String ObtenerDigitoVerificadorHDeUsuario(Usuario usuario)

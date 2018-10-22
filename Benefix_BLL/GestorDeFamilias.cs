@@ -59,8 +59,7 @@ public class GestorDeFamilias
             DataTable familiausuarioTable = baseDeDatos.ConsultarBase(String.Format("SELECT usuario.idUsuario, usuario.nombreUsuario FROM familiausuario INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE Familia_idFamilia = {0}", familia.identificador));
             foreach (DataRow familiausuarioTableRow in familiausuarioTable.Rows)
             {
-                //TODO debo desencriptar nombreUsuario
-                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idPatente"]), nombre = Convert.ToString(familiausuarioTableRow["nombreUsuario"]) };
+                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idPatente"]), nombre = m_GestorDeEncriptacion.DesencriptarAes(Convert.ToString(familiausuarioTableRow["nombreUsuario"])) };
                 familia.usuariosAsignados.Add(usuario);
             }
 
@@ -73,10 +72,10 @@ public class GestorDeFamilias
     {
         if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM FAMILIA WHERE nombre = '{0}'", familia.nombre)).Rows.Count > 0)
         {
-            //TODO Throw exception de entidad repetida
+            throw new EntidadDuplicadaExcepcion("nombre");
         }
 
-        return baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre) ) VALUES ('{0}')", familia.nombre));
+        return baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre) VALUES ('{0}')", familia.nombre));
     }
 
     public int DesasignarPatente(Patente patente, Familia familia)
