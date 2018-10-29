@@ -12,8 +12,12 @@ namespace Genesis
 {
     public partial class AsignarPatentesAFamilias : Form
     {
-        public AsignarPatentesAFamilias()
+        private Familia familia;
+        private GestorDePatentes gestorDePatentes;
+        public AsignarPatentesAFamilias(Familia familia)
         {
+            this.familia = familia;
+            gestorDePatentes = GestorDePatentes.ObtenerInstancia();
             InitializeComponent();
         }
     }

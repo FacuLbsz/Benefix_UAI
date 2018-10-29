@@ -15,7 +15,6 @@ namespace Genesis
     public partial class AdministracionDeUsuarios : Form
     {
         private GestorDeUsuarios gestorDeUsuarios;
-
         private int usuarioSeleccionado = 0;
 
         public AdministracionDeUsuarios()
@@ -29,12 +28,12 @@ namespace Genesis
         private void AdministracionDeUsuarios_Load(object sender, EventArgs e)
         {
             ListarUsuarios();
-            LimpiarFormulario();
         }
 
         private void AdministracionDeUsuarios_Shown(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+            LimpiarFormulario();
         }
 
 
@@ -43,7 +42,7 @@ namespace Genesis
         {
             var usuario = new Usuario() { identificador = usuarioSeleccionado };
 
-            var mainForm = new AsignarPatentesAUsuarios(usuario);
+            AsignarPatentesAUsuarios mainForm = new AsignarPatentesAUsuarios(usuario);
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.ShowDialog();
         }
@@ -203,11 +202,6 @@ namespace Genesis
         {
             LimpiarFormulario();
             dataGridView1.ClearSelection();
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("SELECCIONADO: dataGridView1_SelectionChanged");
         }
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)

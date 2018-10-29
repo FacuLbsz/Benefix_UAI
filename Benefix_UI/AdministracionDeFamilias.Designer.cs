@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.asignarPatentesButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.familias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familiasDataGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
@@ -38,7 +37,8 @@
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
             this.asignarUsuariosButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.familias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.familiasDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // asignarPatentesButton
@@ -51,26 +51,24 @@
             this.asignarPatentesButton.UseVisualStyleBackColor = true;
             this.asignarPatentesButton.Click += new System.EventHandler(this.asignarPatentesButton_Click);
             // 
-            // dataGridView1
+            // familiasDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.familiasDataGridView.AllowUserToAddRows = false;
+            this.familiasDataGridView.AllowUserToDeleteRows = false;
+            this.familiasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.familiasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.familiasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.familias});
-            this.dataGridView1.Location = new System.Drawing.Point(29, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 551);
-            this.dataGridView1.TabIndex = 62;
-            // 
-            // familias
-            // 
-            this.familias.HeaderText = "Familias";
-            this.familias.Name = "familias";
-            this.familias.ReadOnly = true;
+            this.familiasDataGridView.Location = new System.Drawing.Point(29, 40);
+            this.familiasDataGridView.MultiSelect = false;
+            this.familiasDataGridView.Name = "familiasDataGridView";
+            this.familiasDataGridView.ReadOnly = true;
+            this.familiasDataGridView.RowHeadersVisible = false;
+            this.familiasDataGridView.RowTemplate.Height = 28;
+            this.familiasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.familiasDataGridView.Size = new System.Drawing.Size(240, 551);
+            this.familiasDataGridView.TabIndex = 62;
+            this.familiasDataGridView.Click += new System.EventHandler(this.familiasDataGridView_CurrentCellChanged);
             // 
             // eliminarButton
             // 
@@ -80,6 +78,7 @@
             this.eliminarButton.TabIndex = 68;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
@@ -89,6 +88,7 @@
             this.modificarButton.TabIndex = 67;
             this.modificarButton.Text = "Modificar";
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // crearButton
             // 
@@ -98,6 +98,7 @@
             this.crearButton.TabIndex = 66;
             this.crearButton.Text = "Crear";
             this.crearButton.UseVisualStyleBackColor = true;
+            this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
             // limpiarButton
             // 
@@ -107,6 +108,7 @@
             this.limpiarButton.TabIndex = 65;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // nombreLabel
             // 
@@ -134,6 +136,13 @@
             this.asignarUsuariosButton.UseVisualStyleBackColor = true;
             this.asignarUsuariosButton.Click += new System.EventHandler(this.asignarUsuariosButton_Click);
             // 
+            // familias
+            // 
+            this.familias.DataPropertyName = "nombre";
+            this.familias.HeaderText = "Familias";
+            this.familias.Name = "familias";
+            this.familias.ReadOnly = true;
+            // 
             // AdministracionDeFamilias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -141,7 +150,7 @@
             this.ClientSize = new System.Drawing.Size(590, 631);
             this.Controls.Add(this.asignarUsuariosButton);
             this.Controls.Add(this.asignarPatentesButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.familiasDataGridView);
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.crearButton);
@@ -150,7 +159,9 @@
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeFamilias";
             this.Text = "Administracion de familias";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.AdministracionDeFamilias_Load);
+            this.Shown += new System.EventHandler(this.AdministracionDeFamilias_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.familiasDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,14 +170,14 @@
         #endregion
 
         private System.Windows.Forms.Button asignarPatentesButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView familiasDataGridView;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button crearButton;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.TextBox nombreText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn familias;
         private System.Windows.Forms.Button asignarUsuariosButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn familias;
     }
 }

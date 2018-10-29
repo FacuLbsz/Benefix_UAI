@@ -93,6 +93,12 @@
     <Compile Include="AsignarCoordinador.Designer.cs">
       <DependentUpon>AsignarCoordinador.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsignarDesasignarPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarDesasignarPatente.Designer.cs">
+      <DependentUpon>AsignarDesasignarPatente.cs</DependentUpon>
+    </Compile>
     <Compile Include="AsignarGrupos.cs">
       <SubType>Form</SubType>
     </Compile>

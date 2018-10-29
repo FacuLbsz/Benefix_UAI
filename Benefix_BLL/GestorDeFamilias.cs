@@ -10,6 +10,7 @@ public class GestorDeFamilias
     private static GestorDeFamilias instancia;
     private GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
     private GestorDeEncriptacion m_GestorDeEncriptacion;
+    private GestorDePatentes gestorDePatentes;
     private BaseDeDatos baseDeDatos;
 
 
@@ -17,6 +18,7 @@ public class GestorDeFamilias
     {
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
         m_GestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
+        gestorDePatentes = GestorDePatentes.ObtenerInstancia();
     }
 
     public static GestorDeFamilias ObtenerInstancia()
@@ -68,14 +70,46 @@ public class GestorDeFamilias
         return familias;
     }
 
-    public int CrearFamilia(Familia familia)
+    public int ModificarFamilia(Familia familia)
     {
-        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM FAMILIA WHERE nombre = '{0}'", familia.nombre)).Rows.Count > 0)
+
+        if(baseDeDatos.ConsultarBase(String.Format("SELECT FAMILIA.IDFAMILIA FROM FAMILIA WHERE NOMBRE = '{0}' AND IDFAMILIA != {1}", m_GestorDeEncriptacion.EncriptarAes(familia.nombre), familia.identificador)).Rows.Count == 0)
+        {
+            return baseDeDatos.ModificarBase(String.Format("UPDATE FAMILIA SET NOMBRE = '{0}' WHERE IDFAMILIA = {1}", m_GestorDeEncriptacion.EncriptarAes(familia.nombre), familia.identificador));
+        }
+        else
         {
             throw new EntidadDuplicadaExcepcion("nombre");
         }
 
-        return baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre) VALUES ('{0}')", familia.nombre));
+    }
+
+    public int EliminarFamilia(Familia familia)
+    {
+        foreach(Patente patente in familia.patentesAsignadas)
+        {
+            if (gestorDePatentes.VerificarPatenteEscencial(patente) == 0)
+            {
+                throw new EntidadDuplicadaExcepcion(patente.nombre);
+            }
+        }
+
+        foreach (Patente patente in familia.patentesAsignadas)
+        {
+            DesasignarPatente(patente, familia);
+        }
+
+        return baseDeDatos.ModificarBase(String.Format("UPDATE FAMILIA SET habilitado = 0 WHERE idFamilia = {0}", familia.identificador));
+    }
+
+    public int CrearFamilia(Familia familia)
+    {
+        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM FAMILIA WHERE nombre = '{0}'", m_GestorDeEncriptacion.EncriptarAes(familia.nombre))).Rows.Count > 0)
+        {
+            throw new EntidadDuplicadaExcepcion("nombre");
+        }
+
+        return baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre) VALUES ('{0}')", m_GestorDeEncriptacion.EncriptarAes(familia.nombre)));
     }
 
     public int DesasignarPatente(Patente patente, Familia familia)

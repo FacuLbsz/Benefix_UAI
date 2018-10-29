@@ -12,9 +12,11 @@ namespace Genesis
 {
     public partial class AsignarUsuarios : Form
     {
-        public AsignarUsuarios()
+        private Familia familia;
+        public AsignarUsuarios(Familia familia)
         {
             InitializeComponent();
+            this.familia = familia;
         }
     }
 }

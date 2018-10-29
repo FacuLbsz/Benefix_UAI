@@ -37,7 +37,7 @@ public class GestorDePatentes
 
         var digitoVH = gestorDeDigitoVerificador.ObtenerDigitoVH(new List<string>() { esPermisivo, patente, usuario });
 
-        var datataTable = baseDeDatos.ConsultarBase(String.Format("DELETE FROM PATENTEUSUARIO  WHERE Patente_idPatente = {0} AND Usuario_idUsuario  = {1}", patente, usuario));
+        var datataTable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM PATENTEUSUARIO  WHERE Patente_idPatente = {0} AND Usuario_idUsuario  = {1}", patente, usuario));
         var registros = 0;
         if (datataTable.Rows.Count > 0)
         {
@@ -82,7 +82,7 @@ public class GestorDePatentes
     //SDC modificar por ObtenerPatentesNoAsignadasAUnUsuario
     public List<Patente> ObtenerPatentesNoAsignadasAUnUsuario(Usuario usuario)
     {
-        var dataTable = baseDeDatos.ConsultarBase(String.Format("Select * from Patente where patente.idPatente not in(SELECT PATENTE.idPatente FROM PATENTE inner join patenteusuario on patente.idPatente = patenteusuario.idPatente where patenteusuario.Usuario_idUsuario = {0})", usuario.identificador));
+        var dataTable = baseDeDatos.ConsultarBase(String.Format("Select * from Patente where patente.idPatente not in(SELECT patenteusuario.Patente_idPatente FROM patenteusuario  where patenteusuario.Usuario_idUsuario = {0})", usuario.identificador));
         List<Patente> patentes = new List<Patente>();
 
         foreach (DataRow row in dataTable.Rows)

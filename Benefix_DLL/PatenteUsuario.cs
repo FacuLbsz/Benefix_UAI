@@ -19,4 +19,21 @@ public class PatenteUsuario
 
     }
 
+    public override bool Equals(object obj)
+    {
+        var item = obj as PatenteUsuario;
+
+        if (item == null)
+        {
+            return false;
+        }
+
+        return item.patente.identificador == patente.identificador;
+    }
+
+    public override int GetHashCode()
+    {
+        return patente.identificador;
+    }
+
 }
