@@ -10,13 +10,11 @@ public class GestorDeDigitoVerificador
     private static GestorDeDigitoVerificador instancia;
 
     //SDC Relacion con gestor de encriptacion
-    private GestorDeEncriptacion gestorDeEncriptacion;
 
     private BaseDeDatos baseDeDatos;
 
     private GestorDeDigitoVerificador()
     {
-        gestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
     }
 
@@ -41,7 +39,7 @@ public class GestorDeDigitoVerificador
             digitoVV = digitoVV + Convert.ToString(row["digitoVerificadorH"]);
         }
 
-        String digitoVVMD5 = gestorDeEncriptacion.EncriptarMD5(digitoVV);
+        String digitoVVMD5 = GestorDeEncriptacion.EncriptarMD5(digitoVV);
 
         DataTable digitoVVPrevio = baseDeDatos.ConsultarBase(String.Format("Select * From digitoverificadorvertical where tabla = '{0}'", tabla));
 
@@ -57,7 +55,7 @@ public class GestorDeDigitoVerificador
     }
 
     //SDC Cambiar digito verificador de int a STRING
-    public String ObtenerDigitoVH(List<String> argumentos)
+    public static String ObtenerDigitoVH(List<String> argumentos)
     {
         String digitoVH = "";
 
@@ -66,7 +64,7 @@ public class GestorDeDigitoVerificador
             digitoVH = digitoVH + arugmento;
         }
 
-        return gestorDeEncriptacion.EncriptarMD5(digitoVH);
+        return GestorDeEncriptacion.EncriptarMD5(digitoVH);
     }
 
 }

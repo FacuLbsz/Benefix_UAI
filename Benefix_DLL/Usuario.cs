@@ -26,4 +26,21 @@ public class Usuario
     {
 
     }
+
+    public override bool Equals(object obj)
+    {
+        var item = obj as Usuario;
+
+        if (item == null)
+        {
+            return false;
+        }
+
+        return item.identificador == identificador;
+    }
+
+    public override int GetHashCode()
+    {
+        return identificador;
+    }
 }

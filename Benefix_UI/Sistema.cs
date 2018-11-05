@@ -12,23 +12,26 @@ namespace Genesis
 {
     public partial class Sistema : Form
     {
-        public Sistema()
+        private GestorSistema gestorSistema;
+        private GestorIdioma gestorIdioma;
+        public Sistema(Usuario usuario)
         {
+            gestorSistema = GestorSistema.ObtenerInstancia();
+            gestorIdioma = GestorIdioma.ObtenerInstancia();
             InitializeComponent();
-            GestorSistema gestorSistema = GestorSistema.ObtenerInstancia();
         }
 
         private void administraciónDeObjetivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mainForm = new AdministracionDeObjetivos();
             mainForm.MdiParent = this;
-            mainForm.StartPosition = FormStartPosition.CenterScreen;         
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
 
         private void miEstadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             var mainForm = new MiEstado();
             mainForm.MdiParent = this;
             mainForm.TopMost = true;
@@ -133,20 +136,61 @@ namespace Genesis
             mainForm.Show();
         }
 
-        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var mainForm = new ModificarIdioma();
+            var mainForm = new LogOut((cb) =>
+            {
+                if (cb)
+                {
+                    Console.WriteLine("Confirmacion de logout");
+                    this.Close();
+                }
+            });
             mainForm.MdiParent = this;
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Sistema_Load(object sender, EventArgs e)
         {
-            var mainForm = new LogOut();
+            var idiomas = gestorIdioma.ConsultarIdiomas();
+
+            foreach (Idioma idioma in idiomas)
+            {
+                var toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
+                toolStripMenuItem.Name = idioma.identificador.ToString();
+                toolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+                toolStripMenuItem.Text = idioma.nombre;
+                toolStripMenuItem.Click += new System.EventHandler(this.IdiomaToolStripMenuItem_Click);
+                toolStripMenuItem.Checked = idioma.identificador == gestorSistema.ObtenerUsuarioEnSesion().idioma.identificador;
+                idiomaToolStripMenuItem.DropDownItems.Add(toolStripMenuItem);
+            }
+
+
+        }
+
+
+        private void IdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var itemText = (sender as ToolStripMenuItem).Text;
+            var itemName = (sender as ToolStripMenuItem).Name;
+
+            var mainForm = new ModificarIdioma(new Idioma() { identificador = Convert.ToInt32(itemName) }, (cb) =>
+             {
+                 foreach (ToolStripMenuItem item in idiomaToolStripMenuItem.DropDownItems)
+                 {
+                     item.Checked = item.Name.Equals(cb.identificador.ToString());
+                 }
+
+             });
             mainForm.MdiParent = this;
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
+
     }
 }

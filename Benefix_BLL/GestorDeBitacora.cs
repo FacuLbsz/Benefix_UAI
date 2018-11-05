@@ -9,7 +9,6 @@ public class GestorDeBitacora
 
     private static GestorDeBitacora instancia;
     private GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
-    private GestorDeEncriptacion m_GestorDeEncriptacion;
     private BaseDeDatos baseDeDatos;
     //SDC Agregar llamado para obtener usuario desencriptado en diagrama de secuencia
     private GestorDeUsuarios gestorDeUsuarios;
@@ -19,7 +18,6 @@ public class GestorDeBitacora
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
         gestorDeUsuarios = GestorDeUsuarios.ObtenerInstancia();
         m_GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
-        m_GestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
     }
 
     public static GestorDeBitacora ObtenerInstancia()
@@ -44,7 +42,7 @@ public class GestorDeBitacora
             eventoBitacora.criticidad = Convert.ToInt32(row["criticidad"]);
             eventoBitacora.usuario = gestorDeUsuarios.ObtenerUsuario(Convert.ToInt32(row["Usuario_idUsuario"]));
             eventoBitacora.fecha = Convert.ToDateTime(row["fecha"]);
-            eventoBitacora.descripcion = m_GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["descripcion"]));
+            eventoBitacora.descripcion = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["descripcion"]));
             eventoBitacora.funcionalidad = Convert.ToString(row["funcionalidad"]);
 
             eventosBitacora.Add(eventoBitacora);
@@ -89,9 +87,9 @@ public class GestorDeBitacora
     public async void RegistrarEvento(EventoBitacora evento)
     {
         String insertarEvento = "INSERT INTO Bitacora ( criticidad , descripcion , fecha , funcionalidad , Usuario_idUsuario , digitoVerificadorH) VALUES ({0},'{1}','{2}','{3}',{4},'{5}')";
-        evento.descripcion = m_GestorDeEncriptacion.EncriptarAes(evento.descripcion);
+        evento.descripcion = GestorDeEncriptacion.EncriptarAes(evento.descripcion);
 
-        String digitoVerficadorH = m_GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { evento.criticidad.ToString(), evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador.ToString() });
+        String digitoVerficadorH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { evento.criticidad.ToString(), evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador.ToString() });
         baseDeDatos.ModificarBase(String.Format(insertarEvento, evento.criticidad, evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador, digitoVerficadorH));
 
         m_GestorDeDigitoVerificador.ModificarDigitoVV("BITACORA");

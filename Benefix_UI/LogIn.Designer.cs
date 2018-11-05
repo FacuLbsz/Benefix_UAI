@@ -39,6 +39,7 @@
             // nombreUsuarioText
             // 
             this.nombreUsuarioText.Location = new System.Drawing.Point(222, 80);
+            this.nombreUsuarioText.MaxLength = 25;
             this.nombreUsuarioText.Name = "nombreUsuarioText";
             this.nombreUsuarioText.Size = new System.Drawing.Size(286, 26);
             this.nombreUsuarioText.TabIndex = 0;
@@ -65,6 +66,7 @@
             // contraseñaText
             // 
             this.contraseñaText.Location = new System.Drawing.Point(222, 144);
+            this.contraseñaText.MaxLength = 8;
             this.contraseñaText.Name = "contraseñaText";
             this.contraseñaText.Size = new System.Drawing.Size(286, 26);
             this.contraseñaText.TabIndex = 3;
@@ -103,6 +105,7 @@
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Benefix - Log In";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

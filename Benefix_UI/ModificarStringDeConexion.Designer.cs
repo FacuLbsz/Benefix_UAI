@@ -57,6 +57,7 @@
             this.guardarButton.TabIndex = 52;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // ModificarStringDeConexion
             // 

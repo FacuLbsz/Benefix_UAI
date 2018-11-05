@@ -8,29 +8,19 @@ using System.Security.Cryptography;
 public class GestorDeEncriptacion
 {
 
-    String salt = "EC91C6E167CEBA61";
-    String AESKEY = "eckIEptpScebO7eOMmHlEcH7D8yOTz7GPFT7mrqSnY4=";
-    String AESIV = "AK8p702PFr4eWbb6B1g82Q==";
+    static String AESKEY = "eckIEptpScebO7eOMmHlEcH7D8yOTz7GPFT7mrqSnY4=";
+    static String AESIV = "AK8p702PFr4eWbb6B1g82Q==";
+    static String RSAPublicKey = "<RSAKeyValue><Modulus>tsBjrD7cndJc2qhIi0g889KsAy3w/YH+35+k7QsHA23nS8sMwfLzYPjVqYXe+xzJyGr5iaBT58XSoDDTVMViaC/x7XqXlAQyLuHcwrRX2XbLatKXLXfk7glaBGsR/YTUgqDEFlFn6qtMdb8ho3xbw2VC93si6hlpwoYdYqqTu5U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
+    static String RSAPrivateKey = "<RSAKeyValue><Modulus>tsBjrD7cndJc2qhIi0g889KsAy3w/YH+35+k7QsHA23nS8sMwfLzYPjVqYXe+xzJyGr5iaBT58XSoDDTVMViaC/x7XqXlAQyLuHcwrRX2XbLatKXLXfk7glaBGsR/YTUgqDEFlFn6qtMdb8ho3xbw2VC93si6hlpwoYdYqqTu5U=</Modulus><Exponent>AQAB</Exponent><P>4emSFoB8RxRvLJMkIVqO7s1wjQ6sLvNDFzgFdMJ029lvtft1VJGXj9vxVUP/YjZhI+NO4rFAugaK5i1GZjPEqw==</P><Q>zxdCXJcapGaM+68oFlkTb5vU0KEswpnWNoPsDXfdzfsobGc5oUMONZf6+IqdMaZ2VOUez5gLzn/oycz4NdwAvw==</Q><DP>J/VwaZqAYPI0V+YO1fd2oLal2c1ml0df7pNyI5zhnqFvKPk5X6QA8uksXrCQU4ba18Y1BdPkZwMRPnVzplAx0Q==</DP><DQ>TAvcgKe0Tt6hsuKVM++t5XQx6BLnnuZi9U3oZuG3f6ZVJ8mYLhGzrBaNQKuWId9g4LfqYo0Q+NmboE82boDFfQ==</DQ><InverseQ>BBDtMUyFZO/s6y9VNtWZcRUBuH83YQ4q2NUbBlCZwlar4U4G/KOE2oAnwkT4nQ5HnvvyGaFyuS8G1T1/bJ6b7w==</InverseQ><D>MgSMAyudVDCsK0hduolF7XHelGwxhiDbMjdOe3ZGMCEXaf4j+r1U8ViJmgFC2zWw4IKu04UnEctp72ANpyjy2pypvjD4TbxC/8YeyYkppM6uphPN8KtoRJgpFoHV7TRNUM/QNuqwbu39iviSQdTGUCoEC8wGC4MJQ52GNqsmYO0=</D></RSAKeyValue>";
 
-    private static GestorDeEncriptacion instancia;
 
     private GestorDeEncriptacion()
     {
 
     }
 
-    public static GestorDeEncriptacion ObtenerInstancia()
-    {
-        if (instancia == null)
-        {
-            instancia = new GestorDeEncriptacion();
-        }
-
-        return instancia;
-    }
-
     //SDC Modificar List por String como argumentos y retorno
-    public String DesencriptarAes(String informacionEncriptada)
+    public static String DesencriptarAes(String informacionEncriptada)
     {
         string informacionDesencriptada = null;
 
@@ -59,7 +49,7 @@ public class GestorDeEncriptacion
 
 
     //SDC Modificar List por String como argumentos y retorno
-    public String EncriptarAes(String informacionAEncriptar)
+    public static String EncriptarAes(String informacionAEncriptar)
     {
         byte[] informacionEncriptada;
 
@@ -88,7 +78,7 @@ public class GestorDeEncriptacion
     }
 
     //SDC Cambiar List por String
-    public String EncriptarMD5(String informacion)
+    public static String EncriptarMD5(String informacion)
     {
         using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
         {
@@ -102,6 +92,29 @@ public class GestorDeEncriptacion
             }
             return sb.ToString();
         }
+    }
+
+    public static String DesencriptarRSA(String informacionEncriptada)
+    {
+        String encriptada = "";
+        {
+            RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
+            rsaProvider.FromXmlString(RSAPublicKey);
+            byte[] encryptedData = rsaProvider.Encrypt(Encoding.ASCII.GetBytes(informacionEncriptada), false);
+
+            encriptada = Convert.ToBase64String(encryptedData);
+
+            Console.WriteLine("Informacion Encriptada : " + Convert.ToBase64String(encryptedData));
+        }
+
+        {
+            RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
+            rsaProvider.FromXmlString(RSAPrivateKey);
+            byte[] decryptedData = rsaProvider.Decrypt(Convert.FromBase64String(encriptada), false);
+            Console.WriteLine("Informacion Desencriptada : " + Encoding.ASCII.GetString(decryptedData));
+        }
+
+        return informacionEncriptada;
     }
 
 }

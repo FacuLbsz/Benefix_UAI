@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Data;
+using Ionic.Zip;
+using Benefix_BLL;
 
 public class GestorSistema
 {
@@ -12,19 +14,25 @@ public class GestorSistema
     public GestorDePatentes m_GestorDePatentes;
     public GestorIdioma m_GestorIdioma;
 
-    //SDC Añadir relacion
-    private GestorDeEncriptacion gestorDeEncriptacion;
+    //SDC Añadir relacion GestorDeEncriptacion 
 
-    //SDC Relacion con gestor de digito verificador
-    private GestorDeDigitoVerificador gestorDeDigitoVerificador;
+    //SDC Relacion con gestor de digito verificador GestorDeDigitoVerificador
 
     private BaseDeDatos baseDeDatos;
+    private Usuario usuarioEnSesion;
+
+    public Usuario ObtenerUsuarioEnSesion()
+    {
+        return this.usuarioEnSesion;
+    }
 
     private GestorSistema()
     {
-        gestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
-        gestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
-        baseDeDatos = BaseDeDatos.ObtenerInstancia();
+        if (Benefix.Default.StringDeConexion.Length == 0)
+        {
+            throw new Exception("El string de conexion no se encuentra configurado.");
+        }
+        baseDeDatos = BaseDeDatos.ObtenerInstancia(GestorDeEncriptacion.DesencriptarRSA(Benefix.Default.StringDeConexion));
     }
 
     public static GestorSistema ObtenerInstancia()
@@ -74,7 +82,7 @@ public class GestorSistema
                 argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
             }
 
-            var digitoVH = gestorDeDigitoVerificador.ObtenerDigitoVH(argumentos);
+            var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(argumentos);
 
             if (!digitoVH.Equals(Convert.ToString(eventoBitacora["digitoVerificadorH"])))
             {
@@ -90,7 +98,7 @@ public class GestorSistema
 
             if (dataTable.Rows.Count > 0)
             {
-                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(gestorDeEncriptacion.EncriptarMD5(digitosVHBitacora)))
+                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(GestorDeEncriptacion.EncriptarMD5(digitosVHBitacora)))
                 {
                     return 0;
                 }
@@ -103,52 +111,113 @@ public class GestorSistema
         return 1;
     }
 
-    public int ModificarStringDeConexion(String stringDeConexion)
+    public int RealizarLogIn(Usuario usuario)
     {
-
-        return 0;
+        this.usuarioEnSesion = usuario;
+        Usuario usuarioLogin = GestorDeUsuarios.ObtenerInstancia().RealizarLogIn(usuario);
+        if (usuarioLogin == null)
+        {
+            return 0;
+        }
+        //this.usuarioEnSesion = usuarioLogin;
+        return 1;
     }
 
-    private Object ObtenerBaseDeDatos()
+    public static int ModificarStringDeConexion(String stringDeConexion)
     {
 
-        return null;
-    }
-
-    private int Particionar(int cantidadVolumenes)
-    {
-
-        return 0;
+        Benefix.Default.StringDeConexion = stringDeConexion;
+        Benefix.Default.Save();
+        try
+        {
+            instancia = new GestorSistema();
+            BaseDeDatos.ObtenerInstancia().ConsultarBase("SELECT 1");
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }
+        return 1;
     }
 
     public int RealizarBackup(String rutaDestino, int cantidadVolumenes)
     {
+        try
+        {
+            using (ZipFile zip = new ZipFile())
+            {
+                var backupPath = baseDeDatos.ObtenerBackup();
+                var ruta = backupPath;
+                var multiplesVolumenes = cantidadVolumenes > 1;
+                var rutaDestinoTemp = rutaDestino + "\\Benefix-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".zip";
 
-        return 0;
+                zip.AddFile(ruta, "");
+                zip.TempFileFolder = Path.GetTempPath();
+                zip.Save(rutaDestinoTemp);
+
+                if (cantidadVolumenes > 1)
+                {
+                    FileInfo fileInfo = new FileInfo(rutaDestinoTemp);
+                    var tamañoDeVolumen = fileInfo.Length / cantidadVolumenes;
+
+                    using (ZipFile zip2 = new ZipFile())
+                    {
+                        zip2.MaxOutputSegmentSize = (int)tamañoDeVolumen;
+                        zip2.AddFile(rutaDestinoTemp, "");
+                        zip2.TempFileFolder = Path.GetTempPath();
+                        zip2.Save(rutaDestinoTemp);
+                    }
+
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }
+        return 1;
     }
 
     public int RealizarRestore(String rutaOrigen)
     {
+        try
+        {
+            DataTable rutaBackupDataTable = baseDeDatos.ConsultarBase("EXEC xp_instance_regread  N'HKEY_LOCAL_MACHINE', N'Software\\Microsoft\\MSSQLServer\\MSSQLServer',N'BackupDirectory'");
+            var rutaBackup = "";
+            foreach (DataRow row in rutaBackupDataTable.Rows)
+            {
+                rutaBackup = row["Data"].ToString();
+            }
 
-        return 0;
+            using (ZipFile zipFile = new ZipFile(rutaOrigen))
+            {
+                rutaBackup = rutaBackup + "\\Backup-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+                zipFile.ExtractAll(rutaBackup);
+
+                string[] zipFiles = Directory.GetFiles(rutaBackup, "*.zip*", SearchOption.AllDirectories);
+
+                if (zipFiles.Length > 0)
+                {
+                    var zipFile2 = new ZipFile(zipFiles[0]);
+                    zipFile2.ExtractAll(rutaBackup);
+                }
+
+                string[] backFiles = Directory.GetFiles(rutaBackup, "*.bak*", SearchOption.AllDirectories);
+
+                if (backFiles.Length == 1)
+                {
+                    baseDeDatos.RealizarRestore(backFiles[0]);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }
+        return 1;
     }
-
-    private int RestaurarBackup(String rutaOrigen)
-    {
-
-        return 0;
-    }
-
-    private int ValidarRutaDestino(String rutaDestino)
-    {
-
-        return 0;
-    }
-
-    private int ValidarRutaOrigen()
-    {
-
-        return 0;
-    }
-
 }

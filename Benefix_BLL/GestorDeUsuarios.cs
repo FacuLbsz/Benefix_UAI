@@ -9,16 +9,13 @@ public class GestorDeUsuarios
 {
 
     private static GestorDeUsuarios instancia;
-    private GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
+    private GestorDeDigitoVerificador GestorDeDigitoVerificador;
     private GestorDeBitacora m_GestorDeBitacora;
-    private GestorDeEncriptacion m_GestorDeEncriptacion;
-    private BaseDeDatos baseDeDatos;
+    private GestorDeEncriptacion GestorDeEncriptacion;
 
     private GestorDeUsuarios()
     {
-        baseDeDatos = BaseDeDatos.ObtenerInstancia();
-        m_GestorDeEncriptacion = GestorDeEncriptacion.ObtenerInstancia();
-        m_GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
+        GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
     }
 
     public static GestorDeUsuarios ObtenerInstancia()
@@ -44,7 +41,7 @@ public class GestorDeUsuarios
 
     private List<Usuario> ConsultarUsuarios(String consulta)
     {
-        DataTable dataTable = baseDeDatos.ConsultarBase(consulta);
+        DataTable dataTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(consulta);
 
         List<Usuario> usuarios = new List<Usuario>();
         foreach (DataRow row in dataTable.Rows)
@@ -52,7 +49,7 @@ public class GestorDeUsuarios
             Usuario usuario = new Usuario();
 
             usuario = PopularUsuarioDesdeBD(row);
-            usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
+            usuario.nombreUsuario = GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
 
             usuarios.Add(usuario);
         }
@@ -62,7 +59,7 @@ public class GestorDeUsuarios
     public Usuario ObtenerUsuario(int idUsuario)
     {
         Usuario usuario = ObtenerUsuarioBD(idUsuario);
-        usuario.nombreUsuario = m_GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
+        usuario.nombreUsuario = GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
         return usuario;
     }
 
@@ -82,7 +79,7 @@ public class GestorDeUsuarios
 
     private Usuario ObtenerUsuarioBD(int idUsuario)
     {
-        DataTable dataTable = baseDeDatos.ConsultarBase("SELECT * FROM USUARIO WHERE idUsuario = " + idUsuario);
+        DataTable dataTable = BaseDeDatos.ObtenerInstancia().ConsultarBase("SELECT * FROM USUARIO WHERE idUsuario = " + idUsuario);
         Usuario usuario = new Usuario();
         foreach (DataRow row in dataTable.Rows)
         {
@@ -98,29 +95,29 @@ public class GestorDeUsuarios
             throw new EntidadDuplicadaExcepcion("email");
         }
 
-        usuario.nombreUsuario = m_GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
+        usuario.nombreUsuario = GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
 
-        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario)).Rows.Count > 0)
+        if (BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario)).Rows.Count > 0)
         {
             throw new EntidadDuplicadaExcepcion("nombreUsuario");
         }
 
-        usuario.contrasena = m_GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
+        usuario.contrasena = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
 
         var digitoVH = ObtenerDigitoVerificadorHDeUsuario(usuario);
 
         usuario.idioma = new Idioma() { identificador = 1 };
 
-        var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO USUARIO(nombreUsuario,contrasena,nombre,apellido,email,Idioma_idIdioma,habilitado,digitoVerificadorH) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},1,'{6}')", usuario.nombreUsuario, usuario.contrasena, usuario.nombre, usuario.apellido, usuario.email, usuario.idioma.identificador, digitoVH));
+        var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("INSERT INTO USUARIO(nombreUsuario,contrasena,nombre,apellido,email,Idioma_idIdioma,habilitado,digitoVerificadorH) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},1,'{6}')", usuario.nombreUsuario, usuario.contrasena, usuario.nombre, usuario.apellido, usuario.email, usuario.idioma.identificador, digitoVH));
 
-        m_GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         return registros;
     }
 
     public int EliminarUsuario(Usuario usuario)
     {
-        return baseDeDatos.ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
+        return BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
     }
 
     public int ModificarIdioma(Usuario usuario, Idioma idioma)
@@ -131,8 +128,8 @@ public class GestorDeUsuarios
 
         var digitoVH = ObtenerDigitoVerificadorHDeUsuario(usuario);
 
-        var registros = baseDeDatos.ModificarBase(String.Format("UPDATE USUARIO SET Idioma_idIdioma = {0}, digitoVerificadorH = {1} WHERE idUsuario = {2}", usuario.idioma.identificador, digitoVH, usuario.identificador));
-        m_GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET Idioma_idIdioma = {0}, digitoVerificadorH = '{1}' WHERE idUsuario = {2}", usuario.idioma.identificador, digitoVH, usuario.identificador));
+        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         return registros;
     }
@@ -173,7 +170,7 @@ public class GestorDeUsuarios
             {
                 set = set + " , ";
             }
-            var contrasenaEncriptada = m_GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
+            var contrasenaEncriptada = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
             usuarioViejo.contrasena = contrasenaEncriptada;
             set = set + String.Format(" contrasena = '{0}' ", contrasenaEncriptada);
         }
@@ -186,16 +183,16 @@ public class GestorDeUsuarios
         }
         set = set + String.Format(" digitoVerificadorH = '{0}' ", digitoVH);
 
-        var registros = baseDeDatos.ModificarBase(String.Format("UPDATE USUARIO SET {0} WHERE idUsuario = {1}", set, usuario.identificador));
-        m_GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET {0} WHERE idUsuario = {1}", set, usuario.identificador));
+        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         return registros;
     }
 
-    public int RealizarLogIn(Usuario usuario)
+    public Usuario RealizarLogIn(Usuario usuario)
     {
 
-        return 0;
+        return null;
     }
 
     public int RealizarLogOut(Usuario usuario)
@@ -206,7 +203,7 @@ public class GestorDeUsuarios
 
     private int VerificarEmail(String email)
     {
-        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE email = '{0}'", email)).Rows.Count > 0)
+        if (BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE email = '{0}'", email)).Rows.Count > 0)
         {
             return 1;
         }
@@ -216,7 +213,7 @@ public class GestorDeUsuarios
 
     private String ObtenerDigitoVerificadorHDeUsuario(Usuario usuario)
     {
-        return m_GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { usuario.nombreUsuario, usuario.nombre, usuario.apellido, usuario.contrasena });
+        return GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { usuario.nombreUsuario, usuario.nombre, usuario.apellido, usuario.contrasena });
     }
 
 }

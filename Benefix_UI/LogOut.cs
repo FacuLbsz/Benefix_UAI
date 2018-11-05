@@ -12,13 +12,16 @@ namespace Genesis
 {
     public partial class LogOut : Form
     {
-        public LogOut()
+        private Action<bool> callback;
+        public LogOut(Action<bool> callback)
         {
             InitializeComponent();
+            this.callback = callback;
         }
 
         private void confirmarButton_Click(object sender, EventArgs e)
         {
+            callback(true);
             this.MdiParent.Close();
         }
     }

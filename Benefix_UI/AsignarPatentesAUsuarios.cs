@@ -30,14 +30,19 @@ namespace Genesis
             patentesDelUsuario = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
             patentesNoAsignadas = gestorDePatentes.ObtenerPatentesNoAsignadasAUnUsuario(usuario);
 
-            patentesDataGridView.DataSource = patentesNoAsignadas;
+            var binding = new BindingSource();
+            binding.DataSource = patentesNoAsignadas;
+            patentesDataGridView.DataSource = binding;
             foreach (DataGridViewColumn col in patentesDataGridView.Columns)
             {
                 if (col.DataPropertyName != "nombre")
                     col.Visible = false;
             }
 
-            patentesAsignadosDataGridView.DataSource = patentesDelUsuario;
+
+            var binding2 = new BindingSource();
+            binding2.DataSource = patentesDelUsuario;
+            patentesAsignadosDataGridView.DataSource = binding2;
             foreach (DataGridViewColumn col in patentesAsignadosDataGridView.Columns)
             {
                 if (col.DataPropertyName != "patente.nombre" && col.DataPropertyName != "esPermisivo")
@@ -68,9 +73,53 @@ namespace Genesis
         private void asignarButton_Click(object sender, EventArgs e)
         {
 
-            if (patentesDataGridView.SelectedRows.Count > 0 && patentesDataGridView.Rows[patentesDataGridView.SelectedRows[0].Index].DataBoundItem != null)
+            if (patentesDataGridView.CurrentCell != null && patentesDataGridView.SelectedRows.Count > 0 && patentesDataGridView.Rows[patentesDataGridView.SelectedRows[0].Index].DataBoundItem != null)
             {
-                AsignarDesasignarPatente asignarDesasignarPatente = new AsignarDesasignarPatente(new PermisivaRestrictiva((Patente)patentesDataGridView.Rows[patentesDataGridView.CurrentCell.RowIndex].DataBoundItem));
+                Patente patente = (Patente)patentesDataGridView.Rows[patentesDataGridView.CurrentCell.RowIndex].DataBoundItem;
+                AsignarDesasignarPatente asignarDesasignarPatente = new AsignarDesasignarPatente((cb) =>
+                {
+
+                    if (cb)
+                    {
+                        patentesDelUsuario.Add(new PatenteUsuario() { patente = patente, usuario = usuario, esPermisivo = true });
+                        patentesAsignadosDataGridView.AutoGenerateColumns = false;
+
+                        var binding2 = new BindingSource();
+                        binding2.DataSource = patentesDelUsuario;
+                        patentesAsignadosDataGridView.DataSource = binding2;
+
+                        patentesNoAsignadas.Remove(patente);
+                        patentesDataGridView.AutoGenerateColumns = false;
+
+                        var binding = new BindingSource();
+                        binding.DataSource = patentesNoAsignadas;
+                        patentesDataGridView.DataSource = binding;
+
+                        patentesDataGridView.ClearSelection();
+                        patentesAsignadosDataGridView.ClearSelection();
+                    }
+                    else
+                    {
+                        patentesDelUsuario.Add(new PatenteUsuario() { patente = patente, usuario = usuario, esPermisivo = false });
+                        patentesAsignadosDataGridView.AutoGenerateColumns = false;
+
+                        var binding2 = new BindingSource();
+                        binding2.DataSource = patentesDelUsuario;
+                        patentesAsignadosDataGridView.DataSource = binding2;
+
+                        patentesNoAsignadas.Remove(patente);
+                        patentesDataGridView.AutoGenerateColumns = false;
+
+                        var binding = new BindingSource();
+                        binding.DataSource = patentesNoAsignadas;
+                        patentesDataGridView.DataSource = binding;
+
+                        patentesDataGridView.ClearSelection();
+                        patentesAsignadosDataGridView.ClearSelection();
+                    }
+
+
+                });
                 asignarDesasignarPatente.StartPosition = FormStartPosition.CenterScreen;
                 asignarDesasignarPatente.ShowDialog(this);
             }
@@ -83,57 +132,28 @@ namespace Genesis
 
         }
 
-        private class PermisivaRestrictiva : AsignarDesasignarPatente.PermisivaRestrictiva
-        {
-            private Patente patente;
-
-            public PermisivaRestrictiva(Patente patente)
-            {
-                this.patente = patente;
-            }
-
-            public void permisiva()
-            {
-                patentesDelUsuario.Add(new PatenteUsuario() { patente = patente, usuario = usuario, esPermisivo = true });
-                patentesAsignadosDataGridView.AutoGenerateColumns = false;
-                patentesAsignadosDataGridView.DataSource = null;
-                patentesAsignadosDataGridView.DataSource = patentesDelUsuario;
-
-                patentesNoAsignadas.Remove(patente);
-                patentesDataGridView.AutoGenerateColumns = false;
-                patentesDataGridView.DataSource = null;
-                patentesDataGridView.DataSource = patentesNoAsignadas;
-            }
-
-            public void restrictiva()
-            {
-                patentesDelUsuario.Add(new PatenteUsuario() { patente = patente, usuario = usuario, esPermisivo = false });
-                patentesAsignadosDataGridView.AutoGenerateColumns = false;
-                patentesAsignadosDataGridView.DataSource = null;
-                patentesAsignadosDataGridView.DataSource = patentesDelUsuario;
-
-                patentesNoAsignadas.Remove(patente);
-                patentesDataGridView.AutoGenerateColumns = false;
-                patentesDataGridView.DataSource = null;
-                patentesDataGridView.DataSource = patentesNoAsignadas;
-            }
-        }
-
         private void desasignarButton_Click(object sender, EventArgs e)
         {
-            if (patentesAsignadosDataGridView.SelectedRows.Count > 0 && patentesAsignadosDataGridView.Rows[patentesAsignadosDataGridView.SelectedRows[0].Index].DataBoundItem != null)
+            if (patentesAsignadosDataGridView.CurrentCell != null && patentesAsignadosDataGridView.SelectedRows.Count > 0 && patentesAsignadosDataGridView.Rows[patentesAsignadosDataGridView.SelectedRows[0].Index].DataBoundItem != null)
             {
                 var patenteUsuario = (PatenteUsuario)patentesAsignadosDataGridView.Rows[patentesAsignadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
 
                 patentesNoAsignadas.Add(patenteUsuario.patente);
                 patentesDataGridView.AutoGenerateColumns = false;
-                patentesDataGridView.DataSource = null;
-                patentesDataGridView.DataSource = patentesNoAsignadas;
+
+                var binding = new BindingSource();
+                binding.DataSource = patentesNoAsignadas;
+                patentesDataGridView.DataSource = binding;
 
                 patentesDelUsuario.Remove(patenteUsuario);
                 patentesAsignadosDataGridView.AutoGenerateColumns = false;
-                patentesAsignadosDataGridView.DataSource = null;
-                patentesAsignadosDataGridView.DataSource = patentesDelUsuario;
+
+                var binding2 = new BindingSource();
+                binding2.DataSource = patentesDelUsuario;
+                patentesAsignadosDataGridView.DataSource = binding2;
+
+                patentesDataGridView.ClearSelection();
+                patentesAsignadosDataGridView.ClearSelection();
             }
             else
             {

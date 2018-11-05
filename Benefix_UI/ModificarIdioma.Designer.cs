@@ -35,39 +35,45 @@
             // 
             // textLabel
             // 
-            this.textLabel.Location = new System.Drawing.Point(48, 71);
+            this.textLabel.Location = new System.Drawing.Point(32, 46);
+            this.textLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.textLabel.Name = "textLabel";
-            this.textLabel.Size = new System.Drawing.Size(373, 111);
+            this.textLabel.Size = new System.Drawing.Size(249, 72);
             this.textLabel.TabIndex = 0;
             this.textLabel.Text = "¿Desea modificar el idioma? \n Es necesario reinciar la aplicacion para visualizar" +
     " el cambio.";
             // 
             // confirmarButton
             // 
-            this.confirmarButton.Location = new System.Drawing.Point(40, 224);
+            this.confirmarButton.Location = new System.Drawing.Point(27, 146);
+            this.confirmarButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.confirmarButton.Name = "confirmarButton";
-            this.confirmarButton.Size = new System.Drawing.Size(179, 38);
+            this.confirmarButton.Size = new System.Drawing.Size(119, 25);
             this.confirmarButton.TabIndex = 59;
             this.confirmarButton.Text = "Confirmar";
             this.confirmarButton.UseVisualStyleBackColor = true;
+            this.confirmarButton.Click += new System.EventHandler(this.confirmarButton_Click);
             // 
             // cancelarButton
             // 
-            this.cancelarButton.Location = new System.Drawing.Point(242, 224);
+            this.cancelarButton.Location = new System.Drawing.Point(161, 146);
+            this.cancelarButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.Size = new System.Drawing.Size(179, 38);
+            this.cancelarButton.Size = new System.Drawing.Size(119, 25);
             this.cancelarButton.TabIndex = 60;
             this.cancelarButton.Text = "Cancelar";
             this.cancelarButton.UseVisualStyleBackColor = true;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // ModificarIdioma
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 292);
+            this.ClientSize = new System.Drawing.Size(310, 190);
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.confirmarButton);
             this.Controls.Add(this.textLabel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModificarIdioma";
             this.Text = "Modificar idioma";
             this.ResumeLayout(false);

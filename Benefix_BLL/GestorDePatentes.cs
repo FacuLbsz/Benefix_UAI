@@ -35,7 +35,7 @@ public class GestorDePatentes
 
         var esPermisivo = patenteUsuario.esPermisivo ? "1" : "0";
 
-        var digitoVH = gestorDeDigitoVerificador.ObtenerDigitoVH(new List<string>() { esPermisivo, patente, usuario });
+        var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<string>() { esPermisivo, patente, usuario });
 
         var datataTable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM PATENTEUSUARIO  WHERE Patente_idPatente = {0} AND Usuario_idUsuario  = {1}", patente, usuario));
         var registros = 0;
@@ -116,6 +116,25 @@ public class GestorDePatentes
 
         }
         return patenteUsuarios;
+    }
+
+    //SDC A diagrama de secuencia de asignar patentes a familia obtener patentes no asignadas
+    public List<Patente> ObtenerPatentesNoAsignadasAUnaFamilia(Familia familia)
+    {
+        var dataTable = baseDeDatos.ConsultarBase(String.Format("Select * from Patente where Patente.idPatente not in(SELECT familiapatente.Patente_idPatente FROM familiapatente  where familiapatente.Familia_idFamilia = {0})", familia.identificador));
+        List<Patente> patentes = new List<Patente>();
+
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Patente patente = new Patente();
+
+            patente.identificador = Convert.ToInt32(row["idPatente"]);
+            patente.nombre = Convert.ToString(row["nombre"]);
+
+            patentes.Add(patente);
+
+        }
+        return patentes;
     }
 
     public int VerificarPatenteEscencial(Patente patente)

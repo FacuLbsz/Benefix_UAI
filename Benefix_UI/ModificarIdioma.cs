@@ -12,10 +12,30 @@ namespace Genesis
 {
     public partial class ModificarIdioma : Form
     {
-        public ModificarIdioma()
+        GestorDeUsuarios gestorDeUsuario;
+        GestorSistema gestorSistema;
+        private Action<Idioma> action;
+        private Idioma idioma;
+
+        public ModificarIdioma(Idioma idioma, Action<Idioma> action)
         {
+            this.action = action;
+            this.idioma = idioma;
             InitializeComponent();
+            gestorDeUsuario = GestorDeUsuarios.ObtenerInstancia();
+            gestorSistema = GestorSistema.ObtenerInstancia();
         }
 
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void confirmarButton_Click(object sender, EventArgs e)
+        {
+            gestorDeUsuario.ModificarIdioma(gestorSistema.ObtenerUsuarioEnSesion(), idioma);
+            action(idioma);
+            Close();
+        }
     }
 }

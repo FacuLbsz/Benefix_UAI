@@ -12,36 +12,28 @@ namespace Genesis
 {
     public partial class AsignarDesasignarPatente : Form
     {
-        private PermisivaRestrictiva permisivaRestrictiva;
-
+        private Action<Boolean> action;
         public AsignarDesasignarPatente()
         {
             InitializeComponent();
         }
 
-        public AsignarDesasignarPatente(PermisivaRestrictiva permisivaRestrictiva)
+        public AsignarDesasignarPatente(Action<Boolean> action)
         {
+            this.action = action;
             InitializeComponent();
-            this.permisivaRestrictiva = permisivaRestrictiva;
         }
 
-        public interface PermisivaRestrictiva
-        {
-
-            void permisiva();
-            void restrictiva();
-
-        }
 
         private void permisivaButton_Click(object sender, EventArgs e)
         {
-            permisivaRestrictiva.permisiva();
+            action(true);
             Close();
         }
 
         private void restrictivaButton_Click(object sender, EventArgs e)
         {
-            permisivaRestrictiva.restrictiva();
+            action(false);
             Close();
         }
     }

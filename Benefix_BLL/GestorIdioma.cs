@@ -31,7 +31,7 @@ public class GestorIdioma
 
     public List<Idioma> ConsultarIdiomas()
     {
-        DataTable idiomasTable = baseDeDatos.ConsultarBase("SELECT * FORM IDIOMA");
+        DataTable idiomasTable = baseDeDatos.ConsultarBase("SELECT * FROM IDIOMA");
 
         List<Idioma> idiomas = new List<Idioma>();
         foreach (DataRow idiomaRow in idiomasTable.Rows)

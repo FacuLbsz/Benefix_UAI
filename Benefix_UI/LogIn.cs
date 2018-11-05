@@ -26,28 +26,95 @@ namespace Genesis
 
         private void ingresarButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Integridad de Base :" + GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos());
 
+            if (EsUnFormularioValido())
+            {
 
-            Usuario usuario = new Usuario() { identificador = 1 };
+                Usuario usuario = new Usuario() { identificador = 1, idioma = new Idioma() { identificador = 1 }, nombreUsuario = nombreUsuarioText.Text.Trim(), contrasena = contraseñaText.Text.Trim() };
+                GestorSistema.ObtenerInstancia().RealizarLogIn(usuario);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(GestorIdioma.ObtenerInstancia().ObtenerIdiomaDeUnUsuario(usuario).nombre);
 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(GestorIdioma.ObtenerInstancia().ObtenerIdiomaDeUnUsuario(usuario).nombre);
+                this.Hide();
+                var mainForm = new Sistema(usuario);
+                mainForm.Closed += (s, args) => this.Close();
+                mainForm.WindowState = FormWindowState.Maximized;
+                mainForm.Show();
 
-            this.Hide();
-            var mainForm = new Sistema();
-            mainForm.Closed += (s, args) => this.Close();
-            mainForm.WindowState = FormWindowState.Maximized;
-            mainForm.Show();
+                EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
+                GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
 
-            EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
-            GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+            }
+        }
+
+        private Boolean EsUnFormularioValido()
+        {
+            if (nombreUsuarioText.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Debe ingresar un nombre de usuario.");
+                return false;
+            }
+            if (contraseñaText.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Debe ingresar una contraseña.");
+                return false;
+            }
+
+            return true;
         }
 
         private void modificarStringButton_Click(object sender, EventArgs e)
         {
-            var mainForm = new ModificarStringDeConexion();
+            var mainForm = new ModificarStringDeConexion((cb) =>
+            {
+                //SDC Agregar llamado a consultar integridad de base de datos
+                if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
+                {
+                    //     ingresarButton.Enabled = false;
+                    MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
+                }
+                else
+                {
+                    ingresarButton.Enabled = cb;
+                }
+            });
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.ShowDialog();
         }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+            nombreUsuarioText.Text = "a";
+            contraseñaText.Text = "a";
+
+            try
+            {
+                GestorSistema.ObtenerInstancia();
+
+            }
+            catch (Exception exc)
+            {
+                Bienvenido bienvenido = new Bienvenido((stringDConexion) =>
+                {
+                    GestorSistema.ModificarStringDeConexion(stringDConexion);
+                });
+                bienvenido.ShowDialog();
+            }
+
+            try
+            {
+                if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
+                {
+                    //     ingresarButton.Enabled = false;
+                    MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
+                }
+
+            }
+            catch (Exception exc)
+            {
+                //     ingresarButton.Enabled = false;
+                MessageBox.Show("No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.");
+            }
+        }
+
     }
 }
