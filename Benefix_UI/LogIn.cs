@@ -30,19 +30,20 @@ namespace Genesis
             if (EsUnFormularioValido())
             {
 
-                Usuario usuario = new Usuario() { identificador = 1, idioma = new Idioma() { identificador = 1 }, nombreUsuario = nombreUsuarioText.Text.Trim(), contrasena = contraseñaText.Text.Trim() };
-                GestorSistema.ObtenerInstancia().RealizarLogIn(usuario);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(GestorIdioma.ObtenerInstancia().ObtenerIdiomaDeUnUsuario(usuario).nombre);
+                Usuario usuario = new Usuario() { nombreUsuario = nombreUsuarioText.Text.Trim(), contrasena = contraseñaText.Text.Trim() };
+                if (GestorSistema.ObtenerInstancia().RealizarLogIn(usuario) == 1)
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(GestorIdioma.ObtenerInstancia().ObtenerIdiomaDeUnUsuario(GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion()).nombre);
 
-                this.Hide();
-                var mainForm = new Sistema(usuario);
-                mainForm.Closed += (s, args) => this.Close();
-                mainForm.WindowState = FormWindowState.Maximized;
-                mainForm.Show();
+                    this.Hide();
+                    var mainForm = new Sistema();
+                    mainForm.Closed += (s, args) => this.Close();
+                    mainForm.WindowState = FormWindowState.Maximized;
+                    mainForm.Show();
 
-                EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = usuario };
-                GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
-
+                    EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+                    GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+                }
             }
         }
 
@@ -83,8 +84,8 @@ namespace Genesis
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            nombreUsuarioText.Text = "a";
-            contraseñaText.Text = "a";
+            nombreUsuarioText.Text = "facundo.nicolas";
+            contraseñaText.Text = "osxApZQd";
 
             try
             {

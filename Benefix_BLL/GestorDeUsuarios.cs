@@ -90,7 +90,8 @@ public class GestorDeUsuarios
 
     public int CrearUsuario(Usuario usuario)
     {
-        if(VerificarEmail(usuario.email) == 1){
+        if (VerificarEmail(usuario.email) == 1)
+        {
 
             throw new EntidadDuplicadaExcepcion("email");
         }
@@ -191,6 +192,14 @@ public class GestorDeUsuarios
 
     public Usuario RealizarLogIn(Usuario usuario)
     {
+        usuario.nombreUsuario = GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
+        usuario.contrasena = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
+        DataTable usuarioTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND contrasena = '{1}'", usuario.nombreUsuario, usuario.contrasena));
+
+        if(usuarioTable.Rows.Count > 0)
+        {
+            return PopularUsuarioDesdeBD(usuarioTable.Rows[0]);
+        }
 
         return null;
     }

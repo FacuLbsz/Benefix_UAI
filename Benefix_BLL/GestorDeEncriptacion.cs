@@ -96,25 +96,9 @@ public class GestorDeEncriptacion
 
     public static String DesencriptarRSA(String informacionEncriptada)
     {
-        String encriptada = "";
-        {
-            RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
-            rsaProvider.FromXmlString(RSAPublicKey);
-            byte[] encryptedData = rsaProvider.Encrypt(Encoding.ASCII.GetBytes(informacionEncriptada), false);
-
-            encriptada = Convert.ToBase64String(encryptedData);
-
-            Console.WriteLine("Informacion Encriptada : " + Convert.ToBase64String(encryptedData));
-        }
-
-        {
-            RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
-            rsaProvider.FromXmlString(RSAPrivateKey);
-            byte[] decryptedData = rsaProvider.Decrypt(Convert.FromBase64String(encriptada), false);
-            Console.WriteLine("Informacion Desencriptada : " + Encoding.ASCII.GetString(decryptedData));
-        }
-
-        return informacionEncriptada;
+        RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
+        rsaProvider.FromXmlString(RSAPrivateKey);
+        byte[] decryptedData = rsaProvider.Decrypt(Convert.FromBase64String(informacionEncriptada), false);
+        return Encoding.ASCII.GetString(decryptedData);
     }
-
 }

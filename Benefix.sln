@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benefix_DLL", "Benefix_DLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benefix_DAL", "Benefix_DAL\Benefix_DAL.csproj", "{D4D9E2A8-A54F-400E-8E4D-32F5BD20E42B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benefix_BDTool", "Benefix_BDTool\Benefix_BDTool.csproj", "{4B43606D-1983-421F-B649-C58B02D941B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D4D9E2A8-A54F-400E-8E4D-32F5BD20E42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4D9E2A8-A54F-400E-8E4D-32F5BD20E42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4D9E2A8-A54F-400E-8E4D-32F5BD20E42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B43606D-1983-421F-B649-C58B02D941B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B43606D-1983-421F-B649-C58B02D941B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B43606D-1983-421F-B649-C58B02D941B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B43606D-1983-421F-B649-C58B02D941B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

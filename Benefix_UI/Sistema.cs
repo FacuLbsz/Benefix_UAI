@@ -14,7 +14,7 @@ namespace Genesis
     {
         private GestorSistema gestorSistema;
         private GestorIdioma gestorIdioma;
-        public Sistema(Usuario usuario)
+        public Sistema()
         {
             gestorSistema = GestorSistema.ObtenerInstancia();
             gestorIdioma = GestorIdioma.ObtenerInstancia();

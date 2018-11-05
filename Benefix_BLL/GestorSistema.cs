@@ -119,7 +119,7 @@ public class GestorSistema
         {
             return 0;
         }
-        //this.usuarioEnSesion = usuarioLogin;
+        this.usuarioEnSesion = usuarioLogin;
         return 1;
     }
 
