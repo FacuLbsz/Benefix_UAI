@@ -41,9 +41,9 @@ namespace Genesis
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónDeObjetivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónDeBeneficiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administracionDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administracionDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónDeGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administraciónDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administraciónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónDeFamiliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,9 +133,9 @@ namespace Genesis
             this.administraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administraciónDeObjetivosToolStripMenuItem,
             this.administraciónDeBeneficiosToolStripMenuItem,
-            this.administracionDeToolStripMenuItem,
+            this.administracionDeEquiposToolStripMenuItem,
             this.administraciónDeGruposToolStripMenuItem,
-            this.administraciónDeToolStripMenuItem,
+            this.administraciónDeUsuariosToolStripMenuItem,
             this.administraciónDeFamiliasToolStripMenuItem});
             this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
             this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
@@ -157,10 +157,10 @@ namespace Genesis
             // 
             // administracionDeToolStripMenuItem
             // 
-            this.administracionDeToolStripMenuItem.Name = "administracionDeToolStripMenuItem";
-            this.administracionDeToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.administracionDeToolStripMenuItem.Text = global::Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeEquipos;
-            this.administracionDeToolStripMenuItem.Click += new System.EventHandler(this.administracionDeToolStripMenuItem_Click);
+            this.administracionDeEquiposToolStripMenuItem.Name = "administracionDeToolStripMenuItem";
+            this.administracionDeEquiposToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.administracionDeEquiposToolStripMenuItem.Text = global::Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeEquipos;
+            this.administracionDeEquiposToolStripMenuItem.Click += new System.EventHandler(this.administracionDeToolStripMenuItem_Click);
             // 
             // administraciónDeGruposToolStripMenuItem
             // 
@@ -171,10 +171,10 @@ namespace Genesis
             // 
             // administraciónDeToolStripMenuItem
             // 
-            this.administraciónDeToolStripMenuItem.Name = "administraciónDeToolStripMenuItem";
-            this.administraciónDeToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.administraciónDeToolStripMenuItem.Text = global::Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeUsuarios;
-            this.administraciónDeToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeToolStripMenuItem_Click);
+            this.administraciónDeUsuariosToolStripMenuItem.Name = "administraciónDeToolStripMenuItem";
+            this.administraciónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.administraciónDeUsuariosToolStripMenuItem.Text = global::Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeUsuarios;
+            this.administraciónDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeToolStripMenuItem_Click);
             // 
             // administraciónDeFamiliasToolStripMenuItem
             // 
@@ -253,9 +253,9 @@ namespace Genesis
         private System.Windows.Forms.ToolStripMenuItem administraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administraciónDeObjetivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administraciónDeBeneficiosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administracionDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administracionDeEquiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administraciónDeGruposToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administraciónDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administraciónDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miEstadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem evaluaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem evaluarEquiposACargoToolStripMenuItem;

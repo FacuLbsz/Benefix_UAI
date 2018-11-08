@@ -220,4 +220,10 @@ public class GestorSistema
         }
         return 1;
     }
+
+    public bool ConsultarPatentePorUsuario(String patente)
+    {
+        //return baseDeDatos.ConsultarBase(String.Format("")).Rows.Count > 0;
+        return true;
+    }
 }

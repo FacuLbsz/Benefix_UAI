@@ -23,5 +23,16 @@ namespace Genesis
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.ShowDialog();
         }
+
+        private void AdministracionDeGrupos_Load(object sender, EventArgs e)
+        {
+            crearButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_CREACION);
+            modificarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_MODIFICACION);
+            asignarBeneficiosButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION);
+            eliminarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_ELIMINACION);
+        }
     }
 }

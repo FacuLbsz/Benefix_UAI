@@ -28,6 +28,14 @@ namespace Genesis
         private void AdministracionDeUsuarios_Load(object sender, EventArgs e)
         {
             ListarUsuarios();
+            crearButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_CREACION);
+            modificarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION);
+            restablecerContraseñaButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION);
+            asignarPatentesButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION);
+            eliminarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_ELIMINACION);
         }
 
         private void AdministracionDeUsuarios_Shown(object sender, EventArgs e)
@@ -119,7 +127,8 @@ namespace Genesis
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
 
-            return new String(stringChars);
+            //return new String(stringChars);
+            return "osxApZQd";
         }
 
         private void ListarUsuarios()

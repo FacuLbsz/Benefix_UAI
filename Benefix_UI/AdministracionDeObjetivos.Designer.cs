@@ -59,7 +59,6 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(240, 576);
             this.dataGridView1.TabIndex = 0;
-            
             // 
             // objetivos
             // 
@@ -99,7 +98,6 @@
             this.descripcionText.Name = "descripcionText";
             this.descripcionText.Size = new System.Drawing.Size(242, 140);
             this.descripcionText.TabIndex = 5;
-            
             // 
             // puntajeLabel
             // 
@@ -125,7 +123,6 @@
             this.limpiarButton.TabIndex = 9;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
-            
             // 
             // crearButton
             // 
@@ -172,6 +169,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdministracionDeObjetivos";
             this.Text = "Administración de objetivos";
+            this.Load += new System.EventHandler(this.AdministracionDeObjetivos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

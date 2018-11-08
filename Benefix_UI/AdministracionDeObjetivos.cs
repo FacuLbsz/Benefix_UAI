@@ -31,5 +31,15 @@ namespace Genesis
         {
 
         }
+
+        private void AdministracionDeObjetivos_Load(object sender, EventArgs e)
+        {
+            crearButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_CREACION);
+            modificarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_MODIFICACION);
+            eliminarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_ELIMINACION);
+        }
     }
 }

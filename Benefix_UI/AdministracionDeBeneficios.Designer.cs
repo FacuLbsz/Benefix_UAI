@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.descripcionText = new System.Windows.Forms.TextBox();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
-            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,12 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(240, 576);
             this.dataGridView1.TabIndex = 13;
+            // 
+            // beneficios
+            // 
+            this.beneficios.HeaderText = "Beneficios";
+            this.beneficios.Name = "beneficios";
+            this.beneficios.ReadOnly = true;
             // 
             // eliminarButton
             // 
@@ -143,12 +149,6 @@
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 14;
             // 
-            // beneficios
-            // 
-            this.beneficios.HeaderText = "Beneficios";
-            this.beneficios.Name = "beneficios";
-            this.beneficios.ReadOnly = true;
-            // 
             // AdministracionDeBeneficios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -167,6 +167,7 @@
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeBeneficios";
             this.Text = "Administración de beneficios";
+            this.Load += new System.EventHandler(this.AdministracionDeBeneficios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

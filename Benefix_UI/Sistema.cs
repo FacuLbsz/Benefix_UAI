@@ -169,6 +169,33 @@ namespace Genesis
                 idiomaToolStripMenuItem.DropDownItems.Add(toolStripMenuItem);
             }
 
+            administraciónDeObjetivosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_ELIMINACION);
+            administraciónDeBeneficiosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_ELIMINACION);
+            administraciónDeGruposToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_ELIMINACION);
+            administraciónDeFamiliasToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_ELIMINACION);
+            administraciónDeUsuariosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_ELIMINACION);
+            administracionDeEquiposToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_ELIMINACION);
+
+            administraciónToolStripMenuItem.Visible = administraciónDeObjetivosToolStripMenuItem.Visible || administraciónDeBeneficiosToolStripMenuItem.Visible|| administraciónDeGruposToolStripMenuItem.Visible || administraciónDeFamiliasToolStripMenuItem.Visible || administraciónDeUsuariosToolStripMenuItem.Visible || administracionDeEquiposToolStripMenuItem.Visible;
+
+            miEstadoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.MI_ESTADO);
+
+            evaluarEquiposACargoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.EVALUAR_EQUIPOS_A_CARGO);
+
+            evaluaciónToolStripMenuItem.Visible = evaluarEquiposACargoToolStripMenuItem.Visible;
+
+            objetivosPorEmpleadosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EMPLEADO);
+            objetivosPorEquipoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EQUIPO);
+            beneficioPorEmpleadoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_BENEFICIO_POR_EMPLEADO);
+
+            reportesToolStripMenuItem.Visible = objetivosPorEmpleadosToolStripMenuItem.Visible || objetivosPorEquipoToolStripMenuItem.Visible || beneficioPorEmpleadoToolStripMenuItem.Visible;
+
+            bitacoraToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.BITACORA);
+
+            realizarBackUpToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.BACKUP);
+            realizarRestoreToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.RESTORE);
+
+            backUpToolStripMenuItem.Visible = realizarBackUpToolStripMenuItem.Visible || realizarRestoreToolStripMenuItem.Visible;
 
         }
 

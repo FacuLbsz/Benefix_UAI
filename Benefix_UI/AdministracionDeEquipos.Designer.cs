@@ -162,6 +162,7 @@
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeEquipos";
             this.Text = "Administración de equipos";
+            this.Load += new System.EventHandler(this.AdministracionDeEquipos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

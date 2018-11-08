@@ -131,6 +131,14 @@ namespace Genesis
         private void AdministracionDeFamilias_Load(object sender, EventArgs e)
         {
             ListarFamilias();
+            crearButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_CREACION);
+            modificarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION);
+            asignarPatentesButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION);
+            asignarUsuariosButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION);
+            eliminarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_ELIMINACION);
         }
 
         private void AdministracionDeFamilias_Shown(object sender, EventArgs e)

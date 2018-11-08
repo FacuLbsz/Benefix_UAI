@@ -16,5 +16,15 @@ namespace Genesis
         {
             InitializeComponent();
         }
+
+        private void AdministracionDeBeneficios_Load(object sender, EventArgs e)
+        {
+            crearButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_CREACION);
+            modificarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_MODIFICACION);
+            eliminarButton.Visible =
+            GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_ELIMINACION);
+        }
     }
 }

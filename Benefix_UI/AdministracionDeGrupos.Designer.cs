@@ -138,6 +138,7 @@
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeGrupos";
             this.Text = "Administración de grupos";
+            this.Load += new System.EventHandler(this.AdministracionDeGrupos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

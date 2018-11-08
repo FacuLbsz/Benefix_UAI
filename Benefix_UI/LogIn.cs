@@ -84,7 +84,7 @@ namespace Genesis
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            nombreUsuarioText.Text = "facundo.nicolas";
+            nombreUsuarioText.Text = "admin.admin";
             contraseñaText.Text = "osxApZQd";
 
             try
