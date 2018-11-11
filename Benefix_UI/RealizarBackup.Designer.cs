@@ -42,7 +42,7 @@
             this.rutaDestinoLabel.Name = "rutaDestinoLabel";
             this.rutaDestinoLabel.Size = new System.Drawing.Size(100, 20);
             this.rutaDestinoLabel.TabIndex = 45;
-            this.rutaDestinoLabel.Text = "Ruta destino";
+            this.rutaDestinoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioRutaDestino;
             // 
             // exportarButton
             // 
@@ -50,7 +50,7 @@
             this.exportarButton.Name = "exportarButton";
             this.exportarButton.Size = new System.Drawing.Size(242, 38);
             this.exportarButton.TabIndex = 43;
-            this.exportarButton.Text = "Exportar";
+            this.exportarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonExportar;
             this.exportarButton.UseVisualStyleBackColor = true;
             this.exportarButton.Click += new System.EventHandler(this.exportarButton_Click);
             // 
@@ -68,7 +68,7 @@
             this.cantidadVolumenesLabel.Name = "cantidadVolumenesLabel";
             this.cantidadVolumenesLabel.Size = new System.Drawing.Size(175, 20);
             this.cantidadVolumenesLabel.TabIndex = 47;
-            this.cantidadVolumenesLabel.Text = "Cantidad de volumenes";
+            this.cantidadVolumenesLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioCantidadDeVolumenes;
             // 
             // cantidadDeVolumenesComboBox
             // 
@@ -89,7 +89,7 @@
             this.Controls.Add(this.rutaDestinoLabel);
             this.Controls.Add(this.exportarButton);
             this.Name = "RealizarBackup";
-            this.Text = "Realizar backup";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemRealizarBackUp;
             this.Load += new System.EventHandler(this.RealizarBackup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -61,7 +61,7 @@ namespace Genesis
             Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, contrasena = contrasena };
 
             gestorDeUsuarios.ModificarUsuario(usuario);
-            MessageBox.Show("La contraseña ha sido restablecida: \n" + contrasena);
+            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageContraseñaRestablecida + contrasena);
         }
 
         private void nombreText_TextChanged(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace Genesis
                 try
                 {
                     gestorDeUsuarios.CrearUsuario(usuario);
-                    MessageBox.Show("El usuario ha sido creado con existo, por favor guarde su contraseña: \n " + contrasena);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageSatisfactorio + " " + contrasena);
                     LimpiarFormulario();
                     ListarUsuarios();
                 }
@@ -101,12 +101,12 @@ namespace Genesis
                     if (excepcion.atributo == "nombreUsuario")
                     {
                         nombreDeUsuarioText.Text = nombreDeUsuarioText.Text + StringRandom(2);
-                        MessageBox.Show("El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: " + nombreDeUsuarioText.Text);
+                        MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeFamiliasMessageNombreDubplicado + " " + nombreDeUsuarioText.Text);
                         crearButton_Click(sender, e);
                     }
                     else if (excepcion.atributo == "email")
                     {
-                        MessageBox.Show("El email ingresado ya se encuentra utilizado, por favor ingrese otro.");
+                        MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeUsuariosMessageEmailDuplicado);
                     }
                 }
             }
@@ -173,14 +173,14 @@ namespace Genesis
 
             if (nombre.Trim().Length == 0 || !Regex.IsMatch(nombre, @"^[a-zA-Z]+$"))
             {
-                MessageBox.Show("El nombre es un campo requerido y puede contener solo letras.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageNombreRequerido);
                 return false;
             }
 
             var apellido = apellidoText.Text;
             if (apellido.Trim().Length == 0 || !Regex.IsMatch(apellido, @"^[a-zA-Z]+$"))
             {
-                MessageBox.Show("El apellido es un campo requerido y puede contener solo letras.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeUsuariosMessageApellidoRequerido);
                 return false;
             }
 
@@ -194,13 +194,13 @@ namespace Genesis
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("El email ingresado no corresponde a un formato válido.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageEmailInvalido);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("El email es un campo requerido.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageEmailRequerido);
                 return false;
             }
 
@@ -247,7 +247,7 @@ namespace Genesis
                 Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, nombre = nombre, apellido = apellido, email = email };
 
                 gestorDeUsuarios.ModificarUsuario(usuario);
-                MessageBox.Show("El usuario ha sido modificado con existo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioModificado);
                 LimpiarFormulario();
                 ListarUsuarios();
             }
@@ -256,7 +256,7 @@ namespace Genesis
         private void eliminarButton_Click(object sender, EventArgs e)
         {
             gestorDeUsuarios.EliminarUsuario(new Usuario() { identificador = usuarioSeleccionado });
-            MessageBox.Show("El usuario ha sido eliminado con existo.");
+            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioEliminado);
             LimpiarFormulario();
             ListarUsuarios();
         }

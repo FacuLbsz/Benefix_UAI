@@ -67,31 +67,31 @@
             // 
             // usuario
             // 
-            this.usuario.HeaderText = "Usuario en sesion";
+            this.usuario.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuarioEnSesion;
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
             // 
             // fecha
             // 
-            this.fecha.HeaderText = "Fecha";
+            this.fecha.HeaderText = Genesis.Recursos_localizables.StringResources.TableFecha;
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
             // 
             // funcionalidad
             // 
-            this.funcionalidad.HeaderText = "Funcionalidad";
+            this.funcionalidad.HeaderText = Genesis.Recursos_localizables.StringResources.TableFuncionalidad;
             this.funcionalidad.Name = "funcionalidad";
             this.funcionalidad.ReadOnly = true;
             // 
             // descripcion
             // 
-            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.HeaderText = Genesis.Recursos_localizables.StringResources.TableDescripcion;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
             // criticidad
             // 
-            this.criticidad.HeaderText = "Criticidad";
+            this.criticidad.HeaderText = Genesis.Recursos_localizables.StringResources.TableCriticidad;
             this.criticidad.Name = "criticidad";
             this.criticidad.ReadOnly = true;
             // 
@@ -101,7 +101,7 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 58;
-            this.consultarButton.Text = "Consultar";
+            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
             this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click);
             // 
@@ -112,7 +112,7 @@
             this.fechaHastaLabel.Name = "fechaHastaLabel";
             this.fechaHastaLabel.Size = new System.Drawing.Size(98, 20);
             this.fechaHastaLabel.TabIndex = 57;
-            this.fechaHastaLabel.Text = "Fecha hasta";
+            this.fechaHastaLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioFechaHasta;
             // 
             // fechaDesdeDate
             // 
@@ -129,7 +129,7 @@
             this.fechaDesdeLabel.Name = "fechaDesdeLabel";
             this.fechaDesdeLabel.Size = new System.Drawing.Size(102, 20);
             this.fechaDesdeLabel.TabIndex = 60;
-            this.fechaDesdeLabel.Text = "Fecha desde";
+            this.fechaDesdeLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioFechaDesde;
             // 
             // fechaHastaDate
             // 
@@ -146,7 +146,7 @@
             this.criticidadLabel.Name = "criticidadLabel";
             this.criticidadLabel.Size = new System.Drawing.Size(74, 20);
             this.criticidadLabel.TabIndex = 63;
-            this.criticidadLabel.Text = "Criticidad";
+            this.criticidadLabel.Text = Genesis.Recursos_localizables.StringResources.TableCriticidad;
             // 
             // criticidadBox
             // 
@@ -163,7 +163,7 @@
             this.usuarioLabel.Name = "usuarioLabel";
             this.usuarioLabel.Size = new System.Drawing.Size(64, 20);
             this.usuarioLabel.TabIndex = 65;
-            this.usuarioLabel.Text = "Usuario";
+            this.usuarioLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioUsuario;
             // 
             // usuarioBox
             // 
@@ -188,8 +188,8 @@
             this.Controls.Add(this.beneficiosDataGridView);
             this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.fechaHastaLabel);
-            this.Name = "ConsultarBitacora";
-            this.Text = "ConsultarBitacora";
+            this.Name = "Consultar Bitacora";
+            this.Text = Genesis.Recursos_localizables.StringResources.Bitacora;
             this.Load += new System.EventHandler(this.ConsultarBitacora_Load);
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             this.ResumeLayout(false);

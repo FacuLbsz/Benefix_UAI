@@ -60,7 +60,7 @@
             // 
             // beneficios
             // 
-            this.beneficios.HeaderText = "Beneficios";
+            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
             this.beneficios.Name = "beneficios";
             this.beneficios.ReadOnly = true;
             // 
@@ -70,7 +70,7 @@
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 23;
-            this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
             // 
             // modificarButton
@@ -79,7 +79,7 @@
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 22;
-            this.modificarButton.Text = "Modificar";
+            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
             // 
             // crearButton
@@ -88,7 +88,7 @@
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 21;
-            this.crearButton.Text = "Crear";
+            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear;
             this.crearButton.UseVisualStyleBackColor = true;
             // 
             // limpiarButton
@@ -123,7 +123,7 @@
             this.descripcionLabel.Name = "descripcionLabel";
             this.descripcionLabel.Size = new System.Drawing.Size(92, 20);
             this.descripcionLabel.TabIndex = 17;
-            this.descripcionLabel.Text = "Descripción";
+            this.descripcionLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioDescripcion;
             // 
             // descripcionText
             // 
@@ -140,7 +140,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 15;
-            this.nombreLabel.Text = "Nombre";
+            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
             // 
             // nombreText
             // 
@@ -166,7 +166,7 @@
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeBeneficios";
-            this.Text = "Administración de beneficios";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeBeneficios;
             this.Load += new System.EventHandler(this.AdministracionDeBeneficios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

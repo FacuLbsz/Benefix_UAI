@@ -57,7 +57,7 @@
             // 
             // empleados
             // 
-            this.empleados.HeaderText = "Empleados";
+            this.empleados.HeaderText = Genesis.Recursos_localizables.StringResources.TableEmpleados;
             this.empleados.Name = "empleados";
             this.empleados.ReadOnly = true;
             // 
@@ -68,7 +68,7 @@
             this.periodoLabel.Name = "periodoLabel";
             this.periodoLabel.Size = new System.Drawing.Size(63, 20);
             this.periodoLabel.TabIndex = 48;
-            this.periodoLabel.Text = "Periodo";
+            this.periodoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioPeriodo;
             // 
             // periodoBox
             // 
@@ -84,7 +84,7 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 49;
-            this.consultarButton.Text = "Consultar";
+            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
             // 
             // objectListView1
@@ -106,12 +106,12 @@
             // 
             // equipo
             // 
-            this.equipo.Text = "Equipo - Objetivo";
+            this.equipo.Text = Genesis.Recursos_localizables.StringResources.TableEquipoObjetivo;
             this.equipo.Width = 618;
             // 
             // cumplimiento
             // 
-            this.cumplimiento.Text = "Cumplimiento";
+            this.cumplimiento.Text = Genesis.Recursos_localizables.StringResources.TableCumplimiento;
             this.cumplimiento.Width = 223;
             // 
             // ReportesDeObjetivosPorEmpleado
@@ -125,7 +125,7 @@
             this.Controls.Add(this.periodoBox);
             this.Controls.Add(this.beneficiosDataGridView);
             this.Name = "ReportesDeObjetivosPorEmpleado";
-            this.Text = "Reportes de objetivos por empleado";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemObjetivosPorEmpleados;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             this.ResumeLayout(false);

@@ -62,7 +62,7 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 49;
-            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
@@ -72,7 +72,7 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 48;
-            this.asignarButton.Text = "< Asignar";
+            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarUsuarios;
             this.asignarButton.UseVisualStyleBackColor = true;
             this.asignarButton.Click += new System.EventHandler(this.asignarButton_Click);
             // 
@@ -99,21 +99,21 @@
             this.desasignarButton.Name = "desasignarButton";
             this.desasignarButton.Size = new System.Drawing.Size(242, 38);
             this.desasignarButton.TabIndex = 47;
-            this.desasignarButton.Text = "Desasignar >";
+            this.desasignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
             this.desasignarButton.UseVisualStyleBackColor = true;
             this.desasignarButton.Click += new System.EventHandler(this.desasignarButton_Click);
             // 
             // usuarios
             // 
             this.usuarios.DataPropertyName = "nombreUsuario";
-            this.usuarios.HeaderText = "Usuarios";
+            this.usuarios.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuarios;
             this.usuarios.Name = "usuarios";
             this.usuarios.ReadOnly = true;
             // 
             // usuariosAsignados
             // 
             this.usuariosAsignados.DataPropertyName = "nombreUsuario";
-            this.usuariosAsignados.HeaderText = "Usuarios Asignados";
+            this.usuariosAsignados.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuariosAsignados;
             this.usuariosAsignados.Name = "usuariosAsignados";
             this.usuariosAsignados.ReadOnly = true;
             // 
@@ -127,8 +127,8 @@
             this.Controls.Add(this.asignarButton);
             this.Controls.Add(this.usuariosAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
-            this.Name = "AsignarUsuarios";
-            this.Text = "AsignarUsuarios";
+            this.Name = "Asignar usuarios";
+            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarUsuarios;
             this.Load += new System.EventHandler(this.AsignarUsuarios_Load);
             this.Shown += new System.EventHandler(this.AsignarUsuarios_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();

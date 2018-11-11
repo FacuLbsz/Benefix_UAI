@@ -57,14 +57,14 @@
             // 
             // beneficios
             // 
-            this.beneficios.HeaderText = "Beneficios";
+            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
             this.beneficios.Name = "beneficios";
             this.beneficios.ReadOnly = true;
             // 
             // PuntajeBeneficio
             // 
             this.PuntajeBeneficio.FillWeight = 30F;
-            this.PuntajeBeneficio.HeaderText = "Puntaje";
+            this.PuntajeBeneficio.HeaderText = Genesis.Recursos_localizables.StringResources.TablePuntaje;
             this.PuntajeBeneficio.Name = "PuntajeBeneficio";
             this.PuntajeBeneficio.ReadOnly = true;
             // 
@@ -88,17 +88,17 @@
             // 
             // equipo
             // 
-            this.equipo.Text = "Equipo - Objetivo";
+            this.equipo.Text = Genesis.Recursos_localizables.StringResources.TableEquipoObjetivo;
             this.equipo.Width = 389;
             // 
             // puntaje
             // 
-            this.puntaje.Text = "Puntaje";
+            this.puntaje.Text = Genesis.Recursos_localizables.StringResources.TablePuntaje;
             this.puntaje.Width = 111;
             // 
             // cumplimiento
             // 
-            this.cumplimiento.Text = "Cumplimiento";
+            this.cumplimiento.Text = Genesis.Recursos_localizables.StringResources.TableCumplimiento;
             this.cumplimiento.Width = 116;
             // 
             // MiEstado
@@ -110,7 +110,7 @@
             this.Controls.Add(this.objectListView1);
             this.Name = "MiEstado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Mi Estado";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemMiEstado;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             this.ResumeLayout(false);

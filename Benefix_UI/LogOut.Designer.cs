@@ -39,8 +39,9 @@
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(179, 38);
             this.cancelarButton.TabIndex = 63;
-            this.cancelarButton.Text = "Cancelar";
+            this.cancelarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCancelar;
             this.cancelarButton.UseVisualStyleBackColor = true;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // confirmarButton
             // 
@@ -48,7 +49,7 @@
             this.confirmarButton.Name = "confirmarButton";
             this.confirmarButton.Size = new System.Drawing.Size(179, 38);
             this.confirmarButton.TabIndex = 62;
-            this.confirmarButton.Text = "Confirmar";
+            this.confirmarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConfirmar;
             this.confirmarButton.UseVisualStyleBackColor = true;
             this.confirmarButton.Click += new System.EventHandler(this.confirmarButton_Click);
             // 
@@ -58,7 +59,7 @@
             this.textLabel.Name = "textLabel";
             this.textLabel.Size = new System.Drawing.Size(373, 111);
             this.textLabel.TabIndex = 61;
-            this.textLabel.Text = "¿Desea cerrar su sesion? \n Toda la información no guardada se perdera.";
+            this.textLabel.Text = Genesis.Recursos_localizables.StringResources.LogoutLabel;
             // 
             // LogOut
             // 

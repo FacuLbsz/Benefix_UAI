@@ -53,7 +53,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un usuario a asignar");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioAsignarRequerido);
             }
 
         }
@@ -81,7 +81,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un usuario a desasignar");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioDesasignarRequerido);
             }
         }
 
@@ -101,7 +101,7 @@ namespace Genesis
                 gestorDeFamilias.AsignarUsuario(usuario, familia);
             }
 
-            MessageBox.Show("La asignacion se ha guardado correctamente.");
+            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioSatisfactorio);
             this.Close();
         }
 

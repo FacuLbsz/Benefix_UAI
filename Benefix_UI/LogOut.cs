@@ -24,5 +24,10 @@ namespace Genesis
             callback(true);
             this.MdiParent.Close();
         }
+
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

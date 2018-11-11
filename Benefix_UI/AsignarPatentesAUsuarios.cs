@@ -125,7 +125,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una patente a asignar");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarPatentesAUsuariosMessagePatenteAsignarRequerido);
             }
 
 
@@ -157,7 +157,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una patente a desasignar");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarPatentesAFamiliasMessagePatenteDesasignarRequerido);
             }
         }
 
@@ -172,7 +172,7 @@ namespace Genesis
             {
                 if (gestorDePatentes.VerificarPatenteEscencial(patente.patente) == 0)
                 {
-                    MessageBox.Show(String.Format("No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia.", patente.patente.nombre));
+                    MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AsignarPatentesAUsuariosMessageDesasignarError, patente.patente.nombre));
                     return;
                 }
 
@@ -188,7 +188,7 @@ namespace Genesis
                 gestorDePatentes.AsignarAUnUsuario(patente);
             }
 
-            MessageBox.Show("La asignacion se ha guardado correctamente.");
+            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarPatentesAUsuariosMessageSatisfactorio);
             this.Close();
         }
     }

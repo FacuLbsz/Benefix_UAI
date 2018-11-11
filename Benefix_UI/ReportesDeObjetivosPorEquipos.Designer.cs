@@ -79,12 +79,12 @@
             // 
             // empleado
             // 
-            this.empleado.Text = "Empleado";
+            this.empleado.Text = Genesis.Recursos_localizables.StringResources.TableEmpleado;
             this.empleado.Width = 597;
             // 
             // cumplimientoPorc
             // 
-            this.cumplimientoPorc.Text = "% Cumplimiento";
+            this.cumplimientoPorc.Text = Genesis.Recursos_localizables.StringResources.TablePorcentCumplimiento;
             this.cumplimientoPorc.Width = 135;
             // 
             // consultarButton
@@ -93,7 +93,7 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 54;
-            this.consultarButton.Text = "Consultar";
+            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
             // 
             // periodoLabel
@@ -103,7 +103,7 @@
             this.periodoLabel.Name = "periodoLabel";
             this.periodoLabel.Size = new System.Drawing.Size(63, 20);
             this.periodoLabel.TabIndex = 53;
-            this.periodoLabel.Text = "Periodo";
+            this.periodoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioPeriodo;
             // 
             // periodoBox
             // 
@@ -124,7 +124,7 @@
             this.Controls.Add(this.periodoLabel);
             this.Controls.Add(this.periodoBox);
             this.Name = "ReportesDeObjetivosPorEquipos";
-            this.Text = "Reportes de objetivos por equipos";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemObjetivosPorEquipo;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             this.ResumeLayout(false);

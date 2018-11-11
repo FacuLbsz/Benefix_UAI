@@ -52,13 +52,13 @@ namespace Genesis
                 try
                 {
                     gestorDeFamilias.CrearFamilia(familia);
-                    MessageBox.Show("La familia ha sido creado con existo");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageSatisfactorio);
                     LimpiarFormulario();
                     ListarFamilias();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show("El nombre ingresado ya se encuentra utilizado, por favor indique otro.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeFamiliasMessageNombreDubplicado);
                 }
             }
         }
@@ -73,13 +73,13 @@ namespace Genesis
                 try
                 {
                     gestorDeFamilias.ModificarFamilia(familia);
-                    MessageBox.Show("La familia ha sido modificada con exito.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageSatisfactorio);
                     LimpiarFormulario();
                     ListarFamilias();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show("El nombre ingresado ya se encuentra utilizado, por favor indique otro.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeFamiliasMessageNombreDubplicado);
                 }
             }
         }
@@ -89,13 +89,13 @@ namespace Genesis
             try
             {
                 gestorDeFamilias.EliminarFamilia(familiaSeleccionada);
-                MessageBox.Show("La familia ha sido eliminada con exito.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
                 LimpiarFormulario();
                 ListarFamilias();
             }
             catch (EntidadDuplicadaExcepcion exception)
             {
-                MessageBox.Show(String.Format("La familia no se pudo eliminar debido a que la patente asignada '{0}' no se encuentra asignada a otra familia o usuario.", exception.atributo));
+                MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminadoError, exception.atributo));
             }
         }
 
@@ -105,7 +105,7 @@ namespace Genesis
 
             if (nombre.Trim().Length == 0 || !Regex.IsMatch(nombre, @"^[a-zA-Z]+$"))
             {
-                MessageBox.Show("El nombre es un campo requerido y puede contener solo letras.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageNombreRequerido);
                 return false;
             }
 

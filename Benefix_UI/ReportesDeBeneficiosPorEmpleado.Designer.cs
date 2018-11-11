@@ -57,7 +57,7 @@
             // 
             // empleados
             // 
-            this.empleados.HeaderText = "Empleados";
+            this.empleados.HeaderText = Genesis.Recursos_localizables.StringResources.TableEmpleados;
             this.empleados.Name = "empleados";
             this.empleados.ReadOnly = true;
             // 
@@ -79,12 +79,12 @@
             // 
             // beneficio
             // 
-            this.beneficio.Text = "Beneficios";
+            this.beneficio.Text = Genesis.Recursos_localizables.StringResources.TableBeneficios;
             this.beneficio.Width = 597;
             // 
             // otorgado
             // 
-            this.otorgado.Text = "Otorgado";
+            this.otorgado.Text = Genesis.Recursos_localizables.StringResources.TableOtorgado;
             this.otorgado.Width = 135;
             // 
             // consultarButton
@@ -93,7 +93,7 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 59;
-            this.consultarButton.Text = "Consultar";
+            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
             // 
             // periodoLabel
@@ -103,7 +103,7 @@
             this.periodoLabel.Name = "periodoLabel";
             this.periodoLabel.Size = new System.Drawing.Size(63, 20);
             this.periodoLabel.TabIndex = 58;
-            this.periodoLabel.Text = "Periodo";
+            this.periodoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioPeriodo;
             // 
             // periodoBox
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.periodoLabel);
             this.Controls.Add(this.periodoBox);
             this.Name = "ReportesDeBeneficiosPorEmpleado";
-            this.Text = "Reportes de beneficios por empleado";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemBeneficioPorEmpleado;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             this.ResumeLayout(false);

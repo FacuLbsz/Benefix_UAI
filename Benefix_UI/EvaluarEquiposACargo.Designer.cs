@@ -75,7 +75,7 @@
             // 
             // empleados
             // 
-            this.empleados.HeaderText = "Empleados";
+            this.empleados.HeaderText = Genesis.Recursos_localizables.StringResources.TableEmpleados;
             this.empleados.Name = "empleados";
             this.empleados.ReadOnly = true;
             // 
@@ -85,7 +85,7 @@
             this.evaluarButton.Name = "evaluarButton";
             this.evaluarButton.Size = new System.Drawing.Size(242, 38);
             this.evaluarButton.TabIndex = 44;
-            this.evaluarButton.Text = "Evaluar";
+            this.evaluarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEvaluar;
             this.evaluarButton.UseVisualStyleBackColor = true;
             this.evaluarButton.Click += new System.EventHandler(this.evaluarButton_Click);
             // 
@@ -99,7 +99,7 @@
             this.Controls.Add(this.evaluarButton);
             this.Name = "EvaluarEquiposACargo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Evaluar equipos a cargo";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemEvaluarEquiposACargo;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             this.ResumeLayout(false);

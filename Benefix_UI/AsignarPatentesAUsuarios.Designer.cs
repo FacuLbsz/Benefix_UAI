@@ -60,7 +60,7 @@
             // patentes
             // 
             this.patentes.DataPropertyName = "nombre";
-            this.patentes.HeaderText = "Patentes";
+            this.patentes.HeaderText = Genesis.Recursos_localizables.StringResources.TablePatentes;
             this.patentes.Name = "patentes";
             this.patentes.ReadOnly = true;
             // 
@@ -70,7 +70,7 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 54;
-            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
@@ -80,7 +80,7 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 53;
-            this.asignarButton.Text = "< Asignar";
+            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignar;
             this.asignarButton.UseVisualStyleBackColor = true;
             this.asignarButton.Click += new System.EventHandler(this.asignarButton_Click);
             // 
@@ -106,7 +106,7 @@
             // 
             this.patentesAsignadas.DataPropertyName = "patente.nombre";
             this.patentesAsignadas.FillWeight = 194.9239F;
-            this.patentesAsignadas.HeaderText = "Patentes Asignadas";
+            this.patentesAsignadas.HeaderText = Genesis.Recursos_localizables.StringResources.TablePatentesAsignadas;
             this.patentesAsignadas.Name = "patentesAsignadas";
             this.patentesAsignadas.ReadOnly = true;
             // 
@@ -115,7 +115,7 @@
             this.permisivaRestringiva.DataPropertyName = "esPermisivo";
             this.permisivaRestringiva.FalseValue = "false";
             this.permisivaRestringiva.FillWeight = 40F;
-            this.permisivaRestringiva.HeaderText = "P/R";
+            this.permisivaRestringiva.HeaderText = Genesis.Recursos_localizables.StringResources.TablePatenteEstado;
             this.permisivaRestringiva.Name = "permisivaRestringiva";
             this.permisivaRestringiva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.permisivaRestringiva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -127,7 +127,7 @@
             this.desasignarButton.Name = "desasignarButton";
             this.desasignarButton.Size = new System.Drawing.Size(242, 38);
             this.desasignarButton.TabIndex = 52;
-            this.desasignarButton.Text = "Desasignar >";
+            this.desasignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
             this.desasignarButton.UseVisualStyleBackColor = true;
             this.desasignarButton.Click += new System.EventHandler(this.desasignarButton_Click);
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(patentesAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
             this.Name = "AsignarPatentesAUsuarios";
-            this.Text = "Asignar patentes";
+            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarPatentes;
             this.Load += new System.EventHandler(this.AsignarPatentesAUsuarios_Load);
             this.Shown += new System.EventHandler(this.AsignarPatentesAUsuarios_Shown);
             ((System.ComponentModel.ISupportInitialize)(patentesDataGridView)).EndInit();

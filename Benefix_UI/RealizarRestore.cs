@@ -33,21 +33,21 @@ namespace Genesis
 
                     if (gestorSistema.RealizarRestore(rutaOrigenText.Text) == 1)
                     {
-                        MessageBox.Show("El restore se ha realizado correctamente.");
+                        MessageBox.Show(Genesis.Recursos_localizables.StringResources.RestoreMessageSatisfactorio);
                     }
                     else
                     {
-                        MessageBox.Show("Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema.");
+                        MessageBox.Show(Genesis.Recursos_localizables.StringResources.RestoreMessageError);
                     }
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    MessageBox.Show("Benefix no cuenta con permisos de lectura en la ruta ingresada.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.RestoreMessageSinAutorizacion);
                 }
             }
             else
             {
-                MessageBox.Show("Sebe seleccionar un archivo backup para importar.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.RestoreMessageVacio);
             }
         }
 

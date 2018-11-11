@@ -117,6 +117,267 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdministracionDeFamiliasMessageFamiliaEliminado" xml:space="preserve">
+    <value>La familia ha sido eliminada con exito.</value>
+  </data>
+  <data name="AdministracionDeFamiliasMessageFamiliaEliminadoError" xml:space="preserve">
+    <value>La familia no se pudo eliminar debido a que la patente asignada '{0}' no se encuentra asignada a otra familia o usuario.</value>
+  </data>
+  <data name="AdministracionDeFamiliasMessageSatisfactorio" xml:space="preserve">
+    <value>La familia ha sido creado con existo</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageContraseñaRestablecida" xml:space="preserve">
+    <value>La contraseña ha sido restablecida: \n</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageEmailInvalido" xml:space="preserve">
+    <value>El email ingresado no corresponde a un formato válido.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageEmailRequerido" xml:space="preserve">
+    <value>El email es un campo requerido.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageNombreRequerido" xml:space="preserve">
+    <value>El nombre es un campo requerido y puede contener solo letras.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageSatisfactorio" xml:space="preserve">
+    <value>El usuario ha sido creado con existo, por favor guarde su contraseña: \n</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioDuplicado" xml:space="preserve">
+    <value>El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: </value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioEliminado" xml:space="preserve">
+    <value>El usuario ha sido eliminado con existo.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioModificado" xml:space="preserve">
+    <value>El usuario ha sido modificado con existo.</value>
+  </data>
+  <data name="AdminsitracionDeFamiliasMessageFamiliaModificado" xml:space="preserve">
+    <value>La familia ha sido modificada con exito.</value>
+  </data>
+  <data name="AdminsitracionDeFamiliasMessageNombreDubplicado" xml:space="preserve">
+    <value>El nombre ingresado ya se encuentra utilizado, por favor indique otro.</value>
+  </data>
+  <data name="AdminsitracionDeUsuariosMessageApellidoRequerido" xml:space="preserve">
+    <value>El apellido es un campo requerido y puede contener solo letras.</value>
+  </data>
+  <data name="AdminsitracionDeUsuariosMessageEmailDuplicado" xml:space="preserve">
+    <value>El email ingresado ya se encuentra utilizado, por favor ingrese otro.</value>
+  </data>
+  <data name="AsignarDesasignarPatenteLabel" xml:space="preserve">
+    <value>¿Como desea asignar la patente?</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessageDesasignarError" xml:space="preserve">
+    <value>No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia.</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessagePatenteAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a asignar</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessagePatenteDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a desasignar</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessageSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessageDesasignarError" xml:space="preserve">
+    <value>No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia.</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessagePatenteAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a asignar</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessagePatenteDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a desasignar</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessageSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar un usuario a asignar</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar un usuario a desasignar</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="BackupMessageError" xml:space="preserve">
+    <value>Ha ocurrido un error realizando el backup, por favor comuniquese con el administrador del sistema.</value>
+  </data>
+  <data name="BackupMessageRutaDestinoVacia" xml:space="preserve">
+    <value>La ruta destino es requerida.</value>
+  </data>
+  <data name="BackupMessageSatisfactorio" xml:space="preserve">
+    <value>El backup se ha realizado correctamente en la ruta indicada.</value>
+  </data>
+  <data name="BackupMessageSinAutorizacion" xml:space="preserve">
+    <value>Benefix no cuenta con permisos de escritura en la ruta ingresada.</value>
+  </data>
+  <data name="Bienvenido" xml:space="preserve">
+    <value>Bienvenido</value>
+  </data>
+  <data name="BienvenidoLabel" xml:space="preserve">
+    <value>Bienvenido a Benefix, por favor ingrese el string de conexión requerido para el acceso a la base de datos.</value>
+  </data>
+  <data name="Bitacora" xml:space="preserve">
+    <value>Consultar bitácora</value>
+  </data>
+  <data name="BitacoraMessageFechaIncorrecta" xml:space="preserve">
+    <value>La fecha desde ingresada no puede ser anterior a la fecha hasta.</value>
+  </data>
+  <data name="ButtonAlcanzado" xml:space="preserve">
+    <value>Alcanzado</value>
+  </data>
+  <data name="ButtonAsignar" xml:space="preserve">
+    <value>&lt; Asignar</value>
+  </data>
+  <data name="ButtonAsignarBeneficios" xml:space="preserve">
+    <value>Asignar beneficios</value>
+  </data>
+  <data name="ButtonAsignarCoordinador" xml:space="preserve">
+    <value>Asignar coordinador</value>
+  </data>
+  <data name="ButtonAsignarEmpleados" xml:space="preserve">
+    <value>Asignar empleados</value>
+  </data>
+  <data name="ButtonAsignarGrupos" xml:space="preserve">
+    <value>Asignar grupos</value>
+  </data>
+  <data name="ButtonAsignarPatentes" xml:space="preserve">
+    <value>Asignar patentes</value>
+  </data>
+  <data name="ButtonAsignarUsuarios" xml:space="preserve">
+    <value>Asignar usuarios</value>
+  </data>
+  <data name="ButtonCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ButtonComenzar" xml:space="preserve">
+    <value>Comenzar</value>
+  </data>
+  <data name="ButtonConfirmar" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="ButtonConsultar" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="ButtonCrear" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="ButtonDesasignar" xml:space="preserve">
+    <value>Desasignar &gt;</value>
+  </data>
+  <data name="ButtonEliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="ButtonEvaluar" xml:space="preserve">
+    <value>Evaluar</value>
+  </data>
+  <data name="ButtonExportar" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="ButtonGuardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="ButtonImportar" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="ButtonIncumplido" xml:space="preserve">
+    <value>Incumplido</value>
+  </data>
+  <data name="ButtonLimpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="ButtonModificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="ButtonPermisiva" xml:space="preserve">
+    <value>Permisiva</value>
+  </data>
+  <data name="ButtonRestablecerContraseña" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="ButtonRestrictiva" xml:space="preserve">
+    <value>Restrictiva</value>
+  </data>
+  <data name="ButtonSeleccionar" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="FormularioApellido" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="FormularioCantidadDeVolumenes" xml:space="preserve">
+    <value>Cantidad de volumenes</value>
+  </data>
+  <data name="FormularioCoordinador" xml:space="preserve">
+    <value>Coordinador</value>
+  </data>
+  <data name="FormularioCriticidad" xml:space="preserve">
+    <value>Criticidad</value>
+  </data>
+  <data name="FormularioDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="FormularioEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FormularioFechaDesde" xml:space="preserve">
+    <value>Fecha desde</value>
+  </data>
+  <data name="FormularioFechaHasta" xml:space="preserve">
+    <value>Fecha hasta</value>
+  </data>
+  <data name="FormularioNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="FormularioNombreUsuario" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="FormularioPeriodo" xml:space="preserve">
+    <value>Periodo</value>
+  </data>
+  <data name="FormularioPuntaje" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="FormularioRutaDestino" xml:space="preserve">
+    <value>Ruta destino</value>
+  </data>
+  <data name="FormularioRutaOrigen" xml:space="preserve">
+    <value>Ruta origen</value>
+  </data>
+  <data name="FormularioUsuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="IdiomaLabel" xml:space="preserve">
+    <value>¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio.</value>
+  </data>
+  <data name="LogInMesageIntegridadCorrompida" xml:space="preserve">
+    <value>La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.</value>
+  </data>
+  <data name="LogInMessageBaseDeDatosInalcanzable" xml:space="preserve">
+    <value>No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.</value>
+  </data>
+  <data name="LogInMessageContraseñaRequerido" xml:space="preserve">
+    <value>Debe ingresar una contraseña.</value>
+  </data>
+  <data name="LogInMessageNombreRequerido" xml:space="preserve">
+    <value>Debe ingresar un nombre de usuario.</value>
+  </data>
+  <data name="LogInMessageUsuarioContraseñaIncorrectos" xml:space="preserve">
+    <value>El usuario y la contraseña ingresada no coinciden para un usuario valido.</value>
+  </data>
+  <data name="LogoutLabel" xml:space="preserve">
+    <value>¿Desea cerrar su sesión? Toda la información no guardada se perdera.</value>
+  </data>
+  <data name="RestoreMessageError" xml:space="preserve">
+    <value>Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema.</value>
+  </data>
+  <data name="RestoreMessageSatisfactorio" xml:space="preserve">
+    <value>El restore se ha realizado correctamente.</value>
+  </data>
+  <data name="RestoreMessageSinAutorizacion" xml:space="preserve">
+    <value>Benefix no cuenta con permisos de lectura en la ruta ingresada.</value>
+  </data>
+  <data name="RestoreMessageVacio" xml:space="preserve">
+    <value>Sebe seleccionar un archivo backup para importar.</value>
+  </data>
   <data name="SistemaMenuItemAdministracion" xml:space="preserve">
     <value>Administración</value>
   </data>
@@ -170,5 +431,89 @@
   </data>
   <data name="SistemaMenuItemReportes" xml:space="preserve">
     <value>Reportes</value>
+  </data>
+  <data name="StringResourcesMessageStringVacio" xml:space="preserve">
+    <value>Debe ingresar un string de conexion a guardar.</value>
+  </data>
+  <data name="TableBeneficios" xml:space="preserve">
+    <value>Beneficios</value>
+  </data>
+  <data name="TableBeneficiosAsignados" xml:space="preserve">
+    <value>Beneficios Asignados</value>
+  </data>
+  <data name="TableCriticidad" xml:space="preserve">
+    <value>Criticidad</value>
+  </data>
+  <data name="TableCumplimiento" xml:space="preserve">
+    <value>Cumplimiento</value>
+  </data>
+  <data name="TableDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="TableEmpleado" xml:space="preserve">
+    <value>Empleado</value>
+  </data>
+  <data name="TableEmpleados" xml:space="preserve">
+    <value>Empleados</value>
+  </data>
+  <data name="TableEmpleadosAsignados" xml:space="preserve">
+    <value>Empleados Asignados</value>
+  </data>
+  <data name="TableEquipoObjetivo" xml:space="preserve">
+    <value>Equipo - Objetivo</value>
+  </data>
+  <data name="TableEquipos" xml:space="preserve">
+    <value>Equipos</value>
+  </data>
+  <data name="TableFamilias" xml:space="preserve">
+    <value>Familias</value>
+  </data>
+  <data name="TableFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="TableFuncionalidad" xml:space="preserve">
+    <value>Funcionalidad</value>
+  </data>
+  <data name="TableGrupos" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="TableGruposAsignados" xml:space="preserve">
+    <value>Grupos Asignados</value>
+  </data>
+  <data name="TableObjetivos" xml:space="preserve">
+    <value>Objetivos</value>
+  </data>
+  <data name="TableOtorgado" xml:space="preserve">
+    <value>Otorgado</value>
+  </data>
+  <data name="TablePatenteEstado" xml:space="preserve">
+    <value>P/R</value>
+  </data>
+  <data name="TablePatentes" xml:space="preserve">
+    <value>Patentes</value>
+  </data>
+  <data name="TablePatentesAsignadas" xml:space="preserve">
+    <value>Patentes Asignadas</value>
+  </data>
+  <data name="TablePorcentCumplimiento" xml:space="preserve">
+    <value>% Cumplimiento</value>
+  </data>
+  <data name="TablePuntaje" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="TableUsuarioEnSesion" xml:space="preserve">
+    <value>Usuario en sesion</value>
+  </data>
+  <data name="TableUsuarios" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="TableUsuariosAsignados" xml:space="preserve">
+    <value>Usuarios asignados</value>
+  </data>
+  <data name="TitleEvaluarEmpleados" xml:space="preserve">
+    <value>Evaluar empleados</value>
+  </data>
+  <data name="TitleModificarIdioma" xml:space="preserve">
+    <value>Modificar idioma</value>
   </data>
 </root>

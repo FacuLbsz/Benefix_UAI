@@ -48,7 +48,7 @@
             this.asignarGruposButton.Name = "asignarGruposButton";
             this.asignarGruposButton.Size = new System.Drawing.Size(242, 38);
             this.asignarGruposButton.TabIndex = 43;
-            this.asignarGruposButton.Text = "Asignar grupos";
+            this.asignarGruposButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarGrupos;
             this.asignarGruposButton.UseVisualStyleBackColor = true;
             this.asignarGruposButton.Click += new System.EventHandler(this.asignarGruposButton_Click);
             // 
@@ -69,7 +69,7 @@
             // 
             // equipos
             // 
-            this.equipos.HeaderText = "Equipos";
+            this.equipos.HeaderText = Genesis.Recursos_localizables.StringResources.TableEquipos;
             this.equipos.Name = "equipos";
             this.equipos.ReadOnly = true;
             // 
@@ -79,7 +79,7 @@
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 42;
-            this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
             // 
             // modificarButton
@@ -88,7 +88,7 @@
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 41;
-            this.modificarButton.Text = "Modificar";
+            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
             // 
             // crearButton
@@ -97,7 +97,7 @@
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 40;
-            this.crearButton.Text = "Crear";
+            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear;
             this.crearButton.UseVisualStyleBackColor = true;
             // 
             // limpiarButton
@@ -106,7 +106,7 @@
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(242, 38);
             this.limpiarButton.TabIndex = 39;
-            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
             // nombreLabel
@@ -116,7 +116,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 38;
-            this.nombreLabel.Text = "Nombre";
+            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
             // 
             // nombreText
             // 
@@ -131,7 +131,7 @@
             this.asignarEmpleadosButton.Name = "asignarEmpleadosButton";
             this.asignarEmpleadosButton.Size = new System.Drawing.Size(242, 38);
             this.asignarEmpleadosButton.TabIndex = 44;
-            this.asignarEmpleadosButton.Text = "Asignar empleados";
+            this.asignarEmpleadosButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarEmpleados;
             this.asignarEmpleadosButton.UseVisualStyleBackColor = true;
             this.asignarEmpleadosButton.Click += new System.EventHandler(this.asignarEmpleadosButton_Click);
             // 
@@ -141,7 +141,7 @@
             this.asignarCoordinadorButton.Name = "asignarCoordinadorButton";
             this.asignarCoordinadorButton.Size = new System.Drawing.Size(242, 38);
             this.asignarCoordinadorButton.TabIndex = 45;
-            this.asignarCoordinadorButton.Text = "Asignar coordinador";
+            this.asignarCoordinadorButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarCoordinador;
             this.asignarCoordinadorButton.UseVisualStyleBackColor = true;
             this.asignarCoordinadorButton.Click += new System.EventHandler(this.asignarCoordinadorButton_Click);
             // 
@@ -161,7 +161,7 @@
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeEquipos";
-            this.Text = "Administración de equipos";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeEquipos;
             this.Load += new System.EventHandler(this.AdministracionDeEquipos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -61,6 +61,789 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La familia ha sido eliminada con exito..
+        /// </summary>
+        internal static string AdministracionDeFamiliasMessageFamiliaEliminado {
+            get {
+                return ResourceManager.GetString("AdministracionDeFamiliasMessageFamiliaEliminado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La familia no se pudo eliminar debido a que la patente asignada &apos;{0}&apos; no se encuentra asignada a otra familia o usuario..
+        /// </summary>
+        internal static string AdministracionDeFamiliasMessageFamiliaEliminadoError {
+            get {
+                return ResourceManager.GetString("AdministracionDeFamiliasMessageFamiliaEliminadoError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La familia ha sido creado con existo.
+        /// </summary>
+        internal static string AdministracionDeFamiliasMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("AdministracionDeFamiliasMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña ha sido restablecida: \n.
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageContraseñaRestablecida {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageContraseñaRestablecida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El email ingresado no corresponde a un formato válido..
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageEmailInvalido {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageEmailInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El email es un campo requerido..
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageEmailRequerido {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageEmailRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre es un campo requerido y puede contener solo letras..
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageNombreRequerido {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageNombreRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ha sido creado con existo, por favor guarde su contraseña: \n.
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: .
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageUsuarioDuplicado {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageUsuarioDuplicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ha sido eliminado con existo..
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageUsuarioEliminado {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageUsuarioEliminado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ha sido modificado con existo..
+        /// </summary>
+        internal static string AdministracionDeUsuariosMessageUsuarioModificado {
+            get {
+                return ResourceManager.GetString("AdministracionDeUsuariosMessageUsuarioModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La familia ha sido modificada con exito..
+        /// </summary>
+        internal static string AdminsitracionDeFamiliasMessageFamiliaModificado {
+            get {
+                return ResourceManager.GetString("AdminsitracionDeFamiliasMessageFamiliaModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre ingresado ya se encuentra utilizado, por favor indique otro..
+        /// </summary>
+        internal static string AdminsitracionDeFamiliasMessageNombreDubplicado {
+            get {
+                return ResourceManager.GetString("AdminsitracionDeFamiliasMessageNombreDubplicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El apellido es un campo requerido y puede contener solo letras..
+        /// </summary>
+        internal static string AdminsitracionDeUsuariosMessageApellidoRequerido {
+            get {
+                return ResourceManager.GetString("AdminsitracionDeUsuariosMessageApellidoRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El email ingresado ya se encuentra utilizado, por favor ingrese otro..
+        /// </summary>
+        internal static string AdminsitracionDeUsuariosMessageEmailDuplicado {
+            get {
+                return ResourceManager.GetString("AdminsitracionDeUsuariosMessageEmailDuplicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Como desea asignar la patente?.
+        /// </summary>
+        internal static string AsignarDesasignarPatenteLabel {
+            get {
+                return ResourceManager.GetString("AsignarDesasignarPatenteLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia..
+        /// </summary>
+        internal static string AsignarPatentesAFamiliasMessageDesasignarError {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAFamiliasMessageDesasignarError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar una patente a asignar.
+        /// </summary>
+        internal static string AsignarPatentesAFamiliasMessagePatenteAsignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAFamiliasMessagePatenteAsignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar una patente a desasignar.
+        /// </summary>
+        internal static string AsignarPatentesAFamiliasMessagePatenteDesasignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAFamiliasMessagePatenteDesasignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La asignacion se ha guardado correctamente..
+        /// </summary>
+        internal static string AsignarPatentesAFamiliasMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAFamiliasMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia..
+        /// </summary>
+        internal static string AsignarPatentesAUsuariosMessageDesasignarError {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAUsuariosMessageDesasignarError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar una patente a asignar.
+        /// </summary>
+        internal static string AsignarPatentesAUsuariosMessagePatenteAsignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAUsuariosMessagePatenteAsignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar una patente a desasignar.
+        /// </summary>
+        internal static string AsignarPatentesAUsuariosMessagePatenteDesasignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAUsuariosMessagePatenteDesasignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La asignacion se ha guardado correctamente..
+        /// </summary>
+        internal static string AsignarPatentesAUsuariosMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("AsignarPatentesAUsuariosMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un usuario a asignar.
+        /// </summary>
+        internal static string AsignarUsuariosMessageUsuarioAsignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarUsuariosMessageUsuarioAsignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un usuario a desasignar.
+        /// </summary>
+        internal static string AsignarUsuariosMessageUsuarioDesasignarRequerido {
+            get {
+                return ResourceManager.GetString("AsignarUsuariosMessageUsuarioDesasignarRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La asignacion se ha guardado correctamente..
+        /// </summary>
+        internal static string AsignarUsuariosMessageUsuarioSatisfactorio {
+            get {
+                return ResourceManager.GetString("AsignarUsuariosMessageUsuarioSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error realizando el backup, por favor comuniquese con el administrador del sistema..
+        /// </summary>
+        internal static string BackupMessageError {
+            get {
+                return ResourceManager.GetString("BackupMessageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La ruta destino es requerida..
+        /// </summary>
+        internal static string BackupMessageRutaDestinoVacia {
+            get {
+                return ResourceManager.GetString("BackupMessageRutaDestinoVacia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El backup se ha realizado correctamente en la ruta indicada..
+        /// </summary>
+        internal static string BackupMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("BackupMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Benefix no cuenta con permisos de escritura en la ruta ingresada..
+        /// </summary>
+        internal static string BackupMessageSinAutorizacion {
+            get {
+                return ResourceManager.GetString("BackupMessageSinAutorizacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Bienvenido.
+        /// </summary>
+        internal static string Bienvenido {
+            get {
+                return ResourceManager.GetString("Bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Bienvenido a Benefix, por favor ingrese el string de conexión requerido para el acceso a la base de datos..
+        /// </summary>
+        internal static string BienvenidoLabel {
+            get {
+                return ResourceManager.GetString("BienvenidoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consultar bitácora.
+        /// </summary>
+        internal static string Bitacora {
+            get {
+                return ResourceManager.GetString("Bitacora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fecha desde ingresada no puede ser anterior a la fecha hasta..
+        /// </summary>
+        internal static string BitacoraMessageFechaIncorrecta {
+            get {
+                return ResourceManager.GetString("BitacoraMessageFechaIncorrecta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alcanzado.
+        /// </summary>
+        internal static string ButtonAlcanzado {
+            get {
+                return ResourceManager.GetString("ButtonAlcanzado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt; Asignar.
+        /// </summary>
+        internal static string ButtonAsignar {
+            get {
+                return ResourceManager.GetString("ButtonAsignar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar beneficios.
+        /// </summary>
+        internal static string ButtonAsignarBeneficios {
+            get {
+                return ResourceManager.GetString("ButtonAsignarBeneficios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar coordinador.
+        /// </summary>
+        internal static string ButtonAsignarCoordinador {
+            get {
+                return ResourceManager.GetString("ButtonAsignarCoordinador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar empleados.
+        /// </summary>
+        internal static string ButtonAsignarEmpleados {
+            get {
+                return ResourceManager.GetString("ButtonAsignarEmpleados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar grupos.
+        /// </summary>
+        internal static string ButtonAsignarGrupos {
+            get {
+                return ResourceManager.GetString("ButtonAsignarGrupos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar patentes.
+        /// </summary>
+        internal static string ButtonAsignarPatentes {
+            get {
+                return ResourceManager.GetString("ButtonAsignarPatentes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar usuarios.
+        /// </summary>
+        internal static string ButtonAsignarUsuarios {
+            get {
+                return ResourceManager.GetString("ButtonAsignarUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar.
+        /// </summary>
+        internal static string ButtonCancelar {
+            get {
+                return ResourceManager.GetString("ButtonCancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comenzar.
+        /// </summary>
+        internal static string ButtonComenzar {
+            get {
+                return ResourceManager.GetString("ButtonComenzar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar.
+        /// </summary>
+        internal static string ButtonConfirmar {
+            get {
+                return ResourceManager.GetString("ButtonConfirmar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consultar.
+        /// </summary>
+        internal static string ButtonConsultar {
+            get {
+                return ResourceManager.GetString("ButtonConsultar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear.
+        /// </summary>
+        internal static string ButtonCrear {
+            get {
+                return ResourceManager.GetString("ButtonCrear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasignar &gt;.
+        /// </summary>
+        internal static string ButtonDesasignar {
+            get {
+                return ResourceManager.GetString("ButtonDesasignar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        internal static string ButtonEliminar {
+            get {
+                return ResourceManager.GetString("ButtonEliminar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Evaluar.
+        /// </summary>
+        internal static string ButtonEvaluar {
+            get {
+                return ResourceManager.GetString("ButtonEvaluar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exportar.
+        /// </summary>
+        internal static string ButtonExportar {
+            get {
+                return ResourceManager.GetString("ButtonExportar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar.
+        /// </summary>
+        internal static string ButtonGuardar {
+            get {
+                return ResourceManager.GetString("ButtonGuardar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Importar.
+        /// </summary>
+        internal static string ButtonImportar {
+            get {
+                return ResourceManager.GetString("ButtonImportar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Incumplido.
+        /// </summary>
+        internal static string ButtonIncumplido {
+            get {
+                return ResourceManager.GetString("ButtonIncumplido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Limpiar.
+        /// </summary>
+        internal static string ButtonLimpiar {
+            get {
+                return ResourceManager.GetString("ButtonLimpiar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modificar.
+        /// </summary>
+        internal static string ButtonModificar {
+            get {
+                return ResourceManager.GetString("ButtonModificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permisiva.
+        /// </summary>
+        internal static string ButtonPermisiva {
+            get {
+                return ResourceManager.GetString("ButtonPermisiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restablecer contraseña.
+        /// </summary>
+        internal static string ButtonRestablecerContraseña {
+            get {
+                return ResourceManager.GetString("ButtonRestablecerContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restrictiva.
+        /// </summary>
+        internal static string ButtonRestrictiva {
+            get {
+                return ResourceManager.GetString("ButtonRestrictiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar.
+        /// </summary>
+        internal static string ButtonSeleccionar {
+            get {
+                return ResourceManager.GetString("ButtonSeleccionar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Apellido.
+        /// </summary>
+        internal static string FormularioApellido {
+            get {
+                return ResourceManager.GetString("FormularioApellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de volumenes.
+        /// </summary>
+        internal static string FormularioCantidadDeVolumenes {
+            get {
+                return ResourceManager.GetString("FormularioCantidadDeVolumenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Coordinador.
+        /// </summary>
+        internal static string FormularioCoordinador {
+            get {
+                return ResourceManager.GetString("FormularioCoordinador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Criticidad.
+        /// </summary>
+        internal static string FormularioCriticidad {
+            get {
+                return ResourceManager.GetString("FormularioCriticidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Descripción.
+        /// </summary>
+        internal static string FormularioDescripcion {
+            get {
+                return ResourceManager.GetString("FormularioDescripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        internal static string FormularioEmail {
+            get {
+                return ResourceManager.GetString("FormularioEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha desde.
+        /// </summary>
+        internal static string FormularioFechaDesde {
+            get {
+                return ResourceManager.GetString("FormularioFechaDesde", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha hasta.
+        /// </summary>
+        internal static string FormularioFechaHasta {
+            get {
+                return ResourceManager.GetString("FormularioFechaHasta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string FormularioNombre {
+            get {
+                return ResourceManager.GetString("FormularioNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario.
+        /// </summary>
+        internal static string FormularioNombreUsuario {
+            get {
+                return ResourceManager.GetString("FormularioNombreUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Periodo.
+        /// </summary>
+        internal static string FormularioPeriodo {
+            get {
+                return ResourceManager.GetString("FormularioPeriodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntaje.
+        /// </summary>
+        internal static string FormularioPuntaje {
+            get {
+                return ResourceManager.GetString("FormularioPuntaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ruta destino.
+        /// </summary>
+        internal static string FormularioRutaDestino {
+            get {
+                return ResourceManager.GetString("FormularioRutaDestino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ruta origen.
+        /// </summary>
+        internal static string FormularioRutaOrigen {
+            get {
+                return ResourceManager.GetString("FormularioRutaOrigen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario.
+        /// </summary>
+        internal static string FormularioUsuario {
+            get {
+                return ResourceManager.GetString("FormularioUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio..
+        /// </summary>
+        internal static string IdiomaLabel {
+            get {
+                return ResourceManager.GetString("IdiomaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema..
+        /// </summary>
+        internal static string LogInMesageIntegridadCorrompida {
+            get {
+                return ResourceManager.GetString("LogInMesageIntegridadCorrompida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion..
+        /// </summary>
+        internal static string LogInMessageBaseDeDatosInalcanzable {
+            get {
+                return ResourceManager.GetString("LogInMessageBaseDeDatosInalcanzable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar una contraseña..
+        /// </summary>
+        internal static string LogInMessageContraseñaRequerido {
+            get {
+                return ResourceManager.GetString("LogInMessageContraseñaRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar un nombre de usuario..
+        /// </summary>
+        internal static string LogInMessageNombreRequerido {
+            get {
+                return ResourceManager.GetString("LogInMessageNombreRequerido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario y la contraseña ingresada no coinciden para un usuario valido..
+        /// </summary>
+        internal static string LogInMessageUsuarioContraseñaIncorrectos {
+            get {
+                return ResourceManager.GetString("LogInMessageUsuarioContraseñaIncorrectos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Desea cerrar su sesión? Toda la información no guardada se perdera..
+        /// </summary>
+        internal static string LogoutLabel {
+            get {
+                return ResourceManager.GetString("LogoutLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema..
+        /// </summary>
+        internal static string RestoreMessageError {
+            get {
+                return ResourceManager.GetString("RestoreMessageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El restore se ha realizado correctamente..
+        /// </summary>
+        internal static string RestoreMessageSatisfactorio {
+            get {
+                return ResourceManager.GetString("RestoreMessageSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Benefix no cuenta con permisos de lectura en la ruta ingresada..
+        /// </summary>
+        internal static string RestoreMessageSinAutorizacion {
+            get {
+                return ResourceManager.GetString("RestoreMessageSinAutorizacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sebe seleccionar un archivo backup para importar..
+        /// </summary>
+        internal static string RestoreMessageVacio {
+            get {
+                return ResourceManager.GetString("RestoreMessageVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Administración.
         /// </summary>
         internal static string SistemaMenuItemAdministracion {
@@ -219,6 +1002,258 @@ namespace Genesis.Recursos_localizables {
         internal static string SistemaMenuItemReportes {
             get {
                 return ResourceManager.GetString("SistemaMenuItemReportes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar un string de conexion a guardar..
+        /// </summary>
+        internal static string StringResourcesMessageStringVacio {
+            get {
+                return ResourceManager.GetString("StringResourcesMessageStringVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Beneficios.
+        /// </summary>
+        internal static string TableBeneficios {
+            get {
+                return ResourceManager.GetString("TableBeneficios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Beneficios Asignados.
+        /// </summary>
+        internal static string TableBeneficiosAsignados {
+            get {
+                return ResourceManager.GetString("TableBeneficiosAsignados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Criticidad.
+        /// </summary>
+        internal static string TableCriticidad {
+            get {
+                return ResourceManager.GetString("TableCriticidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cumplimiento.
+        /// </summary>
+        internal static string TableCumplimiento {
+            get {
+                return ResourceManager.GetString("TableCumplimiento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Descripción.
+        /// </summary>
+        internal static string TableDescripcion {
+            get {
+                return ResourceManager.GetString("TableDescripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Empleado.
+        /// </summary>
+        internal static string TableEmpleado {
+            get {
+                return ResourceManager.GetString("TableEmpleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Empleados.
+        /// </summary>
+        internal static string TableEmpleados {
+            get {
+                return ResourceManager.GetString("TableEmpleados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Empleados Asignados.
+        /// </summary>
+        internal static string TableEmpleadosAsignados {
+            get {
+                return ResourceManager.GetString("TableEmpleadosAsignados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Equipo - Objetivo.
+        /// </summary>
+        internal static string TableEquipoObjetivo {
+            get {
+                return ResourceManager.GetString("TableEquipoObjetivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Equipos.
+        /// </summary>
+        internal static string TableEquipos {
+            get {
+                return ResourceManager.GetString("TableEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Familias.
+        /// </summary>
+        internal static string TableFamilias {
+            get {
+                return ResourceManager.GetString("TableFamilias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
+        /// </summary>
+        internal static string TableFecha {
+            get {
+                return ResourceManager.GetString("TableFecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Funcionalidad.
+        /// </summary>
+        internal static string TableFuncionalidad {
+            get {
+                return ResourceManager.GetString("TableFuncionalidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Grupos.
+        /// </summary>
+        internal static string TableGrupos {
+            get {
+                return ResourceManager.GetString("TableGrupos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Grupos Asignados.
+        /// </summary>
+        internal static string TableGruposAsignados {
+            get {
+                return ResourceManager.GetString("TableGruposAsignados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Objetivos.
+        /// </summary>
+        internal static string TableObjetivos {
+            get {
+                return ResourceManager.GetString("TableObjetivos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Otorgado.
+        /// </summary>
+        internal static string TableOtorgado {
+            get {
+                return ResourceManager.GetString("TableOtorgado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a P/R.
+        /// </summary>
+        internal static string TablePatenteEstado {
+            get {
+                return ResourceManager.GetString("TablePatenteEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Patentes.
+        /// </summary>
+        internal static string TablePatentes {
+            get {
+                return ResourceManager.GetString("TablePatentes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Patentes Asignadas.
+        /// </summary>
+        internal static string TablePatentesAsignadas {
+            get {
+                return ResourceManager.GetString("TablePatentesAsignadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a % Cumplimiento.
+        /// </summary>
+        internal static string TablePorcentCumplimiento {
+            get {
+                return ResourceManager.GetString("TablePorcentCumplimiento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntaje.
+        /// </summary>
+        internal static string TablePuntaje {
+            get {
+                return ResourceManager.GetString("TablePuntaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario en sesion.
+        /// </summary>
+        internal static string TableUsuarioEnSesion {
+            get {
+                return ResourceManager.GetString("TableUsuarioEnSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuarios.
+        /// </summary>
+        internal static string TableUsuarios {
+            get {
+                return ResourceManager.GetString("TableUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuarios asignados.
+        /// </summary>
+        internal static string TableUsuariosAsignados {
+            get {
+                return ResourceManager.GetString("TableUsuariosAsignados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Evaluar empleados.
+        /// </summary>
+        internal static string TitleEvaluarEmpleados {
+            get {
+                return ResourceManager.GetString("TitleEvaluarEmpleados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modificar idioma.
+        /// </summary>
+        internal static string TitleModificarIdioma {
+            get {
+                return ResourceManager.GetString("TitleModificarIdioma", resourceCulture);
             }
         }
     }

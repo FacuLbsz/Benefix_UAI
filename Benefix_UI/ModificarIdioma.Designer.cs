@@ -40,8 +40,7 @@
             this.textLabel.Name = "textLabel";
             this.textLabel.Size = new System.Drawing.Size(249, 72);
             this.textLabel.TabIndex = 0;
-            this.textLabel.Text = "¿Desea modificar el idioma? \n Es necesario reinciar la aplicacion para visualizar" +
-    " el cambio.";
+            this.textLabel.Text = Genesis.Recursos_localizables.StringResources.IdiomaLabel;
             // 
             // confirmarButton
             // 
@@ -50,7 +49,7 @@
             this.confirmarButton.Name = "confirmarButton";
             this.confirmarButton.Size = new System.Drawing.Size(119, 25);
             this.confirmarButton.TabIndex = 59;
-            this.confirmarButton.Text = "Confirmar";
+            this.confirmarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConfirmar;
             this.confirmarButton.UseVisualStyleBackColor = true;
             this.confirmarButton.Click += new System.EventHandler(this.confirmarButton_Click);
             // 
@@ -61,7 +60,7 @@
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(119, 25);
             this.cancelarButton.TabIndex = 60;
-            this.cancelarButton.Text = "Cancelar";
+            this.cancelarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCancelar;
             this.cancelarButton.UseVisualStyleBackColor = true;
             this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
@@ -75,7 +74,7 @@
             this.Controls.Add(this.textLabel);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModificarIdioma";
-            this.Text = "Modificar idioma";
+            this.Text = Genesis.Recursos_localizables.StringResources.TitleModificarIdioma;
             this.ResumeLayout(false);
 
         }

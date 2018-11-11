@@ -45,7 +45,7 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 38;
-            this.asignarButton.Text = "< Asignar";
+            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignar;
             this.asignarButton.UseVisualStyleBackColor = true;
             // 
             // beneficiosAsignadosDataGridView
@@ -69,7 +69,7 @@
             this.desasignarButton.Name = "desasignarButton";
             this.desasignarButton.Size = new System.Drawing.Size(242, 38);
             this.desasignarButton.TabIndex = 37;
-            this.desasignarButton.Text = "Desasignar >";
+            this.desasignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
             this.desasignarButton.UseVisualStyleBackColor = true;
             // 
             // guardarButton
@@ -78,7 +78,7 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 39;
-            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
             // beneficiosDataGridView
@@ -98,13 +98,13 @@
             // 
             // beneficiosAsignados
             // 
-            this.beneficiosAsignados.HeaderText = "Beneficios Asignados";
+            this.beneficiosAsignados.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficiosAsignados;
             this.beneficiosAsignados.Name = "beneficiosAsignados";
             this.beneficiosAsignados.ReadOnly = true;
             // 
             // beneficios
             // 
-            this.beneficios.HeaderText = "Beneficios";
+            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
             this.beneficios.Name = "beneficios";
             this.beneficios.ReadOnly = true;
             // 
@@ -119,7 +119,7 @@
             this.Controls.Add(this.beneficiosAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
             this.Name = "AsignarBeneficios";
-            this.Text = "Asignar beneficios";
+            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarBeneficios;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             this.ResumeLayout(false);

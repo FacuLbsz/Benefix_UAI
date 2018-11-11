@@ -39,7 +39,7 @@
             this.permisivaButton.Name = "permisivaButton";
             this.permisivaButton.Size = new System.Drawing.Size(75, 23);
             this.permisivaButton.TabIndex = 0;
-            this.permisivaButton.Text = "Permisiva";
+            this.permisivaButton.Text = Genesis.Recursos_localizables.StringResources.ButtonPermisiva;
             this.permisivaButton.UseVisualStyleBackColor = true;
             this.permisivaButton.Click += new System.EventHandler(this.permisivaButton_Click);
             // 
@@ -49,7 +49,7 @@
             this.restrictivaButton.Name = "restrictivaButton";
             this.restrictivaButton.Size = new System.Drawing.Size(75, 23);
             this.restrictivaButton.TabIndex = 1;
-            this.restrictivaButton.Text = "Restrictiva";
+            this.restrictivaButton.Text = Genesis.Recursos_localizables.StringResources.ButtonRestrictiva;
             this.restrictivaButton.UseVisualStyleBackColor = true;
             this.restrictivaButton.Click += new System.EventHandler(this.restrictivaButton_Click);
             // 
@@ -60,7 +60,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "¿Como desea asignar la patente?";
+            this.label1.Text = Genesis.Recursos_localizables.StringResources.AsignarDesasignarPatenteLabel;
             // 
             // AsignarDesasignarPatente
             // 

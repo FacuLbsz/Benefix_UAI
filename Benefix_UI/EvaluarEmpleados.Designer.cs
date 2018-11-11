@@ -60,7 +60,7 @@
             this.evaluarButton.Name = "evaluarButton";
             this.evaluarButton.Size = new System.Drawing.Size(242, 38);
             this.evaluarButton.TabIndex = 47;
-            this.evaluarButton.Text = "Guardar";
+            this.evaluarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.evaluarButton.UseVisualStyleBackColor = true;
             // 
             // alcanzadoButton
@@ -69,7 +69,7 @@
             this.alcanzadoButton.Name = "alcanzadoButton";
             this.alcanzadoButton.Size = new System.Drawing.Size(258, 38);
             this.alcanzadoButton.TabIndex = 48;
-            this.alcanzadoButton.Text = "Alcanzado";
+            this.alcanzadoButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAlcanzado;
             this.alcanzadoButton.UseVisualStyleBackColor = true;
             // 
             // incumplidoButton
@@ -78,20 +78,20 @@
             this.incumplidoButton.Name = "incumplidoButton";
             this.incumplidoButton.Size = new System.Drawing.Size(258, 38);
             this.incumplidoButton.TabIndex = 49;
-            this.incumplidoButton.Text = "Incumplido";
+            this.incumplidoButton.Text = Genesis.Recursos_localizables.StringResources.ButtonIncumplido;
             this.incumplidoButton.UseVisualStyleBackColor = true;
             // 
             // objetivos
             // 
             this.objetivos.FillWeight = 98.47716F;
-            this.objetivos.HeaderText = "Objetivos";
+            this.objetivos.HeaderText = Genesis.Recursos_localizables.StringResources.TableObjetivos;
             this.objetivos.Name = "objetivos";
             this.objetivos.ReadOnly = true;
             // 
             // Cumplimiento
             // 
             this.Cumplimiento.FillWeight = 50F;
-            this.Cumplimiento.HeaderText = "Cumplimiento";
+            this.Cumplimiento.HeaderText = Genesis.Recursos_localizables.StringResources.TableCumplimiento;
             this.Cumplimiento.Name = "Cumplimiento";
             this.Cumplimiento.ReadOnly = true;
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this.beneficiosAsignadosDataGridView);
             this.Controls.Add(this.evaluarButton);
             this.Name = "EvaluarEmpleados";
-            this.Text = "Evaluar empleados";
+            this.Text = Genesis.Recursos_localizables.StringResources.TitleEvaluarEmpleados;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
             this.ResumeLayout(false);
 

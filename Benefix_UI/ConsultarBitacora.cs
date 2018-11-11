@@ -85,7 +85,7 @@ namespace Genesis
 
             if (fechaDesde.CompareTo(fechaHasta) > 0)
             {
-                MessageBox.Show("La fecha desde ingresada no puede ser anterior a la fecha hasta.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.BitacoraMessageFechaIncorrecta);
                 return;
             }
 

@@ -56,7 +56,7 @@
             // 
             // grupos
             // 
-            this.grupos.HeaderText = "Grupos";
+            this.grupos.HeaderText = Genesis.Recursos_localizables.StringResources.TableGrupos;
             this.grupos.Name = "grupos";
             this.grupos.ReadOnly = true;
             // 
@@ -66,7 +66,7 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 49;
-            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
             // asignarButton
@@ -75,7 +75,7 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 48;
-            this.asignarButton.Text = "< Asignar";
+            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignar;
             this.asignarButton.UseVisualStyleBackColor = true;
             // 
             // beneficiosAsignadosDataGridView
@@ -95,7 +95,7 @@
             // 
             // gruposAsignados
             // 
-            this.gruposAsignados.HeaderText = "Grupos Asignados";
+            this.gruposAsignados.HeaderText = Genesis.Recursos_localizables.StringResources.TableGruposAsignados;
             this.gruposAsignados.Name = "gruposAsignados";
             this.gruposAsignados.ReadOnly = true;
             // 
@@ -105,7 +105,7 @@
             this.desasignarButton.Name = "desasignarButton";
             this.desasignarButton.Size = new System.Drawing.Size(242, 38);
             this.desasignarButton.TabIndex = 47;
-            this.desasignarButton.Text = "Desasignar >";
+            this.desasignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
             this.desasignarButton.UseVisualStyleBackColor = true;
             // 
             // AsignarGrupos
@@ -119,7 +119,7 @@
             this.Controls.Add(this.beneficiosAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
             this.Name = "AsignarGrupos";
-            this.Text = "Asignar grupos";
+            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarGrupos;
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
             this.ResumeLayout(false);

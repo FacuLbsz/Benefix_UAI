@@ -168,34 +168,49 @@ namespace Genesis
                 toolStripMenuItem.Checked = idioma.identificador == gestorSistema.ObtenerUsuarioEnSesion().idioma.identificador;
                 idiomaToolStripMenuItem.DropDownItems.Add(toolStripMenuItem);
             }
+            var administraciónDeObjetivosToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_ELIMINACION);
+            var administraciónDeBeneficiosToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_ELIMINACION);
+            var administraciónDeGruposToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_ELIMINACION);
+            var administraciónDeFamiliasToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_ELIMINACION);
+            var administraciónDeUsuariosToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_ELIMINACION);
+            var administracionDeEquiposToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_ELIMINACION);
 
-            administraciónDeObjetivosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_ELIMINACION);
-            administraciónDeBeneficiosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_ELIMINACION);
-            administraciónDeGruposToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_ELIMINACION);
-            administraciónDeFamiliasToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_ELIMINACION);
-            administraciónDeUsuariosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_USUARIOS_ELIMINACION);
-            administracionDeEquiposToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_CREACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION) || gestorSistema.ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_ELIMINACION);
+            administraciónDeObjetivosToolStripMenuItem.Visible = administraciónDeObjetivosToolStripMenuItemVisible;
+            administraciónDeBeneficiosToolStripMenuItem.Visible = administraciónDeBeneficiosToolStripMenuItemVisible;
+            administraciónDeGruposToolStripMenuItem.Visible = administraciónDeGruposToolStripMenuItemVisible;
+            administraciónDeFamiliasToolStripMenuItem.Visible = administraciónDeFamiliasToolStripMenuItemVisible;
+            administraciónDeUsuariosToolStripMenuItem.Visible = administraciónDeUsuariosToolStripMenuItemVisible;
+            administracionDeEquiposToolStripMenuItem.Visible = administracionDeEquiposToolStripMenuItemVisible;
 
-            administraciónToolStripMenuItem.Visible = administraciónDeObjetivosToolStripMenuItem.Visible || administraciónDeBeneficiosToolStripMenuItem.Visible|| administraciónDeGruposToolStripMenuItem.Visible || administraciónDeFamiliasToolStripMenuItem.Visible || administraciónDeUsuariosToolStripMenuItem.Visible || administracionDeEquiposToolStripMenuItem.Visible;
+
+            administraciónToolStripMenuItem.Visible = administraciónDeObjetivosToolStripMenuItemVisible || administraciónDeBeneficiosToolStripMenuItemVisible|| administraciónDeGruposToolStripMenuItemVisible || administraciónDeFamiliasToolStripMenuItemVisible || administraciónDeUsuariosToolStripMenuItemVisible || administracionDeEquiposToolStripMenuItemVisible;
 
             miEstadoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.MI_ESTADO);
 
-            evaluarEquiposACargoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.EVALUAR_EQUIPOS_A_CARGO);
+            var evaluarEquiposACargoToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.EVALUAR_EQUIPOS_A_CARGO);
+            evaluarEquiposACargoToolStripMenuItem.Visible = evaluarEquiposACargoToolStripMenuItemVisible;
 
-            evaluaciónToolStripMenuItem.Visible = evaluarEquiposACargoToolStripMenuItem.Visible;
+            evaluaciónToolStripMenuItem.Visible = evaluarEquiposACargoToolStripMenuItemVisible;
 
-            objetivosPorEmpleadosToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EMPLEADO);
-            objetivosPorEquipoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EQUIPO);
-            beneficioPorEmpleadoToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_BENEFICIO_POR_EMPLEADO);
+            var objetivosPorEmpleadosToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EMPLEADO);
+            var objetivosPorEquipoToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_OBJETIVOS_POR_EQUIPO);
+            var beneficioPorEmpleadoToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.REPORTE_BENEFICIO_POR_EMPLEADO);
 
-            reportesToolStripMenuItem.Visible = objetivosPorEmpleadosToolStripMenuItem.Visible || objetivosPorEquipoToolStripMenuItem.Visible || beneficioPorEmpleadoToolStripMenuItem.Visible;
+            objetivosPorEmpleadosToolStripMenuItem.Visible = objetivosPorEmpleadosToolStripMenuItemVisible;
+            objetivosPorEquipoToolStripMenuItem.Visible = objetivosPorEquipoToolStripMenuItemVisible;
+            beneficioPorEmpleadoToolStripMenuItem.Visible = beneficioPorEmpleadoToolStripMenuItemVisible;
+
+            reportesToolStripMenuItem.Visible = objetivosPorEmpleadosToolStripMenuItemVisible || objetivosPorEquipoToolStripMenuItemVisible || beneficioPorEmpleadoToolStripMenuItemVisible;
 
             bitacoraToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.BITACORA);
 
-            realizarBackUpToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.BACKUP);
-            realizarRestoreToolStripMenuItem.Visible = gestorSistema.ConsultarPatentePorUsuario(Patente.RESTORE);
+            var realizarBackUpToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.BACKUP);
+            var realizarRestoreToolStripMenuItemVisible = gestorSistema.ConsultarPatentePorUsuario(Patente.RESTORE);
 
-            backUpToolStripMenuItem.Visible = realizarBackUpToolStripMenuItem.Visible || realizarRestoreToolStripMenuItem.Visible;
+            realizarBackUpToolStripMenuItem.Visible = realizarBackUpToolStripMenuItemVisible;
+            realizarRestoreToolStripMenuItem.Visible = realizarRestoreToolStripMenuItemVisible;
+
+            backUpToolStripMenuItem.Visible = realizarBackUpToolStripMenuItemVisible || realizarRestoreToolStripMenuItemVisible;
 
         }
 

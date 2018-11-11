@@ -39,7 +39,7 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 40;
-            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
             // coordinadorBox
@@ -57,7 +57,7 @@
             this.coordinadorLabel.Name = "coordinadorLabel";
             this.coordinadorLabel.Size = new System.Drawing.Size(96, 20);
             this.coordinadorLabel.TabIndex = 42;
-            this.coordinadorLabel.Text = "Coordinador";
+            this.coordinadorLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioCoordinador;
             // 
             // AsignarCoordinador
             // 
@@ -68,7 +68,7 @@
             this.Controls.Add(this.coordinadorBox);
             this.Controls.Add(this.guardarButton);
             this.Name = "AsignarCoordinador";
-            this.Text = "Asignar coordinador";
+            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarCoordinador;
             this.ResumeLayout(false);
             this.PerformLayout();
 

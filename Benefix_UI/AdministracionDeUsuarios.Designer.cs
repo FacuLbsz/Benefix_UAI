@@ -53,7 +53,7 @@
             this.asignarPatentesButton.Name = "asignarPatentesButton";
             this.asignarPatentesButton.Size = new System.Drawing.Size(242, 38);
             this.asignarPatentesButton.TabIndex = 53;
-            this.asignarPatentesButton.Text = "Asignar patentes";
+            this.asignarPatentesButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarPatentes;
             this.asignarPatentesButton.UseVisualStyleBackColor = true;
             this.asignarPatentesButton.Click += new System.EventHandler(this.asignarPatentesButton_Click);
             // 
@@ -79,7 +79,7 @@
             // nombreUsuario
             // 
             this.nombreUsuario.DataPropertyName = "nombreUsuario";
-            this.nombreUsuario.HeaderText = "Usuarios";
+            this.nombreUsuario.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuarios;
             this.nombreUsuario.Name = "nombreUsuario";
             this.nombreUsuario.ReadOnly = true;
             // 
@@ -89,7 +89,7 @@
             this.restablecerContraseñaButton.Name = "restablecerContraseñaButton";
             this.restablecerContraseñaButton.Size = new System.Drawing.Size(242, 38);
             this.restablecerContraseñaButton.TabIndex = 54;
-            this.restablecerContraseñaButton.Text = "Restablecer contraseña";
+            this.restablecerContraseñaButton.Text = Genesis.Recursos_localizables.StringResources.ButtonRestablecerContraseña;
             this.restablecerContraseñaButton.UseVisualStyleBackColor = true;
             this.restablecerContraseñaButton.Click += new System.EventHandler(this.restablecerContraseñaButton_Click);
             // 
@@ -99,7 +99,7 @@
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 52;
-            this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
             this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
@@ -109,7 +109,7 @@
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 51;
-            this.modificarButton.Text = "Modificar";
+            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
@@ -119,7 +119,7 @@
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 50;
-            this.crearButton.Text = "Crear";
+            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear; 
             this.crearButton.UseVisualStyleBackColor = true;
             this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
@@ -129,7 +129,7 @@
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(242, 38);
             this.limpiarButton.TabIndex = 49;
-            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
@@ -140,7 +140,7 @@
             this.nombreDeUsuarioLabel.Name = "nombreDeUsuarioLabel";
             this.nombreDeUsuarioLabel.Size = new System.Drawing.Size(143, 20);
             this.nombreDeUsuarioLabel.TabIndex = 48;
-            this.nombreDeUsuarioLabel.Text = "Nombre de usuario";
+            this.nombreDeUsuarioLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombreUsuario;
             // 
             // nombreDeUsuarioText
             // 
@@ -158,7 +158,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 57;
-            this.nombreLabel.Text = "Nombre";
+            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
             // 
             // nombreText
             // 
@@ -176,7 +176,7 @@
             this.apellidoLabel.Name = "apellidoLabel";
             this.apellidoLabel.Size = new System.Drawing.Size(65, 20);
             this.apellidoLabel.TabIndex = 59;
-            this.apellidoLabel.Text = "Apellido";
+            this.apellidoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioApellido;
             // 
             // apellidoText
             // 
@@ -194,7 +194,7 @@
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(48, 20);
             this.emailLabel.TabIndex = 61;
-            this.emailLabel.Text = "Email";
+            this.emailLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioEmail;
             // 
             // emailText
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.nombreDeUsuarioLabel);
             this.Controls.Add(this.nombreDeUsuarioText);
             this.Name = "AdministracionDeUsuarios";
-            this.Text = "Administracion de usuarios";
+            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeUsuarios;
             this.Load += new System.EventHandler(this.AdministracionDeUsuarios_Load);
             this.Shown += new System.EventHandler(this.AdministracionDeUsuarios_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

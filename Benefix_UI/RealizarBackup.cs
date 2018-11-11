@@ -26,11 +26,11 @@ namespace Genesis
             {
                 if (gestorSistema.RealizarBackup(rutaDestinoText.Text, Convert.ToInt32(cantidadDeVolumenesComboBox.SelectedItem.ToString())) == 1)
                 {
-                    MessageBox.Show("El backup se ha realizado correctamente en la ruta indicada.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.BackupMessageSatisfactorio);
                 }
                 else
                 {
-                    MessageBox.Show("Ha ocurrido un error realizando el backup, por favor comuniquese con el administrador del sistema.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.BackupMessageError);
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace Genesis
 
             if(rutaDestinoText.Text.Trim().Length == 0)
             {
-                MessageBox.Show("La ruta destino es requerida.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.BackupMessageRutaDestinoVacia);
                 return false;
             }
 
@@ -57,7 +57,7 @@ namespace Genesis
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("Benefix no cuenta con permisos de escritura en la ruta ingresada.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.BackupMessageSinAutorizacion);
                 return false;
             }
         }

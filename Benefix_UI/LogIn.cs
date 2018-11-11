@@ -44,6 +44,10 @@ namespace Genesis
                     EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
                     GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
                 }
+                else
+                {
+                    MessageBox.Show("El usuario y la contraseña ingresada no coinciden para un usuario valido.");
+                }
             }
         }
 

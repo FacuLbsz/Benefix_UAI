@@ -117,8 +117,98 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdministracionDeFamiliasMessageFamiliaEliminado" xml:space="preserve">
+    <value>La familia ha sido eliminada con exito.</value>
+  </data>
+  <data name="AdministracionDeFamiliasMessageFamiliaEliminadoError" xml:space="preserve">
+    <value>La familia no se pudo eliminar debido a que la patente asignada '{0}' no se encuentra asignada a otra familia o usuario.</value>
+  </data>
+  <data name="AdministracionDeFamiliasMessageSatisfactorio" xml:space="preserve">
+    <value>La familia ha sido creado con existo</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageContraseñaRestablecida" xml:space="preserve">
+    <value>La contraseña ha sido restablecida: \n</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageEmailInvalido" xml:space="preserve">
+    <value>El email ingresado no corresponde a un formato válido.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageEmailRequerido" xml:space="preserve">
+    <value>El email es un campo requerido.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageNombreRequerido" xml:space="preserve">
+    <value>El nombre es un campo requerido y puede contener solo letras.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageSatisfactorio" xml:space="preserve">
+    <value>El usuario ha sido creado con existo, por favor guarde su contraseña: \n</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioDuplicado" xml:space="preserve">
+    <value>El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: </value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioEliminado" xml:space="preserve">
+    <value>El usuario ha sido eliminado con existo.</value>
+  </data>
+  <data name="AdministracionDeUsuariosMessageUsuarioModificado" xml:space="preserve">
+    <value>El usuario ha sido modificado con existo.</value>
+  </data>
+  <data name="AdminsitracionDeFamiliasMessageFamiliaModificado" xml:space="preserve">
+    <value>La familia ha sido modificada con exito.</value>
+  </data>
+  <data name="AdminsitracionDeFamiliasMessageNombreDubplicado" xml:space="preserve">
+    <value>El nombre ingresado ya se encuentra utilizado, por favor indique otro.</value>
+  </data>
+  <data name="AdminsitracionDeUsuariosMessageApellidoRequerido" xml:space="preserve">
+    <value>El apellido es un campo requerido y puede contener solo letras.</value>
+  </data>
+  <data name="AdminsitracionDeUsuariosMessageEmailDuplicado" xml:space="preserve">
+    <value>El email ingresado ya se encuentra utilizado, por favor ingrese otro.</value>
+  </data>
   <data name="AsignarDesasignarPatenteLabel" xml:space="preserve">
     <value>¿Como desea asignar la patente?</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessageDesasignarError" xml:space="preserve">
+    <value>No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia.</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessagePatenteAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a asignar</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessagePatenteDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a desasignar</value>
+  </data>
+  <data name="AsignarPatentesAFamiliasMessageSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessageDesasignarError" xml:space="preserve">
+    <value>No es posible desasignar la patente {0} debido a que no se encuentra asignada a otro usuario o familia.</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessagePatenteAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a asignar</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessagePatenteDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar una patente a desasignar</value>
+  </data>
+  <data name="AsignarPatentesAUsuariosMessageSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioAsignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar un usuario a asignar</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioDesasignarRequerido" xml:space="preserve">
+    <value>Debe seleccionar un usuario a desasignar</value>
+  </data>
+  <data name="AsignarUsuariosMessageUsuarioSatisfactorio" xml:space="preserve">
+    <value>La asignacion se ha guardado correctamente.</value>
+  </data>
+  <data name="BackupMessageError" xml:space="preserve">
+    <value>Ha ocurrido un error realizando el backup, por favor comuniquese con el administrador del sistema.</value>
+  </data>
+  <data name="BackupMessageRutaDestinoVacia" xml:space="preserve">
+    <value>La ruta destino es requerida.</value>
+  </data>
+  <data name="BackupMessageSatisfactorio" xml:space="preserve">
+    <value>El backup se ha realizado correctamente en la ruta indicada.</value>
+  </data>
+  <data name="BackupMessageSinAutorizacion" xml:space="preserve">
+    <value>Benefix no cuenta con permisos de escritura en la ruta ingresada.</value>
   </data>
   <data name="Bienvenido" xml:space="preserve">
     <value>Bienvenido</value>
@@ -128,6 +218,9 @@
   </data>
   <data name="Bitacora" xml:space="preserve">
     <value>Consultar bitácora</value>
+  </data>
+  <data name="BitacoraMessageFechaIncorrecta" xml:space="preserve">
+    <value>La fecha desde ingresada no puede ser anterior a la fecha hasta.</value>
   </data>
   <data name="ButtonAlcanzado" xml:space="preserve">
     <value>Alcanzado</value>
@@ -188,6 +281,9 @@
   </data>
   <data name="ButtonIncumplido" xml:space="preserve">
     <value>Incumplido</value>
+  </data>
+  <data name="ButtonLimpiar" xml:space="preserve">
+    <value>Limpiar</value>
   </data>
   <data name="ButtonModificar" xml:space="preserve">
     <value>Modificar</value>
@@ -252,8 +348,35 @@
   <data name="IdiomaLabel" xml:space="preserve">
     <value>¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio.</value>
   </data>
+  <data name="LogInMesageIntegridadCorrompida" xml:space="preserve">
+    <value>La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.</value>
+  </data>
+  <data name="LogInMessageBaseDeDatosInalcanzable" xml:space="preserve">
+    <value>No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.</value>
+  </data>
+  <data name="LogInMessageContraseñaRequerido" xml:space="preserve">
+    <value>Debe ingresar una contraseña.</value>
+  </data>
+  <data name="LogInMessageNombreRequerido" xml:space="preserve">
+    <value>Debe ingresar un nombre de usuario.</value>
+  </data>
+  <data name="LogInMessageUsuarioContraseñaIncorrectos" xml:space="preserve">
+    <value>El usuario y la contraseña ingresada no coinciden para un usuario valido.</value>
+  </data>
   <data name="LogoutLabel" xml:space="preserve">
     <value>¿Desea cerrar su sesión? Toda la información no guardada se perdera.</value>
+  </data>
+  <data name="RestoreMessageError" xml:space="preserve">
+    <value>Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema.</value>
+  </data>
+  <data name="RestoreMessageSatisfactorio" xml:space="preserve">
+    <value>El restore se ha realizado correctamente.</value>
+  </data>
+  <data name="RestoreMessageSinAutorizacion" xml:space="preserve">
+    <value>Benefix no cuenta con permisos de lectura en la ruta ingresada.</value>
+  </data>
+  <data name="RestoreMessageVacio" xml:space="preserve">
+    <value>Sebe seleccionar un archivo backup para importar.</value>
   </data>
   <data name="SistemaMenuItemAdministracion" xml:space="preserve">
     <value>Administración</value>
@@ -308,6 +431,9 @@
   </data>
   <data name="SistemaMenuItemReportes" xml:space="preserve">
     <value>Reportes</value>
+  </data>
+  <data name="StringResourcesMessageStringVacio" xml:space="preserve">
+    <value>Debe ingresar un string de conexion a guardar.</value>
   </data>
   <data name="TableBeneficios" xml:space="preserve">
     <value>Beneficios</value>
@@ -380,5 +506,14 @@
   </data>
   <data name="TableUsuarios" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="TableUsuariosAsignados" xml:space="preserve">
+    <value>Usuarios asignados</value>
+  </data>
+  <data name="TitleEvaluarEmpleados" xml:space="preserve">
+    <value>Evaluar empleados</value>
+  </data>
+  <data name="TitleModificarIdioma" xml:space="preserve">
+    <value>Modificar idioma</value>
   </data>
 </root>
