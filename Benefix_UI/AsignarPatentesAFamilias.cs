@@ -28,10 +28,8 @@ namespace Genesis
             this.patentesAsignadas = familia.patentesAsignadas;
 
             this.patentesNoAsignadas = gestorDePatentes.ObtenerPatentes().Except(patentesAsignadas).ToList();
-
             this.patentesAsignadasFixed = new List<Patente>();
             this.patentesAsignadasFixed.AddRange(patentesAsignadas);
-            this.patentesAsignadasFixed = familia.patentesAsignadas;
 
 
             InitializeComponent();
@@ -118,7 +116,7 @@ namespace Genesis
 
             foreach (Patente patente in patentesADesasignar)
             {
-                if (gestorDePatentes.VerificarPatenteEscencial(patente) == 0)
+                if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia) == 0)
                 {
                     MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AsignarPatentesAFamiliasMessageDesasignarError, patente.nombre));
                     return;

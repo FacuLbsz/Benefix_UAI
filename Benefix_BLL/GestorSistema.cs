@@ -223,7 +223,10 @@ public class GestorSistema
 
     public bool ConsultarPatentePorUsuario(String patente)
     {
-        //return baseDeDatos.ConsultarBase(String.Format("")).Rows.Count > 0;
-        return true;
+        if (baseDeDatos.ConsultarBase(String.Format("select * from patenteusuario inner join patente on patente.idPatente = patenteusuario.Patente_idPatente where patenteusuario.esPermisiva = 0 and patenteusuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count != 0)
+        {
+            return false;
+        }
+        return baseDeDatos.ConsultarBase(String.Format("select * from familiausuario inner join familiapatente on familiapatente.Familia_idFamilia = familiausuario.Familia_idFamilia inner join patente on patente.idPatente = familiapatente.Patente_idPatente where familiausuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count != 0;
     }
 }

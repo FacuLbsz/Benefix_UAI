@@ -170,7 +170,7 @@ namespace Genesis
 
             foreach (PatenteUsuario patente in patentesADesasignar)
             {
-                if (gestorDePatentes.VerificarPatenteEscencial(patente.patente) == 0)
+                if (gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null) == 0)
                 {
                     MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AsignarPatentesAUsuariosMessageDesasignarError, patente.patente.nombre));
                     return;

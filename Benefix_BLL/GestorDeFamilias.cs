@@ -61,7 +61,7 @@ public class GestorDeFamilias
             DataTable familiausuarioTable = baseDeDatos.ConsultarBase(String.Format("SELECT usuario.idUsuario, usuario.nombreUsuario FROM familiausuario INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE Familia_idFamilia = {0}", familia.identificador));
             foreach (DataRow familiausuarioTableRow in familiausuarioTable.Rows)
             {
-                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idPatente"]), nombre = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(familiausuarioTableRow["nombreUsuario"])) };
+                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idUsuario"]), nombre = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(familiausuarioTableRow["nombreUsuario"])) };
                 familia.usuariosAsignados.Add(usuario);
             }
 
@@ -88,7 +88,7 @@ public class GestorDeFamilias
     {
         foreach (Patente patente in familia.patentesAsignadas)
         {
-            if (gestorDePatentes.VerificarPatenteEscencial(patente) == 0)
+            if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia) == 0)
             {
                 throw new EntidadDuplicadaExcepcion(patente.nombre);
             }
@@ -99,7 +99,12 @@ public class GestorDeFamilias
             DesasignarPatente(patente, familia);
         }
 
-        return baseDeDatos.ModificarBase(String.Format("UPDATE FAMILIA SET habilitado = 0 WHERE idFamilia = {0}", familia.identificador));
+        foreach (Usuario usuario in familia.usuariosAsignados)
+        {
+            DesasignarUsuario(usuario, familia);
+        }
+
+        return baseDeDatos.ModificarBase(String.Format("delete familia where idFamilia = {0}", familia.identificador));
     }
 
     public int CrearFamilia(Familia familia)
@@ -114,14 +119,14 @@ public class GestorDeFamilias
 
     public int DesasignarPatente(Patente patente, Familia familia)
     {
-        var registros = baseDeDatos.ModificarBase(String.Format("DELETE FROM familiapatente WHERE Patente_idPatente = {0} AND Familia_idFamilia = {1})", patente.identificador, familia.identificador));
+        var registros = baseDeDatos.ModificarBase(String.Format("DELETE FROM familiapatente WHERE Patente_idPatente = {0} AND Familia_idFamilia = {1}", patente.identificador, familia.identificador));
         m_GestorDeDigitoVerificador.ModificarDigitoVV("familiapatente");
         return registros;
     }
 
     public int DesasignarUsuario(Usuario usuario, Familia familia)
     {
-        return baseDeDatos.ModificarBase(String.Format("DELETE FROM familiausuario WHERE Usuario_idUsuario = {0} AND Familia_idFamilia = {1})", usuario.identificador, familia.identificador)); ;
+        return baseDeDatos.ModificarBase(String.Format("DELETE FROM familiausuario WHERE Usuario_idUsuario = {0} AND Familia_idFamilia = {1}", usuario.identificador, familia.identificador)); ;
     }
 
 }

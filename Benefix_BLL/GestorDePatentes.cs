@@ -137,18 +137,28 @@ public class GestorDePatentes
         return patentes;
     }
 
-    public int VerificarPatenteEscencial(Patente patente)
+    public int VerificarPatenteEscencial(Patente patente, Usuario usuario, Familia familia)
     {
-        var cantidadDeAsignacionesAUsuario = baseDeDatos.ConsultarBase(String.Format("select * FROM PATENTEUSUARIO WHERE PATENTEUSUARIO.Patente_idPatente = {0} AND esPermisiva = 1", patente.identificador)).Rows.Count;
+        var selectCantidadDeAsignacionesAUsuario = String.Format("select * FROM PATENTEUSUARIO WHERE PATENTEUSUARIO.Patente_idPatente = {0} AND esPermisiva = 1", patente.identificador);
+        if (usuario != null)
+        {
+            selectCantidadDeAsignacionesAUsuario = selectCantidadDeAsignacionesAUsuario + String.Format("  AND Usuario_idUsuario != {0}", usuario.identificador);
+        }
+        var cantidadDeAsignacionesAUsuario = baseDeDatos.ConsultarBase(selectCantidadDeAsignacionesAUsuario).Rows.Count;
 
-        if (cantidadDeAsignacionesAUsuario > 1)
+        if (cantidadDeAsignacionesAUsuario >= 1)
         {
             return 1;
         }
 
-        var familiasPatenteDataTable = baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAPATENTE WHERE FAMILIAPATENTE.Patente_idPatente = {0}", patente.identificador));
+        var selectfamiliasPatenteDataTable = String.Format("select * FROM FAMILIAPATENTE WHERE FAMILIAPATENTE.Patente_idPatente = {0}", patente.identificador);
+        if (familia != null)
+        {
+            selectfamiliasPatenteDataTable = selectfamiliasPatenteDataTable + String.Format(" and Familia_idFamilia != {0}", familia.identificador);
+        }
+        var familiasPatenteDataTable = baseDeDatos.ConsultarBase(selectfamiliasPatenteDataTable);
 
-        if(cantidadDeAsignacionesAUsuario == 1 && familiasPatenteDataTable.Rows.Count == 0)
+        if (familiasPatenteDataTable.Rows.Count == 0)
         {
             return 0;
         }
@@ -158,8 +168,8 @@ public class GestorDePatentes
         {
             usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO WHERE FAMILIAUSUARIO.Familia_idFamilia = {0}", familiasPatente["Familia_idFamilia"].ToString())).Rows.Count;
         }
-        
-        return usuariosConEsaPatenteSegunFamilia == 1 ? 1 : 0;
+
+        return usuariosConEsaPatenteSegunFamilia >= 1 ? 1 : 0;
     }
 
 }
