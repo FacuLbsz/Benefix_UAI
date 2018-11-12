@@ -18,7 +18,7 @@ namespace Genesis
         {
             InitializeComponent();
             this.action = action;
-            textBox1.Text = "Persist Security Info=False;User ID=sa;Password=qwer1234;Initial Catalog=Benefix;Server=DESKTOP-VA9KCI4\\SQLEXPRESS";
+            //textBox1.Text = "Persist Security Info=False;User ID=sa;Password=qwer1234;Initial Catalog=Benefix;Server=DESKTOP-VA9KCI4\\SQLEXPRESS";
         }
 
         private void comenzarButton_Click(object sender, EventArgs e)

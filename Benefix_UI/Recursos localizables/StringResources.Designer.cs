@@ -610,6 +610,15 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña actual.
+        /// </summary>
+        internal static string ContrasenaActualLabel {
+            get {
+                return ResourceManager.GetString("ContrasenaActualLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Apellido.
         /// </summary>
         internal static string FormularioApellido {
@@ -808,6 +817,51 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Es requerido ingresar la contraseña actual.
+        /// </summary>
+        internal static string ModificarContrasenaActualRequerida {
+            get {
+                return ResourceManager.GetString("ModificarContrasenaActualRequerida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contrasena actual es incorrecta..
+        /// </summary>
+        internal static string ModificarContrasenaError {
+            get {
+                return ResourceManager.GetString("ModificarContrasenaError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Es requerido ingresar una nueva contraseña.
+        /// </summary>
+        internal static string ModificarContrasenaNuevaRequerida {
+            get {
+                return ResourceManager.GetString("ModificarContrasenaNuevaRequerida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña se ha modificado correctamente..
+        /// </summary>
+        internal static string ModificarContrasenaSatisfactorio {
+            get {
+                return ResourceManager.GetString("ModificarContrasenaSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva contraseña.
+        /// </summary>
+        internal static string NuevaContraseñaLabel {
+            get {
+                return ResourceManager.GetString("NuevaContraseñaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema..
         /// </summary>
         internal static string RestoreMessageError {
@@ -957,6 +1011,15 @@ namespace Genesis.Recursos_localizables {
         internal static string SistemaMenuItemMiEstado {
             get {
                 return ResourceManager.GetString("SistemaMenuItemMiEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modificar contraseña.
+        /// </summary>
+        internal static string SistemaMenuItemModificarContrasena {
+            get {
+                return ResourceManager.GetString("SistemaMenuItemModificarContrasena", resourceCulture);
             }
         }
         

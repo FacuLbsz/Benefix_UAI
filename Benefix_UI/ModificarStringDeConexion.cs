@@ -19,7 +19,7 @@ namespace Genesis
         {
             InitializeComponent();
             this.action = action;
-            stringDeConexionText.Text = "Persist Security Info=False;User ID=sa;Password=qwer1234;Initial Catalog=Benefix;Server=DESKTOP-VA9KCI4\\SQLEXPRESS";
+            //stringDeConexionText.Text = "Persist Security Info=False;User ID=sa;Password=qwer1234;Initial Catalog=Benefix;Server=DESKTOP-VA9KCI4\\SQLEXPRESS";
         }
 
         private void guardarButton_Click(object sender, EventArgs e)

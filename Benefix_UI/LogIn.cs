@@ -40,9 +40,6 @@ namespace Genesis
                     mainForm.Closed += (s, args) => this.Close();
                     mainForm.WindowState = FormWindowState.Maximized;
                     mainForm.Show();
-
-                    EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 2, funcionalidad = "LOGIN", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
-                    GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
                 }
                 else
                 {
@@ -74,7 +71,7 @@ namespace Genesis
                 //SDC Agregar llamado a consultar integridad de base de datos
                 if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
                 {
-                    //     ingresarButton.Enabled = false;
+                    ingresarButton.Enabled = false;
                     MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
                 }
                 else
@@ -88,8 +85,8 @@ namespace Genesis
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            nombreUsuarioText.Text = "admin.admin";
-            contraseñaText.Text = "osxApZQd";
+            //nombreUsuarioText.Text = "admin.admin";
+            //contraseñaText.Text = "osxApZQd";
 
             try
             {
@@ -102,6 +99,7 @@ namespace Genesis
                 {
                     GestorSistema.ModificarStringDeConexion(stringDConexion);
                 });
+                bienvenido.StartPosition = FormStartPosition.CenterScreen;
                 bienvenido.ShowDialog();
             }
 
@@ -109,14 +107,14 @@ namespace Genesis
             {
                 if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
                 {
-                    //     ingresarButton.Enabled = false;
+                    ingresarButton.Enabled = false;
                     MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
                 }
 
             }
             catch (Exception exc)
             {
-                //     ingresarButton.Enabled = false;
+                ingresarButton.Enabled = false;
                 MessageBox.Show("No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.");
             }
         }

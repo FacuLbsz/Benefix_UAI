@@ -127,13 +127,12 @@ namespace Genesis
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
 
-            //return new String(stringChars);
-            return "osxApZQd";
+            return new String(stringChars);
+            //return "osxApZQd";
         }
 
         private void ListarUsuarios()
         {
-            //dataGridView1.Rows.Clear();
             List<Usuario> usuarios = gestorDeUsuarios.ConsultarUsuarios();
 
             dataGridView1.DataSource = usuarios;

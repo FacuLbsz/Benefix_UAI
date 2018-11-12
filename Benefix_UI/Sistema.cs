@@ -144,7 +144,8 @@ namespace Genesis
             {
                 if (cb)
                 {
-                    Console.WriteLine("Confirmacion de logout");
+                    EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Logout", criticidad = 3, funcionalidad = "LOGOUT", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+                    GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
                     this.Close();
                 }
             });
@@ -234,5 +235,12 @@ namespace Genesis
             mainForm.Show();
         }
 
+        private void modificarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var mainForm = new ModificarContrasena();
+            mainForm.MdiParent = this;
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
+            mainForm.Show();
+        }
     }
 }

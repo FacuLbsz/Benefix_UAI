@@ -118,6 +118,8 @@ public class GestorDeUsuarios
 
     public int EliminarUsuario(Usuario usuario)
     {
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el usuario " + usuario.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
     }
 
@@ -187,6 +189,8 @@ public class GestorDeUsuarios
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET {0} WHERE idUsuario = {1}", set, usuario.identificador));
         GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el usuario " + usuario.identificador, criticidad = 2, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return registros;
     }
 
@@ -196,7 +200,7 @@ public class GestorDeUsuarios
         usuario.contrasena = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
         DataTable usuarioTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND contrasena = '{1}'", usuario.nombreUsuario, usuario.contrasena));
 
-        if(usuarioTable.Rows.Count > 0)
+        if (usuarioTable.Rows.Count > 0)
         {
             return PopularUsuarioDesdeBD(usuarioTable.Rows[0]);
         }
@@ -223,6 +227,17 @@ public class GestorDeUsuarios
     private String ObtenerDigitoVerificadorHDeUsuario(Usuario usuario)
     {
         return GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { usuario.nombreUsuario, usuario.nombre, usuario.apellido, usuario.contrasena });
+    }
+
+    public bool ModificarContrasena(Usuario usuario, String contrasenaAntigua, String contrasena)
+    {
+        if (BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE idUsuario = {0} AND contrasena = '{1}'", usuario.identificador, GestorDeEncriptacion.EncriptarMD5(contrasenaAntigua))).Rows.Count == 0)
+        {
+            return false;
+        }
+        usuario.contrasena = contrasena;
+        ModificarUsuario(usuario);
+        return true;
     }
 
 }

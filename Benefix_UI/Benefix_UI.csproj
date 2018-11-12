@@ -135,6 +135,12 @@
     <Compile Include="LogOut.Designer.cs">
       <DependentUpon>LogOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarContrasena.Designer.cs">
+      <DependentUpon>ModificarContrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos localizables\StringResources.en-US.Designer.cs">
       <DependentUpon>StringResources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogOut.resx">
       <DependentUpon>LogOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarContrasena.resx">
+      <DependentUpon>ModificarContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos localizables\StringResources.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>

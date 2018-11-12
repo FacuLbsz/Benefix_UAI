@@ -50,7 +50,7 @@ public class GestorSistema
 
         var map = new Dictionary<String, List<String>>();
         map.Add("BITACORA", new List<String>() { "criticidad", "descripcion", "fecha", "funcionalidad", "Usuario_idUsuario" });
-        //map.Add("USUARIO", new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" });
+        map.Add("USUARIO", new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" });
         map.Add("PATENTEUSUARIO", new List<String>() { "esPermisiva", "Patente_idPatente", "Usuario_idUsuario" });
         map.Add("FAMILIAPATENTE", new List<String>() { "Patente_idPatente", "Familia_idFamilia" });
         map.Add("BENEFICIO", new List<String>() { "descripcion", "puntaje" });
@@ -120,6 +120,9 @@ public class GestorSistema
             return 0;
         }
         this.usuarioEnSesion = usuarioLogin;
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Login", criticidad = 3, funcionalidad = "LOGIN", usuario = ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return 1;
     }
 
@@ -137,6 +140,8 @@ public class GestorSistema
         {
             return 0;
         }
+        //EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión.", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = ObtenerUsuarioEnSesion()!=null? ObtenerUsuarioEnSesion(): 0 };
+        //GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return 1;
     }
 

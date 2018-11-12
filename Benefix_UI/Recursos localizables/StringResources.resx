@@ -300,6 +300,9 @@
   <data name="ButtonSeleccionar" xml:space="preserve">
     <value>Seleccionar</value>
   </data>
+  <data name="ContrasenaActualLabel" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
   <data name="FormularioApellido" xml:space="preserve">
     <value>Apellido</value>
   </data>
@@ -366,6 +369,21 @@
   <data name="LogoutLabel" xml:space="preserve">
     <value>¿Desea cerrar su sesión? Toda la información no guardada se perdera.</value>
   </data>
+  <data name="ModificarContrasenaActualRequerida" xml:space="preserve">
+    <value>Es requerido ingresar la contraseña actual</value>
+  </data>
+  <data name="ModificarContrasenaError" xml:space="preserve">
+    <value>La contrasena actual es incorrecta.</value>
+  </data>
+  <data name="ModificarContrasenaNuevaRequerida" xml:space="preserve">
+    <value>Es requerido ingresar una nueva contraseña</value>
+  </data>
+  <data name="ModificarContrasenaSatisfactorio" xml:space="preserve">
+    <value>La contraseña se ha modificado correctamente.</value>
+  </data>
+  <data name="NuevaContraseñaLabel" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
   <data name="RestoreMessageError" xml:space="preserve">
     <value>Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema.</value>
   </data>
@@ -416,6 +434,9 @@
   </data>
   <data name="SistemaMenuItemMiEstado" xml:space="preserve">
     <value>Mi estado</value>
+  </data>
+  <data name="SistemaMenuItemModificarContrasena" xml:space="preserve">
+    <value>Modificar contraseña</value>
   </data>
   <data name="SistemaMenuItemObjetivosPorEmpleados" xml:space="preserve">
     <value>Objetivos por empleado</value>
