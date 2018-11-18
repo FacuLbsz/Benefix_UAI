@@ -14,6 +14,7 @@ namespace Genesis
     public partial class RealizarBackup : Form
     {
         private GestorSistema gestorSistema;
+        private String SelectedPath = "";
         public RealizarBackup()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Genesis
         private bool EsUnFormularioValido()
         {
 
-            if(rutaDestinoText.Text.Trim().Length == 0)
+            if(SelectedPath.Trim().Length == 0)
             {
                 MessageBox.Show(Genesis.Recursos_localizables.StringResources.BackupMessageRutaDestinoVacia);
                 return false;
@@ -70,7 +71,22 @@ namespace Genesis
 
             cantidadDeVolumenesComboBox.SelectedIndex = index;
 
-            rutaDestinoText.Text = "C:\\Users\\Facundo-Zenbook\\Desktop";
+            rutaDestinoText.Enabled = false;
+        }
+
+        private void seleccionarButton_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Selecciona donde depositar tu backup";
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    rutaDestinoText.Text = fbd.SelectedPath;
+                    SelectedPath = fbd.SelectedPath;
+                }
+            }
         }
     }
 }

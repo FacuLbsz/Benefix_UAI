@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -57,11 +58,42 @@ namespace Genesis
 
         private void restablecerContraseñaButton_Click(object sender, EventArgs e)
         {
-            var contrasena = StringRandom(8);
-            Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, contrasena = contrasena };
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Selecciona donde depositar tu contraseña";
+                DialogResult result = fbd.ShowDialog();
 
-            gestorDeUsuarios.ModificarUsuario(usuario);
-            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageContraseñaRestablecida + contrasena);
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    var contrasena = StringRandom(8);
+                    Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, contrasena = contrasena };
+
+                    gestorDeUsuarios.ModificarUsuario(usuario);
+
+                    var filePath = fbd.SelectedPath + "\\" + nombreDeUsuarioText.Text + "_contraseña.txt";
+
+                    if (!File.Exists(filePath))
+                    {
+                        File.Create(filePath).Dispose();
+
+                        using (TextWriter tw = new StreamWriter(filePath))
+                        {
+                            tw.WriteLine(contrasena);
+                        }
+
+                    }
+                    else if (File.Exists(filePath))
+                    {
+                        using (TextWriter tw = new StreamWriter(filePath))
+                        {
+                            tw.WriteLine(contrasena);
+                        }
+                    }
+
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageContraseñaRestablecida + filePath);
+                }
+            }
+
         }
 
         private void nombreText_TextChanged(object sender, EventArgs e)

@@ -127,7 +127,7 @@
     <value>La familia ha sido creado con existo</value>
   </data>
   <data name="AdministracionDeUsuariosMessageContraseñaRestablecida" xml:space="preserve">
-    <value>La contraseña ha sido restablecida en la ruta seleccionada.</value>
+    <value>La contraseña ha sido restablecida en la ruta seleccionada. </value>
   </data>
   <data name="AdministracionDeUsuariosMessageEmailInvalido" xml:space="preserve">
     <value>El email ingresado no corresponde a un formato válido.</value>
