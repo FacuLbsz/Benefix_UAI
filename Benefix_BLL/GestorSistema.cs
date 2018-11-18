@@ -45,6 +45,73 @@ public class GestorSistema
         return instancia;
     }
 
+    public void RecalcularDigitosVerificadores()
+    {
+        var map = new Dictionary<String, Dictionary<String, List<String>>>();
+        map.Add("BITACORA",
+            new Dictionary<String, List<String>>()
+            { {"idBitacora", new List<String>() { "criticidad", "descripcion", "fecha", "funcionalidad", "Usuario_idUsuario" } } });
+
+        map.Add("USUARIO",
+            new Dictionary<String, List<String>>()
+            {{"idUsuario" , new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" } } });
+        map.Add("PATENTEUSUARIO",
+            new Dictionary<String, List<String>>()
+            {{"idPatente" , new List<String>() { "esPermisiva", "Patente_idPatente", "Usuario_idUsuario" } } });
+        map.Add("FAMILIAPATENTE",
+            new Dictionary<String, List<String>>()
+            {{"idFamiliaPatente" , new List<String>() { "Patente_idPatente", "Familia_idFamilia" } } });
+        map.Add("BENEFICIO",
+            new Dictionary<String, List<String>>()
+            {{"idBeneficio" , new List<String>() { "descripcion", "puntaje" } } });
+        //SDC Modificar campos que contendran DVH en la tabla EVALUACION
+        map.Add("EVALUACION",
+            new Dictionary<String, List<String>>()
+            {{"idEvaluacion" , new List<String>() { "puntaje", "periodo" } } });
+
+        foreach (String tabla in map.Keys)
+        {
+            var identificadorConColumnas = map[tabla];
+            identificadorConColumnas.Keys.GetEnumerator().MoveNext();
+            foreach (String identificador in identificadorConColumnas.Keys)
+            {
+                var atributos = identificadorConColumnas[identificador];
+                RecalcularDigitosVerificadores(tabla, atributos, identificador);
+            }
+        }
+    }
+
+    private void RecalcularDigitosVerificadores(String tabla, List<String> atributos, String identificador)
+    {
+        DataTable dataTable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM {0}", tabla));
+
+        Int64 digitosVHBitacora = 0;
+        foreach (DataRow eventoBitacora in dataTable.Rows)
+        {
+            List<String> argumentos = new List<String>();
+            foreach (String atributo in atributos)
+            {
+                argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+            }
+
+            var id = eventoBitacora[identificador];
+
+            var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(argumentos);
+
+            baseDeDatos.ModificarBase(String.Format("UPDATE {0} SET digitoVerificadorH = '{1}' WHERE {2} = {3}", tabla, digitoVH, identificador, id));
+
+            foreach (char a in digitoVH)
+            {
+                digitosVHBitacora = digitosVHBitacora + a;
+            }
+        }
+
+        if (digitosVHBitacora > 0)
+        {
+            baseDeDatos.ModificarBase(String.Format("UPDATE digitoverificadorvertical SET digitoVerificador = '{0}' WHERE tabla = '{1}'", digitosVHBitacora, tabla));
+        }
+    }
+
     public int ConsultarIntegridadDeBaseDeDatos()
     {
 
@@ -73,7 +140,7 @@ public class GestorSistema
 
         DataTable dataTable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM {0}", tabla));
 
-        String digitosVHBitacora = "";
+        Int64 digitoVV = 0;
         foreach (DataRow eventoBitacora in dataTable.Rows)
         {
             List<String> argumentos = new List<String>();
@@ -89,16 +156,20 @@ public class GestorSistema
                 return 0;
             }
 
-            digitosVHBitacora = digitosVHBitacora + digitoVH;
+            
+            foreach (char a in digitoVH)
+            {
+                digitoVV = digitoVV + a;
+            }
         }
 
-        if (digitosVHBitacora.Length > 0)
+        if (digitoVV > 0)
         {
             dataTable = baseDeDatos.ConsultarBase(String.Format("SELECT digitoVerificador FROM digitoverificadorvertical WHERE tabla = '{0}'", tabla));
 
             if (dataTable.Rows.Count > 0)
             {
-                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(GestorDeEncriptacion.EncriptarMD5(digitosVHBitacora)))
+                if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(digitoVV.ToString()))
                 {
                     return 0;
                 }
@@ -138,7 +209,9 @@ public class GestorSistema
         }
         catch (Exception e)
         {
-            return 0;
+            //EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión.", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = ObtenerUsuarioEnSesion()!=null? ObtenerUsuarioEnSesion(): 0 };
+            //GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+            throw new Exception("No fue posible acceder a la Base de datos ingresada, por favor verifique el String de Conexion.");
         }
         //EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión.", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = ObtenerUsuarioEnSesion()!=null? ObtenerUsuarioEnSesion(): 0 };
         //GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
@@ -228,10 +301,14 @@ public class GestorSistema
 
     public bool ConsultarPatentePorUsuario(String patente)
     {
-        if (baseDeDatos.ConsultarBase(String.Format("select * from patenteusuario inner join patente on patente.idPatente = patenteusuario.Patente_idPatente where patenteusuario.esPermisiva = 0 and patenteusuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count != 0)
+        var patenteUsuarios = baseDeDatos.ConsultarBase(String.Format("select esPermisiva from patenteusuario inner join patente on patente.idPatente = patenteusuario.Patente_idPatente where patenteusuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente));
+        if (patenteUsuarios.Rows.Count > 0)
         {
-            return false;
+            foreach (DataRow row in patenteUsuarios.Rows)
+            {
+                return Convert.ToBoolean(row["esPermisiva"]);
+            }
         }
-        return baseDeDatos.ConsultarBase(String.Format("select * from familiausuario inner join familiapatente on familiapatente.Familia_idFamilia = familiausuario.Familia_idFamilia inner join patente on patente.idPatente = familiapatente.Patente_idPatente where familiausuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count != 0;
+        return baseDeDatos.ConsultarBase(String.Format("select * from familiausuario inner join familiapatente on familiapatente.Familia_idFamilia = familiausuario.Familia_idFamilia inner join patente on patente.idPatente = familiapatente.Patente_idPatente where familiausuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count > 0;
     }
 }

@@ -245,10 +245,20 @@ namespace Genesis
 
                 Usuario usuario = new Usuario() { identificador = usuarioSeleccionado, nombre = nombre, apellido = apellido, email = email };
 
-                gestorDeUsuarios.ModificarUsuario(usuario);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioModificado);
-                LimpiarFormulario();
-                ListarUsuarios();
+                try
+                {
+                    gestorDeUsuarios.ModificarUsuario(usuario);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioModificado);
+                    LimpiarFormulario();
+                    ListarUsuarios();
+                }
+                catch (EntidadDuplicadaExcepcion excepcion)
+                {
+                    if (excepcion.atributo == "email")
+                    {
+                        MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdminsitracionDeUsuariosMessageEmailDuplicado);
+                    }
+                }
             }
         }
 

@@ -33,23 +33,25 @@ public class GestorDeDigitoVerificador
     {
         DataTable dataTable = baseDeDatos.ConsultarBase("SELECT digitoVerificadorH from " + tabla);
 
-        String digitoVV = "";
+        Int64 digitoVV = 0;
         foreach (DataRow row in dataTable.Rows)
         {
-            digitoVV = digitoVV + Convert.ToString(row["digitoVerificadorH"]);
+            var digitoVH = Convert.ToString(row["digitoVerificadorH"]);
+            foreach (char a in digitoVH)
+            {
+                digitoVV = digitoVV + a;
+            }
         }
-
-        String digitoVVMD5 = GestorDeEncriptacion.EncriptarMD5(digitoVV);
 
         DataTable digitoVVPrevio = baseDeDatos.ConsultarBase(String.Format("Select * From digitoverificadorvertical where tabla = '{0}'", tabla));
 
         if (digitoVVPrevio.Rows.Count == 0)
         {
-            baseDeDatos.ModificarBase(String.Format("INSERT INTO digitoverificadorvertical (tabla,digitoVerificador) VALUES ('{0}','{1}')", tabla, digitoVVMD5));
+            baseDeDatos.ModificarBase(String.Format("INSERT INTO digitoverificadorvertical (tabla,digitoVerificador) VALUES ('{0}','{1}')", tabla, digitoVV));
         }
         else
         {
-            baseDeDatos.ModificarBase(String.Format("UPDATE digitoverificadorvertical SET digitoVerificador = '{0}' WHERE tabla = '{1}'", digitoVVMD5, tabla));
+            baseDeDatos.ModificarBase(String.Format("UPDATE digitoverificadorvertical SET digitoVerificador = '{0}' WHERE tabla = '{1}'", digitoVV, tabla));
         }
 
     }

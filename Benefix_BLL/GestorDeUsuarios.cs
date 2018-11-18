@@ -10,12 +10,14 @@ public class GestorDeUsuarios
 
     private static GestorDeUsuarios instancia;
     private GestorDeDigitoVerificador GestorDeDigitoVerificador;
+    private GestorDePatentes gestorDePatentes;
     private GestorDeBitacora m_GestorDeBitacora;
     private GestorDeEncriptacion GestorDeEncriptacion;
 
     private GestorDeUsuarios()
     {
         GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
+        gestorDePatentes = GestorDePatentes.ObtenerInstancia();
     }
 
     public static GestorDeUsuarios ObtenerInstancia()
@@ -118,6 +120,22 @@ public class GestorDeUsuarios
 
     public int EliminarUsuario(Usuario usuario)
     {
+
+        var patentesDelUsuario = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
+
+        foreach (PatenteUsuario patente in patentesDelUsuario)
+        {
+            if (gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null) == 0)
+            {
+                throw new Exception(patente.patente.nombre);
+            }
+        }
+
+        patentesDelUsuario.ForEach((patente) =>
+        {
+            gestorDePatentes.DesasignarAUnUsuario(usuario, patente.patente);
+        });
+
         EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el usuario " + usuario.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
@@ -140,6 +158,14 @@ public class GestorDeUsuarios
     public int ModificarUsuario(Usuario usuario)
     {
         Usuario usuarioViejo = ObtenerUsuarioBD(usuario.identificador);
+
+        if (usuario.email != null && !usuarioViejo.email.Equals(usuario.email))
+        {
+            if (VerificarEmail(usuario.email) == 1)
+            {
+                throw new EntidadDuplicadaExcepcion("email");
+            }
+        }
 
         String set = "";
         if (usuario.nombre != null && usuarioViejo.nombre != usuario.nombre)

@@ -41,7 +41,7 @@ public class GestorDePatentes
         var registros = 0;
         if (datataTable.Rows.Count > 0)
         {
-            registros = baseDeDatos.ModificarBase(String.Format("UPDATE PATENTEUSUARIO SET esPermisiva = {0}, digitoVerificadorH = '{0}'", esPermisivo, digitoVH));
+            registros = baseDeDatos.ModificarBase(String.Format("UPDATE PATENTEUSUARIO SET esPermisiva = {0}, digitoVerificadorH = '{1}' WHERE Patente_idPatente = {2} AND Usuario_idUsuario  = {3} ", esPermisivo, digitoVH, patente, usuario));
         }
         else
         {
@@ -56,7 +56,7 @@ public class GestorDePatentes
     public int DesasignarAUnUsuario(Usuario usuario, Patente patente)
     {
 
-        var registros = baseDeDatos.ModificarBase(String.Format("DELETE FROM PATENTEUSUARIO  WHERE Patente_idPatente = {0} AND Usuario_idUsuario  = {1}", patente, usuario));
+        var registros = baseDeDatos.ModificarBase(String.Format("DELETE FROM PATENTEUSUARIO  WHERE Patente_idPatente = {0} AND Usuario_idUsuario  = {1}", patente.identificador, usuario.identificador));
         gestorDeDigitoVerificador.ModificarDigitoVV("PATENTEUSUARIO");
 
         return registros;
@@ -137,9 +137,10 @@ public class GestorDePatentes
         return patentes;
     }
 
+    //SDC agregar nuevos parametros de entrada
     public int VerificarPatenteEscencial(Patente patente, Usuario usuario, Familia familia)
     {
-        var selectCantidadDeAsignacionesAUsuario = String.Format("select * FROM PATENTEUSUARIO WHERE PATENTEUSUARIO.Patente_idPatente = {0} AND esPermisiva = 1", patente.identificador);
+        var selectCantidadDeAsignacionesAUsuario = String.Format("select * FROM PATENTEUSUARIO inner join usuario on usuario.idUsuario = patenteusuario.Usuario_idUsuario WHERE PATENTEUSUARIO.Patente_idPatente = {0} AND esPermisiva = 1 AND Usuario.habilitado = 1", patente.identificador);
         if (usuario != null)
         {
             selectCantidadDeAsignacionesAUsuario = selectCantidadDeAsignacionesAUsuario + String.Format("  AND Usuario_idUsuario != {0}", usuario.identificador);
@@ -166,7 +167,7 @@ public class GestorDePatentes
         int usuariosConEsaPatenteSegunFamilia = 0;
         foreach (DataRow familiasPatente in familiasPatenteDataTable.Rows)
         {
-            usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO WHERE FAMILIAUSUARIO.Familia_idFamilia = {0}", familiasPatente["Familia_idFamilia"].ToString())).Rows.Count;
+            usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE FAMILIAUSUARIO.Familia_idFamilia = {0} AND usuario.habilitado = 1", familiasPatente["Familia_idFamilia"].ToString())).Rows.Count;
         }
 
         return usuariosConEsaPatenteSegunFamilia >= 1 ? 1 : 0;

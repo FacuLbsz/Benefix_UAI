@@ -96,7 +96,9 @@ namespace Genesis
                 gestorDeFamilias.DesasignarUsuario(usuario, familia);
             }
 
-            foreach (Usuario usuario in usuarioAsignados)
+            var usuariosAAsignar = usuarioAsignados.Except(usuarioAsignadosFixed).ToList();
+
+            foreach (Usuario usuario in usuariosAAsignar)
             {
                 gestorDeFamilias.AsignarUsuario(usuario, familia);
             }

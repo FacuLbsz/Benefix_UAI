@@ -72,11 +72,13 @@ namespace Genesis
                 if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
                 {
                     ingresarButton.Enabled = false;
+                    recalcularDigitosButton.Visible = true;
                     MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
                 }
                 else
                 {
                     ingresarButton.Enabled = cb;
+                    MessageBox.Show("La conexion a la base de datos fue satisfactoria.");
                 }
             });
             mainForm.StartPosition = FormStartPosition.CenterScreen;
@@ -86,8 +88,9 @@ namespace Genesis
         private void LogIn_Load(object sender, EventArgs e)
         {
             //nombreUsuarioText.Text = "admin.admin";
-            //contraseñaText.Text = "osxApZQd";
-
+            contraseñaText.Text = "osxApZQd";
+            var modificarStringBienvenidoFallo = false;
+            recalcularDigitosButton.Visible = false;
             try
             {
                 GestorSistema.ObtenerInstancia();
@@ -97,7 +100,16 @@ namespace Genesis
             {
                 Bienvenido bienvenido = new Bienvenido((stringDConexion) =>
                 {
-                    GestorSistema.ModificarStringDeConexion(stringDConexion);
+                    try
+                    {
+                        GestorSistema.ModificarStringDeConexion(stringDConexion);
+                        MessageBox.Show("La conexion a la base de datos fue satisfactoria.");
+                    }
+                    catch (Exception modifExc)
+                    {
+                        modificarStringBienvenidoFallo = true;
+                        MessageBox.Show(modifExc.Message);
+                    }
                 });
                 bienvenido.StartPosition = FormStartPosition.CenterScreen;
                 bienvenido.ShowDialog();
@@ -108,6 +120,7 @@ namespace Genesis
                 if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
                 {
                     ingresarButton.Enabled = false;
+                    recalcularDigitosButton.Visible = true;
                     MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
                 }
 
@@ -115,9 +128,29 @@ namespace Genesis
             catch (Exception exc)
             {
                 ingresarButton.Enabled = false;
-                MessageBox.Show("No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.");
+                if (!modificarStringBienvenidoFallo)
+                {
+                    MessageBox.Show("No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.");
+                }
             }
         }
 
+        private void recalcularDigitosButton_Click(object sender, EventArgs e)
+        {
+            GestorSistema.ObtenerInstancia().RecalcularDigitosVerificadores();
+
+            if (GestorSistema.ObtenerInstancia().ConsultarIntegridadDeBaseDeDatos() == 0)
+            {
+                ingresarButton.Enabled = false;
+                recalcularDigitosButton.Visible = true;
+                MessageBox.Show("La integridad de la base de datos ha sido corrompida, por favor comuniquese con el administrador de sistema.");
+            }
+            else
+            {
+                ingresarButton.Enabled = true;
+                recalcularDigitosButton.Visible = false;
+                MessageBox.Show("Se ha corregido la integridad de la base de datos correctamente.");
+            }
+        }
     }
 }

@@ -13,8 +13,9 @@ namespace Genesis
     public partial class AsignarPatentesAUsuarios : Form
     {
         private GestorDePatentes gestorDePatentes;
-        private static List<PatenteUsuario> patentesDelUsuario;
-        private static List<Patente> patentesNoAsignadas;
+        private List<PatenteUsuario> patentesDelUsuario;
+        private List<PatenteUsuario> patentesDelUsuarioFixed;
+        private List<Patente> patentesNoAsignadas;
         private static Usuario usuario;
         public AsignarPatentesAUsuarios(Usuario usuariox)
         {
@@ -27,8 +28,9 @@ namespace Genesis
 
         private void AsignarPatentesAUsuarios_Load(object sender, EventArgs e)
         {
-            patentesDelUsuario = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
-            patentesNoAsignadas = gestorDePatentes.ObtenerPatentesNoAsignadasAUnUsuario(usuario);
+            this.patentesDelUsuario = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
+            this.patentesDelUsuarioFixed = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
+            this.patentesNoAsignadas = gestorDePatentes.ObtenerPatentesNoAsignadasAUnUsuario(usuario);
 
             var binding = new BindingSource();
             binding.DataSource = patentesNoAsignadas;
@@ -164,9 +166,7 @@ namespace Genesis
         private void guardarButton_Click(object sender, EventArgs e)
         {
 
-            List<PatenteUsuario> patentesDelUsuarioViejas = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
-
-            var patentesADesasignar = patentesDelUsuarioViejas.Except(patentesDelUsuario).ToList();
+            var patentesADesasignar = patentesDelUsuarioFixed.Except(patentesDelUsuario).ToList();
 
             foreach (PatenteUsuario patente in patentesADesasignar)
             {

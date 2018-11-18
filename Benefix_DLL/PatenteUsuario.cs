@@ -28,6 +28,11 @@ public class PatenteUsuario
             return false;
         }
 
+        if(item.esPermisivo && !this.esPermisivo)
+        {
+            return false;
+        }
+
         return item.patente.identificador == patente.identificador;
     }
 

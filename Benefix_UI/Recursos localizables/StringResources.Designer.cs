@@ -88,7 +88,7 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La contraseña ha sido restablecida: \n.
+        ///   Busca una cadena traducida similar a La contraseña ha sido restablecida en la ruta seleccionada..
         /// </summary>
         internal static string AdministracionDeUsuariosMessageContraseñaRestablecida {
             get {

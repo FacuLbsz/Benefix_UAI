@@ -28,6 +28,10 @@ namespace Genesis
                 action(textBox1.Text);
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Ingrese por favor un String de Conexión.");
+            }
         }
     }
 }

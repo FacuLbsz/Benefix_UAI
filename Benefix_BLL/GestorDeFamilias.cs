@@ -58,10 +58,10 @@ public class GestorDeFamilias
                 familia.patentesAsignadas.Add(patente);
             }
 
-            DataTable familiausuarioTable = baseDeDatos.ConsultarBase(String.Format("SELECT usuario.idUsuario, usuario.nombreUsuario FROM familiausuario INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE Familia_idFamilia = {0}", familia.identificador));
+            DataTable familiausuarioTable = baseDeDatos.ConsultarBase(String.Format("SELECT usuario.idUsuario, usuario.nombreUsuario FROM familiausuario INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE Familia_idFamilia = {0} AND USUARIO.habilitado = 1", familia.identificador));
             foreach (DataRow familiausuarioTableRow in familiausuarioTable.Rows)
             {
-                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idUsuario"]), nombre = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(familiausuarioTableRow["nombreUsuario"])) };
+                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idUsuario"]), nombreUsuario = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(familiausuarioTableRow["nombreUsuario"])) };
                 familia.usuariosAsignados.Add(usuario);
             }
 
@@ -86,7 +86,23 @@ public class GestorDeFamilias
 
     public int EliminarFamilia(Familia familia)
     {
-        foreach (Patente patente in familia.patentesAsignadas)
+        var patentesAsignadas = new List<Patente>();
+        DataTable familiapatenteTable = baseDeDatos.ConsultarBase(String.Format("SELECT patente.idPatente, patente.nombre FROM familiapatente INNER JOIN PATENTE on familiapatente.Patente_idPatente = PATENTE.idPatente WHERE Familia_idFamilia = {0}", familia.identificador));
+        foreach (DataRow familiapatenteRow in familiapatenteTable.Rows)
+        {
+            Patente patente = new Patente() { identificador = Convert.ToInt32(familiapatenteRow["idPatente"]) };
+            patentesAsignadas.Add(patente);
+        }
+
+        var usuariosAsignados = new List<Usuario>();
+        DataTable familiausuarioTable = baseDeDatos.ConsultarBase(String.Format("SELECT usuario.idUsuario, usuario.nombreUsuario FROM familiausuario INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE Familia_idFamilia = {0}", familia.identificador));
+        foreach (DataRow familiausuarioTableRow in familiausuarioTable.Rows)
+        {
+            Usuario usuario = new Usuario() { identificador = Convert.ToInt32(familiausuarioTableRow["idUsuario"]) };
+            usuariosAsignados.Add(usuario);
+        }
+
+        foreach (Patente patente in patentesAsignadas)
         {
             if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia) == 0)
             {
@@ -94,12 +110,12 @@ public class GestorDeFamilias
             }
         }
 
-        foreach (Patente patente in familia.patentesAsignadas)
+        foreach (Patente patente in patentesAsignadas)
         {
             DesasignarPatente(patente, familia);
         }
 
-        foreach (Usuario usuario in familia.usuariosAsignados)
+        foreach (Usuario usuario in usuariosAsignados)
         {
             DesasignarUsuario(usuario, familia);
         }

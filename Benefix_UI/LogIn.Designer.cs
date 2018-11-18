@@ -34,6 +34,7 @@
             this.contraseñaText = new System.Windows.Forms.TextBox();
             this.ingresarButton = new System.Windows.Forms.Button();
             this.modificarStringButton = new System.Windows.Forms.Button();
+            this.recalcularDigitosButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nombreUsuarioText
@@ -92,11 +93,22 @@
             this.modificarStringButton.UseVisualStyleBackColor = true;
             this.modificarStringButton.Click += new System.EventHandler(this.modificarStringButton_Click);
             // 
+            // recalcularDigitosButton
+            // 
+            this.recalcularDigitosButton.Location = new System.Drawing.Point(12, 315);
+            this.recalcularDigitosButton.Name = "recalcularDigitosButton";
+            this.recalcularDigitosButton.Size = new System.Drawing.Size(258, 38);
+            this.recalcularDigitosButton.TabIndex = 7;
+            this.recalcularDigitosButton.Text = "Recalcular Digitos Verif";
+            this.recalcularDigitosButton.UseVisualStyleBackColor = true;
+            this.recalcularDigitosButton.Click += new System.EventHandler(this.recalcularDigitosButton_Click);
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 365);
+            this.Controls.Add(this.recalcularDigitosButton);
             this.Controls.Add(this.modificarStringButton);
             this.Controls.Add(this.ingresarButton);
             this.Controls.Add(this.label2);
@@ -120,6 +132,7 @@
         private System.Windows.Forms.TextBox contraseñaText;
         private System.Windows.Forms.Button ingresarButton;
         private System.Windows.Forms.Button modificarStringButton;
+        private System.Windows.Forms.Button recalcularDigitosButton;
     }
 }
 

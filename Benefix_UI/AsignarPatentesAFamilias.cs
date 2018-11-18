@@ -129,7 +129,9 @@ namespace Genesis
                 gestorDeFamilias.DesasignarPatente(patente, familia);
             }
 
-            foreach (Patente patente in patentesAsignadas)
+            var patentesAAsignar = patentesAsignadas.Except(patentesAsignadasFixed).ToList();
+
+            foreach (Patente patente in patentesAAsignar)
             {
                 gestorDeFamilias.AsignarPatente(patente, familia);
             }
