@@ -269,5 +269,11 @@ namespace Genesis
             LimpiarFormulario();
             ListarUsuarios();
         }
+
+        private void desbloquearUsuarioButton_Click(object sender, EventArgs e)
+        {
+            gestorDeUsuarios.DesbloquearUsuario(new Usuario() { identificador = usuarioSeleccionado });
+            MessageBox.Show(Genesis.Recursos_localizables.StringResources.DesbloquearUsuarioLabel);
+        }
     }
 }

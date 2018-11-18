@@ -502,6 +502,15 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Debloquear usuario.
+        /// </summary>
+        internal static string ButtonDesbloquearUsuario {
+            get {
+                return ResourceManager.GetString("ButtonDesbloquearUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Eliminar.
         /// </summary>
         internal static string ButtonEliminar {
@@ -610,11 +619,47 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Vuelve a escribir tu nueva contraseña.
+        /// </summary>
+        internal static string ConfirmarNuevaContraseñaLabel {
+            get {
+                return ResourceManager.GetString("ConfirmarNuevaContraseñaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La nueva contraseña no coincide.
+        /// </summary>
+        internal static string ConfirmarNuevaContraseñaNoCoinciden {
+            get {
+                return ResourceManager.GetString("ConfirmarNuevaContraseñaNoCoinciden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Es necesario ingresar nuevamente tu contraseña.
+        /// </summary>
+        internal static string ConfirmarNuevaContraseñaRequerida {
+            get {
+                return ResourceManager.GetString("ConfirmarNuevaContraseñaRequerida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contraseña actual.
         /// </summary>
         internal static string ContrasenaActualLabel {
             get {
                 return ResourceManager.GetString("ContrasenaActualLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario desbloqueado con exito.
+        /// </summary>
+        internal static string DesbloquearUsuarioLabel {
+            get {
+                return ResourceManager.GetString("DesbloquearUsuarioLabel", resourceCulture);
             }
         }
         

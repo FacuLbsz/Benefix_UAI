@@ -44,16 +44,17 @@
             this.apellidoText = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.emailText = new System.Windows.Forms.TextBox();
+            this.desbloquearUsuarioButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // asignarPatentesButton
             // 
-            this.asignarPatentesButton.Location = new System.Drawing.Point(319, 341);
+            this.asignarPatentesButton.Location = new System.Drawing.Point(319, 394);
             this.asignarPatentesButton.Name = "asignarPatentesButton";
             this.asignarPatentesButton.Size = new System.Drawing.Size(242, 38);
             this.asignarPatentesButton.TabIndex = 53;
-            this.asignarPatentesButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarPatentes;
+            this.asignarPatentesButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignarPatentes;
             this.asignarPatentesButton.UseVisualStyleBackColor = true;
             this.asignarPatentesButton.Click += new System.EventHandler(this.asignarPatentesButton_Click);
             // 
@@ -72,14 +73,14 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 551);
+            this.dataGridView1.Size = new System.Drawing.Size(240, 604);
             this.dataGridView1.TabIndex = 46;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CurrentCellChanged);
             // 
             // nombreUsuario
             // 
             this.nombreUsuario.DataPropertyName = "nombreUsuario";
-            this.nombreUsuario.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuarios;
+            this.nombreUsuario.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableUsuarios;
             this.nombreUsuario.Name = "nombreUsuario";
             this.nombreUsuario.ReadOnly = true;
             // 
@@ -89,47 +90,47 @@
             this.restablecerContraseñaButton.Name = "restablecerContraseñaButton";
             this.restablecerContraseñaButton.Size = new System.Drawing.Size(242, 38);
             this.restablecerContraseñaButton.TabIndex = 54;
-            this.restablecerContraseñaButton.Text = Genesis.Recursos_localizables.StringResources.ButtonRestablecerContraseña;
+            this.restablecerContraseñaButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonRestablecerContraseña;
             this.restablecerContraseñaButton.UseVisualStyleBackColor = true;
             this.restablecerContraseñaButton.Click += new System.EventHandler(this.restablecerContraseñaButton_Click);
             // 
             // eliminarButton
             // 
-            this.eliminarButton.Location = new System.Drawing.Point(319, 553);
+            this.eliminarButton.Location = new System.Drawing.Point(319, 606);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 52;
-            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
+            this.eliminarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
             this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
-            this.modificarButton.Location = new System.Drawing.Point(319, 500);
+            this.modificarButton.Location = new System.Drawing.Point(319, 553);
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 51;
-            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
+            this.modificarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // crearButton
             // 
-            this.crearButton.Location = new System.Drawing.Point(319, 447);
+            this.crearButton.Location = new System.Drawing.Point(319, 500);
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 50;
-            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear; 
+            this.crearButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonCrear;
             this.crearButton.UseVisualStyleBackColor = true;
             this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(319, 394);
+            this.limpiarButton.Location = new System.Drawing.Point(319, 447);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(242, 38);
             this.limpiarButton.TabIndex = 49;
-            this.limpiarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
+            this.limpiarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
@@ -140,7 +141,7 @@
             this.nombreDeUsuarioLabel.Name = "nombreDeUsuarioLabel";
             this.nombreDeUsuarioLabel.Size = new System.Drawing.Size(143, 20);
             this.nombreDeUsuarioLabel.TabIndex = 48;
-            this.nombreDeUsuarioLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombreUsuario;
+            this.nombreDeUsuarioLabel.Text = "Nombre de usuario";
             // 
             // nombreDeUsuarioText
             // 
@@ -158,7 +159,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 57;
-            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
+            this.nombreLabel.Text = "Nombre";
             // 
             // nombreText
             // 
@@ -176,7 +177,7 @@
             this.apellidoLabel.Name = "apellidoLabel";
             this.apellidoLabel.Size = new System.Drawing.Size(65, 20);
             this.apellidoLabel.TabIndex = 59;
-            this.apellidoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioApellido;
+            this.apellidoLabel.Text = "Apellido";
             // 
             // apellidoText
             // 
@@ -194,7 +195,7 @@
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(48, 20);
             this.emailLabel.TabIndex = 61;
-            this.emailLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioEmail;
+            this.emailLabel.Text = "Email";
             // 
             // emailText
             // 
@@ -203,11 +204,22 @@
             this.emailText.Size = new System.Drawing.Size(242, 26);
             this.emailText.TabIndex = 60;
             // 
+            // desbloquearUsuarioButton
+            // 
+            this.desbloquearUsuarioButton.Location = new System.Drawing.Point(319, 340);
+            this.desbloquearUsuarioButton.Name = "desbloquearUsuarioButton";
+            this.desbloquearUsuarioButton.Size = new System.Drawing.Size(242, 38);
+            this.desbloquearUsuarioButton.TabIndex = 62;
+            this.desbloquearUsuarioButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonDesbloquearUsuario;
+            this.desbloquearUsuarioButton.UseVisualStyleBackColor = true;
+            this.desbloquearUsuarioButton.Click += new System.EventHandler(this.desbloquearUsuarioButton_Click);
+            // 
             // AdministracionDeUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 631);
+            this.ClientSize = new System.Drawing.Size(590, 678);
+            this.Controls.Add(this.desbloquearUsuarioButton);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.emailText);
             this.Controls.Add(this.apellidoLabel);
@@ -224,7 +236,7 @@
             this.Controls.Add(this.nombreDeUsuarioLabel);
             this.Controls.Add(this.nombreDeUsuarioText);
             this.Name = "AdministracionDeUsuarios";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeUsuarios;
+            this.Text = "Administración de usuarios";
             this.Load += new System.EventHandler(this.AdministracionDeUsuarios_Load);
             this.Shown += new System.EventHandler(this.AdministracionDeUsuarios_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -251,5 +263,6 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailText;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
+        private System.Windows.Forms.Button desbloquearUsuarioButton;
     }
 }

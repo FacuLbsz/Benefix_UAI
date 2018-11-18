@@ -46,6 +46,16 @@ namespace Genesis
                 MessageBox.Show(Genesis.Recursos_localizables.StringResources.ModificarContrasenaNuevaRequerida);
                 return false;
             }
+            if (confirmarContraseñaTextBox.Text.Trim().Length == 0)
+            {
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.ConfirmarNuevaContraseñaRequerida);
+                return false;
+            }
+            if (contrasenaActualText.Text.Trim().Equals(confirmarContraseñaTextBox.Text.Trim()))
+            {
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.ConfirmarNuevaContraseñaRequerida);
+                return false;
+            }
             return true;
         }
     }

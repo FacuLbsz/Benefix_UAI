@@ -33,6 +33,8 @@
             this.nuevaContraseñaLabel = new System.Windows.Forms.Label();
             this.nuevaContrasenaText = new System.Windows.Forms.TextBox();
             this.modificarButton = new System.Windows.Forms.Button();
+            this.confirmarContraseñaTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // contraseñaActualLabel
@@ -74,19 +76,39 @@
             // 
             // modificarButton
             // 
-            this.modificarButton.Location = new System.Drawing.Point(147, 192);
+            this.modificarButton.Location = new System.Drawing.Point(145, 258);
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(139, 44);
             this.modificarButton.TabIndex = 4;
-            this.modificarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonModificar;
+            this.modificarButton.Text = "Modificar";
             this.modificarButton.UseVisualStyleBackColor = true;
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
+            // 
+            // confirmarContraseñaTextBox
+            // 
+            this.confirmarContraseñaTextBox.Location = new System.Drawing.Point(46, 206);
+            this.confirmarContraseñaTextBox.MaxLength = 20;
+            this.confirmarContraseñaTextBox.Name = "confirmarContraseñaTextBox";
+            this.confirmarContraseñaTextBox.PasswordChar = '*';
+            this.confirmarContraseñaTextBox.Size = new System.Drawing.Size(352, 26);
+            this.confirmarContraseñaTextBox.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(48, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(273, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = Genesis.Recursos_localizables.StringResources.ConfirmarNuevaContraseñaLabel;
             // 
             // ModificarContrasena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 262);
+            this.ClientSize = new System.Drawing.Size(448, 347);
+            this.Controls.Add(this.confirmarContraseñaTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.nuevaContrasenaText);
             this.Controls.Add(this.nuevaContraseñaLabel);
@@ -106,5 +128,7 @@
         private System.Windows.Forms.Label nuevaContraseñaLabel;
         private System.Windows.Forms.TextBox nuevaContrasenaText;
         private System.Windows.Forms.Button modificarButton;
+        private System.Windows.Forms.TextBox confirmarContraseñaTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -76,6 +76,7 @@ public class GestorDeUsuarios
         usuario.email = Convert.ToString(usuarioRow["email"]);
         usuario.idioma = new Idioma() { identificador = Convert.ToInt32(usuarioRow["Idioma_idIdioma"]) };
         usuario.habilitado = Convert.ToBoolean(usuarioRow["habilitado"]);
+        usuario.cantidadDeIntentos = Convert.ToInt32(usuarioRow["cantidadDeIntentos"]);
         return usuario;
     }
 
@@ -231,6 +232,19 @@ public class GestorDeUsuarios
             return PopularUsuarioDesdeBD(usuarioTable.Rows[0]);
         }
 
+        DataTable usuarioSegunNombreTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario));
+
+        if (usuarioSegunNombreTable.Rows.Count > 0)
+        {
+            var usuarioSegunNombre = PopularUsuarioDesdeBD(usuarioSegunNombreTable.Rows[0]);
+
+            BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET cantidadDeIntentos = {0} WHERE nombreUsuario = '{1}'", usuarioSegunNombre.cantidadDeIntentos + 1, usuario.nombreUsuario));
+
+            usuarioSegunNombre.identificador = 0;
+            usuarioSegunNombre.cantidadDeIntentos = usuarioSegunNombre.cantidadDeIntentos + 1;
+            return usuarioSegunNombre;
+        }
+
         return null;
     }
 
@@ -264,6 +278,11 @@ public class GestorDeUsuarios
         usuario.contrasena = contrasena;
         ModificarUsuario(usuario);
         return true;
+    }
+
+    public void DesbloquearUsuario(Usuario usuario)
+    {
+        BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET cantidadDeIntentos = 0 where idUsuario = {0}", usuario.identificador));
     }
 
 }

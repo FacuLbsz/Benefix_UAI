@@ -31,7 +31,8 @@ namespace Genesis
             {
 
                 Usuario usuario = new Usuario() { nombreUsuario = nombreUsuarioText.Text.Trim(), contrasena = contraseñaText.Text.Trim() };
-                if (GestorSistema.ObtenerInstancia().RealizarLogIn(usuario) == 1)
+                var resultadoLogin = GestorSistema.ObtenerInstancia().RealizarLogIn(usuario);
+                if (resultadoLogin == 1)
                 {
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(GestorIdioma.ObtenerInstancia().ObtenerIdiomaDeUnUsuario(GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion()).nombre);
 
@@ -40,6 +41,10 @@ namespace Genesis
                     mainForm.Closed += (s, args) => this.Close();
                     mainForm.WindowState = FormWindowState.Maximized;
                     mainForm.Show();
+                }
+                else if (resultadoLogin == 2)
+                {
+                    MessageBox.Show("El usuario se encuentra bloqueado, por favor contacte al adminsitrador de sistema.");
                 }
                 else
                 {

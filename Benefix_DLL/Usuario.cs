@@ -17,6 +17,7 @@ public class Usuario
     public String nombreUsuario { get; set; }
     //SDC nuevo parametro si esta habilitado
     public Boolean habilitado { get; set; }
+    public int cantidadDeIntentos { get; set; }
     public List<PatenteUsuario> patenteUsuarioAsignadas { get; set; }
     public Idioma m_Idioma { get; set; }
     public Familia m_Familia { get; set; }

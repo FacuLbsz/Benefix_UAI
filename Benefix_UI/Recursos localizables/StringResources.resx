@@ -264,6 +264,9 @@
   <data name="ButtonDesasignar" xml:space="preserve">
     <value>Desasignar &gt;</value>
   </data>
+  <data name="ButtonDesbloquearUsuario" xml:space="preserve">
+    <value>Debloquear usuario</value>
+  </data>
   <data name="ButtonEliminar" xml:space="preserve">
     <value>Eliminar</value>
   </data>
@@ -300,8 +303,20 @@
   <data name="ButtonSeleccionar" xml:space="preserve">
     <value>Seleccionar</value>
   </data>
+  <data name="ConfirmarNuevaContraseñaLabel" xml:space="preserve">
+    <value>Vuelve a escribir tu nueva contraseña</value>
+  </data>
+  <data name="ConfirmarNuevaContraseñaNoCoinciden" xml:space="preserve">
+    <value>La nueva contraseña no coincide</value>
+  </data>
+  <data name="ConfirmarNuevaContraseñaRequerida" xml:space="preserve">
+    <value>Es necesario ingresar nuevamente tu contraseña</value>
+  </data>
   <data name="ContrasenaActualLabel" xml:space="preserve">
     <value>Contraseña actual</value>
+  </data>
+  <data name="DesbloquearUsuarioLabel" xml:space="preserve">
+    <value>Usuario desbloqueado con exito</value>
   </data>
   <data name="FormularioApellido" xml:space="preserve">
     <value>Apellido</value>

@@ -156,7 +156,7 @@ public class GestorSistema
                 return 0;
             }
 
-            
+
             foreach (char a in digitoVH)
             {
                 digitoVV = digitoVV + a;
@@ -186,9 +186,18 @@ public class GestorSistema
     {
         this.usuarioEnSesion = usuario;
         Usuario usuarioLogin = GestorDeUsuarios.ObtenerInstancia().RealizarLogIn(usuario);
-        if (usuarioLogin == null)
+
+        if (usuarioLogin != null && usuarioLogin.cantidadDeIntentos >= 5)
+        {
+            return 2;
+        }
+        else if (usuarioLogin == null || usuarioLogin.identificador == 0)
         {
             return 0;
+        }
+        else if (usuarioLogin.cantidadDeIntentos < 5)
+        {
+            GestorDeUsuarios.ObtenerInstancia().DesbloquearUsuario(usuarioLogin);
         }
         this.usuarioEnSesion = usuarioLogin;
 
