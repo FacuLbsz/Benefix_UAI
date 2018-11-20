@@ -33,9 +33,9 @@
             this.guardarButton = new System.Windows.Forms.Button();
             this.asignarButton = new System.Windows.Forms.Button();
             this.patentesAsignadosDataGridView = new System.Windows.Forms.DataGridView();
-            this.desasignarButton = new System.Windows.Forms.Button();
             this.patentesAsignadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.esPermisivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.desasignarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.patentesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patentesAsignadosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -102,16 +102,6 @@
             this.patentesAsignadosDataGridView.TabIndex = 51;
             this.patentesAsignadosDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.patentesAsignadosDataGridView_CellFormatting);
             // 
-            // desasignarButton
-            // 
-            this.desasignarButton.Location = new System.Drawing.Point(358, 118);
-            this.desasignarButton.Name = "desasignarButton";
-            this.desasignarButton.Size = new System.Drawing.Size(242, 38);
-            this.desasignarButton.TabIndex = 52;
-            this.desasignarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
-            this.desasignarButton.UseVisualStyleBackColor = true;
-            this.desasignarButton.Click += new System.EventHandler(this.desasignarButton_Click);
-            // 
             // patentesAsignadas
             // 
             this.patentesAsignadas.DataPropertyName = "patente.nombre";
@@ -130,6 +120,16 @@
             this.esPermisivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.esPermisivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.esPermisivo.TrueValue = "true";
+            // 
+            // desasignarButton
+            // 
+            this.desasignarButton.Location = new System.Drawing.Point(358, 118);
+            this.desasignarButton.Name = "desasignarButton";
+            this.desasignarButton.Size = new System.Drawing.Size(242, 38);
+            this.desasignarButton.TabIndex = 52;
+            this.desasignarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
+            this.desasignarButton.UseVisualStyleBackColor = true;
+            this.desasignarButton.Click += new System.EventHandler(this.desasignarButton_Click);
             // 
             // AsignarPatentesAUsuarios
             // 

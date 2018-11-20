@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gruposDataGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
@@ -37,29 +36,28 @@
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
             this.asignarBeneficiosButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gruposDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // gruposDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gruposDataGridView.AllowUserToAddRows = false;
+            this.gruposDataGridView.AllowUserToDeleteRows = false;
+            this.gruposDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gruposDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gruposDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grupos});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 551);
-            this.dataGridView1.TabIndex = 24;
-            // 
-            // grupos
-            // 
-            this.grupos.HeaderText = Genesis.Recursos_localizables.StringResources.TableGrupos;
-            this.grupos.Name = "grupos";
-            this.grupos.ReadOnly = true;
+            this.gruposDataGridView.Location = new System.Drawing.Point(26, 26);
+            this.gruposDataGridView.MultiSelect = false;
+            this.gruposDataGridView.Name = "gruposDataGridView";
+            this.gruposDataGridView.ReadOnly = true;
+            this.gruposDataGridView.RowHeadersVisible = false;
+            this.gruposDataGridView.RowTemplate.Height = 28;
+            this.gruposDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gruposDataGridView.Size = new System.Drawing.Size(240, 551);
+            this.gruposDataGridView.TabIndex = 24;
+            this.gruposDataGridView.Click += new System.EventHandler(this.gruposDataGridView_CurrentCellChanged);
             // 
             // eliminarButton
             // 
@@ -67,8 +65,9 @@
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 34;
-            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
+            this.eliminarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
@@ -76,8 +75,9 @@
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 33;
-            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
+            this.modificarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // crearButton
             // 
@@ -85,8 +85,9 @@
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 32;
-            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear;
+            this.crearButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonCrear;
             this.crearButton.UseVisualStyleBackColor = true;
+            this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
             // limpiarButton
             // 
@@ -94,8 +95,9 @@
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(242, 38);
             this.limpiarButton.TabIndex = 31;
-            this.limpiarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
+            this.limpiarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonLimpiar;
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // nombreLabel
             // 
@@ -104,7 +106,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 26;
-            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
+            this.nombreLabel.Text = "Nombre";
             // 
             // nombreText
             // 
@@ -119,9 +121,16 @@
             this.asignarBeneficiosButton.Name = "asignarBeneficiosButton";
             this.asignarBeneficiosButton.Size = new System.Drawing.Size(242, 38);
             this.asignarBeneficiosButton.TabIndex = 35;
-            this.asignarBeneficiosButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarBeneficios;
+            this.asignarBeneficiosButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignarBeneficios;
             this.asignarBeneficiosButton.UseVisualStyleBackColor = true;
             this.asignarBeneficiosButton.Click += new System.EventHandler(this.asignarBeneficiosButton_Click);
+            // 
+            // grupos
+            // 
+            this.grupos.DataPropertyName = "nombre";
+            this.grupos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableGrupos;
+            this.grupos.Name = "grupos";
+            this.grupos.ReadOnly = true;
             // 
             // AdministracionDeGrupos
             // 
@@ -129,7 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 604);
             this.Controls.Add(this.asignarBeneficiosButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gruposDataGridView);
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.crearButton);
@@ -137,9 +146,10 @@
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeGrupos";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeGrupos;
+            this.Text = "Administración de grupos";
             this.Load += new System.EventHandler(this.AdministracionDeGrupos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Shown += new System.EventHandler(this.AdministracionDeGrupos_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.gruposDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +157,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gruposDataGridView;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button crearButton;

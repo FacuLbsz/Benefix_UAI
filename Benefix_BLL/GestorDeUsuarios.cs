@@ -9,14 +9,14 @@ public class GestorDeUsuarios
 {
 
     private static GestorDeUsuarios instancia;
-    private GestorDeDigitoVerificador GestorDeDigitoVerificador;
+    private GestorDeDigitoVerificador gestorDeDigitoVerificador;
     private GestorDePatentes gestorDePatentes;
     private GestorDeBitacora m_GestorDeBitacora;
     private GestorDeEncriptacion GestorDeEncriptacion;
 
     private GestorDeUsuarios()
     {
-        GestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
+        gestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
         gestorDePatentes = GestorDePatentes.ObtenerInstancia();
     }
 
@@ -114,7 +114,7 @@ public class GestorDeUsuarios
 
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("INSERT INTO USUARIO(nombreUsuario,contrasena,nombre,apellido,email,Idioma_idIdioma,habilitado,digitoVerificadorH) VALUES ('{0}','{1}','{2}','{3}','{4}',{5},1,'{6}')", usuario.nombreUsuario, usuario.contrasena, usuario.nombre, usuario.apellido, usuario.email, usuario.idioma.identificador, digitoVH));
 
-        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        gestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         return registros;
     }
@@ -136,7 +136,7 @@ public class GestorDeUsuarios
         {
             gestorDePatentes.DesasignarAUnUsuario(usuario, patente.patente);
         });
-
+        BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("update equipo set coordinador is null where coordinador = {1}", usuario.identificador));
         EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el usuario " + usuario.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
@@ -151,7 +151,7 @@ public class GestorDeUsuarios
         var digitoVH = ObtenerDigitoVerificadorHDeUsuario(usuario);
 
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET Idioma_idIdioma = {0}, digitoVerificadorH = '{1}' WHERE idUsuario = {2}", usuario.idioma.identificador, digitoVH, usuario.identificador));
-        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        gestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         return registros;
     }
@@ -214,7 +214,7 @@ public class GestorDeUsuarios
         set = set + String.Format(" digitoVerificadorH = '{0}' ", digitoVH);
 
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET {0} WHERE idUsuario = {1}", set, usuario.identificador));
-        GestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
+        gestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
         EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el usuario " + usuario.identificador, criticidad = 2, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);

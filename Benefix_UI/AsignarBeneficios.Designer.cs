@@ -30,10 +30,10 @@
         {
             this.asignarButton = new System.Windows.Forms.Button();
             this.beneficiosAsignadosDataGridView = new System.Windows.Forms.DataGridView();
+            this.beneficiosAsignados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.desasignarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
             this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
-            this.beneficiosAsignados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
@@ -45,8 +45,9 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 38;
-            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignar;
+            this.asignarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignar;
             this.asignarButton.UseVisualStyleBackColor = true;
+            this.asignarButton.Click += new System.EventHandler(this.asignarButton_Click);
             // 
             // beneficiosAsignadosDataGridView
             // 
@@ -57,11 +58,21 @@
             this.beneficiosAsignadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.beneficiosAsignados});
             this.beneficiosAsignadosDataGridView.Location = new System.Drawing.Point(18, 20);
+            this.beneficiosAsignadosDataGridView.MultiSelect = false;
             this.beneficiosAsignadosDataGridView.Name = "beneficiosAsignadosDataGridView";
             this.beneficiosAsignadosDataGridView.ReadOnly = true;
+            this.beneficiosAsignadosDataGridView.RowHeadersVisible = false;
             this.beneficiosAsignadosDataGridView.RowTemplate.Height = 28;
+            this.beneficiosAsignadosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.beneficiosAsignadosDataGridView.Size = new System.Drawing.Size(240, 551);
             this.beneficiosAsignadosDataGridView.TabIndex = 36;
+            // 
+            // beneficiosAsignados
+            // 
+            this.beneficiosAsignados.DataPropertyName = "nombre";
+            this.beneficiosAsignados.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableBeneficiosAsignados;
+            this.beneficiosAsignados.Name = "beneficiosAsignados";
+            this.beneficiosAsignados.ReadOnly = true;
             // 
             // desasignarButton
             // 
@@ -69,8 +80,9 @@
             this.desasignarButton.Name = "desasignarButton";
             this.desasignarButton.Size = new System.Drawing.Size(242, 38);
             this.desasignarButton.TabIndex = 37;
-            this.desasignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
+            this.desasignarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonDesasignar;
             this.desasignarButton.UseVisualStyleBackColor = true;
+            this.desasignarButton.Click += new System.EventHandler(this.desasignarButton_Click);
             // 
             // guardarButton
             // 
@@ -78,8 +90,9 @@
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(242, 38);
             this.guardarButton.TabIndex = 39;
-            this.guardarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
+            this.guardarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // beneficiosDataGridView
             // 
@@ -90,21 +103,19 @@
             this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.beneficios});
             this.beneficiosDataGridView.Location = new System.Drawing.Point(598, 20);
+            this.beneficiosDataGridView.MultiSelect = false;
             this.beneficiosDataGridView.Name = "beneficiosDataGridView";
             this.beneficiosDataGridView.ReadOnly = true;
+            this.beneficiosDataGridView.RowHeadersVisible = false;
             this.beneficiosDataGridView.RowTemplate.Height = 28;
+            this.beneficiosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 551);
             this.beneficiosDataGridView.TabIndex = 40;
             // 
-            // beneficiosAsignados
-            // 
-            this.beneficiosAsignados.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficiosAsignados;
-            this.beneficiosAsignados.Name = "beneficiosAsignados";
-            this.beneficiosAsignados.ReadOnly = true;
-            // 
             // beneficios
             // 
-            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
+            this.beneficios.DataPropertyName = "nombre";
+            this.beneficios.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
             this.beneficios.Name = "beneficios";
             this.beneficios.ReadOnly = true;
             // 
@@ -119,7 +130,9 @@
             this.Controls.Add(this.beneficiosAsignadosDataGridView);
             this.Controls.Add(this.desasignarButton);
             this.Name = "AsignarBeneficios";
-            this.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarBeneficios;
+            this.Text = "Asignar beneficios";
+            this.Load += new System.EventHandler(this.AsignarBeneficios_Load);
+            this.Shown += new System.EventHandler(this.AsignarBeneficiosAGrupos_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             this.ResumeLayout(false);

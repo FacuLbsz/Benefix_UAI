@@ -7,14 +7,31 @@ using System.IO;
 
 public class Beneficio
 {
-    String descripcion { get; set; }
-    List<Grupo> gruposAsignados { get; set; }
-    int identificador { get; set; }
-    String nombre { get; set; }
-    int puntaje { get; set; }
+    public String descripcion { get; set; }
+    public List<Grupo> gruposAsignados { get; set; }
+    public int identificador { get; set; }
+    public String nombre { get; set; }
+    public int puntaje { get; set; }
 
     public Beneficio()
     {
 
+    }
+
+    public override bool Equals(object obj)
+    {
+        var item = obj as Beneficio;
+
+        if (item == null)
+        {
+            return false;
+        }
+
+        return item.identificador == identificador;
+    }
+
+    public override int GetHashCode()
+    {
+        return identificador;
     }
 }

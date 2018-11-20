@@ -189,6 +189,8 @@ public class GestorSistema
 
         if (usuarioLogin != null && usuarioLogin.cantidadDeIntentos >= 5)
         {
+            var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Intento login usuario bloqueado " + usuarioLogin.nombreUsuario, criticidad = 1, funcionalidad = "LOGIN", usuario = usuarioLogin};
+            GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
             return 2;
         }
         else if (usuarioLogin == null || usuarioLogin.identificador == 0)

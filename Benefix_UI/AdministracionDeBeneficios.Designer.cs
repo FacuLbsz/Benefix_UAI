@@ -28,41 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.puntajeLabel = new System.Windows.Forms.Label();
-            this.puntajeText = new System.Windows.Forms.TextBox();
             this.descripcionLabel = new System.Windows.Forms.Label();
             this.descripcionText = new System.Windows.Forms.TextBox();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.puntajeUpDown = new System.Windows.Forms.NumericUpDown();
+            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntajeUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // beneficiosDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.beneficiosDataGridView.AllowUserToAddRows = false;
+            this.beneficiosDataGridView.AllowUserToDeleteRows = false;
+            this.beneficiosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.beneficiosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.beneficios});
-            this.dataGridView1.Location = new System.Drawing.Point(27, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 576);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // beneficios
-            // 
-            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
-            this.beneficios.Name = "beneficios";
-            this.beneficios.ReadOnly = true;
+            this.beneficiosDataGridView.Location = new System.Drawing.Point(27, 28);
+            this.beneficiosDataGridView.MultiSelect = false;
+            this.beneficiosDataGridView.Name = "beneficiosDataGridView";
+            this.beneficiosDataGridView.ReadOnly = true;
+            this.beneficiosDataGridView.RowHeadersVisible = false;
+            this.beneficiosDataGridView.RowTemplate.Height = 28;
+            this.beneficiosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 576);
+            this.beneficiosDataGridView.TabIndex = 13;
+            this.beneficiosDataGridView.Click += new System.EventHandler(this.beneficiosDataGridView_CurrentCellChanged);
+            
             // 
             // eliminarButton
             // 
@@ -70,8 +70,9 @@
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(242, 38);
             this.eliminarButton.TabIndex = 23;
-            this.eliminarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonEliminar;
+            this.eliminarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonEliminar;
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
@@ -79,8 +80,9 @@
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(242, 38);
             this.modificarButton.TabIndex = 22;
-            this.modificarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonModificar;
+            this.modificarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonModificar;
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // crearButton
             // 
@@ -88,8 +90,9 @@
             this.crearButton.Name = "crearButton";
             this.crearButton.Size = new System.Drawing.Size(242, 38);
             this.crearButton.TabIndex = 21;
-            this.crearButton.Text = Genesis.Recursos_localizables.StringResources.ButtonCrear;
+            this.crearButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonCrear;
             this.crearButton.UseVisualStyleBackColor = true;
+            this.crearButton.Click += new System.EventHandler(this.crearButton_Click);
             // 
             // limpiarButton
             // 
@@ -99,6 +102,7 @@
             this.limpiarButton.TabIndex = 20;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // puntajeLabel
             // 
@@ -109,13 +113,6 @@
             this.puntajeLabel.TabIndex = 19;
             this.puntajeLabel.Text = "Puntaje";
             // 
-            // puntajeText
-            // 
-            this.puntajeText.Location = new System.Drawing.Point(317, 290);
-            this.puntajeText.Name = "puntajeText";
-            this.puntajeText.Size = new System.Drawing.Size(242, 26);
-            this.puntajeText.TabIndex = 18;
-            // 
             // descripcionLabel
             // 
             this.descripcionLabel.AutoSize = true;
@@ -123,7 +120,7 @@
             this.descripcionLabel.Name = "descripcionLabel";
             this.descripcionLabel.Size = new System.Drawing.Size(92, 20);
             this.descripcionLabel.TabIndex = 17;
-            this.descripcionLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioDescripcion;
+            this.descripcionLabel.Text = "Descripción";
             // 
             // descripcionText
             // 
@@ -140,7 +137,7 @@
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(65, 20);
             this.nombreLabel.TabIndex = 15;
-            this.nombreLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioNombre;
+            this.nombreLabel.Text = "Nombre";
             // 
             // nombreText
             // 
@@ -149,26 +146,47 @@
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 14;
             // 
+            // puntajeUpDown
+            // 
+            this.puntajeUpDown.Location = new System.Drawing.Point(321, 287);
+            this.puntajeUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.puntajeUpDown.Name = "puntajeUpDown";
+            this.puntajeUpDown.Size = new System.Drawing.Size(238, 26);
+            this.puntajeUpDown.TabIndex = 24;
+            // 
+            // beneficios
+            // 
+            this.beneficios.DataPropertyName = "nombre";
+            this.beneficios.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
+            this.beneficios.Name = "beneficios";
+            this.beneficios.ReadOnly = true;
+            // 
             // AdministracionDeBeneficios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 631);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.puntajeUpDown);
+            this.Controls.Add(this.beneficiosDataGridView);
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.crearButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.puntajeLabel);
-            this.Controls.Add(this.puntajeText);
             this.Controls.Add(this.descripcionLabel);
             this.Controls.Add(this.descripcionText);
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.nombreText);
             this.Name = "AdministracionDeBeneficios";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemAdministracionDeBeneficios;
+            this.Text = "Administración de beneficios";
             this.Load += new System.EventHandler(this.AdministracionDeBeneficios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Shown += new System.EventHandler(this.AdministracionDeBeneficios_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntajeUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,17 +194,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView beneficiosDataGridView;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button crearButton;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Label puntajeLabel;
-        private System.Windows.Forms.TextBox puntajeText;
         private System.Windows.Forms.Label descripcionLabel;
         private System.Windows.Forms.TextBox descripcionText;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.TextBox nombreText;
+        private System.Windows.Forms.NumericUpDown puntajeUpDown;
         private System.Windows.Forms.DataGridViewTextBoxColumn beneficios;
     }
 }

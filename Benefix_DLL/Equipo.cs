@@ -8,15 +8,18 @@ using System.IO;
 public class Equipo
 {
 
-    List<Grupo> gruposAsignados { get; set; }
-    int identificador { get; set; }
-    int nombre { get; set; }
-    List<Objetivo> objetivosAsignados { get; set; }
-    List<Usuario> usuariosAsignados { get; set; }
-    Grupo m_Grupo { get; set; }
+    public List<Grupo> gruposAsignados { get; set; }
+    public int identificador { get; set; }
+    public String nombre { get; set; }
+    public List<Objetivo> objetivosAsignados { get; set; }
+    public List<Usuario> usuariosAsignados { get; set; }
+    public Grupo m_Grupo { get; set; }
+    public Usuario coordinador { get; set; }
 
     public Equipo()
     {
-
+        objetivosAsignados = new List<Objetivo>();
+        usuariosAsignados = new List<Usuario>();
+        gruposAsignados = new List<Grupo>();
     }
 }
