@@ -131,7 +131,7 @@ namespace Genesis
             {
                 var nombre = nombreText.Text;
 
-                Beneficio Beneficio = new Beneficio() { identificador = beneficioSeleccionado.identificador, nombre = nombre };
+                Beneficio Beneficio = new Beneficio() { identificador = beneficioSeleccionado.identificador, nombre = nombre, puntaje = Convert.ToInt32(puntajeUpDown.Value) };
                 try
                 {
                     gestorDeBeneficios.ModificarBeneficio(Beneficio);

@@ -8,16 +8,19 @@ using System.IO;
 public class EquipoObjetivo
 {
 
-    Equipo equipo { get; set; }
-    int identificador { get; set; }
-    Objetivo objetivo { get; set; }
-    int periodoFin { get; set; }
-    int periodoInicio { get; set; }
-    Objetivo m_Objetivo { get; set; }
-    Equipo m_Equipo { get; set; }
+    public int identificador { get; set; }
+    public Equipo equipo { get; set; }
+    public Objetivo objetivo { get; set; }
+    public int periodoFin { get; set; }
+    public int periodoInicio { get; set; }
 
     public EquipoObjetivo()
     {
 
+    }
+
+    public override String ToString()
+    {
+        return objetivo.nombre;
     }
 }

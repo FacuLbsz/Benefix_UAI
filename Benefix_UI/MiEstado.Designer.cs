@@ -28,103 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
-            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuntajeBeneficio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.evaluacionesListView = new BrightIdeasSoftware.ObjectListView();
             this.equipo = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.puntaje = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cumplimiento = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
+            this.beneficiosListView = new BrightIdeasSoftware.ObjectListView();
+            this.beneficioss = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.puntajee = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            ((System.ComponentModel.ISupportInitialize)(this.evaluacionesListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).BeginInit();
             this.SuspendLayout();
             // 
-            // beneficiosDataGridView
+            // evaluacionesListView
             // 
-            this.beneficiosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.beneficios,
-            this.PuntajeBeneficio});
-            this.beneficiosDataGridView.Location = new System.Drawing.Point(678, 24);
-            this.beneficiosDataGridView.Name = "beneficiosDataGridView";
-            this.beneficiosDataGridView.ReadOnly = true;
-            this.beneficiosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosDataGridView.Size = new System.Drawing.Size(361, 551);
-            this.beneficiosDataGridView.TabIndex = 51;
-            // 
-            // beneficios
-            // 
-            this.beneficios.HeaderText = Genesis.Recursos_localizables.StringResources.TableBeneficios;
-            this.beneficios.Name = "beneficios";
-            this.beneficios.ReadOnly = true;
-            // 
-            // PuntajeBeneficio
-            // 
-            this.PuntajeBeneficio.FillWeight = 30F;
-            this.PuntajeBeneficio.HeaderText = Genesis.Recursos_localizables.StringResources.TablePuntaje;
-            this.PuntajeBeneficio.Name = "PuntajeBeneficio";
-            this.PuntajeBeneficio.ReadOnly = true;
-            // 
-            // objectListView1
-            // 
-            this.objectListView1.AllColumns.Add(this.equipo);
-            this.objectListView1.AllColumns.Add(this.puntaje);
-            this.objectListView1.AllColumns.Add(this.cumplimiento);
-            this.objectListView1.CellEditUseWholeCell = false;
-            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.evaluacionesListView.AllColumns.Add(this.equipo);
+            this.evaluacionesListView.AllColumns.Add(this.puntaje);
+            this.evaluacionesListView.AllColumns.Add(this.cumplimiento);
+            this.evaluacionesListView.CellEditUseWholeCell = false;
+            this.evaluacionesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.equipo,
             this.puntaje,
             this.cumplimiento});
-            this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Location = new System.Drawing.Point(22, 24);
-            this.objectListView1.Name = "objectListView1";
-            this.objectListView1.Size = new System.Drawing.Size(621, 551);
-            this.objectListView1.TabIndex = 55;
-            this.objectListView1.UseCompatibleStateImageBehavior = false;
-            this.objectListView1.View = System.Windows.Forms.View.Details;
+            this.evaluacionesListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.evaluacionesListView.Location = new System.Drawing.Point(22, 24);
+            this.evaluacionesListView.MaximumSize = new System.Drawing.Size(621, 551);
+            this.evaluacionesListView.MinimumSize = new System.Drawing.Size(621, 551);
+            this.evaluacionesListView.Name = "evaluacionesListView";
+            this.evaluacionesListView.Size = new System.Drawing.Size(621, 551);
+            this.evaluacionesListView.TabIndex = 55;
+            this.evaluacionesListView.UseCompatibleStateImageBehavior = false;
+            this.evaluacionesListView.View = System.Windows.Forms.View.Details;
             // 
             // equipo
             // 
-            this.equipo.Text = Genesis.Recursos_localizables.StringResources.TableEquipoObjetivo;
-            this.equipo.Width = 389;
+            this.equipo.AspectName = "equipoObjetvo.objetivo.nombre";
+            this.equipo.AspectToStringFormat = "";
+            this.equipo.MaximumWidth = 200;
+            this.equipo.MinimumWidth = 1;
+            this.equipo.Text = global::Genesis.Recursos_localizables.StringResources.TableEquipoObjetivo;
+            this.equipo.Width = 200;
             // 
             // puntaje
             // 
-            this.puntaje.Text = Genesis.Recursos_localizables.StringResources.TablePuntaje;
-            this.puntaje.Width = 111;
+            this.puntaje.AspectName = "puntaje";
+            this.puntaje.MaximumWidth = 100;
+            this.puntaje.MinimumWidth = 100;
+            this.puntaje.Sortable = false;
+            this.puntaje.Text = global::Genesis.Recursos_localizables.StringResources.TablePuntaje;
+            this.puntaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.puntaje.Width = 100;
             // 
             // cumplimiento
             // 
-            this.cumplimiento.Text = Genesis.Recursos_localizables.StringResources.TableCumplimiento;
-            this.cumplimiento.Width = 116;
+            this.cumplimiento.AspectName = "alcanzado";
+            this.cumplimiento.CheckBoxes = true;
+            this.cumplimiento.MaximumWidth = 100;
+            this.cumplimiento.MinimumWidth = 1;
+            this.cumplimiento.Sortable = false;
+            this.cumplimiento.Text = global::Genesis.Recursos_localizables.StringResources.TableCumplimiento;
+            this.cumplimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cumplimiento.Width = 100;
+            // 
+            // beneficiosListView
+            // 
+            this.beneficiosListView.AllColumns.Add(this.beneficioss);
+            this.beneficiosListView.AllColumns.Add(this.puntajee);
+            this.beneficiosListView.CellEditUseWholeCell = false;
+            this.beneficiosListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.beneficioss,
+            this.puntajee});
+            this.beneficiosListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.beneficiosListView.Location = new System.Drawing.Point(678, 24);
+            this.beneficiosListView.Name = "beneficiosListView";
+            this.beneficiosListView.Size = new System.Drawing.Size(361, 551);
+            this.beneficiosListView.TabIndex = 56;
+            this.beneficiosListView.UseCompatibleStateImageBehavior = false;
+            this.beneficiosListView.View = System.Windows.Forms.View.Details;
+            // 
+            // beneficioss
+            // 
+            this.beneficioss.AspectName = "nombre";
+            this.beneficioss.Groupable = false;
+            this.beneficioss.MaximumWidth = 150;
+            this.beneficioss.MinimumWidth = 1;
+            this.beneficioss.Text = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
+            this.beneficioss.Width = 150;
+            // 
+            // puntajee
+            // 
+            this.puntajee.AspectName = "puntaje";
+            this.puntajee.Groupable = false;
+            this.puntajee.MaximumWidth = 100;
+            this.puntajee.MinimumWidth = 1;
+            this.puntajee.Text = global::Genesis.Recursos_localizables.StringResources.TablePuntaje;
+            this.puntajee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.puntajee.Width = 100;
             // 
             // MiEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 599);
-            this.Controls.Add(this.beneficiosDataGridView);
-            this.Controls.Add(this.objectListView1);
+            this.Controls.Add(this.beneficiosListView);
+            this.Controls.Add(this.evaluacionesListView);
             this.Name = "MiEstado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemMiEstado;
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
+            this.Text = "Mi estado";
+            this.Load += new System.EventHandler(this.MiEstado_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.evaluacionesListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView beneficiosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn beneficios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PuntajeBeneficio;
-        private BrightIdeasSoftware.ObjectListView objectListView1;
+        private BrightIdeasSoftware.ObjectListView evaluacionesListView;
         private BrightIdeasSoftware.OLVColumn equipo;
         private BrightIdeasSoftware.OLVColumn puntaje;
         private BrightIdeasSoftware.OLVColumn cumplimiento;
+        private BrightIdeasSoftware.ObjectListView beneficiosListView;
+        private BrightIdeasSoftware.OLVColumn beneficioss;
+        private BrightIdeasSoftware.OLVColumn puntajee;
     }
 }

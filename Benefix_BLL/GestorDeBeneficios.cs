@@ -10,11 +10,15 @@ public class GestorDeBeneficios
     public GestorDeDigitoVerificador m_GestorDeDigitoVerificador;
     private GestorDeDigitoVerificador gestorDeDigitoVerificador;
     private BaseDeDatos baseDeDatos;
+    private GestorDeEquipos gestorDeEquipos;
+    private GestorDeGrupos gestorDeGrupos;
 
     private GestorDeBeneficios()
     {
         gestorDeDigitoVerificador = GestorDeDigitoVerificador.ObtenerInstancia();
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
+        gestorDeEquipos = GestorDeEquipos.ObtenerInstancia();
+        gestorDeGrupos = GestorDeGrupos.ObtenerInstancia();
     }
 
     public static GestorDeBeneficios ObtenerInstancia()
@@ -129,7 +133,7 @@ public class GestorDeBeneficios
         var nuevoNombreEncriptado = GestorDeEncriptacion.EncriptarAes(beneficio.nombre);
         var puntajeEncriptado = GestorDeEncriptacion.EncriptarAes(beneficio.puntaje.ToString());
 
-        if (BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM BENEFICIO WHERE nombre = '{0}'", nuevoNombreEncriptado)).Rows.Count > 0)
+        if (BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM BENEFICIO WHERE nombre = '{0}' and BENEFICIO.idBeneficio != {1}", nuevoNombreEncriptado, beneficio.identificador)).Rows.Count > 0)
         {
             throw new EntidadDuplicadaExcepcion("nombre");
         }
@@ -177,14 +181,46 @@ public class GestorDeBeneficios
 
     public List<Beneficio> ObtenerBeneficiosParaUnEmpleadoYUnPeriodo(Usuario empleado, int periodo)
     {
-
-        return null;
+        List<Beneficio> beneficios = new List<Beneficio>();
+        gestorDeEquipos.ConsultarEquiposDeUnEmpleadoPorPeriodo(empleado, periodo).ForEach(e =>
+        {
+            gestorDeGrupos.ObtenerAsignacionDeGruposDeUnEquipoEnUnPeriodo(e, periodo).ForEach(qG =>
+            {
+                beneficios.AddRange(qG.grupo.beneficiosAsignados);
+            });
+        });
+        return beneficios;
     }
 
-    public int ObtenerReporteDeUnEmpleadoParaUnPeriodo(Usuario empleado, int periodo)
+    public List<Object[]> ObtenerReporteDeUnEmpleadoParaUnPeriodo(Usuario empleado, int periodo)
     {
+        var puntajeObtenido = 0;
+        var evaluacionDeUnEmpleadoParaUnPeriodo = GestorDeEvaluaciones.ObtenerInstancia().ObtenerEvaluacionDeUnEmpleadoParaUnPeriodo(empleado, periodo);
+        evaluacionDeUnEmpleadoParaUnPeriodo.ForEach(e =>
+        {
+            puntajeObtenido = puntajeObtenido + e.puntaje;
+        });
 
-        return 0;
+        HashSet<Beneficio> beneficios = new HashSet<Beneficio>();
+        var consu = gestorDeEquipos.ConsultarEquiposDeUnEmpleadoPorPeriodo(empleado, periodo);
+        consu.ForEach(e =>
+        {
+            gestorDeGrupos.ObtenerAsignacionDeGruposDeUnEquipoEnUnPeriodo(e, periodo).ForEach(eG =>
+            {
+                eG.grupo.beneficiosAsignados.ForEach(b =>
+                {
+                    beneficios.Add(b);
+                });
+            });
+        });
+        List<Object[]> evaluacionesDeUsuario = new List<object[]>();
+        foreach (Beneficio b in beneficios)
+        {
+            evaluacionesDeUsuario.Add(new Object[] { b.nombre, puntajeObtenido >= b.puntaje });
+        }
+
+
+        return evaluacionesDeUsuario;
     }
 
 }

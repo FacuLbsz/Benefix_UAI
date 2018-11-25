@@ -8,11 +8,12 @@ using System.IO;
 public class Evaluacion
 {
 
-    EquipoObjetivo equipoObjetvo { get; set; }
-    int identificador { get; set; }
-    int periodo { get; set; }
-    Usuario usuario { get; set; }
-    EquipoObjetivo m_EquipoObjetivo { get; set; }
+    public int identificador { get; set; }
+    public EquipoObjetivo equipoObjetvo { get; set; }
+    public int periodo { get; set; }
+    public Usuario usuario { get; set; }
+    public bool alcanzado { get; set; }
+    public int puntaje { get; set; }
 
     public Evaluacion()
     {

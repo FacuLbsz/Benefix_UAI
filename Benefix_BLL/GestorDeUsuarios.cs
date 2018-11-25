@@ -35,6 +35,11 @@ public class GestorDeUsuarios
         return ConsultarUsuarios("SELECT * FROM USUARIO WHERE habilitado = 1");
     }
 
+    public List<Usuario> ConsultarUsuariosSinEquipo()
+    {
+        return ConsultarUsuarios("select * from usuario where idUsuario not in (SELECT idUsuario FROM USUARIO INNER JOIN equipoempleado ON equipoempleado.Usuario_idUsuario = USUARIO.idUsuario INNER JOIN equipo ON EQUIPO.idEquipo = equipoempleado.Equipo_idEquipo WHERE EQUIPO.habilitado = 1) and habilitado = 1");
+    }
+
 
     public List<Usuario> ConsultarUsuariosTodos()
     {

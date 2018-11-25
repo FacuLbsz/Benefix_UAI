@@ -15,6 +15,7 @@ public class Equipo
     public List<Usuario> usuariosAsignados { get; set; }
     public Grupo m_Grupo { get; set; }
     public Usuario coordinador { get; set; }
+    public bool habilitado { get; set; }
 
     public Equipo()
     {

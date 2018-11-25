@@ -28,7 +28,7 @@ namespace Genesis
             this.equipo = equipo;
             this.usuariosAsignadoss = equipo.usuariosAsignados;
 
-            this.usuariosNoAsignados = gestorDeUsuarios.ConsultarUsuarios().Except(usuariosAsignadoss).ToList();
+            this.usuariosNoAsignados = gestorDeUsuarios.ConsultarUsuariosSinEquipo();
             this.usuariosAsignadosFixed = new List<Usuario>();
             this.usuariosAsignadosFixed.AddRange(usuariosAsignadoss);
 

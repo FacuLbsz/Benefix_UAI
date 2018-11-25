@@ -8,12 +8,10 @@ public class GestorDeGrupos
 {
 
     private static GestorDeGrupos instancia;
-    private GestorDeBeneficios gestorDeBeneficios;
     private BaseDeDatos baseDeDatos;
 
     private GestorDeGrupos()
     {
-        gestorDeBeneficios = GestorDeBeneficios.ObtenerInstancia();
         baseDeDatos = BaseDeDatos.ObtenerInstancia();
     }
 
@@ -101,8 +99,23 @@ public class GestorDeGrupos
 
     public List<EquipoGrupo> ObtenerAsignacionDeGruposDeUnEquipoEnUnPeriodo(Equipo equipo, int periodo)
     {
+        DataTable datable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM GRUPO inner join equipogrupo on equipogrupo.Grupo_idGrupo = grupo.idGrupo where equipogrupo.Equipo_idEquipo = {0} AND (periodoFin is null or periodoFin >= {1}) AND periodoInicio <= {1}", equipo.identificador, periodo));
+        List<EquipoGrupo> equipoGrupos = new List<EquipoGrupo>();
+        foreach (DataRow grupoRow in datable.Rows)
+        {
+            EquipoGrupo equipoGrupo = new EquipoGrupo();
+            Grupo grupo = new Grupo() { identificador = Convert.ToInt32(grupoRow["idGrupo"]), nombre = Convert.ToString(grupoRow["nombre"]) };
 
-        return null;
+            DataTable grupobeneficioTable = baseDeDatos.ConsultarBase(String.Format("SELECT beneficio.idBeneficio, beneficio.nombre, beneficio.puntaje FROM grupobeneficio INNER JOIN beneficio on grupobeneficio.Beneficio_idBeneficio = beneficio.idBeneficio WHERE Grupo_idGrupo = {0}", grupo.identificador));
+            foreach (DataRow grupobeneficioRow in grupobeneficioTable.Rows)
+            {
+                Beneficio beneficio = new Beneficio() { identificador = Convert.ToInt32(grupobeneficioRow["idBeneficio"]), nombre = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(grupobeneficioRow["nombre"])), puntaje = Convert.ToInt32(GestorDeEncriptacion.DesencriptarAes(Convert.ToString(grupobeneficioRow["puntaje"]))) };
+                grupo.beneficiosAsignados.Add(beneficio);
+            }
+            equipoGrupo.grupo = grupo;
+            equipoGrupos.Add(equipoGrupo);
+        }
+        return equipoGrupos;
     }
 
     public int ModificarGrupo(Grupo grupo)

@@ -14,6 +14,7 @@ public class Objetivo
     public String nombre { get; set; }
     public int puntaje { get; set; }
     public Equipo m_Equipo { get; set; }
+    public bool habilitado { get; set; }
 
     public Objetivo()
     {

@@ -28,64 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
+            this.equiposDataGridView = new System.Windows.Forms.DataGridView();
             this.equipos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.empleadosListView = new BrightIdeasSoftware.ObjectListView();
             this.empleado = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cumplimientoPorc = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.consultarButton = new System.Windows.Forms.Button();
             this.periodoLabel = new System.Windows.Forms.Label();
             this.periodoBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosListView)).BeginInit();
             this.SuspendLayout();
             // 
-            // beneficiosDataGridView
+            // equiposDataGridView
             // 
-            this.beneficiosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.equiposDataGridView.AllowUserToAddRows = false;
+            this.equiposDataGridView.AllowUserToDeleteRows = false;
+            this.equiposDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.equiposDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.equiposDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.equipos});
-            this.beneficiosDataGridView.Location = new System.Drawing.Point(26, 24);
-            this.beneficiosDataGridView.Name = "beneficiosDataGridView";
-            this.beneficiosDataGridView.ReadOnly = true;
-            this.beneficiosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 551);
-            this.beneficiosDataGridView.TabIndex = 51;
+            this.equiposDataGridView.Location = new System.Drawing.Point(26, 24);
+            this.equiposDataGridView.MultiSelect = false;
+            this.equiposDataGridView.Name = "equiposDataGridView";
+            this.equiposDataGridView.ReadOnly = true;
+            this.equiposDataGridView.RowHeadersVisible = false;
+            this.equiposDataGridView.RowTemplate.Height = 28;
+            this.equiposDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.equiposDataGridView.Size = new System.Drawing.Size(240, 551);
+            this.equiposDataGridView.TabIndex = 51;
             // 
             // equipos
             // 
+            this.equipos.DataPropertyName = "nombre";
             this.equipos.HeaderText = "Equipos";
             this.equipos.Name = "equipos";
             this.equipos.ReadOnly = true;
             // 
-            // objectListView1
+            // empleadosListView
             // 
-            this.objectListView1.AllColumns.Add(this.empleado);
-            this.objectListView1.AllColumns.Add(this.cumplimientoPorc);
-            this.objectListView1.CellEditUseWholeCell = false;
-            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.empleadosListView.AllColumns.Add(this.empleado);
+            this.empleadosListView.AllColumns.Add(this.cumplimientoPorc);
+            this.empleadosListView.CellEditUseWholeCell = false;
+            this.empleadosListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.empleado,
             this.cumplimientoPorc});
-            this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Location = new System.Drawing.Point(304, 108);
-            this.objectListView1.Name = "objectListView1";
-            this.objectListView1.Size = new System.Drawing.Size(735, 467);
-            this.objectListView1.TabIndex = 55;
-            this.objectListView1.UseCompatibleStateImageBehavior = false;
-            this.objectListView1.View = System.Windows.Forms.View.Details;
+            this.empleadosListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.empleadosListView.Location = new System.Drawing.Point(304, 108);
+            this.empleadosListView.Name = "empleadosListView";
+            this.empleadosListView.Size = new System.Drawing.Size(735, 467);
+            this.empleadosListView.TabIndex = 55;
+            this.empleadosListView.UseCompatibleStateImageBehavior = false;
+            this.empleadosListView.View = System.Windows.Forms.View.Details;
             // 
             // empleado
             // 
-            this.empleado.Text = Genesis.Recursos_localizables.StringResources.TableEmpleado;
-            this.empleado.Width = 597;
+            this.empleado.AspectName = "";
+            this.empleado.Groupable = false;
+            this.empleado.MaximumWidth = 390;
+            this.empleado.Text = global::Genesis.Recursos_localizables.StringResources.TableEmpleado;
+            this.empleado.Width = 390;
             // 
             // cumplimientoPorc
             // 
-            this.cumplimientoPorc.Text = Genesis.Recursos_localizables.StringResources.TablePorcentCumplimiento;
-            this.cumplimientoPorc.Width = 135;
+            this.cumplimientoPorc.AspectName = "";
+            this.cumplimientoPorc.Groupable = false;
+            this.cumplimientoPorc.MaximumWidth = 98;
+            this.cumplimientoPorc.Text = global::Genesis.Recursos_localizables.StringResources.TablePorcentCumplimiento;
+            this.cumplimientoPorc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cumplimientoPorc.Width = 98;
             // 
             // consultarButton
             // 
@@ -93,8 +104,9 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 54;
-            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
+            this.consultarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
+            this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click);
             // 
             // periodoLabel
             // 
@@ -103,7 +115,7 @@
             this.periodoLabel.Name = "periodoLabel";
             this.periodoLabel.Size = new System.Drawing.Size(63, 20);
             this.periodoLabel.TabIndex = 53;
-            this.periodoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioPeriodo;
+            this.periodoLabel.Text = "Periodo";
             // 
             // periodoBox
             // 
@@ -118,15 +130,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 599);
-            this.Controls.Add(this.beneficiosDataGridView);
-            this.Controls.Add(this.objectListView1);
+            this.Controls.Add(this.equiposDataGridView);
+            this.Controls.Add(this.empleadosListView);
             this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.periodoLabel);
             this.Controls.Add(this.periodoBox);
             this.Name = "ReportesDeObjetivosPorEquipos";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemObjetivosPorEquipo;
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
+            this.Text = "Objetivos por equipo";
+            this.Load += new System.EventHandler(this.ReportesDeObjetivosPorEquipos_Load);
+            this.Shown += new System.EventHandler(this.ReportesDeObjetivosPorEquipos_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.equiposDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosListView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,8 +148,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView beneficiosDataGridView;
-        private BrightIdeasSoftware.ObjectListView objectListView1;
+        private System.Windows.Forms.DataGridView equiposDataGridView;
+        private BrightIdeasSoftware.ObjectListView empleadosListView;
         private BrightIdeasSoftware.OLVColumn empleado;
         private BrightIdeasSoftware.OLVColumn cumplimientoPorc;
         private System.Windows.Forms.Button consultarButton;

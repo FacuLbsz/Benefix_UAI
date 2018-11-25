@@ -28,64 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
+            this.empleadosDataGridView = new System.Windows.Forms.DataGridView();
             this.empleados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.beneficiosListView = new BrightIdeasSoftware.ObjectListView();
             this.beneficio = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.otorgado = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.consultarButton = new System.Windows.Forms.Button();
             this.periodoLabel = new System.Windows.Forms.Label();
             this.periodoBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).BeginInit();
             this.SuspendLayout();
             // 
-            // beneficiosDataGridView
+            // empleadosDataGridView
             // 
-            this.beneficiosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.empleadosDataGridView.AllowUserToAddRows = false;
+            this.empleadosDataGridView.AllowUserToDeleteRows = false;
+            this.empleadosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.empleadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.empleadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.empleados});
-            this.beneficiosDataGridView.Location = new System.Drawing.Point(26, 24);
-            this.beneficiosDataGridView.Name = "beneficiosDataGridView";
-            this.beneficiosDataGridView.ReadOnly = true;
-            this.beneficiosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 551);
-            this.beneficiosDataGridView.TabIndex = 56;
+            this.empleadosDataGridView.Location = new System.Drawing.Point(26, 24);
+            this.empleadosDataGridView.MultiSelect = false;
+            this.empleadosDataGridView.Name = "empleadosDataGridView";
+            this.empleadosDataGridView.ReadOnly = true;
+            this.empleadosDataGridView.RowHeadersVisible = false;
+            this.empleadosDataGridView.RowTemplate.Height = 28;
+            this.empleadosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.empleadosDataGridView.Size = new System.Drawing.Size(240, 551);
+            this.empleadosDataGridView.TabIndex = 56;
             // 
             // empleados
             // 
-            this.empleados.HeaderText = Genesis.Recursos_localizables.StringResources.TableEmpleados;
+            this.empleados.DataPropertyName = "nombre";
+            this.empleados.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableEmpleados;
             this.empleados.Name = "empleados";
             this.empleados.ReadOnly = true;
             // 
-            // objectListView1
+            // beneficiosListView
             // 
-            this.objectListView1.AllColumns.Add(this.beneficio);
-            this.objectListView1.AllColumns.Add(this.otorgado);
-            this.objectListView1.CellEditUseWholeCell = false;
-            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.beneficiosListView.AllColumns.Add(this.beneficio);
+            this.beneficiosListView.AllColumns.Add(this.otorgado);
+            this.beneficiosListView.CellEditUseWholeCell = false;
+            this.beneficiosListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.beneficio,
             this.otorgado});
-            this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Location = new System.Drawing.Point(304, 108);
-            this.objectListView1.Name = "objectListView1";
-            this.objectListView1.Size = new System.Drawing.Size(735, 467);
-            this.objectListView1.TabIndex = 60;
-            this.objectListView1.UseCompatibleStateImageBehavior = false;
-            this.objectListView1.View = System.Windows.Forms.View.Details;
+            this.beneficiosListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.beneficiosListView.Location = new System.Drawing.Point(304, 108);
+            this.beneficiosListView.Name = "beneficiosListView";
+            this.beneficiosListView.Size = new System.Drawing.Size(735, 467);
+            this.beneficiosListView.TabIndex = 60;
+            this.beneficiosListView.UseCompatibleStateImageBehavior = false;
+            this.beneficiosListView.View = System.Windows.Forms.View.Details;
             // 
             // beneficio
             // 
-            this.beneficio.Text = Genesis.Recursos_localizables.StringResources.TableBeneficios;
-            this.beneficio.Width = 597;
+            this.beneficio.Groupable = false;
+            this.beneficio.MaximumWidth = 390;
+            this.beneficio.Text = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
+            this.beneficio.Width = 390;
             // 
             // otorgado
             // 
-            this.otorgado.Text = Genesis.Recursos_localizables.StringResources.TableOtorgado;
-            this.otorgado.Width = 135;
+            this.otorgado.CheckBoxes = true;
+            this.otorgado.Groupable = false;
+            this.otorgado.MaximumWidth = 98;
+            this.otorgado.Text = global::Genesis.Recursos_localizables.StringResources.TableOtorgado;
+            this.otorgado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.otorgado.Width = 98;
             // 
             // consultarButton
             // 
@@ -93,8 +103,9 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 59;
-            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
+            this.consultarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
+            this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click);
             // 
             // periodoLabel
             // 
@@ -103,7 +114,7 @@
             this.periodoLabel.Name = "periodoLabel";
             this.periodoLabel.Size = new System.Drawing.Size(63, 20);
             this.periodoLabel.TabIndex = 58;
-            this.periodoLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioPeriodo;
+            this.periodoLabel.Text = "Periodo";
             // 
             // periodoBox
             // 
@@ -119,15 +130,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 599);
-            this.Controls.Add(this.beneficiosDataGridView);
-            this.Controls.Add(this.objectListView1);
+            this.Controls.Add(this.empleadosDataGridView);
+            this.Controls.Add(this.beneficiosListView);
             this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.periodoLabel);
             this.Controls.Add(this.periodoBox);
             this.Name = "ReportesDeBeneficiosPorEmpleado";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemBeneficioPorEmpleado;
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
+            this.Text = "Beneficio por empleado";
+            this.Load += new System.EventHandler(this.ReportesDeBeneficiosPorEmpleado_Load);
+            this.Shown += new System.EventHandler(this.ReportesDeBeneficiosPorEmpleado_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,8 +148,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView beneficiosDataGridView;
-        private BrightIdeasSoftware.ObjectListView objectListView1;
+        private System.Windows.Forms.DataGridView empleadosDataGridView;
+        private BrightIdeasSoftware.ObjectListView beneficiosListView;
         private BrightIdeasSoftware.OLVColumn beneficio;
         private BrightIdeasSoftware.OLVColumn otorgado;
         private System.Windows.Forms.Button consultarButton;

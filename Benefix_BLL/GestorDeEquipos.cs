@@ -159,15 +159,30 @@ public class GestorDeEquipos
             idRelacion = Convert.ToInt32(relacionAEliminar["idEquipoObjetivo"]);
         }
 
-        int periodoFin = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
-        var registros = baseDeDatos.ModificarBase(String.Format("update equipoobjetivo set periodoFin = {0} where idEquipoObjetivo = {1}", periodoFin, idRelacion));
-        return registros;
+        DataTable evaluacionesDeLaRelacion = baseDeDatos.ConsultarBase(String.Format("select * from Evaluacion where EquipoObjetivo_idEquipoObjetivo = {0} ORDER BY periodo DESC", idRelacion));
+
+        if (evaluacionesDeLaRelacion.Rows.Count == 0)
+        {
+            return baseDeDatos.ModificarBase(String.Format("DELETE FROM equipoobjetivo where idEquipoObjetivo = {0}", idRelacion));
+        }
+        else
+        {
+            int periodoFin = Convert.ToInt32(evaluacionesDeLaRelacion.Rows[0]["periodo"]);
+            var registros = baseDeDatos.ModificarBase(String.Format("update equipoobjetivo set periodoFin = {0} where idEquipoObjetivo = {1}", periodoFin, idRelacion));
+            return registros;
+        }
     }
 
     public List<Equipo> ConsultarEquiposDeUnEmpleadoPorPeriodo(Usuario empleado, int periodo)
     {
-
-        return null;
+        var datable = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM EQUIPO INNER JOIN equipoempleado ON EQUIPO.IDEQUIPO = equipoempleado.Equipo_idEquipo WHERE equipoempleado.Usuario_idUsuario = {0} AND (periodoFin is null or periodoFin >= {1}) AND periodoInicio <= {1}", empleado.identificador, periodo));
+        List<Equipo> equipos = new List<Equipo>();
+        foreach (DataRow equipoRow in datable.Rows)
+        {
+            Equipo equipo = new Equipo() { identificador = Convert.ToInt32(equipoRow["idEquipo"]), nombre = Convert.ToString(equipoRow["nombre"]) };
+            equipos.Add(equipo);
+        }
+        return equipos;
     }
 
     public int CrearEquipo(Equipo equipo)
@@ -217,8 +232,23 @@ public class GestorDeEquipos
 
     public List<Equipo> ObtenerEquiposPorCoordinador(Usuario empleado)
     {
+        List<Equipo> equipos = new List<Equipo>();
+        var equiposACargo = baseDeDatos.ConsultarBase(String.Format("SELECT * FROM Equipo WHERE coordinador = {0}", empleado.identificador));
 
-        return null;
+        foreach (DataRow equipoRow in equiposACargo.Rows)
+        {
+            Equipo equipo = new Equipo() { identificador = Convert.ToInt32(equipoRow["idEquipo"]), nombre = Convert.ToString(equipoRow["nombre"]), habilitado = Convert.ToBoolean(equipoRow["habilitado"]) };
+
+            DataTable equipoempleadoTable = baseDeDatos.ConsultarBase(String.Format("select usuario.idUsuario, usuario.nombreUsuario from equipoempleado inner join usuario on usuario.idUsuario = equipoempleado.Usuario_idUsuario where equipoempleado.Equipo_idEquipo = {0} and usuario.habilitado = 1 and equipoempleado.periodoFin is null", equipo.identificador));
+            foreach (DataRow equipoEmpleado in equipoempleadoTable.Rows)
+            {
+                Usuario usuario = new Usuario() { identificador = Convert.ToInt32(equipoEmpleado["idUsuario"]), nombreUsuario = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(equipoEmpleado["nombreUsuario"])) };
+                equipo.usuariosAsignados.Add(usuario);
+            }
+            equipos.Add(equipo);
+        }
+
+        return equipos;
     }
 
     private Equipo ObtenerEquipoBD(int identificador)

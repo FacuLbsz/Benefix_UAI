@@ -28,31 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.beneficiosAsignadosDataGridView = new System.Windows.Forms.DataGridView();
+            this.evaluacionesDataGridView = new System.Windows.Forms.DataGridView();
+            this.objetivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cumplimiento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.evaluarButton = new System.Windows.Forms.Button();
             this.alcanzadoButton = new System.Windows.Forms.Button();
             this.incumplidoButton = new System.Windows.Forms.Button();
-            this.objetivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cumplimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evaluacionesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // beneficiosAsignadosDataGridView
+            // evaluacionesDataGridView
             // 
-            this.beneficiosAsignadosDataGridView.AllowUserToAddRows = false;
-            this.beneficiosAsignadosDataGridView.AllowUserToDeleteRows = false;
-            this.beneficiosAsignadosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.beneficiosAsignadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.beneficiosAsignadosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.evaluacionesDataGridView.AllowUserToAddRows = false;
+            this.evaluacionesDataGridView.AllowUserToDeleteRows = false;
+            this.evaluacionesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.evaluacionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.evaluacionesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.objetivos,
-            this.Cumplimiento});
-            this.beneficiosAsignadosDataGridView.Location = new System.Drawing.Point(23, 83);
-            this.beneficiosAsignadosDataGridView.Name = "beneficiosAsignadosDataGridView";
-            this.beneficiosAsignadosDataGridView.ReadOnly = true;
-            this.beneficiosAsignadosDataGridView.RowTemplate.Height = 28;
-            this.beneficiosAsignadosDataGridView.Size = new System.Drawing.Size(532, 429);
-            this.beneficiosAsignadosDataGridView.TabIndex = 46;
-            this.beneficiosAsignadosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.beneficiosAsignadosDataGridView_CellContentClick);
+            this.cumplimiento});
+            this.evaluacionesDataGridView.Location = new System.Drawing.Point(23, 83);
+            this.evaluacionesDataGridView.MultiSelect = false;
+            this.evaluacionesDataGridView.Name = "evaluacionesDataGridView";
+            this.evaluacionesDataGridView.ReadOnly = true;
+            this.evaluacionesDataGridView.RowHeadersVisible = false;
+            this.evaluacionesDataGridView.RowTemplate.Height = 28;
+            this.evaluacionesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.evaluacionesDataGridView.Size = new System.Drawing.Size(532, 429);
+            this.evaluacionesDataGridView.TabIndex = 46;
+            // 
+            // objetivos
+            // 
+            this.objetivos.DataPropertyName = "equipoObjetvo";
+            this.objetivos.FillWeight = 98.47716F;
+            this.objetivos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableObjetivos;
+            this.objetivos.Name = "objetivos";
+            this.objetivos.ReadOnly = true;
+            // 
+            // cumplimiento
+            // 
+            this.cumplimiento.DataPropertyName = "alcanzado";
+            this.cumplimiento.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableCumplimiento;
+            this.cumplimiento.Name = "cumplimiento";
+            this.cumplimiento.ReadOnly = true;
             // 
             // evaluarButton
             // 
@@ -60,8 +77,9 @@
             this.evaluarButton.Name = "evaluarButton";
             this.evaluarButton.Size = new System.Drawing.Size(242, 38);
             this.evaluarButton.TabIndex = 47;
-            this.evaluarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonGuardar;
+            this.evaluarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonGuardar;
             this.evaluarButton.UseVisualStyleBackColor = true;
+            this.evaluarButton.Click += new System.EventHandler(this.evaluarButton_Click);
             // 
             // alcanzadoButton
             // 
@@ -69,8 +87,9 @@
             this.alcanzadoButton.Name = "alcanzadoButton";
             this.alcanzadoButton.Size = new System.Drawing.Size(258, 38);
             this.alcanzadoButton.TabIndex = 48;
-            this.alcanzadoButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAlcanzado;
+            this.alcanzadoButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAlcanzado;
             this.alcanzadoButton.UseVisualStyleBackColor = true;
+            this.alcanzadoButton.Click += new System.EventHandler(this.alcanzadoButton_Click);
             // 
             // incumplidoButton
             // 
@@ -78,22 +97,9 @@
             this.incumplidoButton.Name = "incumplidoButton";
             this.incumplidoButton.Size = new System.Drawing.Size(258, 38);
             this.incumplidoButton.TabIndex = 49;
-            this.incumplidoButton.Text = Genesis.Recursos_localizables.StringResources.ButtonIncumplido;
+            this.incumplidoButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonIncumplido;
             this.incumplidoButton.UseVisualStyleBackColor = true;
-            // 
-            // objetivos
-            // 
-            this.objetivos.FillWeight = 98.47716F;
-            this.objetivos.HeaderText = Genesis.Recursos_localizables.StringResources.TableObjetivos;
-            this.objetivos.Name = "objetivos";
-            this.objetivos.ReadOnly = true;
-            // 
-            // Cumplimiento
-            // 
-            this.Cumplimiento.FillWeight = 50F;
-            this.Cumplimiento.HeaderText = Genesis.Recursos_localizables.StringResources.TableCumplimiento;
-            this.Cumplimiento.Name = "Cumplimiento";
-            this.Cumplimiento.ReadOnly = true;
+            this.incumplidoButton.Click += new System.EventHandler(this.incumplidoButton_Click);
             // 
             // EvaluarEmpleados
             // 
@@ -102,22 +108,24 @@
             this.ClientSize = new System.Drawing.Size(578, 591);
             this.Controls.Add(this.incumplidoButton);
             this.Controls.Add(this.alcanzadoButton);
-            this.Controls.Add(this.beneficiosAsignadosDataGridView);
+            this.Controls.Add(this.evaluacionesDataGridView);
             this.Controls.Add(this.evaluarButton);
             this.Name = "EvaluarEmpleados";
-            this.Text = Genesis.Recursos_localizables.StringResources.TitleEvaluarEmpleados;
-            ((System.ComponentModel.ISupportInitialize)(this.beneficiosAsignadosDataGridView)).EndInit();
+            this.Text = "Evaluar empleados";
+            this.Load += new System.EventHandler(this.EvaluarEmpleados_Load);
+            this.Shown += new System.EventHandler(this.EvaluarEmpleados_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.evaluacionesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView beneficiosAsignadosDataGridView;
+        private System.Windows.Forms.DataGridView evaluacionesDataGridView;
         private System.Windows.Forms.Button evaluarButton;
         private System.Windows.Forms.Button alcanzadoButton;
         private System.Windows.Forms.Button incumplidoButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn objetivos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cumplimiento;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cumplimiento;
     }
 }
