@@ -79,6 +79,9 @@ public class GestorDeGrupos
 
         var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO GRUPO (nombre,habilitado) VALUES ('{0}',1)", grupo.nombre));
 
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se creo el grupo " + grupo.nombre, criticidad = 1, funcionalidad = "ADMINISTRACION DE GRUPOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 
@@ -94,6 +97,10 @@ public class GestorDeGrupos
 
         int periodoFin = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
         var registros = baseDeDatos.ModificarBase(String.Format("update grupobeneficio set periodoFin = {0} where idGrupoBeneficio = {1}", periodoFin, idRelacion));
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se desasigna el beneficio " + beneficio.identificador + " al grupo " + grupo.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE GRUPOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 

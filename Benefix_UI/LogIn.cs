@@ -149,6 +149,15 @@ namespace Genesis
             toolTip1.SetToolTip(this.ingresarButton, "Ingresa a la aplicacion con los datos de ingreso");
             toolTip1.SetToolTip(this.modificarStringButton, "Modifica el string de conexion para el acceso a la base de datos");
             toolTip1.SetToolTip(this.recalcularDigitosButton, "Reconstruye la integridad de la base de datos");
+
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm" ;
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "2_Login.htm");
+
         }
 
         private void recalcularDigitosButton_Click(object sender, EventArgs e)

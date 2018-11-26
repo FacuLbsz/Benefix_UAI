@@ -154,6 +154,13 @@ namespace Genesis
 
             toolTip1.SetToolTip(this.asignarPatentesButton, "Permite asignar patentes para asignar permisos a los usuarios");
             toolTip1.SetToolTip(this.asignarUsuariosButton, "Permite asignar usuarios a la familia seleccionada");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "20_Administracindefamilias.htm");
         }
 
         private void AdministracionDeFamilias_Shown(object sender, EventArgs e)

@@ -67,7 +67,7 @@ public class GestorDeBeneficios
 
     public int CrearBeneficio(Beneficio beneficio)
     {
-
+        var nombre = beneficio.nombre;
         beneficio.nombre = GestorDeEncriptacion.EncriptarAes(beneficio.nombre);
         var puntaje = GestorDeEncriptacion.EncriptarAes(beneficio.puntaje.ToString());
 
@@ -81,6 +81,10 @@ public class GestorDeBeneficios
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("INSERT INTO BENEFICIO (descripcion,nombre,puntaje,habilitado,digitoVerificadorH) VALUES ('{0}','{1}','{2}',1,'{3}')", beneficio.descripcion, beneficio.nombre, puntaje, digitoVH));
 
         gestorDeDigitoVerificador.ModificarDigitoVV("BENEFICIO");
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se creo el beneficio " + nombre, criticidad = 1, funcionalidad = "ADMINISTRACION DE BENEFICIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 

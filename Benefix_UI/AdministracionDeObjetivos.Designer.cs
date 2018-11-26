@@ -84,6 +84,7 @@
             // nombreText
             // 
             this.nombreText.Location = new System.Drawing.Point(317, 54);
+            this.nombreText.MaxLength = 26;
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 3;
@@ -100,6 +101,7 @@
             // descripcionText
             // 
             this.descripcionText.Location = new System.Drawing.Point(317, 114);
+            this.descripcionText.MaxLength = 60;
             this.descripcionText.Multiline = true;
             this.descripcionText.Name = "descripcionText";
             this.descripcionText.Size = new System.Drawing.Size(242, 140);

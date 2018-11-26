@@ -73,6 +73,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.asignarEmpleadosButton, "Permite asignar empleados al equipo seleccionado");
             toolTip1.SetToolTip(this.asignarGruposButton, "Permite asignar grupos de beneficios al equipo seleccionado");
             toolTip1.SetToolTip(this.asignarObjetivosButton, "Permite asignar objetivos al equipo seleccionado por los cuales se evaluaran a los empleados");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "11_Administracindeequipos.htm");
         }
 
         private void AdministracionDeEquipos_Shown(object sender, EventArgs e)

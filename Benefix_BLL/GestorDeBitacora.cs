@@ -40,7 +40,14 @@ public class GestorDeBitacora
         {
             EventoBitacora eventoBitacora = new EventoBitacora();
             eventoBitacora.criticidad = Convert.ToInt32(row["criticidad"]);
-            eventoBitacora.usuario = gestorDeUsuarios.ObtenerUsuario(Convert.ToInt32(row["Usuario_idUsuario"]));
+            if (DBNull.Value != row["Usuario_idUsuario"])
+            {
+                eventoBitacora.usuario = gestorDeUsuarios.ObtenerUsuario(Convert.ToInt32(row["Usuario_idUsuario"]));
+            }
+            else
+            {
+                eventoBitacora.usuario = new Usuario() { nombreUsuario = "" };
+            }
             eventoBitacora.fecha = Convert.ToDateTime(row["fecha"]);
             eventoBitacora.descripcion = GestorDeEncriptacion.DesencriptarAes(Convert.ToString(row["descripcion"]));
             eventoBitacora.funcionalidad = Convert.ToString(row["funcionalidad"]);
@@ -89,8 +96,8 @@ public class GestorDeBitacora
         String insertarEvento = "INSERT INTO Bitacora ( criticidad , descripcion , fecha , funcionalidad , Usuario_idUsuario , digitoVerificadorH) VALUES ({0},'{1}','{2}','{3}',{4},'{5}')";
         evento.descripcion = GestorDeEncriptacion.EncriptarAes(evento.descripcion);
 
-        String digitoVerficadorH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { evento.criticidad.ToString(), evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador.ToString() });
-        baseDeDatos.ModificarBase(String.Format(insertarEvento, evento.criticidad, evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario.identificador, digitoVerficadorH));
+        String digitoVerficadorH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { evento.criticidad.ToString(), evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario == null ? "" : evento.usuario.identificador.ToString() });
+        baseDeDatos.ModificarBase(String.Format(insertarEvento, evento.criticidad, evento.descripcion, evento.fecha.ToString(), evento.funcionalidad, evento.usuario == null ? "null" : evento.usuario.identificador.ToString(), digitoVerficadorH));
 
         m_GestorDeDigitoVerificador.ModificarDigitoVV("BITACORA");
     }

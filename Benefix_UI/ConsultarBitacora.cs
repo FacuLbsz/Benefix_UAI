@@ -56,6 +56,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.usuarioBox, "Usuario en sesion");
             toolTip1.SetToolTip(this.consultarButton, "Consulta los eventos existentes para los filtros seleccionados");
             toolTip1.SetToolTip(this.exportarPdfButton, "Exporta los eventos encontrados en un documento PDF");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "23_Bitcora.htm");
         }
 
         private void popularTablaEventos(DateTime? fechaDesde, DateTime? fechaHasta, int? criticidad, int? idUsuario)

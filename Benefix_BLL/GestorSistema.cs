@@ -91,7 +91,14 @@ public class GestorSistema
             List<String> argumentos = new List<String>();
             foreach (String atributo in atributos)
             {
-                argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+                if (DBNull.Value != eventoBitacora[atributo])
+                {
+                    argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+                }
+                else
+                {
+                    argumentos.Add("");
+                }
             }
 
             var id = eventoBitacora[identificador];
@@ -146,7 +153,15 @@ public class GestorSistema
             List<String> argumentos = new List<String>();
             foreach (String atributo in atributos)
             {
-                argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+                if (DBNull.Value != eventoBitacora[atributo])
+                {
+
+                    argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+                }
+                else
+                {
+                    argumentos.Add("");
+                }
             }
 
             var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(argumentos);
@@ -185,11 +200,12 @@ public class GestorSistema
     public int RealizarLogIn(Usuario usuario)
     {
         this.usuarioEnSesion = usuario;
+        var nombre = usuario.nombreUsuario;
         Usuario usuarioLogin = GestorDeUsuarios.ObtenerInstancia().RealizarLogIn(usuario);
 
         if (usuarioLogin != null && usuarioLogin.cantidadDeIntentos >= 5)
         {
-            var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Intento login usuario bloqueado " + usuarioLogin.nombreUsuario, criticidad = 1, funcionalidad = "LOGIN", usuario = usuarioLogin};
+            var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Intento login usuario bloqueado " + nombre, criticidad = 1, funcionalidad = "LOGIN", usuario = null };
             GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
             return 2;
         }
@@ -220,12 +236,12 @@ public class GestorSistema
         }
         catch (Exception e)
         {
-            //EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión.", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = ObtenerUsuarioEnSesion()!=null? ObtenerUsuarioEnSesion(): 0 };
-            //GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+            EventoBitacora eventoo = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión y fallo la conexion", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = null };
+            GestorDeBitacora.ObtenerInstancia().RegistrarEvento(eventoo);
             throw new Exception("No fue posible acceder a la Base de datos ingresada, por favor verifique el String de Conexion.");
         }
-        //EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión.", criticidad = 1, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = ObtenerUsuarioEnSesion()!=null? ObtenerUsuarioEnSesion(): 0 };
-        //GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se modifico el String de conexión correctamente", criticidad = 2, funcionalidad = "MODIFICAR STRING DE CONEXION", usuario = null };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
         return 1;
     }
 
@@ -264,6 +280,10 @@ public class GestorSistema
         {
             return 0;
         }
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se exporta backup de la base de datos en " + cantidadVolumenes + " particiones en la ruta " + rutaDestino, criticidad = 1, funcionalidad = "REALIZAR BACKUP", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return 1;
     }
 
@@ -307,6 +327,11 @@ public class GestorSistema
         {
             return 0;
         }
+
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se realiza la restauracion de la base de datos", criticidad = 1, funcionalidad = "REALIZAR RESTORE", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return 1;
     }
 

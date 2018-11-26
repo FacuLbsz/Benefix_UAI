@@ -403,5 +403,8 @@
   <ItemGroup>
     <Content Include="Recursos localizables\exportToPdfButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ayuda\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

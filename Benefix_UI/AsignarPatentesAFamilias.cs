@@ -55,6 +55,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.desasignarButton, "Desasigna el beneficio seleccionada a la familia");
             toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
 
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "21_AsignarPatentes.htm");
+
         }
 
         private void AsignarPatentesAFamilias_Shown(object sender, EventArgs e)

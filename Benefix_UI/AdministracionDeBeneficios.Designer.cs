@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.beneficiosDataGridView = new System.Windows.Forms.DataGridView();
+            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
             this.puntajeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.beneficios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.puntajeUpDown)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +62,13 @@
             this.beneficiosDataGridView.Size = new System.Drawing.Size(240, 576);
             this.beneficiosDataGridView.TabIndex = 13;
             this.beneficiosDataGridView.Click += new System.EventHandler(this.beneficiosDataGridView_CurrentCellChanged);
-            
+            // 
+            // beneficios
+            // 
+            this.beneficios.DataPropertyName = "nombre";
+            this.beneficios.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
+            this.beneficios.Name = "beneficios";
+            this.beneficios.ReadOnly = true;
             // 
             // eliminarButton
             // 
@@ -125,6 +131,7 @@
             // descripcionText
             // 
             this.descripcionText.Location = new System.Drawing.Point(317, 114);
+            this.descripcionText.MaxLength = 60;
             this.descripcionText.Multiline = true;
             this.descripcionText.Name = "descripcionText";
             this.descripcionText.Size = new System.Drawing.Size(242, 140);
@@ -142,6 +149,7 @@
             // nombreText
             // 
             this.nombreText.Location = new System.Drawing.Point(317, 54);
+            this.nombreText.MaxLength = 26;
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 14;
@@ -157,13 +165,6 @@
             this.puntajeUpDown.Name = "puntajeUpDown";
             this.puntajeUpDown.Size = new System.Drawing.Size(238, 26);
             this.puntajeUpDown.TabIndex = 24;
-            // 
-            // beneficios
-            // 
-            this.beneficios.DataPropertyName = "nombre";
-            this.beneficios.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableBeneficios;
-            this.beneficios.Name = "beneficios";
-            this.beneficios.ReadOnly = true;
             // 
             // AdministracionDeBeneficios
             // 

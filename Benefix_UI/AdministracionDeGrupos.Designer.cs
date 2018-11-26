@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gruposDataGridView = new System.Windows.Forms.DataGridView();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.modificarButton = new System.Windows.Forms.Button();
             this.crearButton = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.nombreLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
             this.asignarBeneficiosButton = new System.Windows.Forms.Button();
-            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gruposDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,13 @@
             this.gruposDataGridView.Size = new System.Drawing.Size(240, 551);
             this.gruposDataGridView.TabIndex = 24;
             this.gruposDataGridView.Click += new System.EventHandler(this.gruposDataGridView_CurrentCellChanged);
+            // 
+            // grupos
+            // 
+            this.grupos.DataPropertyName = "nombre";
+            this.grupos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableGrupos;
+            this.grupos.Name = "grupos";
+            this.grupos.ReadOnly = true;
             // 
             // eliminarButton
             // 
@@ -111,6 +118,7 @@
             // nombreText
             // 
             this.nombreText.Location = new System.Drawing.Point(316, 52);
+            this.nombreText.MaxLength = 20;
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(242, 26);
             this.nombreText.TabIndex = 25;
@@ -124,13 +132,6 @@
             this.asignarBeneficiosButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignarBeneficios;
             this.asignarBeneficiosButton.UseVisualStyleBackColor = true;
             this.asignarBeneficiosButton.Click += new System.EventHandler(this.asignarBeneficiosButton_Click);
-            // 
-            // grupos
-            // 
-            this.grupos.DataPropertyName = "nombre";
-            this.grupos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableGrupos;
-            this.grupos.Name = "grupos";
-            this.grupos.ReadOnly = true;
             // 
             // AdministracionDeGrupos
             // 

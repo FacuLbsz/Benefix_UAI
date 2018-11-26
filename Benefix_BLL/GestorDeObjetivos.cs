@@ -44,6 +44,7 @@ public class GestorDeObjetivos
 
     public int CrearObjetivo(Objetivo objetivo)
     {
+        var nombre = objetivo.nombre;
         objetivo.nombre = GestorDeEncriptacion.EncriptarAes(objetivo.nombre);
         var puntaje = GestorDeEncriptacion.EncriptarAes(objetivo.puntaje.ToString());
 
@@ -55,6 +56,9 @@ public class GestorDeObjetivos
 
         var registros = BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("INSERT INTO OBJETIVO (descripcion,nombre,puntaje,habilitado) VALUES ('{0}','{1}','{2}',1)", objetivo.descripcion, objetivo.nombre, puntaje));
 
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se creo el objetivo " + nombre, criticidad = 1, funcionalidad = "ADMINISTRACION DE OBJETIVOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 
@@ -63,13 +67,14 @@ public class GestorDeObjetivos
 
         var objetivoOBtenido = ObtenerObjetivoBD(objetivo.identificador);
         var nombreObjetivo = objetivoOBtenido.nombre;
-        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el objetivo " + objetivo.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE OBJETIVOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
-        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
 
 
         nombreObjetivo = GestorDeEncriptacion.EncriptarAes(nombreObjetivo + " Eliminado el dia: " + DateTime.Now.ToString("yyyy-MM-dd"));
 
         var registros = baseDeDatos.ModificarBase(String.Format("UPDATE OBJETIVO SET habilitado = 0, nombre = '{0}' WHERE idObjetivo = {1}", nombreObjetivo, objetivo.identificador));
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el objetivo " + objetivo.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE OBJETIVOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
 
         return registros;
     }

@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benefix_BDTool", "Benefix_B
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorBenefix", "InstaladorBenefix\InstaladorBenefix.vdproj", "{131B0D77-E90A-4C52-ADAB-D148D5320750}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorBenefixBDTool", "InstaladorBenefixBDTool\InstaladorBenefixBDTool.vdproj", "{8071C78A-939E-4BE1-B1F2-614375F83922}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,8 +49,6 @@ Global
 		{4B43606D-1983-421F-B649-C58B02D941B0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{131B0D77-E90A-4C52-ADAB-D148D5320750}.Debug|Any CPU.ActiveCfg = Debug
 		{131B0D77-E90A-4C52-ADAB-D148D5320750}.Release|Any CPU.ActiveCfg = Release
-		{8071C78A-939E-4BE1-B1F2-614375F83922}.Debug|Any CPU.ActiveCfg = Debug
-		{8071C78A-939E-4BE1-B1F2-614375F83922}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

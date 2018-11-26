@@ -50,7 +50,7 @@
             // contrasenaActualText
             // 
             this.contrasenaActualText.Location = new System.Drawing.Point(46, 54);
-            this.contrasenaActualText.MaxLength = 20;
+            this.contrasenaActualText.MaxLength = 8;
             this.contrasenaActualText.Name = "contrasenaActualText";
             this.contrasenaActualText.PasswordChar = '*';
             this.contrasenaActualText.Size = new System.Drawing.Size(352, 26);
@@ -68,7 +68,7 @@
             // nuevaContrasenaText
             // 
             this.nuevaContrasenaText.Location = new System.Drawing.Point(46, 129);
-            this.nuevaContrasenaText.MaxLength = 20;
+            this.nuevaContrasenaText.MaxLength = 8;
             this.nuevaContrasenaText.Name = "nuevaContrasenaText";
             this.nuevaContrasenaText.PasswordChar = '*';
             this.nuevaContrasenaText.Size = new System.Drawing.Size(352, 26);
@@ -87,7 +87,7 @@
             // confirmarContraseñaTextBox
             // 
             this.confirmarContraseñaTextBox.Location = new System.Drawing.Point(46, 206);
-            this.confirmarContraseñaTextBox.MaxLength = 20;
+            this.confirmarContraseñaTextBox.MaxLength = 8;
             this.confirmarContraseñaTextBox.Name = "confirmarContraseñaTextBox";
             this.confirmarContraseñaTextBox.PasswordChar = '*';
             this.confirmarContraseñaTextBox.Size = new System.Drawing.Size(352, 26);

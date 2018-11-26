@@ -130,7 +130,14 @@ public class GestorDeFamilias
             throw new EntidadDuplicadaExcepcion("nombre");
         }
 
-        return baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre,habilitado) VALUES ('{0}', 1)", GestorDeEncriptacion.EncriptarAes(familia.nombre)));
+        var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO FAMILIA (nombre,habilitado) VALUES ('{0}', 1)", GestorDeEncriptacion.EncriptarAes(familia.nombre)));
+
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se crea la familia " + familia.nombre, criticidad = 3, funcionalidad = "ADMINISTRACION DE FAMILIAS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
+
+        return registros;
     }
 
     public int DesasignarPatente(Patente patente, Familia familia)

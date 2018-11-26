@@ -83,6 +83,13 @@ namespace Genesis
 
             toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
 
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "3_Miestado.htm");
+
         }
 
         private void exportarPdfButton_Click(object sender, EventArgs e)

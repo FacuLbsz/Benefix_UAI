@@ -66,6 +66,13 @@ namespace Genesis
 
             toolTip1.SetToolTip(this.coordinadorBox, "Selecciona el empleado que se encaraga de coordinar y evaluar el equipo");
             toolTip1.SetToolTip(this.guardarButton, "Guarda la asignacion realizada");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "12_AsignarCoordinador.htm");
         }
     }
 }

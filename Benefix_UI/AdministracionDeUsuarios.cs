@@ -53,6 +53,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.asignarPatentesButton, "Permite asignar patentes para asignar y denegar permisos a los usuarios");
             toolTip1.SetToolTip(this.desbloquearUsuarioButton, "Debloquea el acceso al usuario seleccionado");
             toolTip1.SetToolTip(this.restablecerContraseñaButton, "Restablece la contraseña del usuario seleccionado en una ruta especificada");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "18_Administracindeusuarios.htm");
         }
 
         private void AdministracionDeUsuarios_Shown(object sender, EventArgs e)
@@ -322,6 +329,9 @@ namespace Genesis
         {
             gestorDeUsuarios.DesbloquearUsuario(new Usuario() { identificador = usuarioSeleccionado });
             MessageBox.Show(Genesis.Recursos_localizables.StringResources.DesbloquearUsuarioLabel);
+
+            var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se debloquea el usuario " + usuarioSeleccionado, criticidad = 1, funcionalidad = "ADMINISTACION DE USUARIOS", usuario = null };
+            GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
         }
     }
 }

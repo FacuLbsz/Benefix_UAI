@@ -57,6 +57,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
             toolTip1.SetToolTip(this.consultarButton, "Consulta el porcentaje cumplimiento de objetivos de los empleados asignados al equipo seleccionado");
             toolTip1.SetToolTip(this.periodoBox, "Periodo en el cual se evaluaron los empleados");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "7_ReportesObjetivosporequipo.htm");
         }
 
         private void ListarEquipos()

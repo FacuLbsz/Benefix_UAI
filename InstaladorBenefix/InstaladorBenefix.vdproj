@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_08E07C3A115D42C79DD93CDCE6FCA842"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_120F840EC19D430C84C6883278769A8F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -57,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_67A0E802D7FD81B3E04EC40AA782B703"
+        "OwnerKey" = "8:_08E07C3A115D42C79DD93CDCE6FCA842"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_67CDB1555C862466A771CD3B87D0FCA4"
         "OwnerKey" = "8:_52FFEE8410B2B232819604D51AF2D79D"
         "MsmSig" = "8:_UNDEFINED"
@@ -75,8 +87,32 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9FF13D5C3E2A451F907B908428809AF8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DEAFE92B7D7AAA416ED98F13FA5B3A36"
+        "OwnerKey" = "8:_120F840EC19D430C84C6883278769A8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_120F840EC19D430C84C6883278769A8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_08E07C3A115D42C79DD93CDCE6FCA842"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DEAFE92B7D7AAA416ED98F13FA5B3A36"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,6 +208,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -361,7 +405,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ObjectListView, Version=2.9.1.42427, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ObjectListView, Version=2.9.1.41643, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_8D7A40516677FCA1AA800C28B3716A26"
@@ -371,6 +415,57 @@
                     }
                 }
             "SourcePath" = "8:ObjectListView.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8C35DDD18084416C85DDD57C950BDC3D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9FF13D5C3E2A451F907B908428809AF8"
+            {
+            "SourcePath" = "8:..\\Benefix_UI\\Ayuda\\Benefix_mu.chm"
+            "TargetName" = "8:Benefix_mu.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_8C35DDD18084416C85DDD57C950BDC3D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DEAFE92B7D7AAA416ED98F13FA5B3A36"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_DEAFE92B7D7AAA416ED98F13FA5B3A36"
+                    {
+                    "Name" = "8:itextsharp.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:itextsharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8C35DDD18084416C85DDD57C950BDC3D"
@@ -565,6 +660,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_774E46DEF21849CAB91744A7E71388B4"
+            {
+            "Name" = "8:Benefix BD Tool"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_08E07C3A115D42C79DD93CDCE6FCA842"
+            "Folder" = "8:_D04D2A815B8F416ABD6765576B86A15F"
+            "WorkingFolder" = "8:_8C35DDD18084416C85DDD57C950BDC3D"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B32DA5F2084B44FB86783FEC6961F96D"
             {
             "Name" = "8:Benefix"
@@ -978,6 +1087,34 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_08E07C3A115D42C79DD93CDCE6FCA842"
+            {
+            "SourcePath" = "8:..\\Benefix_BDTool\\obj\\Debug\\Benefix_BDTool.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8C35DDD18084416C85DDD57C950BDC3D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{4B43606D-1983-421F-B649-C58B02D941B0}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_120F840EC19D430C84C6883278769A8F"
             {
             "SourcePath" = "8:..\\Benefix_UI\\obj\\Debug\\Genesis.exe"

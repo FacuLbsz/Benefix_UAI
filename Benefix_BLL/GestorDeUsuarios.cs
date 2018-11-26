@@ -121,6 +121,9 @@ public class GestorDeUsuarios
 
         gestorDeDigitoVerificador.ModificarDigitoVV("USUARIO");
 
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se crea el usuario " + usuario.nombre + " " + usuario.apellido, criticidad = 3, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 
@@ -142,8 +145,10 @@ public class GestorDeUsuarios
             gestorDePatentes.DesasignarAUnUsuario(usuario, patente.patente);
         });
         BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("update equipo set coordinador is null where coordinador = {1}", usuario.identificador));
+
         EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el usuario " + usuario.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("UPDATE USUARIO SET habilitado = 0 WHERE idUsuario = {0}", usuario.identificador));
     }
 
@@ -228,6 +233,7 @@ public class GestorDeUsuarios
 
     public Usuario RealizarLogIn(Usuario usuario)
     {
+        var nombre = usuario.nombreUsuario;
         usuario.nombreUsuario = GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
         usuario.contrasena = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
         DataTable usuarioTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND contrasena = '{1}'", usuario.nombreUsuario, usuario.contrasena));

@@ -64,6 +64,13 @@ namespace Genesis
             this.equipos.ToolTipText = "Equipos coordinados por el usuario en sesion";
             this.empleados.ToolTipText = "Empleados del equipo seleccionado";
 
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "4_Evaluarequiposacargo.htm");
+
         }
 
         private void EvaluarEquiposACargo_Shown(object sender, EventArgs e)

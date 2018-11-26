@@ -213,6 +213,13 @@ namespace Genesis
 
             backUpToolStripMenuItem.Visible = realizarBackUpToolStripMenuItemVisible || realizarRestoreToolStripMenuItemVisible;
 
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "26_Pantallaprincipal.htm");
+
         }
 
 

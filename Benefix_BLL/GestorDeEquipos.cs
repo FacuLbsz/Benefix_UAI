@@ -195,6 +195,9 @@ public class GestorDeEquipos
 
         var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO EQUIPO (nombre,habilitado) VALUES ('{0}',1)", equipo.nombre));
 
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se crea el equipo " + equipo.nombre, criticidad = 1, funcionalidad = "ADMINISTRACION DE EQUIPOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 
@@ -211,6 +214,10 @@ public class GestorDeEquipos
 
         int periodoFin = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
         var registros = baseDeDatos.ModificarBase(String.Format("update equipoempleado set periodoFin = {0} where idEquipoEmpleado = {1}", periodoFin, idRelacion));
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se desasigna el empleado " + empleado.identificador + " al equipo " + equipo.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE EQUIPOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 
@@ -227,6 +234,10 @@ public class GestorDeEquipos
 
         int periodoFin = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
         var registros = baseDeDatos.ModificarBase(String.Format("update equipogrupo set periodoFin = {0} where idEquipoGrupo = {1}", periodoFin, idRelacion));
+
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se desasigna el grupo " + grupo.identificador + " al equipo " + equipo.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE EQUIPOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
+
         return registros;
     }
 

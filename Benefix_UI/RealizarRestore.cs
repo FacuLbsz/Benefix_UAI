@@ -71,6 +71,13 @@ namespace Genesis
 
             toolTip1.SetToolTip(this.seleccionarArchivo, "Selecciona el archivo rar que representa el backup a restaurar");
             toolTip1.SetToolTip(this.importarButton, "Restaura la base de datos a partir del archivo seleccionado");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "25_Realizarrestore.htm");
         }
     }
 }

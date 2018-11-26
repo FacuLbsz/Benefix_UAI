@@ -52,6 +52,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.eliminarButton, "Elimina el grupo seleccionado");
 
             toolTip1.SetToolTip(this.asignarBeneficiosButton, "Permite asignar beneficios al grupo seleccionado");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "16_Administracindegrupos.htm");
         }
 
         private void AdministracionDeGrupos_Shown(object sender, EventArgs e)

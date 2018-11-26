@@ -42,6 +42,13 @@ namespace Genesis
             toolTip1.SetToolTip(this.modificarButton, "Modifica el objetivo seleccionado");
             toolTip1.SetToolTip(this.eliminarButton, "Elimina el objetivo seleccionado");
             toolTip1.SetToolTip(this.puntajeUpDown, "Indica el puntaje que otorgara cumplir el objetivo");
+
+            System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
+            var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
+            helpProvider1.HelpNamespace = applicationFolder;
+            helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
+            helpProvider1.SetShowHelp(this, true);
+            helpProvider1.SetHelpKeyword(this, "9_Administracindeobjetivos.htm");
         }
 
         private void AdministracionDeObjetivos_Shown(object sender, EventArgs e)
