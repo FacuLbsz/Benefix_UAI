@@ -51,6 +51,17 @@ namespace Genesis
                     col.Visible = false;
             }
 
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.asignarButton, "Asigna la patente seleccionada al usuario");
+            toolTip1.SetToolTip(this.desasignarButton, "Desasigna la patente seleccionada al usuario");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
+
         }
 
         private void patentesAsignadosDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

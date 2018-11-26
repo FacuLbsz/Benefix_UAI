@@ -35,6 +35,7 @@
             this.beneficiosListView = new BrightIdeasSoftware.ObjectListView();
             this.beneficioss = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.puntajee = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.exportarPdfButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.evaluacionesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).BeginInit();
             this.SuspendLayout();
@@ -124,11 +125,23 @@
             this.puntajee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.puntajee.Width = 100;
             // 
+            // exportarPdfButton
+            // 
+            this.exportarPdfButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.exportarPdfButton.Location = new System.Drawing.Point(727, 589);
+            this.exportarPdfButton.Name = "exportarPdfButton";
+            this.exportarPdfButton.Size = new System.Drawing.Size(312, 38);
+            this.exportarPdfButton.TabIndex = 64;
+            this.exportarPdfButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonExportar;
+            this.exportarPdfButton.UseVisualStyleBackColor = true;
+            this.exportarPdfButton.Click += new System.EventHandler(this.exportarPdfButton_Click);
+            // 
             // MiEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 599);
+            this.ClientSize = new System.Drawing.Size(1064, 641);
+            this.Controls.Add(this.exportarPdfButton);
             this.Controls.Add(this.beneficiosListView);
             this.Controls.Add(this.evaluacionesListView);
             this.Name = "MiEstado";
@@ -149,5 +162,6 @@
         private BrightIdeasSoftware.ObjectListView beneficiosListView;
         private BrightIdeasSoftware.OLVColumn beneficioss;
         private BrightIdeasSoftware.OLVColumn puntajee;
+        private System.Windows.Forms.Button exportarPdfButton;
     }
 }

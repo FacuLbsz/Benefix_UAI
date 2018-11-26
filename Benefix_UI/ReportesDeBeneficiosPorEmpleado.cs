@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Genesis.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace Genesis
         private Dictionary<string, int> periodos;
         private GestorDeUsuarios gestorDeUsuarios;
         private GestorDeBeneficios gestorDeBeneficios;
+        private Usuario usuarioSeleccionado;
+        private List<object[]> evaluaciones;
 
         public ReportesDeBeneficiosPorEmpleado()
         {
@@ -31,7 +34,7 @@ namespace Genesis
         private void ReportesDeBeneficiosPorEmpleado_Load(object sender, EventArgs e)
         {
 
-
+            exportarPdfButton.Enabled = false;
             periodos = new Dictionary<String, int>();
             var periodoActual = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
 
@@ -45,6 +48,20 @@ namespace Genesis
             periodoBox.DataSource = periodos.Keys.ToList();
 
             ListarUsuarios();
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            this.beneficio.ToolTipText = "Benficios asignados al usuario seleccionado";
+            this.otorgado.ToolTipText = "Indica si el usuario puede acceder al beneficio";
+
+            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
+            toolTip1.SetToolTip(this.consultarButton, "Consulta los beneficios otorgados al empleado seleccionado en el periodo indicado");
+            toolTip1.SetToolTip(this.periodoBox, "Periodo en el cual se evaluaron los empleados");
         }
 
         private void ListarUsuarios()
@@ -121,9 +138,9 @@ namespace Genesis
                 return;
             }
 
-            var usuarioSeleccionado = (Usuario)empleadosDataGridView.Rows[empleadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
+            usuarioSeleccionado = (Usuario)empleadosDataGridView.Rows[empleadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
             beneficiosListView.UseAlternatingBackColors = true;
-            var evaluaciones = gestorDeBeneficios.ObtenerReporteDeUnEmpleadoParaUnPeriodo(usuarioSeleccionado, periodos[periodoBox.SelectedItem.ToString()]);
+            evaluaciones = gestorDeBeneficios.ObtenerReporteDeUnEmpleadoParaUnPeriodo(usuarioSeleccionado, periodos[periodoBox.SelectedItem.ToString()]);
             beneficiosListView.ClearObjects();
 
             this.beneficio.AspectGetter = delegate (object rowObject)
@@ -141,10 +158,35 @@ namespace Genesis
             if (evaluaciones.Count > 0)
             {
                 beneficiosListView.AddObjects(evaluaciones);
+                exportarPdfButton.Enabled = true;
             }
             else
             {
                 MessageBox.Show("No se encuentran beneficios para el periodo y el empleado seleccionado.");
+                exportarPdfButton.Enabled = false;
+            }
+        }
+
+        private void exportarPdfButton_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Selecciona donde depositar tu arhivo .PDF";
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    var nombreEmpleado = usuarioSeleccionado.nombreUsuario.Replace(".", " ");
+                    var titulo = "Beneficios del empleado " + nombreEmpleado + " para el periodo " + periodoBox.SelectedItem;
+                    var filePath = fbd.SelectedPath + "\\" + periodoBox.SelectedItem + "_Beneficios de " + nombreEmpleado + ".pdf";
+
+                    List<String> columns = new List<string>();
+                    columns.Add(beneficio.Text);
+                    columns.Add(otorgado.Text);
+
+                    new ReportesDeBeneficiosPorEmpleadoPDF().ExportarPDFARuta(titulo, columns, evaluaciones.Cast<Object>().ToList(), filePath);
+                    MessageBox.Show("PDF creado con exito!");
+                }
             }
         }
     }

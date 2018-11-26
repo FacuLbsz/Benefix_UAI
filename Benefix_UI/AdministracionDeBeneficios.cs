@@ -31,6 +31,19 @@ namespace Genesis
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_MODIFICACION);
             eliminarButton.Visible =
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_BENEFICIOS_ELIMINACION);
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
+            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo beneficio");
+            toolTip1.SetToolTip(this.modificarButton, "Modifica el beneficio seleccionado");
+            toolTip1.SetToolTip(this.eliminarButton, "Elimina el beneficio seleccionado");
+            toolTip1.SetToolTip(this.puntajeUpDown, "Indica el puntaje necesario para que sea otorgado el beneficio");
         }
 
         private void AdministracionDeBeneficios_Shown(object sender, EventArgs e)

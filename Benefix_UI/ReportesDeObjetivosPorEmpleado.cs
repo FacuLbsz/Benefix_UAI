@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Genesis.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace Genesis
         private GestorDeUsuarios gestorDeUsuarios;
         private GestorDeEvaluaciones gestorDeEvaluaciones;
         private Dictionary<String, int> periodos;
+        private Usuario usuarioSeleccionado;
+        private List<Evaluacion> evaluaciones;
+
         public ReportesDeObjetivosPorEmpleado()
         {
             InitializeComponent();
@@ -29,6 +33,7 @@ namespace Genesis
 
         private void ReportesDeObjetivosPorEmpleado_Load(object sender, EventArgs e)
         {
+            exportarPdfButton.Enabled = false;
             periodos = new Dictionary<String, int>();
             var periodoActual = Convert.ToInt32(DateTime.Now.ToString("yyyyMM"));
 
@@ -42,6 +47,20 @@ namespace Genesis
             periodoBox.DataSource = periodos.Keys.ToList();
 
             ListarUsuarios();
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            this.equipo.ToolTipText = "Objetivos asignados a los equipos que pertenece el usuario seleccionado";
+            this.cumplimiento.ToolTipText = "Indica si el usuario cumplio el objetivo";
+
+            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
+            toolTip1.SetToolTip(this.consultarButton, "Consulta el estado de cumplimiento de objetivos del empleado seleccionado");
+            toolTip1.SetToolTip(this.periodoBox, "Periodo en el cual se evaluaron los empleados");
         }
 
         private void ListarUsuarios()
@@ -116,7 +135,7 @@ namespace Genesis
                 return;
             }
 
-            var usuarioSeleccionado = (Usuario)empleadosDataGridView.Rows[empleadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
+            usuarioSeleccionado = (Usuario)empleadosDataGridView.Rows[empleadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
             this.equipo.GroupKeyGetter = delegate (object rowObject)
             {
                 Evaluacion evaluacion = (Evaluacion)rowObject;
@@ -128,16 +147,41 @@ namespace Genesis
                 return groupKey.ToString();
             };
             evaluacionesListView.UseAlternatingBackColors = true;
-            var evaluaciones = gestorDeEvaluaciones.ObtenerEvaluacionDeUnEmpleadoParaUnPeriodo(usuarioSeleccionado, periodos[periodoBox.SelectedItem.ToString()]);
+            evaluaciones = gestorDeEvaluaciones.ObtenerEvaluacionDeUnEmpleadoParaUnPeriodo(usuarioSeleccionado, periodos[periodoBox.SelectedItem.ToString()]);
             evaluacionesListView.ClearObjects();
 
             if (evaluaciones.Count > 0)
             {
                 evaluacionesListView.AddObjects(evaluaciones);
+                exportarPdfButton.Enabled = true;
             }
             else
             {
                 MessageBox.Show("No se encuentran equipos y o objetivos para el periodo y el empleado seleccionado.");
+                exportarPdfButton.Enabled = false;
+            }
+        }
+
+        private void exportarPdfButton_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Selecciona donde depositar tu arhivo .PDF";
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    var nombreEmpleado = usuarioSeleccionado.nombreUsuario.Replace(".", " ");
+                    var titulo = "Cumplimiento de los objetivos por equipo del empleado " + nombreEmpleado + " para el periodo " + periodoBox.SelectedItem;
+                    var filePath = fbd.SelectedPath + "\\" + periodoBox.SelectedItem + "_Objetivos de " + nombreEmpleado + ".pdf";
+
+                    List<String> columns = new List<string>();
+                    columns.Add(equipo.Text);
+                    columns.Add(cumplimiento.Text);
+
+                    new ReportesDeObjetivosPorEmpleadoPDF().ExportarPDFARuta(titulo, columns, evaluaciones.Cast<Object>().ToList(), filePath);
+                    MessageBox.Show("PDF creado con exito!");
+                }
             }
         }
     }

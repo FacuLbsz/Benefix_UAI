@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Genesis.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Genesis
 
         private GestorDeBitacora gestorDeBitacora;
         private GestorDeUsuarios gestorDeUsuarios;
+        private List<EventoBitacora> eventosBitacora;
 
         public ConsultarBitacora()
         {
@@ -23,6 +25,7 @@ namespace Genesis
 
         private void ConsultarBitacora_Load(object sender, EventArgs e)
         {
+            exportarPdfButton.Enabled = false;
             gestorDeBitacora = GestorDeBitacora.ObtenerInstancia();
             gestorDeUsuarios = GestorDeUsuarios.ObtenerInstancia();
 
@@ -38,17 +41,27 @@ namespace Genesis
             criticidadBox.DataSource = new List<String> { "TODOS", "Alta", "Media", "Baja" };
 
             fechaDesdeDate.Checked = false;
-            fechaDesdeDate.Visible= false;
-            fechaDesdeDate.Value =  fechaDesdeDate.Value.Date.AddDays(-7);
+            fechaDesdeDate.Visible = false;
+            fechaDesdeDate.Value = fechaDesdeDate.Value.Date.AddDays(-7);
             fechaDesdeDate.Visible = true;
 
+            ToolTip toolTip1 = new ToolTip();
 
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.criticidadBox, "Criticidad del evento que deseas consultar");
+            toolTip1.SetToolTip(this.usuarioBox, "Usuario en sesion");
+            toolTip1.SetToolTip(this.consultarButton, "Consulta los eventos existentes para los filtros seleccionados");
+            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta los eventos encontrados en un documento PDF");
         }
 
         private void popularTablaEventos(DateTime? fechaDesde, DateTime? fechaHasta, int? criticidad, int? idUsuario)
         {
             beneficiosDataGridView.Rows.Clear();
-            List<EventoBitacora> eventosBitacora = gestorDeBitacora.ConsultarEventos(criticidad, idUsuario, fechaDesde, fechaHasta);
+            eventosBitacora = gestorDeBitacora.ConsultarEventos(criticidad, idUsuario, fechaDesde, fechaHasta);
 
             foreach (EventoBitacora eventoBitacora in eventosBitacora)
             {
@@ -74,6 +87,15 @@ namespace Genesis
                 beneficiosDataGridView.Rows[index].Cells["descripcion"].Value = eventoBitacora.descripcion;
 
             }
+
+            if (eventosBitacora.Count > 0)
+            {
+                exportarPdfButton.Enabled = true;
+            }
+            else
+            {
+                exportarPdfButton.Enabled = false;
+            }
         }
 
         private void consultarButton_Click(object sender, EventArgs e)
@@ -81,7 +103,7 @@ namespace Genesis
             var fechaDesde = fechaDesdeDate.Value;
             var fechaHasta = fechaHastaDate.Value;
 
-            Console.WriteLine("COMPARE TO: "+fechaDesde.CompareTo(fechaHasta));
+            Console.WriteLine("COMPARE TO: " + fechaDesde.CompareTo(fechaHasta));
 
             if (fechaDesde.CompareTo(fechaHasta) > 0)
             {
@@ -112,6 +134,35 @@ namespace Genesis
             }
 
             popularTablaEventos(fechaDesde, fechaHasta, criticidadInt, idUsuario);
+        }
+
+        private void exportarPdfButton_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Selecciona donde depositar tu arhivo .PDF";
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    var titulo = "Extracto de bitacora utilizando los filtros:";
+                    titulo += "\n"+fechaDesdeLabel.Text + ": " + fechaDesdeDate.Value.ToString();
+                    titulo += "\n"+fechaHastaLabel.Text + ": " + fechaHastaDate.Value.ToString();
+                    titulo += "\n"+criticidadLabel.Text + ": " + criticidadBox.SelectedItem.ToString();
+                    titulo += "\n"+usuarioLabel.Text + ": " + ((Usuario)usuarioBox.SelectedItem).nombreUsuario;
+                    var filePath = fbd.SelectedPath + "\\Extracto de Bitacora.pdf";
+
+                    List<String> columns = new List<string>();
+                    columns.Add(usuario.HeaderText);
+                    columns.Add(fecha.HeaderText);
+                    columns.Add(funcionalidad.HeaderText);
+                    columns.Add(descripcion.HeaderText);
+                    columns.Add(criticidad.HeaderText);
+
+                    new BitacoraPDF().ExportarPDFARuta(titulo, columns, eventosBitacora.Cast<Object>().ToList(), filePath);
+                    MessageBox.Show("PDF creado con exito!");
+                }
+            }
         }
     }
 }

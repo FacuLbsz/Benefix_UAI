@@ -72,7 +72,7 @@
             this.asignarButton.Name = "asignarButton";
             this.asignarButton.Size = new System.Drawing.Size(242, 38);
             this.asignarButton.TabIndex = 48;
-            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignarUsuarios;
+            this.asignarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonAsignar;
             this.asignarButton.UseVisualStyleBackColor = true;
             this.asignarButton.Click += new System.EventHandler(this.asignarButton_Click);
             // 

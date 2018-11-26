@@ -58,5 +58,17 @@ namespace Genesis
             }
             return true;
         }
+
+        private void ModificarContrasena_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.modificarButton, "Actualiza la contraseña por la ingresada");
+        }
     }
 }

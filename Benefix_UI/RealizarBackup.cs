@@ -72,6 +72,17 @@ namespace Genesis
             cantidadDeVolumenesComboBox.SelectedIndex = index;
 
             rutaDestinoText.Enabled = false;
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.seleccionarButton, "Selecciona la ruta donde depositar el backup");
+            toolTip1.SetToolTip(this.cantidadDeVolumenesComboBox, "Indica la cantidad de particiones que representara el backup");
+            toolTip1.SetToolTip(this.exportarButton, "Realiza el backup de la base de datos en la ruta seleccionada y en la cantidad de particiones ingresadas");
         }
 
         private void seleccionarButton_Click(object sender, EventArgs e)

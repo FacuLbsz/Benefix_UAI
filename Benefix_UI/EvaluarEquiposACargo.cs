@@ -53,6 +53,17 @@ namespace Genesis
                 MessageBox.Show("Usted no tiene equipos asignados");
             }
 
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.evaluarButton, "Evaluar los objetivos del empleado seleccionado");
+            this.equipos.ToolTipText = "Equipos coordinados por el usuario en sesion";
+            this.empleados.ToolTipText = "Empleados del equipo seleccionado";
+
         }
 
         private void EvaluarEquiposACargo_Shown(object sender, EventArgs e)

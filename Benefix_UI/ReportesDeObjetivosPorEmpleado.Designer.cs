@@ -36,6 +36,7 @@
             this.evaluacionesListView = new BrightIdeasSoftware.ObjectListView();
             this.equipo = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cumplimiento = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.exportarPdfButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.evaluacionesListView)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             this.evaluacionesListView.Cursor = System.Windows.Forms.Cursors.Default;
             this.evaluacionesListView.Location = new System.Drawing.Point(302, 107);
             this.evaluacionesListView.Name = "evaluacionesListView";
-            this.evaluacionesListView.Size = new System.Drawing.Size(735, 467);
+            this.evaluacionesListView.Size = new System.Drawing.Size(735, 408);
             this.evaluacionesListView.TabIndex = 50;
             this.evaluacionesListView.UseCompatibleStateImageBehavior = false;
             this.evaluacionesListView.View = System.Windows.Forms.View.Details;
@@ -129,11 +130,23 @@
             this.cumplimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cumplimiento.Width = 100;
             // 
+            // exportarPdfButton
+            // 
+            this.exportarPdfButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.exportarPdfButton.Location = new System.Drawing.Point(725, 536);
+            this.exportarPdfButton.Name = "exportarPdfButton";
+            this.exportarPdfButton.Size = new System.Drawing.Size(312, 38);
+            this.exportarPdfButton.TabIndex = 62;
+            this.exportarPdfButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonExportar;
+            this.exportarPdfButton.UseVisualStyleBackColor = true;
+            this.exportarPdfButton.Click += new System.EventHandler(this.exportarPdfButton_Click);
+            // 
             // ReportesDeObjetivosPorEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 599);
+            this.Controls.Add(this.exportarPdfButton);
             this.Controls.Add(this.evaluacionesListView);
             this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.periodoLabel);
@@ -160,5 +173,6 @@
         private BrightIdeasSoftware.OLVColumn equipo;
         private BrightIdeasSoftware.OLVColumn cumplimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn empleados;
+        private System.Windows.Forms.Button exportarPdfButton;
     }
 }

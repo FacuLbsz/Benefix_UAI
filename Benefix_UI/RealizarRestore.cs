@@ -59,5 +59,18 @@ namespace Genesis
                 rutaOrigenText.Text = openFileDialog1.FileName;
             }
         }
+
+        private void RealizarRestore_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.seleccionarArchivo, "Selecciona el archivo rar que representa el backup a restaurar");
+            toolTip1.SetToolTip(this.importarButton, "Restaura la base de datos a partir del archivo seleccionado");
+        }
     }
 }

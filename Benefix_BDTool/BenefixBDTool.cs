@@ -22,14 +22,36 @@ namespace Benefix_BDTool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Trim().Length > 0)
+            if (textBox1.Text.Trim().Length > 0 && (checkBox1.Checked || textBox2.Text.Trim().Length > 0 && textBox3.Text.Trim().Length > 0))
             {
-                    RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
-                    rsaProvider.FromXmlString(RSAPublicKey);
-                    byte[] encryptedData = rsaProvider.Encrypt(Encoding.ASCII.GetBytes(textBox1.Text), false);
+                var stringDeConexion = "";
+                if (checkBox1.Checked)
+                {
+                    var stringDeConexionSeguridadW = "Data Source={0};Initial Catalog=Benefix;Integrated Security=True";
+                    stringDeConexion = String.Format(stringDeConexionSeguridadW, textBox1.Text.Trim());
+                }
+                else
+                {
+                    var stringDeConexionSeguridadUP = "Persist Security Info=False;User ID={0};Password={1};Initial Catalog=Benefix;Server={2}";
+                    stringDeConexion = String.Format(stringDeConexionSeguridadUP, textBox2.Text.Trim(), textBox3.Text, textBox1.Text.Trim());
 
-                    richTextBox1.Text = Convert.ToBase64String(encryptedData);
+                }
+                RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(2028);
+                rsaProvider.FromXmlString(RSAPublicKey);
+                byte[] encryptedData = rsaProvider.Encrypt(Encoding.ASCII.GetBytes(stringDeConexion), false);
+
+                richTextBox1.Text = Convert.ToBase64String(encryptedData);
             }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos requeridos.");
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.Enabled = !checkBox1.Checked;
+            textBox3.Enabled = !checkBox1.Checked;
         }
     }
 }

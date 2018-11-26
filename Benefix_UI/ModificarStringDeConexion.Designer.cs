@@ -69,6 +69,7 @@
             this.Controls.Add(this.guardarButton);
             this.Name = "ModificarStringDeConexion";
             this.Text = "Modificar string de conexion";
+            this.Load += new System.EventHandler(this.ModificarStringDeConexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,6 +44,17 @@ namespace Genesis
 
             gruposAsignadosDataGridView.AutoGenerateColumns = false;
             gruposAsignadosDataGridView.DataSource = gruposAsignadoss;
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.asignarButton, "Asigna el grupo seleccionado al equipo");
+            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el grupo seleccionado al equipo");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
         }
 
         private void AsignarGruposAEquipos_Shown(object sender, EventArgs e)

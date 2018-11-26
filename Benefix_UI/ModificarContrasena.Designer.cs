@@ -100,7 +100,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(273, 20);
             this.label1.TabIndex = 5;
-            this.label1.Text = Genesis.Recursos_localizables.StringResources.ConfirmarNuevaContraseñaLabel;
+            this.label1.Text = "Vuelve a escribir tu nueva contraseña";
             // 
             // ModificarContrasena
             // 
@@ -116,6 +116,7 @@
             this.Controls.Add(this.contraseñaActualLabel);
             this.Name = "ModificarContrasena";
             this.Text = "Modificar contraseña";
+            this.Load += new System.EventHandler(this.ModificarContrasena_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

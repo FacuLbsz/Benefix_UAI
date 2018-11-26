@@ -16,12 +16,12 @@
         "Entry"
         {
         "MsmKey" = "8:_1F1129DC2EA2D048AF992F2C22DD8242"
-        "OwnerKey" = "8:_DDE209B4836B4BD1BFC1EB83311E1BBA"
+        "OwnerKey" = "8:_73C964AD73FC4EA483E094D870683BE5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DDE209B4836B4BD1BFC1EB83311E1BBA"
+        "MsmKey" = "8:_73C964AD73FC4EA483E094D870683BE5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -34,7 +34,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DDE209B4836B4BD1BFC1EB83311E1BBA"
+        "OwnerKey" = "8:_73C964AD73FC4EA483E094D870683BE5"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -71,6 +79,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -308,20 +324,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C42E6B5FCCD44407A5CBDD1A8B300EA6"
-            {
-            "Name" = "8:Benefix BD Tool"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_DDE209B4836B4BD1BFC1EB83311E1BBA"
-            "Folder" = "8:_8BC180D0542B49C9ABB22240B08FDD8D"
-            "WorkingFolder" = "8:_3CE89981813D46B5B4347657CFBCBCCC"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {
@@ -721,7 +723,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDE209B4836B4BD1BFC1EB83311E1BBA"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_73C964AD73FC4EA483E094D870683BE5"
             {
             "SourcePath" = "8:..\\Benefix_BDTool\\obj\\Debug\\Benefix_BDTool.exe"
             "TargetName" = "8:"

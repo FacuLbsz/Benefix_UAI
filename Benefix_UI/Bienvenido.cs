@@ -33,5 +33,17 @@ namespace Genesis
                 MessageBox.Show("Ingrese por favor un String de Conexión.");
             }
         }
+
+        private void Bienvenido_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.comenzarButton, "Guarda el string de conexion para realizar el acceso a la base de datos");
+        }
     }
 }

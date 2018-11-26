@@ -138,6 +138,17 @@ namespace Genesis
                     MessageBox.Show("No ha sido posible acceder a la base de datos configurada, por favor modifique el string de conexion.");
                 }
             }
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.ingresarButton, "Ingresa a la aplicacion con los datos de ingreso");
+            toolTip1.SetToolTip(this.modificarStringButton, "Modifica el string de conexion para el acceso a la base de datos");
+            toolTip1.SetToolTip(this.recalcularDigitosButton, "Reconstruye la integridad de la base de datos");
         }
 
         private void recalcularDigitosButton_Click(object sender, EventArgs e)

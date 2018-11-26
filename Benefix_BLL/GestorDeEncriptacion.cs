@@ -96,7 +96,7 @@ public class GestorDeEncriptacion
 
     public static String DesencriptarRSA(String informacionEncriptada)
     {
-        RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(1024);
+        RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider(2028);
         rsaProvider.FromXmlString(RSAPrivateKey);
         byte[] decryptedData = rsaProvider.Decrypt(Convert.FromBase64String(informacionEncriptada), false);
         return Encoding.ASCII.GetString(decryptedData);

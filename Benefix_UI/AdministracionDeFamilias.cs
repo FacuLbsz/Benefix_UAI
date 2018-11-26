@@ -139,6 +139,21 @@ namespace Genesis
             asignarUsuariosButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_MODIFICACION);
             eliminarButton.Visible =
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_FAMILIAS_ELIMINACION);
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
+            toolTip1.SetToolTip(this.crearButton, "Crea una nueva familia");
+            toolTip1.SetToolTip(this.modificarButton, "Modifica la familia seleccionada");
+            toolTip1.SetToolTip(this.eliminarButton, "Elimina la familia seleccionada");
+
+            toolTip1.SetToolTip(this.asignarPatentesButton, "Permite asignar patentes para asignar permisos a los usuarios");
+            toolTip1.SetToolTip(this.asignarUsuariosButton, "Permite asignar usuarios a la familia seleccionada");
         }
 
         private void AdministracionDeFamilias_Shown(object sender, EventArgs e)

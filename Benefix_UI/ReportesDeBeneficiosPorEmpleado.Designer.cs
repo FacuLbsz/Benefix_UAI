@@ -36,6 +36,7 @@
             this.consultarButton = new System.Windows.Forms.Button();
             this.periodoLabel = new System.Windows.Forms.Label();
             this.periodoBox = new System.Windows.Forms.ComboBox();
+            this.exportarPdfButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosListView)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@
             this.beneficiosListView.Cursor = System.Windows.Forms.Cursors.Default;
             this.beneficiosListView.Location = new System.Drawing.Point(304, 108);
             this.beneficiosListView.Name = "beneficiosListView";
-            this.beneficiosListView.Size = new System.Drawing.Size(735, 467);
+            this.beneficiosListView.Size = new System.Drawing.Size(735, 419);
             this.beneficiosListView.TabIndex = 60;
             this.beneficiosListView.UseCompatibleStateImageBehavior = false;
             this.beneficiosListView.View = System.Windows.Forms.View.Details;
@@ -125,11 +126,23 @@
             this.periodoBox.TabIndex = 57;
             this.periodoBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // exportarPdfButton
+            // 
+            this.exportarPdfButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.exportarPdfButton.Location = new System.Drawing.Point(727, 537);
+            this.exportarPdfButton.Name = "exportarPdfButton";
+            this.exportarPdfButton.Size = new System.Drawing.Size(312, 38);
+            this.exportarPdfButton.TabIndex = 61;
+            this.exportarPdfButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonExportar;
+            this.exportarPdfButton.UseVisualStyleBackColor = true;
+            this.exportarPdfButton.Click += new System.EventHandler(this.exportarPdfButton_Click);
+            // 
             // ReportesDeBeneficiosPorEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 599);
+            this.Controls.Add(this.exportarPdfButton);
             this.Controls.Add(this.empleadosDataGridView);
             this.Controls.Add(this.beneficiosListView);
             this.Controls.Add(this.consultarButton);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Label periodoLabel;
         private System.Windows.Forms.ComboBox periodoBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn empleados;
+        private System.Windows.Forms.Button exportarPdfButton;
     }
 }

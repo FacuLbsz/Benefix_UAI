@@ -234,7 +234,9 @@ public class GestorDeUsuarios
 
         if (usuarioTable.Rows.Count > 0)
         {
-            return PopularUsuarioDesdeBD(usuarioTable.Rows[0]);
+            var usuarioLogin = PopularUsuarioDesdeBD(usuarioTable.Rows[0]);
+            usuarioLogin.nombreUsuario = GestorDeEncriptacion.DesencriptarAes(usuario.nombreUsuario);
+            return usuarioLogin;
         }
 
         DataTable usuarioSegunNombreTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario));

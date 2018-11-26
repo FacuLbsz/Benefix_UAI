@@ -79,6 +79,18 @@ namespace Genesis
         {
             ListarEvaluaciones();
 
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.alcanzadoButton, "Indica que el objetivo seleccionado ha sido alcanzado");
+            toolTip1.SetToolTip(this.incumplidoButton, "Indica que el objetivo seleccionado no ha sido alcanzado");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda las evaluaciones realizadas");
+            this.cumplimiento.ToolTipText = "Indica si se ha cumplido el objetivo";
+
         }
 
         private void ListarEvaluaciones()

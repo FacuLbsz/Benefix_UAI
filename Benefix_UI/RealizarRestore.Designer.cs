@@ -49,7 +49,7 @@
             this.rutaOrigenLabel.Name = "rutaOrigenLabel";
             this.rutaOrigenLabel.Size = new System.Drawing.Size(92, 20);
             this.rutaOrigenLabel.TabIndex = 50;
-            this.rutaOrigenLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioRutaOrigen;
+            this.rutaOrigenLabel.Text = "Ruta origen";
             // 
             // importarButton
             // 
@@ -57,7 +57,7 @@
             this.importarButton.Name = "importarButton";
             this.importarButton.Size = new System.Drawing.Size(242, 38);
             this.importarButton.TabIndex = 49;
-            this.importarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonImportar;
+            this.importarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonImportar;
             this.importarButton.UseVisualStyleBackColor = true;
             this.importarButton.Click += new System.EventHandler(this.importarButton_Click);
             // 
@@ -71,7 +71,7 @@
             this.seleccionarArchivo.Name = "seleccionarArchivo";
             this.seleccionarArchivo.Size = new System.Drawing.Size(105, 31);
             this.seleccionarArchivo.TabIndex = 52;
-            this.seleccionarArchivo.Text = Genesis.Recursos_localizables.StringResources.ButtonSeleccionar;
+            this.seleccionarArchivo.Text = global::Genesis.Recursos_localizables.StringResources.ButtonSeleccionar;
             this.seleccionarArchivo.UseVisualStyleBackColor = true;
             this.seleccionarArchivo.Click += new System.EventHandler(this.seleccionarArchivo_Click);
             // 
@@ -85,7 +85,8 @@
             this.Controls.Add(this.rutaOrigenLabel);
             this.Controls.Add(this.importarButton);
             this.Name = "RealizarRestore";
-            this.Text = Genesis.Recursos_localizables.StringResources.SistemaMenuItemRealizarRestore;
+            this.Text = "Realizar restore";
+            this.Load += new System.EventHandler(this.RealizarRestore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

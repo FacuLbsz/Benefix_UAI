@@ -43,6 +43,7 @@
             this.criticidadBox = new System.Windows.Forms.ComboBox();
             this.usuarioLabel = new System.Windows.Forms.Label();
             this.usuarioBox = new System.Windows.Forms.ComboBox();
+            this.exportarPdfButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,37 +62,38 @@
             this.beneficiosDataGridView.Location = new System.Drawing.Point(26, 85);
             this.beneficiosDataGridView.Name = "beneficiosDataGridView";
             this.beneficiosDataGridView.ReadOnly = true;
+            this.beneficiosDataGridView.RowHeadersVisible = false;
             this.beneficiosDataGridView.RowTemplate.Height = 28;
             this.beneficiosDataGridView.Size = new System.Drawing.Size(1013, 477);
             this.beneficiosDataGridView.TabIndex = 55;
             // 
             // usuario
             // 
-            this.usuario.HeaderText = Genesis.Recursos_localizables.StringResources.TableUsuarioEnSesion;
+            this.usuario.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableUsuarioEnSesion;
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
             // 
             // fecha
             // 
-            this.fecha.HeaderText = Genesis.Recursos_localizables.StringResources.TableFecha;
+            this.fecha.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableFecha;
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
             // 
             // funcionalidad
             // 
-            this.funcionalidad.HeaderText = Genesis.Recursos_localizables.StringResources.TableFuncionalidad;
+            this.funcionalidad.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableFuncionalidad;
             this.funcionalidad.Name = "funcionalidad";
             this.funcionalidad.ReadOnly = true;
             // 
             // descripcion
             // 
-            this.descripcion.HeaderText = Genesis.Recursos_localizables.StringResources.TableDescripcion;
+            this.descripcion.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableDescripcion;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
             // criticidad
             // 
-            this.criticidad.HeaderText = Genesis.Recursos_localizables.StringResources.TableCriticidad;
+            this.criticidad.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableCriticidad;
             this.criticidad.Name = "criticidad";
             this.criticidad.ReadOnly = true;
             // 
@@ -101,7 +103,7 @@
             this.consultarButton.Name = "consultarButton";
             this.consultarButton.Size = new System.Drawing.Size(312, 38);
             this.consultarButton.TabIndex = 58;
-            this.consultarButton.Text = Genesis.Recursos_localizables.StringResources.ButtonConsultar;
+            this.consultarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonConsultar;
             this.consultarButton.UseVisualStyleBackColor = true;
             this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click);
             // 
@@ -112,7 +114,7 @@
             this.fechaHastaLabel.Name = "fechaHastaLabel";
             this.fechaHastaLabel.Size = new System.Drawing.Size(98, 20);
             this.fechaHastaLabel.TabIndex = 57;
-            this.fechaHastaLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioFechaHasta;
+            this.fechaHastaLabel.Text = "Fecha hasta";
             // 
             // fechaDesdeDate
             // 
@@ -129,7 +131,7 @@
             this.fechaDesdeLabel.Name = "fechaDesdeLabel";
             this.fechaDesdeLabel.Size = new System.Drawing.Size(102, 20);
             this.fechaDesdeLabel.TabIndex = 60;
-            this.fechaDesdeLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioFechaDesde;
+            this.fechaDesdeLabel.Text = "Fecha desde";
             // 
             // fechaHastaDate
             // 
@@ -146,7 +148,7 @@
             this.criticidadLabel.Name = "criticidadLabel";
             this.criticidadLabel.Size = new System.Drawing.Size(74, 20);
             this.criticidadLabel.TabIndex = 63;
-            this.criticidadLabel.Text = Genesis.Recursos_localizables.StringResources.TableCriticidad;
+            this.criticidadLabel.Text = "Criticidad";
             // 
             // criticidadBox
             // 
@@ -163,7 +165,7 @@
             this.usuarioLabel.Name = "usuarioLabel";
             this.usuarioLabel.Size = new System.Drawing.Size(64, 20);
             this.usuarioLabel.TabIndex = 65;
-            this.usuarioLabel.Text = Genesis.Recursos_localizables.StringResources.FormularioUsuario;
+            this.usuarioLabel.Text = "Usuario";
             // 
             // usuarioBox
             // 
@@ -173,11 +175,23 @@
             this.usuarioBox.Size = new System.Drawing.Size(169, 28);
             this.usuarioBox.TabIndex = 64;
             // 
+            // exportarPdfButton
+            // 
+            this.exportarPdfButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.exportarPdfButton.Location = new System.Drawing.Point(727, 577);
+            this.exportarPdfButton.Name = "exportarPdfButton";
+            this.exportarPdfButton.Size = new System.Drawing.Size(312, 38);
+            this.exportarPdfButton.TabIndex = 66;
+            this.exportarPdfButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonExportar;
+            this.exportarPdfButton.UseVisualStyleBackColor = true;
+            this.exportarPdfButton.Click += new System.EventHandler(this.exportarPdfButton_Click);
+            // 
             // ConsultarBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 589);
+            this.ClientSize = new System.Drawing.Size(1064, 630);
+            this.Controls.Add(this.exportarPdfButton);
             this.Controls.Add(this.usuarioLabel);
             this.Controls.Add(this.usuarioBox);
             this.Controls.Add(this.criticidadLabel);
@@ -188,8 +202,8 @@
             this.Controls.Add(this.beneficiosDataGridView);
             this.Controls.Add(this.consultarButton);
             this.Controls.Add(this.fechaHastaLabel);
-            this.Name = "Consultar Bitacora";
-            this.Text = Genesis.Recursos_localizables.StringResources.Bitacora;
+            this.Name = "ConsultarBitacora";
+            this.Text = "Consultar bitácora";
             this.Load += new System.EventHandler(this.ConsultarBitacora_Load);
             ((System.ComponentModel.ISupportInitialize)(this.beneficiosDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -214,5 +228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn criticidad;
+        private System.Windows.Forms.Button exportarPdfButton;
     }
 }

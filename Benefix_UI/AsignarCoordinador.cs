@@ -56,6 +56,16 @@ namespace Genesis
                     }
                 });
             }
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.coordinadorBox, "Selecciona el empleado que se encaraga de coordinar y evaluar el equipo");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda la asignacion realizada");
         }
     }
 }

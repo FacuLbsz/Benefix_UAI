@@ -41,5 +41,17 @@ namespace Genesis
                 MessageBox.Show("Debe ingresar un string de conexion a guardar.");
             }
         }
+
+        private void ModificarStringDeConexion_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.guardarButton, "Modifica el string de conexion al acceso a la base de datos");
+        }
     }
 }

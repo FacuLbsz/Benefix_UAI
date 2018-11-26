@@ -44,6 +44,17 @@ namespace Genesis
 
             beneficiosAsignadosDataGridView.AutoGenerateColumns = false;
             beneficiosAsignadosDataGridView.DataSource = beneficiosAsignadoss;
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.asignarButton, "Asigna el beneficio seleccionada al grupo");
+            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el beneficio seleccionada al grupo");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
         }
 
         private void AsignarBeneficiosAGrupos_Shown(object sender, EventArgs e)

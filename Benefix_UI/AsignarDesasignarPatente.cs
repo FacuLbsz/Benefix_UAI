@@ -36,5 +36,18 @@ namespace Genesis
             action(false);
             Close();
         }
+
+        private void AsignarDesasignarPatente_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.permisivaButton, "Indica que el usuario podra acceder a la funcionalidad seleccionada");
+            toolTip1.SetToolTip(this.restrictivaButton, "Indica que el usuario no podra acceder a la funcionalidad seleccionada");
+        }
     }
 }

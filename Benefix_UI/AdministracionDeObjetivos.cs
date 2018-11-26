@@ -29,6 +29,19 @@ namespace Genesis
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_MODIFICACION);
             eliminarButton.Visible =
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_OBJETIVOS_ELIMINACION);
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
+            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo objetivo");
+            toolTip1.SetToolTip(this.modificarButton, "Modifica el objetivo seleccionado");
+            toolTip1.SetToolTip(this.eliminarButton, "Elimina el objetivo seleccionado");
+            toolTip1.SetToolTip(this.puntajeUpDown, "Indica el puntaje que otorgara cumplir el objetivo");
         }
 
         private void AdministracionDeObjetivos_Shown(object sender, EventArgs e)

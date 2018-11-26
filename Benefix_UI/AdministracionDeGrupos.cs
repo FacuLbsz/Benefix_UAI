@@ -38,6 +38,20 @@ namespace Genesis
             asignarBeneficiosButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION);
             eliminarButton.Visible =
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_GRUPOS_ELIMINACION);
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
+            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo grupo");
+            toolTip1.SetToolTip(this.modificarButton, "Modifica el grupo seleccionado");
+            toolTip1.SetToolTip(this.eliminarButton, "Elimina el grupo seleccionado");
+
+            toolTip1.SetToolTip(this.asignarBeneficiosButton, "Permite asignar beneficios al grupo seleccionado");
         }
 
         private void AdministracionDeGrupos_Shown(object sender, EventArgs e)

@@ -31,7 +31,7 @@
             this.evaluacionesDataGridView = new System.Windows.Forms.DataGridView();
             this.objetivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cumplimiento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.evaluarButton = new System.Windows.Forms.Button();
+            this.guardarButton = new System.Windows.Forms.Button();
             this.alcanzadoButton = new System.Windows.Forms.Button();
             this.incumplidoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.evaluacionesDataGridView)).BeginInit();
@@ -71,15 +71,15 @@
             this.cumplimiento.Name = "cumplimiento";
             this.cumplimiento.ReadOnly = true;
             // 
-            // evaluarButton
+            // guardarButton
             // 
-            this.evaluarButton.Location = new System.Drawing.Point(313, 533);
-            this.evaluarButton.Name = "evaluarButton";
-            this.evaluarButton.Size = new System.Drawing.Size(242, 38);
-            this.evaluarButton.TabIndex = 47;
-            this.evaluarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonGuardar;
-            this.evaluarButton.UseVisualStyleBackColor = true;
-            this.evaluarButton.Click += new System.EventHandler(this.evaluarButton_Click);
+            this.guardarButton.Location = new System.Drawing.Point(313, 533);
+            this.guardarButton.Name = "guardarButton";
+            this.guardarButton.Size = new System.Drawing.Size(242, 38);
+            this.guardarButton.TabIndex = 47;
+            this.guardarButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonGuardar;
+            this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.evaluarButton_Click);
             // 
             // alcanzadoButton
             // 
@@ -109,7 +109,7 @@
             this.Controls.Add(this.incumplidoButton);
             this.Controls.Add(this.alcanzadoButton);
             this.Controls.Add(this.evaluacionesDataGridView);
-            this.Controls.Add(this.evaluarButton);
+            this.Controls.Add(this.guardarButton);
             this.Name = "EvaluarEmpleados";
             this.Text = "Evaluar empleados";
             this.Load += new System.EventHandler(this.EvaluarEmpleados_Load);
@@ -122,7 +122,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView evaluacionesDataGridView;
-        private System.Windows.Forms.Button evaluarButton;
+        private System.Windows.Forms.Button guardarButton;
         private System.Windows.Forms.Button alcanzadoButton;
         private System.Windows.Forms.Button incumplidoButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn objetivos;

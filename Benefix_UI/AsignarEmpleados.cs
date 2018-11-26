@@ -44,6 +44,17 @@ namespace Genesis
 
             empleadosAsignadosDataGridView.AutoGenerateColumns = false;
             empleadosAsignadosDataGridView.DataSource = usuariosAsignadoss;
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.asignarButton, "Asigna el empleado seleccionado al equipo");
+            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el empleado seleccionado al equipo");
+            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
         }
 
         private void AsignarUsuariosAEquipos_Shown(object sender, EventArgs e)

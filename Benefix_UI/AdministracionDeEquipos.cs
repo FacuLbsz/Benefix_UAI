@@ -56,6 +56,23 @@ namespace Genesis
             asignarGruposButton.Visible = GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINSITRACION_EQUIPOS_MODIFICACION);
             eliminarButton.Visible =
             GestorSistema.ObtenerInstancia().ConsultarPatentePorUsuario(Patente.ADMINISTRACION_EQUIPOS_ELIMINACION);
+
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 500;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
+            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo equipo");
+            toolTip1.SetToolTip(this.modificarButton, "Modifica el equipo seleccionado");
+            toolTip1.SetToolTip(this.eliminarButton, "Elimina el equipo seleccionado");
+
+            toolTip1.SetToolTip(this.asignarCoordinadorButton, "Permite asignar quien coordinara el equipo y evaluara los objetivos de los empleados asignados");
+            toolTip1.SetToolTip(this.asignarEmpleadosButton, "Permite asignar empleados al equipo seleccionado");
+            toolTip1.SetToolTip(this.asignarGruposButton, "Permite asignar grupos de beneficios al equipo seleccionado");
+            toolTip1.SetToolTip(this.asignarObjetivosButton, "Permite asignar objetivos al equipo seleccionado por los cuales se evaluaran a los empleados");
         }
 
         private void AdministracionDeEquipos_Shown(object sender, EventArgs e)

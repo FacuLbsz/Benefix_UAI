@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -147,6 +150,12 @@
     <Compile Include="ModificarContrasena.Designer.cs">
       <DependentUpon>ModificarContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="pdf\BitacoraPDF.cs" />
+    <Compile Include="pdf\MiEstadoPDF.cs" />
+    <Compile Include="pdf\PDFExportador.cs" />
+    <Compile Include="pdf\ReportesDeBeneficiosPorEmpleadoPDF.cs" />
+    <Compile Include="pdf\ReportesDeObjetivosPorEmpleadoPDF.cs" />
+    <Compile Include="pdf\ReportesDeObjetivosPorEquiposPDF.cs" />
     <Compile Include="Recursos localizables\StringResources.en-US.Designer.cs">
       <DependentUpon>StringResources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -272,6 +281,9 @@
     <EmbeddedResource Include="AsignarCoordinador.resx">
       <DependentUpon>AsignarCoordinador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AsignarDesasignarPatente.resx">
+      <DependentUpon>AsignarDesasignarPatente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AsignarObjetivos.resx">
       <DependentUpon>AsignarObjetivos.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +355,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RealizarBackup.resx">
       <DependentUpon>RealizarBackup.cs</DependentUpon>
@@ -359,6 +372,7 @@
     <EmbeddedResource Include="ReportesDeObjetivosPorEquipos.resx">
       <DependentUpon>ReportesDeObjetivosPorEquipos.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -386,6 +400,8 @@
       <Name>Benefix_DLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Recursos localizables\exportToPdfButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
