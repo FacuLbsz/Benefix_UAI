@@ -89,15 +89,15 @@ namespace Genesis
                 return false;
             }
 
-            if (descripcionText.Text.Trim().Length == 0 || puntajeUpDown.Value.CompareTo(Decimal.Zero) == 0)
+            if (puntajeUpDown.Text.Trim().Length == 0 || puntajeUpDown.Value.CompareTo(Decimal.Zero) == 0)
             {
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageNombreRequerido);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionPuntajeRequerido);
                 return false;
             }
 
             if (descripcionText.Text.Trim().Length == 0)
             {
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageNombreRequerido);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBeneficiosDescripcionRequerida);
                 return false;
             }
 
@@ -132,13 +132,13 @@ namespace Genesis
                 try
                 {
                     gestorDeObjetivos.CrearObjetivo(objetivo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.CrearObjetivo);
                     LimpiarFormulario();
                     ListarObjetivos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -153,13 +153,13 @@ namespace Genesis
                 try
                 {
                     gestorDeObjetivos.ModificarObjetivo(Objetivo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.ObjetivoMdoficado);
                     LimpiarFormulario();
                     ListarObjetivos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -169,7 +169,7 @@ namespace Genesis
             try
             {
                 gestorDeObjetivos.EliminarObjetivo(objetivoSeleccionado);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.EliminarMdoficado);
                 LimpiarFormulario();
                 ListarObjetivos();
             }

@@ -33,7 +33,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un empleado a evaluar.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnEmpleado);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Genesis
             else
             {
                 evaluarButton.Enabled = false;
-                MessageBox.Show("Usted no tiene equipos asignados");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.SinEquiposAsignados);
             }
 
             ToolTip toolTip1 = new ToolTip();

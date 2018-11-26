@@ -115,7 +115,7 @@ namespace Genesis
                     columnsBeneficios.Add(puntajee.Text);
 
                     MiEstadoPDF.ExportarPDFARuta(titulo, columnsObjetivos, evaluaciones, columnsBeneficios, beneficiosAsignados, filePath);
-                    MessageBox.Show("PDF creado con exito!");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.PDFCreadoSatisfactorio);
                 }
             }
         }

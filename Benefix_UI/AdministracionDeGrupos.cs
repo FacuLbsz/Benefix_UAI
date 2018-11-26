@@ -127,13 +127,13 @@ namespace Genesis
                 try
                 {
                     gestorDeGrupos.CrearGrupo(grupo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.GrupoCreado);
                     LimpiarFormulario();
                     ListarGrupos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -148,13 +148,13 @@ namespace Genesis
                 try
                 {
                     gestorDeGrupos.ModificarGrupo(Grupo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.GrupoModificado);
                     LimpiarFormulario();
                     ListarGrupos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace Genesis
             try
             {
                 gestorDeGrupos.EliminarGrupo(grupoSeleccionado);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.GrupoEliminado);
                 LimpiarFormulario();
                 ListarGrupos();
             }

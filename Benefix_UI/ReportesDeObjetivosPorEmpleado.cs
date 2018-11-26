@@ -130,7 +130,8 @@ namespace Genesis
 
             if (!empleadoSeleccionado)
             {
-                MessageBox.Show("Debe seleccionar un empleado.");
+                
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnEmpleado);
                 return;
             }
 
@@ -138,7 +139,7 @@ namespace Genesis
 
             if (!periodoSeleccionado)
             {
-                MessageBox.Show("Debe seleccionar un periodo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnPeriodo);
                 return;
             }
 
@@ -164,7 +165,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("No se encuentran equipos y o objetivos para el periodo y el empleado seleccionado.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.SinEquiposParaElPeriodo);
                 exportarPdfButton.Enabled = false;
             }
         }
@@ -187,7 +188,7 @@ namespace Genesis
                     columns.Add(cumplimiento.Text);
 
                     new ReportesDeObjetivosPorEmpleadoPDF().ExportarPDFARuta(titulo, columns, evaluaciones.Cast<Object>().ToList(), filePath);
-                    MessageBox.Show("PDF creado con exito!");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.PDFCreadoSatisfactorio);
                 }
             }
         }

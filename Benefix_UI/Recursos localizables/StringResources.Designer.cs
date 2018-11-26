@@ -61,6 +61,51 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Es requerida una descripcion.
+        /// </summary>
+        internal static string AdministracionDeBeneficiosDescripcionRequerida {
+            get {
+                return ResourceManager.GetString("AdministracionDeBeneficiosDescripcionRequerida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El beneficio se ha creado correctamente.
+        /// </summary>
+        internal static string AdministracionDeBEneficiosMessageCrearSatisfactorio {
+            get {
+                return ResourceManager.GetString("AdministracionDeBEneficiosMessageCrearSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Beneficio se ha eliminado correctamente.
+        /// </summary>
+        internal static string AdministracionDeBEneficiosMessageEliminacionSatisfactorio {
+            get {
+                return ResourceManager.GetString("AdministracionDeBEneficiosMessageEliminacionSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El beneficio se ha actualizado correctamente.
+        /// </summary>
+        internal static string AdministracionDeBEneficiosMessageModificarSatisfactorio {
+            get {
+                return ResourceManager.GetString("AdministracionDeBEneficiosMessageModificarSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre ingresado ya se encuentra asociado, por favor ingrese otro.
+        /// </summary>
+        internal static string AdministracionDeBEneficiosMessageNombreDuplicado {
+            get {
+                return ResourceManager.GetString("AdministracionDeBEneficiosMessageNombreDuplicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La familia ha sido eliminada con exito..
         /// </summary>
         internal static string AdministracionDeFamiliasMessageFamiliaEliminado {
@@ -156,6 +201,15 @@ namespace Genesis.Recursos_localizables {
         internal static string AdministracionDeUsuariosMessageUsuarioModificado {
             get {
                 return ResourceManager.GetString("AdministracionDeUsuariosMessageUsuarioModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Es requerido ingresar un puntaje entre 1 y 999.
+        /// </summary>
+        internal static string AdministracionPuntajeRequerido {
+            get {
+                return ResourceManager.GetString("AdministracionPuntajeRequerido", resourceCulture);
             }
         }
         
@@ -430,6 +484,15 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Asignar objetivos.
+        /// </summary>
+        internal static string ButtonAsignarObjetivos {
+            get {
+                return ResourceManager.GetString("ButtonAsignarObjetivos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Asignar patentes.
         /// </summary>
         internal static string ButtonAsignarPatentes {
@@ -655,11 +718,92 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El objetivo ha sido creado correctamente.
+        /// </summary>
+        internal static string CrearObjetivo {
+            get {
+                return ResourceManager.GetString("CrearObjetivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un empleado a evaluar.
+        /// </summary>
+        internal static string DebeSeleccionarUnEmpleado {
+            get {
+                return ResourceManager.GetString("DebeSeleccionarUnEmpleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un equipo.
+        /// </summary>
+        internal static string DebeSeleccionarUnEquipo {
+            get {
+                return ResourceManager.GetString("DebeSeleccionarUnEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un objetivo.
+        /// </summary>
+        internal static string DebeSeleccionarUnObjetivo {
+            get {
+                return ResourceManager.GetString("DebeSeleccionarUnObjetivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe seleccionar un periodo.
+        /// </summary>
+        internal static string DebeSeleccionarUnPeriodo {
+            get {
+                return ResourceManager.GetString("DebeSeleccionarUnPeriodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Usuario desbloqueado con exito.
         /// </summary>
         internal static string DesbloquearUsuarioLabel {
             get {
                 return ResourceManager.GetString("DesbloquearUsuarioLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El objetivo se ha eliminado correctamente.
+        /// </summary>
+        internal static string EliminarMdoficado {
+            get {
+                return ResourceManager.GetString("EliminarMdoficado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Equipo creado satisfactoriamente.
+        /// </summary>
+        internal static string EquipoCreado {
+            get {
+                return ResourceManager.GetString("EquipoCreado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El equipo se ha eliminado correctamente.
+        /// </summary>
+        internal static string EquipoEliminado {
+            get {
+                return ResourceManager.GetString("EquipoEliminado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El equipo se ha actualizado correctamente.
+        /// </summary>
+        internal static string EquipoModificado {
+            get {
+                return ResourceManager.GetString("EquipoModificado", resourceCulture);
             }
         }
         
@@ -799,6 +943,33 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El grupo ha sido creado satisfactoriamente.
+        /// </summary>
+        internal static string GrupoCreado {
+            get {
+                return ResourceManager.GetString("GrupoCreado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El grupo sa ha eliminado correctamente.
+        /// </summary>
+        internal static string GrupoEliminado {
+            get {
+                return ResourceManager.GetString("GrupoEliminado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El grupo se ha a ctualizado correctamente.
+        /// </summary>
+        internal static string GrupoModificado {
+            get {
+                return ResourceManager.GetString("GrupoModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio..
         /// </summary>
         internal static string IdiomaLabel {
@@ -907,6 +1078,51 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Objetivo evaluado correctamente.
+        /// </summary>
+        internal static string ObjetivoEvaluadoCorrectamente {
+            get {
+                return ResourceManager.GetString("ObjetivoEvaluadoCorrectamente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El objetivo se ha actualizado correctamente.
+        /// </summary>
+        internal static string ObjetivoMdoficado {
+            get {
+                return ResourceManager.GetString("ObjetivoMdoficado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Este objetivo ya se ha cumplido.
+        /// </summary>
+        internal static string ObjetivoYaCumplido {
+            get {
+                return ResourceManager.GetString("ObjetivoYaCumplido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a MessageBox.Show(&quot;Este objetivo ya se encuentra incumplido.&quot;);.
+        /// </summary>
+        internal static string ObjetivoYaIncumplido {
+            get {
+                return ResourceManager.GetString("ObjetivoYaIncumplido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PDF creado con exito!.
+        /// </summary>
+        internal static string PDFCreadoSatisfactorio {
+            get {
+                return ResourceManager.GetString("PDFCreadoSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema..
         /// </summary>
         internal static string RestoreMessageError {
@@ -939,6 +1155,42 @@ namespace Genesis.Recursos_localizables {
         internal static string RestoreMessageVacio {
             get {
                 return ResourceManager.GetString("RestoreMessageVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encuentran beneficios para el periodo y el empleado seleccionado.
+        /// </summary>
+        internal static string SinBeneficiosParaElPeriodo {
+            get {
+                return ResourceManager.GetString("SinBeneficiosParaElPeriodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encuentran empleados para el periodo y el equipo seleccionado..
+        /// </summary>
+        internal static string SinEmpleadosParaElPeriodo {
+            get {
+                return ResourceManager.GetString("SinEmpleadosParaElPeriodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usted no tiene equipos asignados.
+        /// </summary>
+        internal static string SinEquiposAsignados {
+            get {
+                return ResourceManager.GetString("SinEquiposAsignados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encuentran equipos y o objetivos para el periodo y el empleado seleccionado.
+        /// </summary>
+        internal static string SinEquiposParaElPeriodo {
+            get {
+                return ResourceManager.GetString("SinEquiposParaElPeriodo", resourceCulture);
             }
         }
         
@@ -1263,6 +1515,15 @@ namespace Genesis.Recursos_localizables {
         internal static string TableObjetivos {
             get {
                 return ResourceManager.GetString("TableObjetivos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Objetivos asignados.
+        /// </summary>
+        internal static string TableObjetivosAsignados {
+            get {
+                return ResourceManager.GetString("TableObjetivosAsignados", resourceCulture);
             }
         }
         

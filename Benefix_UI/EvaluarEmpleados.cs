@@ -37,16 +37,16 @@ namespace Genesis
                     gestorDeEvaluaciones.CrearEvaluacion(evaluacionSeleccionada);
 
                     ListarEvaluaciones();
-                    MessageBox.Show("Objetivo evaluado correctamente");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.ObjetivoEvaluadoCorrectamente);
                 }
                 else
                 {
-                    MessageBox.Show("Este objetivo ya se ha cumplido.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.ObjetivoYaCumplido);
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un objetivo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnObjetivo);
             }
         }
 
@@ -62,16 +62,16 @@ namespace Genesis
                     gestorDeEvaluaciones.CrearEvaluacion(evaluacionSeleccionada);
 
                     ListarEvaluaciones();
-                    MessageBox.Show("Objetivo evaluado correctamente");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.ObjetivoEvaluadoCorrectamente);
                 }
                 else
                 {
-                    MessageBox.Show("Este objetivo ya se encuentra incumplido.");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.ObjetivoYaIncumplido);
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un objetivo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnObjetivo);
             }
         }
 

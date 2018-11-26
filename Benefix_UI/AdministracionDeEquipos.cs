@@ -150,13 +150,13 @@ namespace Genesis
                 try
                 {
                     gestorDeEquipos.CrearEquipo(equipo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.EquipoCreado);
                     LimpiarFormulario();
                     ListarEquipos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -171,13 +171,13 @@ namespace Genesis
                 try
                 {
                     gestorDeEquipos.ModificarEquipo(Equipo);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.EquipoModificado);
                     LimpiarFormulario();
                     ListarEquipos();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace Genesis
             try
             {
                 gestorDeEquipos.EliminarEquipo(equipoSeleccionado);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.EquipoEliminado);
                 LimpiarFormulario();
                 ListarEquipos();
             }

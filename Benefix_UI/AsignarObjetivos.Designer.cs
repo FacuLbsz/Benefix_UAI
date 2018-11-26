@@ -108,14 +108,14 @@
             // objetivosAsignados
             // 
             this.objetivosAsignados.DataPropertyName = "nombre";
-            this.objetivosAsignados.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableEmpleadosAsignados;
+            this.objetivosAsignados.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableObjetivosAsignados;
             this.objetivosAsignados.Name = "objetivosAsignados";
             this.objetivosAsignados.ReadOnly = true;
             // 
             // objetivos
             // 
             this.objetivos.DataPropertyName = "nombre";
-            this.objetivos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableEmpleados;
+            this.objetivos.HeaderText = global::Genesis.Recursos_localizables.StringResources.TableObjetivos;
             this.objetivos.Name = "objetivos";
             this.objetivos.ReadOnly = true;
             // 

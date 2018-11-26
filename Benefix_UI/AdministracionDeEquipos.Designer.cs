@@ -162,7 +162,7 @@
             this.asignarObjetivosButton.Name = "asignarObjetivosButton";
             this.asignarObjetivosButton.Size = new System.Drawing.Size(242, 38);
             this.asignarObjetivosButton.TabIndex = 46;
-            this.asignarObjetivosButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignarCoordinador;
+            this.asignarObjetivosButton.Text = global::Genesis.Recursos_localizables.StringResources.ButtonAsignarObjetivos;
             this.asignarObjetivosButton.UseVisualStyleBackColor = true;
             this.asignarObjetivosButton.Click += new System.EventHandler(this.asignarObjetivosButton_Click);
             // 

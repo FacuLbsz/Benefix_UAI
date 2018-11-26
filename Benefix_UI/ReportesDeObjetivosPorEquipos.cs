@@ -93,7 +93,7 @@ namespace Genesis
 
             if (!equipoSeleccionado)
             {
-                MessageBox.Show("Debe seleccionar un equipo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnEquipo);
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace Genesis
 
             if (!periodoSeleccionado)
             {
-                MessageBox.Show("Debe seleccionar un periodo.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.DebeSeleccionarUnPeriodo);
                 return;
             }
 
@@ -130,7 +130,7 @@ namespace Genesis
             }
             else
             {
-                MessageBox.Show("No se encuentran empleados para el periodo y el equipo seleccionado.");
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.SinEmpleadosParaElPeriodo);
                 exportarPdfButton.Enabled = false;
             }
         }
@@ -186,7 +186,7 @@ namespace Genesis
                     columns.Add(cumplimientoPorc.Text);
 
                     new ReportesDeObjetivosPorEquiposPDF().ExportarPDFARuta(titulo, columns, evaluaciones.Cast<Object>().ToList(), filePath);
-                    MessageBox.Show("PDF creado con exito!");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.PDFCreadoSatisfactorio);
                 }
             }
         }

@@ -167,7 +167,7 @@ namespace Genesis
                     columns.Add(criticidad.HeaderText);
 
                     new BitacoraPDF().ExportarPDFARuta(titulo, columns, eventosBitacora.Cast<Object>().ToList(), filePath);
-                    MessageBox.Show("PDF creado con exito!");
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.PDFCreadoSatisfactorio);
                 }
             }
         }

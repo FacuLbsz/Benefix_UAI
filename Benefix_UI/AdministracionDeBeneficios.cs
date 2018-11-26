@@ -91,9 +91,9 @@ namespace Genesis
                 return false;
             }
 
-            if (descripcionText.Text.Trim().Length == 0 || puntajeUpDown.Value.CompareTo(Decimal.Zero) == 0)
+            if (puntajeUpDown.Text.Trim().Length == 0 || puntajeUpDown.Value.CompareTo(Decimal.Zero) == 0)
             {
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageNombreRequerido);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionPuntajeRequerido);
                 return false;
             }
 
@@ -134,13 +134,13 @@ namespace Genesis
                 try
                 {
                     gestorDeBeneficios.CrearBeneficio(beneficio);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageCrearSatisfactorio);
                     LimpiarFormulario();
                     ListarBeneficios();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -155,13 +155,13 @@ namespace Genesis
                 try
                 {
                     gestorDeBeneficios.ModificarBeneficio(Beneficio);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageModificarSatisfactorio);
                     LimpiarFormulario();
                     ListarBeneficios();
                 }
                 catch (EntidadDuplicadaExcepcion excepcion)
                 {
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageNombreDuplicado);
                 }
             }
         }
@@ -171,13 +171,12 @@ namespace Genesis
             try
             {
                 gestorDeBeneficios.EliminarBeneficio(beneficioSeleccionado);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeBEneficiosMessageEliminacionSatisfactorio);
                 LimpiarFormulario();
                 ListarBeneficios();
             }
             catch (EntidadDuplicadaExcepcion exception)
             {
-                MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AdministracionDeFamiliasMessageFamiliaEliminado, exception.atributo));
             }
         }
 

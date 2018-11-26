@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdministracionDeBeneficiosDescripcionRequerida" xml:space="preserve">
+    <value>Es requerida una descripcion</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageCrearSatisfactorio" xml:space="preserve">
+    <value>El beneficio se ha creado correctamente</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageEliminacionSatisfactorio" xml:space="preserve">
+    <value>El Beneficio se ha eliminado correctamente</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageModificarSatisfactorio" xml:space="preserve">
+    <value>El beneficio se ha actualizado correctamente</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageNombreDuplicado" xml:space="preserve">
+    <value>El nombre ingresado ya se encuentra asociado, por favor ingrese otro</value>
+  </data>
   <data name="AdministracionDeFamiliasMessageFamiliaEliminado" xml:space="preserve">
     <value>La familia ha sido eliminada con exito.</value>
   </data>
@@ -149,6 +164,9 @@
   </data>
   <data name="AdministracionDeUsuariosMessageUsuarioModificado" xml:space="preserve">
     <value>El usuario ha sido modificado con existo.</value>
+  </data>
+  <data name="AdministracionPuntajeRequerido" xml:space="preserve">
+    <value>Es requerido ingresar un puntaje entre 1 y 999</value>
   </data>
   <data name="AdminsitracionDeFamiliasMessageFamiliaModificado" xml:space="preserve">
     <value>La familia ha sido modificada con exito.</value>
@@ -240,6 +258,9 @@
   <data name="ButtonAsignarGrupos" xml:space="preserve">
     <value>Asignar grupos</value>
   </data>
+  <data name="ButtonAsignarObjetivos" xml:space="preserve">
+    <value>Asignar objetivos</value>
+  </data>
   <data name="ButtonAsignarPatentes" xml:space="preserve">
     <value>Asignar patentes</value>
   </data>
@@ -315,8 +336,35 @@
   <data name="ContrasenaActualLabel" xml:space="preserve">
     <value>Contraseña actual</value>
   </data>
+  <data name="CrearObjetivo" xml:space="preserve">
+    <value>El objetivo ha sido creado correctamente</value>
+  </data>
+  <data name="DebeSeleccionarUnEmpleado" xml:space="preserve">
+    <value>Debe seleccionar un empleado a evaluar</value>
+  </data>
+  <data name="DebeSeleccionarUnEquipo" xml:space="preserve">
+    <value>Debe seleccionar un equipo</value>
+  </data>
+  <data name="DebeSeleccionarUnObjetivo" xml:space="preserve">
+    <value>Debe seleccionar un objetivo</value>
+  </data>
+  <data name="DebeSeleccionarUnPeriodo" xml:space="preserve">
+    <value>Debe seleccionar un periodo</value>
+  </data>
   <data name="DesbloquearUsuarioLabel" xml:space="preserve">
     <value>Usuario desbloqueado con exito</value>
+  </data>
+  <data name="EliminarMdoficado" xml:space="preserve">
+    <value>El objetivo se ha eliminado correctamente</value>
+  </data>
+  <data name="EquipoCreado" xml:space="preserve">
+    <value>Equipo creado satisfactoriamente</value>
+  </data>
+  <data name="EquipoEliminado" xml:space="preserve">
+    <value>El equipo se ha eliminado correctamente</value>
+  </data>
+  <data name="EquipoModificado" xml:space="preserve">
+    <value>El equipo se ha actualizado correctamente</value>
   </data>
   <data name="FormularioApellido" xml:space="preserve">
     <value>Apellido</value>
@@ -363,6 +411,15 @@
   <data name="FormularioUsuario" xml:space="preserve">
     <value>Usuario</value>
   </data>
+  <data name="GrupoCreado" xml:space="preserve">
+    <value>El grupo ha sido creado satisfactoriamente</value>
+  </data>
+  <data name="GrupoEliminado" xml:space="preserve">
+    <value>El grupo sa ha eliminado correctamente</value>
+  </data>
+  <data name="GrupoModificado" xml:space="preserve">
+    <value>El grupo se ha a ctualizado correctamente</value>
+  </data>
   <data name="IdiomaLabel" xml:space="preserve">
     <value>¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio.</value>
   </data>
@@ -399,6 +456,21 @@
   <data name="NuevaContraseñaLabel" xml:space="preserve">
     <value>Nueva contraseña</value>
   </data>
+  <data name="ObjetivoEvaluadoCorrectamente" xml:space="preserve">
+    <value>Objetivo evaluado correctamente</value>
+  </data>
+  <data name="ObjetivoMdoficado" xml:space="preserve">
+    <value>El objetivo se ha actualizado correctamente</value>
+  </data>
+  <data name="ObjetivoYaCumplido" xml:space="preserve">
+    <value>Este objetivo ya se ha cumplido</value>
+  </data>
+  <data name="ObjetivoYaIncumplido" xml:space="preserve">
+    <value>MessageBox.Show("Este objetivo ya se encuentra incumplido.");</value>
+  </data>
+  <data name="PDFCreadoSatisfactorio" xml:space="preserve">
+    <value>PDF creado con exito!</value>
+  </data>
   <data name="RestoreMessageError" xml:space="preserve">
     <value>Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema.</value>
   </data>
@@ -410,6 +482,18 @@
   </data>
   <data name="RestoreMessageVacio" xml:space="preserve">
     <value>Sebe seleccionar un archivo backup para importar.</value>
+  </data>
+  <data name="SinBeneficiosParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran beneficios para el periodo y el empleado seleccionado</value>
+  </data>
+  <data name="SinEmpleadosParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran empleados para el periodo y el equipo seleccionado.</value>
+  </data>
+  <data name="SinEquiposAsignados" xml:space="preserve">
+    <value>Usted no tiene equipos asignados</value>
+  </data>
+  <data name="SinEquiposParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran equipos y o objetivos para el periodo y el empleado seleccionado</value>
   </data>
   <data name="SistemaMenuItemAdministracion" xml:space="preserve">
     <value>Administración</value>
@@ -518,6 +602,9 @@
   </data>
   <data name="TableObjetivos" xml:space="preserve">
     <value>Objetivos</value>
+  </data>
+  <data name="TableObjetivosAsignados" xml:space="preserve">
+    <value>Objetivos asignados</value>
   </data>
   <data name="TableOtorgado" xml:space="preserve">
     <value>Otorgado</value>
