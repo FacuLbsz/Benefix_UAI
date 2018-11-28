@@ -169,7 +169,7 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El usuario ha sido creado con existo, por favor guarde su contraseña: \n.
+        ///   Busca una cadena traducida similar a El usuario ha sido creado con existo.
         /// </summary>
         internal static string AdministracionDeUsuariosMessageSatisfactorio {
             get {
@@ -250,11 +250,65 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Indica que el objetivo seleccionado ha sido alcanzado.
+        /// </summary>
+        internal static string AlcanzadoButtonTooltip {
+            get {
+                return ResourceManager.GetString("AlcanzadoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna el beneficio seleccionada al grupo.
+        /// </summary>
+        internal static string AsignarBeneficioTooltip {
+            get {
+                return ResourceManager.GetString("AsignarBeneficioTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Como desea asignar la patente?.
         /// </summary>
         internal static string AsignarDesasignarPatenteLabel {
             get {
                 return ResourceManager.GetString("AsignarDesasignarPatenteLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna el empleado seleccionado al equipo.
+        /// </summary>
+        internal static string AsignarEmpleadoButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarEmpleadoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna el grupo seleccionado al equipo.
+        /// </summary>
+        internal static string AsignarGrupoButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarGrupoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna el objetivo seleccionado al equipo.
+        /// </summary>
+        internal static string AsignarObjetivoButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarObjetivoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna la patente seleccionada a la familia.
+        /// </summary>
+        internal static string AsignarpatenteafamiliaButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarpatenteafamiliaButtonTooltip", resourceCulture);
             }
         }
         
@@ -331,6 +385,24 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Asigna la patente seleccionada al usuario.
+        /// </summary>
+        internal static string AsignarpatenteusuarioButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarpatenteusuarioButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar patentes para asignar y denegar permisos a los usuarios.
+        /// </summary>
+        internal static string AsignarPatenteUsuarioTooltip {
+            get {
+                return ResourceManager.GetString("AsignarPatenteUsuarioTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debe seleccionar un usuario a asignar.
         /// </summary>
         internal static string AsignarUsuariosMessageUsuarioAsignarRequerido {
@@ -354,6 +426,15 @@ namespace Genesis.Recursos_localizables {
         internal static string AsignarUsuariosMessageUsuarioSatisfactorio {
             get {
                 return ResourceManager.GetString("AsignarUsuariosMessageUsuarioSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asigna el usuario seleccionado a la familia.
+        /// </summary>
+        internal static string AsignarusuaroafamiliaButtonTooltip {
+            get {
+                return ResourceManager.GetString("AsignarusuaroafamiliaButtonTooltip", resourceCulture);
             }
         }
         
@@ -682,6 +763,33 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Indica la cantidad de particiones que representara el backup.
+        /// </summary>
+        internal static string CantidadDeVolumenesComboBoxTooltip {
+            get {
+                return ResourceManager.GetString("CantidadDeVolumenesComboBoxTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guarda el string de conexion para realizar el acceso a la base de datos.
+        /// </summary>
+        internal static string ComenzarButtonTooltip {
+            get {
+                return ResourceManager.GetString("ComenzarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el idioma asignado.
+        /// </summary>
+        internal static string ConfirmarIdiomaButtonTooltip {
+            get {
+                return ResourceManager.GetString("ConfirmarIdiomaButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Vuelve a escribir tu nueva contraseña.
         /// </summary>
         internal static string ConfirmarNuevaContraseñaLabel {
@@ -709,6 +817,42 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Consulta los beneficios otorgados al empleado seleccionado en el periodo indicado.
+        /// </summary>
+        internal static string ConsultarBeneficiosButtonTooltip {
+            get {
+                return ResourceManager.GetString("ConsultarBeneficiosButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consulta los eventos existentes para los filtros seleccionados.
+        /// </summary>
+        internal static string ConsultarBitacoraButtonTooltip {
+            get {
+                return ResourceManager.GetString("ConsultarBitacoraButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consulta el estado de cumplimiento de objetivos del empleado seleccionado.
+        /// </summary>
+        internal static string ConsultarObjetivosEmpleadoButtonTooltip {
+            get {
+                return ResourceManager.GetString("ConsultarObjetivosEmpleadoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consulta el porcentaje cumplimiento de objetivos de los empleados asignados al equipo seleccionado.
+        /// </summary>
+        internal static string ConsultarPorcentajeButtonTooltip {
+            get {
+                return ResourceManager.GetString("ConsultarPorcentajeButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contraseña actual.
         /// </summary>
         internal static string ContrasenaActualLabel {
@@ -718,11 +862,101 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el empleado que se encaraga de coordinar y evaluar el equipo.
+        /// </summary>
+        internal static string CoordinadorTooltip {
+            get {
+                return ResourceManager.GetString("CoordinadorTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea un nuevo beneficio.
+        /// </summary>
+        internal static string CrearBeneficioButton {
+            get {
+                return ResourceManager.GetString("CrearBeneficioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea un nuevo equipo.
+        /// </summary>
+        internal static string CrearEquipoButton {
+            get {
+                return ResourceManager.GetString("CrearEquipoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea una nueva familia.
+        /// </summary>
+        internal static string CrearFamiliaButton {
+            get {
+                return ResourceManager.GetString("CrearFamiliaButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea un nuevo grupo.
+        /// </summary>
+        internal static string CrearGrupoButton {
+            get {
+                return ResourceManager.GetString("CrearGrupoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El objetivo ha sido creado correctamente.
         /// </summary>
         internal static string CrearObjetivo {
             get {
                 return ResourceManager.GetString("CrearObjetivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea un nuevo objetivo.
+        /// </summary>
+        internal static string CrearObjetivoButton {
+            get {
+                return ResourceManager.GetString("CrearObjetivoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crea un nuevo usuario.
+        /// </summary>
+        internal static string CrearUsuarioNuevo {
+            get {
+                return ResourceManager.GetString("CrearUsuarioNuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Criticidad del evento que deseas consultar.
+        /// </summary>
+        internal static string CriticidadBoxTooltip {
+            get {
+                return ResourceManager.GetString("CriticidadBoxTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a d.
+        /// </summary>
+        internal static string d {
+            get {
+                return ResourceManager.GetString("d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el grupo seleccionado al equipo.
+        /// </summary>
+        internal static string DeasignarGrupoButtonTooltip {
+            get {
+                return ResourceManager.GetString("DeasignarGrupoButtonTooltip", resourceCulture);
             }
         }
         
@@ -763,6 +997,60 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el beneficio seleccionada al grupo.
+        /// </summary>
+        internal static string DesasignarBeneficioTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarBeneficioTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el empleado seleccionado al equipo.
+        /// </summary>
+        internal static string DesasignarEmpleadoButtonTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarEmpleadoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el objetivo seleccionado al equipo.
+        /// </summary>
+        internal static string DesasignarObjetivoButtonTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarObjetivoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el beneficio seleccionada a la familia.
+        /// </summary>
+        internal static string DesasignarpatenteafamiliaButtonTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarpatenteafamiliaButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna la patente seleccionada al usuario.
+        /// </summary>
+        internal static string DesasignarpatenteusuarioButtonTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarpatenteusuarioButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desasigna el usuario seleccionado a la familia.
+        /// </summary>
+        internal static string DesasignarusuaroafamiliaButtonTooltip {
+            get {
+                return ResourceManager.GetString("DesasignarusuaroafamiliaButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Usuario desbloqueado con exito.
         /// </summary>
         internal static string DesbloquearUsuarioLabel {
@@ -772,11 +1060,110 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Restablece la contraseña del usuario seleccionado en una ruta especificada.
+        /// </summary>
+        internal static string DesbloquearUsuarioTooltip {
+            get {
+                return ResourceManager.GetString("DesbloquearUsuarioTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina el beneficio seleccionado.
+        /// </summary>
+        internal static string EliminarBeneficioButton {
+            get {
+                return ResourceManager.GetString("EliminarBeneficioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina el equipo seleccionado.
+        /// </summary>
+        internal static string EliminarEquipoButton {
+            get {
+                return ResourceManager.GetString("EliminarEquipoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina la familia seleccionada.
+        /// </summary>
+        internal static string EliminarFamiliaButton {
+            get {
+                return ResourceManager.GetString("EliminarFamiliaButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina el grupo seleccionado.
+        /// </summary>
+        internal static string EliminarGrupoButton {
+            get {
+                return ResourceManager.GetString("EliminarGrupoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El objetivo se ha eliminado correctamente.
         /// </summary>
         internal static string EliminarMdoficado {
             get {
                 return ResourceManager.GetString("EliminarMdoficado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina el objetivo seleccionado.
+        /// </summary>
+        internal static string EliminarObjetivoButton {
+            get {
+                return ResourceManager.GetString("EliminarObjetivoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el usuario seleccionado.
+        /// </summary>
+        internal static string EliminarUsuarioNuevo {
+            get {
+                return ResourceManager.GetString("EliminarUsuarioNuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar quien coordinara el equipo y evaluara los objetivos de los empleados asignados.
+        /// </summary>
+        internal static string EquipoAsignarCoordinadorTooltip {
+            get {
+                return ResourceManager.GetString("EquipoAsignarCoordinadorTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar empleados al equipo seleccionado.
+        /// </summary>
+        internal static string EquipoAsignarEmpleadoTooltip {
+            get {
+                return ResourceManager.GetString("EquipoAsignarEmpleadoTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar grupos de beneficios al equipo seleccionado.
+        /// </summary>
+        internal static string EquipoAsignarGrupoTooltip {
+            get {
+                return ResourceManager.GetString("EquipoAsignarGrupoTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar objetivos al equipo seleccionado por los cuales se evaluaran a los empleados.
+        /// </summary>
+        internal static string EquipoAsignarObjetivosTooltip {
+            get {
+                return ResourceManager.GetString("EquipoAsignarObjetivosTooltip", resourceCulture);
             }
         }
         
@@ -804,6 +1191,69 @@ namespace Genesis.Recursos_localizables {
         internal static string EquipoModificado {
             get {
                 return ResourceManager.GetString("EquipoModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Evaluar los objetivos del empleado seleccionado.
+        /// </summary>
+        internal static string EvaluarButtonTooltip {
+            get {
+                return ResourceManager.GetString("EvaluarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exporta los eventos encontrados en un documento PDF.
+        /// </summary>
+        internal static string ExportarBitacoraPdfButtonTooltip {
+            get {
+                return ResourceManager.GetString("ExportarBitacoraPdfButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Realiza el backup de la base de datos en la ruta seleccionada y en la cantidad de particiones ingresadas.
+        /// </summary>
+        internal static string ExportarButtonTooltip {
+            get {
+                return ResourceManager.GetString("ExportarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exporta el reporte en un documento PDF.
+        /// </summary>
+        internal static string ExportarPdfButtonTooltip {
+            get {
+                return ResourceManager.GetString("ExportarPdfButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar beneficios al grupo seleccionado.
+        /// </summary>
+        internal static string FamiliaAsignarBeneficiosTooltip {
+            get {
+                return ResourceManager.GetString("FamiliaAsignarBeneficiosTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar patentes para asignar permisos a los usuarios.
+        /// </summary>
+        internal static string FamiliaAsignarPatentesTooltip {
+            get {
+                return ResourceManager.GetString("FamiliaAsignarPatentesTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permite asignar usuarios a la familia seleccionada.
+        /// </summary>
+        internal static string FamiliaAsignarUsuariosTooltip {
+            get {
+                return ResourceManager.GetString("FamiliaAsignarUsuariosTooltip", resourceCulture);
             }
         }
         
@@ -970,11 +1420,74 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Guarda las asignaciones realizadas.
+        /// </summary>
+        internal static string GuardarButtonTooltip {
+            get {
+                return ResourceManager.GetString("GuardarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guarda las evaluaciones realizadas.
+        /// </summary>
+        internal static string GuardarEvaluacionesButtonTooltip {
+            get {
+                return ResourceManager.GetString("GuardarEvaluacionesButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el string de conexion al acceso a la base de datos.
+        /// </summary>
+        internal static string GuardarStringdeconexionButtonTooltip {
+            get {
+                return ResourceManager.GetString("GuardarStringdeconexionButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio..
         /// </summary>
         internal static string IdiomaLabel {
             get {
                 return ResourceManager.GetString("IdiomaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restaura la base de datos a partir del archivo seleccionado.
+        /// </summary>
+        internal static string ImportarButtonTooltip {
+            get {
+                return ResourceManager.GetString("ImportarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indica que el objetivo seleccionado no ha sido alcanzado.
+        /// </summary>
+        internal static string IncumplidoButtonTooltip {
+            get {
+                return ResourceManager.GetString("IncumplidoButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ingresa a la aplicacion con los datos de ingreso.
+        /// </summary>
+        internal static string IngresarButtonTooltip {
+            get {
+                return ResourceManager.GetString("IngresarButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Limpia el formulario.
+        /// </summary>
+        internal static string LimpiarButton {
+            get {
+                return ResourceManager.GetString("LimpiarButton", resourceCulture);
             }
         }
         
@@ -1033,11 +1546,29 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el beneficio seleccionado.
+        /// </summary>
+        internal static string ModificarBeneficioButton {
+            get {
+                return ResourceManager.GetString("ModificarBeneficioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Es requerido ingresar la contraseña actual.
         /// </summary>
         internal static string ModificarContrasenaActualRequerida {
             get {
                 return ResourceManager.GetString("ModificarContrasenaActualRequerida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualiza la contraseña por la ingresada.
+        /// </summary>
+        internal static string ModificarContraseñaButtonTooltip {
+            get {
+                return ResourceManager.GetString("ModificarContraseñaButtonTooltip", resourceCulture);
             }
         }
         
@@ -1065,6 +1596,60 @@ namespace Genesis.Recursos_localizables {
         internal static string ModificarContrasenaSatisfactorio {
             get {
                 return ResourceManager.GetString("ModificarContrasenaSatisfactorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el equipo seleccionado.
+        /// </summary>
+        internal static string ModificarEquipoButton {
+            get {
+                return ResourceManager.GetString("ModificarEquipoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica la familia seleccionada.
+        /// </summary>
+        internal static string ModificarFamiliaButton {
+            get {
+                return ResourceManager.GetString("ModificarFamiliaButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el grupo seleccionado.
+        /// </summary>
+        internal static string ModificarGrupoButton {
+            get {
+                return ResourceManager.GetString("ModificarGrupoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el objetivo seleccionado.
+        /// </summary>
+        internal static string ModificarObjetivoButton {
+            get {
+                return ResourceManager.GetString("ModificarObjetivoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica el string de conexion para el acceso a la base de datos.
+        /// </summary>
+        internal static string ModificarStringButtonTooltip {
+            get {
+                return ResourceManager.GetString("ModificarStringButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elimina el usuario seleccionado.
+        /// </summary>
+        internal static string ModificarUsuarioNuevo {
+            get {
+                return ResourceManager.GetString("ModificarUsuarioNuevo", resourceCulture);
             }
         }
         
@@ -1123,6 +1708,60 @@ namespace Genesis.Recursos_localizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Periodo en el cual se evaluaron los empleados.
+        /// </summary>
+        internal static string PeriodoBoxTooltip {
+            get {
+                return ResourceManager.GetString("PeriodoBoxTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indica que el usuario podra acceder a la funcionalidad seleccionada.
+        /// </summary>
+        internal static string PermisivaButtonTooltip {
+            get {
+                return ResourceManager.GetString("PermisivaButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indica el puntaje necesario para que sea otorgado el beneficio.
+        /// </summary>
+        internal static string PuntajeBeneficio {
+            get {
+                return ResourceManager.GetString("PuntajeBeneficio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indica el puntaje que otorgara cumplir el objetivo.
+        /// </summary>
+        internal static string PuntajeObjetivo {
+            get {
+                return ResourceManager.GetString("PuntajeObjetivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reconstruye la integridad de la base de datos.
+        /// </summary>
+        internal static string RecalcularDigitosButtonTooltip {
+            get {
+                return ResourceManager.GetString("RecalcularDigitosButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restablece la contraseña del usuario seleccionado en una ruta especificada.
+        /// </summary>
+        internal static string RestablecerContraseñaTooltip {
+            get {
+                return ResourceManager.GetString("RestablecerContraseñaTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema..
         /// </summary>
         internal static string RestoreMessageError {
@@ -1155,6 +1794,33 @@ namespace Genesis.Recursos_localizables {
         internal static string RestoreMessageVacio {
             get {
                 return ResourceManager.GetString("RestoreMessageVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indica que el usuario no podra acceder a la funcionalidad seleccionada.
+        /// </summary>
+        internal static string RestrictivaButtonTooltip {
+            get {
+                return ResourceManager.GetString("RestrictivaButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el archivo rar que representa el backup a restaurar.
+        /// </summary>
+        internal static string SeleccionarArchivoTooltip {
+            get {
+                return ResourceManager.GetString("SeleccionarArchivoTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona la ruta donde depositar el backup.
+        /// </summary>
+        internal static string SeleccionarRutaDestinoButtonTooltip {
+            get {
+                return ResourceManager.GetString("SeleccionarRutaDestinoButtonTooltip", resourceCulture);
             }
         }
         
@@ -1623,6 +2289,15 @@ namespace Genesis.Recursos_localizables {
         internal static string TitleModificarIdioma {
             get {
                 return ResourceManager.GetString("TitleModificarIdioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario en sesion.
+        /// </summary>
+        internal static string UsuarioBoxTooltip {
+            get {
+                return ResourceManager.GetString("UsuarioBoxTooltip", resourceCulture);
             }
         }
     }

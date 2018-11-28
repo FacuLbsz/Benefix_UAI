@@ -46,8 +46,8 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.permisivaButton, "Indica que el usuario podra acceder a la funcionalidad seleccionada");
-            toolTip1.SetToolTip(this.restrictivaButton, "Indica que el usuario no podra acceder a la funcionalidad seleccionada");
+            toolTip1.SetToolTip(this.permisivaButton, Genesis.Recursos_localizables.StringResources.PermisivaButtonTooltip);
+            toolTip1.SetToolTip(this.restrictivaButton, Genesis.Recursos_localizables.StringResources.RestrictivaButtonTooltip);
         }
     }
 }

@@ -90,7 +90,7 @@ public class GestorDeFamilias
         DataTable familiapatenteTable = baseDeDatos.ConsultarBase(String.Format("SELECT patente.idPatente, patente.nombre FROM familiapatente INNER JOIN PATENTE on familiapatente.Patente_idPatente = PATENTE.idPatente WHERE Familia_idFamilia = {0}", familia.identificador));
         foreach (DataRow familiapatenteRow in familiapatenteTable.Rows)
         {
-            Patente patente = new Patente() { identificador = Convert.ToInt32(familiapatenteRow["idPatente"]) };
+            Patente patente = new Patente() { identificador = Convert.ToInt32(familiapatenteRow["idPatente"]), nombre = Convert.ToString(familiapatenteRow["nombre"]) };
             patentesAsignadas.Add(patente);
         }
 
@@ -104,7 +104,7 @@ public class GestorDeFamilias
 
         foreach (Patente patente in patentesAsignadas)
         {
-            if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia) == 0)
+            if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia, false) == 0)
             {
                 throw new EntidadDuplicadaExcepcion(patente.nombre);
             }
@@ -149,6 +149,16 @@ public class GestorDeFamilias
 
     public int DesasignarUsuario(Usuario usuario, Familia familia)
     {
+        var patentesDelUsuario = GestorDePatentes.ObtenerInstancia().ObtenerPatentesParaUnUsuarioPorFamilia(usuario);
+
+        foreach (PatenteUsuario patente in patentesDelUsuario)
+        {
+            if (GestorDePatentes.ObtenerInstancia().VerificarPatenteEscencial(patente.patente, usuario, null, false) == 0)
+            {
+                throw new Exception("No se puede desasignar el empleado debido a que la patente " + patente.patente.nombre + " quedara sin asignacion");
+            }
+        }
+
         return baseDeDatos.ModificarBase(String.Format("DELETE FROM familiausuario WHERE Usuario_idUsuario = {0} AND Familia_idFamilia = {1}", usuario.identificador, familia.identificador)); ;
     }
 

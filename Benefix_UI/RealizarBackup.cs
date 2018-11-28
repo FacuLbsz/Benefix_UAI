@@ -80,9 +80,9 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.seleccionarButton, "Selecciona la ruta donde depositar el backup");
-            toolTip1.SetToolTip(this.cantidadDeVolumenesComboBox, "Indica la cantidad de particiones que representara el backup");
-            toolTip1.SetToolTip(this.exportarButton, "Realiza el backup de la base de datos en la ruta seleccionada y en la cantidad de particiones ingresadas");
+            toolTip1.SetToolTip(this.seleccionarButton, Genesis.Recursos_localizables.StringResources.SeleccionarRutaDestinoButtonTooltip);
+            toolTip1.SetToolTip(this.cantidadDeVolumenesComboBox, Genesis.Recursos_localizables.StringResources.CantidadDeVolumenesComboBoxTooltip);
+            toolTip1.SetToolTip(this.exportarButton, Genesis.Recursos_localizables.StringResources.ExportarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

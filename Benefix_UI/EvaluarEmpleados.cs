@@ -86,10 +86,10 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.alcanzadoButton, "Indica que el objetivo seleccionado ha sido alcanzado");
-            toolTip1.SetToolTip(this.incumplidoButton, "Indica que el objetivo seleccionado no ha sido alcanzado");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda las evaluaciones realizadas");
-            this.cumplimiento.ToolTipText = "Indica si se ha cumplido el objetivo";
+            toolTip1.SetToolTip(this.alcanzadoButton, Genesis.Recursos_localizables.StringResources.AlcanzadoButtonTooltip);
+            toolTip1.SetToolTip(this.incumplidoButton, Genesis.Recursos_localizables.StringResources.IncumplidoButtonTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
+            this.cumplimiento.ToolTipText = Genesis.Recursos_localizables.StringResources.AlcanzadoButtonTooltip;
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

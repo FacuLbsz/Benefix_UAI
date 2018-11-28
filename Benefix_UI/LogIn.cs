@@ -93,7 +93,7 @@ namespace Genesis
         private void LogIn_Load(object sender, EventArgs e)
         {
             //nombreUsuarioText.Text = "admin.admin";
-            contraseñaText.Text = "osxApZQd";
+            //contraseñaText.Text = "osxApZQd";
             var modificarStringBienvenidoFallo = false;
             recalcularDigitosButton.Visible = false;
             try

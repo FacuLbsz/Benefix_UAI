@@ -54,9 +54,9 @@ namespace Genesis
             this.empleado.ToolTipText = "Empleados asignados al equipo seleccionado";
             this.cumplimientoPorc.ToolTipText = "Indica el porcentaje de objetivos cumplidos respecto de los asignados";
 
-            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
-            toolTip1.SetToolTip(this.consultarButton, "Consulta el porcentaje cumplimiento de objetivos de los empleados asignados al equipo seleccionado");
-            toolTip1.SetToolTip(this.periodoBox, "Periodo en el cual se evaluaron los empleados");
+            toolTip1.SetToolTip(this.exportarPdfButton, Genesis.Recursos_localizables.StringResources.ExportarPdfButtonTooltip);
+            toolTip1.SetToolTip(this.consultarButton, Genesis.Recursos_localizables.StringResources.ConsultarPorcentajeButtonTooltip);
+            toolTip1.SetToolTip(this.periodoBox, Genesis.Recursos_localizables.StringResources.PeriodoBoxTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

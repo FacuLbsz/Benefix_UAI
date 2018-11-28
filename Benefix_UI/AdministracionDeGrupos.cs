@@ -46,12 +46,12 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
-            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo grupo");
-            toolTip1.SetToolTip(this.modificarButton, "Modifica el grupo seleccionado");
-            toolTip1.SetToolTip(this.eliminarButton, "Elimina el grupo seleccionado");
+            toolTip1.SetToolTip(this.limpiarButton, Genesis.Recursos_localizables.StringResources.LimpiarButton);
+            toolTip1.SetToolTip(this.crearButton, Genesis.Recursos_localizables.StringResources.CrearGrupoButton);
+            toolTip1.SetToolTip(this.modificarButton, Genesis.Recursos_localizables.StringResources.ModificarGrupoButton);
+            toolTip1.SetToolTip(this.eliminarButton, Genesis.Recursos_localizables.StringResources.EliminarGrupoButton);
 
-            toolTip1.SetToolTip(this.asignarBeneficiosButton, "Permite asignar beneficios al grupo seleccionado");
+            toolTip1.SetToolTip(this.asignarBeneficiosButton, Genesis.Recursos_localizables.StringResources.FamiliaAsignarBeneficiosTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

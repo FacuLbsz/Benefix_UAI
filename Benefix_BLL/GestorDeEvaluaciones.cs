@@ -52,7 +52,7 @@ public class GestorDeEvaluaciones
         }
         else if (evaluacion.alcanzado)
         {
-            var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String> { evaluacion.equipoObjetvo.identificador.ToString(), empleado.identificador.ToString() });
+            var digitoVH = GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String> { puntaje.ToString(), periodo.ToString() });
             var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO evaluacion (puntaje,periodo,EquipoObjetivo_idEquipoObjetivo,digitoVerificadorH,Usuario_idUsuario)  VALUES ({0},{1},{2},'{3}',{4})", puntaje, periodo, evaluacion.equipoObjetvo.identificador, digitoVH, empleado.identificador));
             gestorDeDigitoVerificador.ModificarDigitoVV("EVALUACION");
 

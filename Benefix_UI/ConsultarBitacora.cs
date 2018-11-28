@@ -52,10 +52,10 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.criticidadBox, "Criticidad del evento que deseas consultar");
-            toolTip1.SetToolTip(this.usuarioBox, "Usuario en sesion");
-            toolTip1.SetToolTip(this.consultarButton, "Consulta los eventos existentes para los filtros seleccionados");
-            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta los eventos encontrados en un documento PDF");
+            toolTip1.SetToolTip(this.criticidadBox, Genesis.Recursos_localizables.StringResources.CriticidadBoxTooltip);
+            toolTip1.SetToolTip(this.usuarioBox, Genesis.Recursos_localizables.StringResources.UsuarioBoxTooltip);
+            toolTip1.SetToolTip(this.consultarButton, Genesis.Recursos_localizables.StringResources.ConsultarBitacoraButtonTooltip);
+            toolTip1.SetToolTip(this.exportarPdfButton, Genesis.Recursos_localizables.StringResources.ExportarPdfButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
@@ -88,7 +88,7 @@ namespace Genesis
                         break;
                 }
                 beneficiosDataGridView.Rows[index].Cells["criticidad"].Value = criticidadString;
-                beneficiosDataGridView.Rows[index].Cells["usuario"].Value = eventoBitacora.usuario.nombreUsuario;
+                beneficiosDataGridView.Rows[index].Cells["usuario"].Value = eventoBitacora.usuario.nombreUsuario == null ? "" : eventoBitacora.usuario.nombreUsuario;
                 beneficiosDataGridView.Rows[index].Cells["fecha"].Value = eventoBitacora.fecha;
                 beneficiosDataGridView.Rows[index].Cells["funcionalidad"].Value = eventoBitacora.funcionalidad;
                 beneficiosDataGridView.Rows[index].Cells["descripcion"].Value = eventoBitacora.descripcion;
@@ -153,10 +153,10 @@ namespace Genesis
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     var titulo = "Extracto de bitacora utilizando los filtros:";
-                    titulo += "\n"+fechaDesdeLabel.Text + ": " + fechaDesdeDate.Value.ToString();
-                    titulo += "\n"+fechaHastaLabel.Text + ": " + fechaHastaDate.Value.ToString();
-                    titulo += "\n"+criticidadLabel.Text + ": " + criticidadBox.SelectedItem.ToString();
-                    titulo += "\n"+usuarioLabel.Text + ": " + ((Usuario)usuarioBox.SelectedItem).nombreUsuario;
+                    titulo += "\n" + fechaDesdeLabel.Text + ": " + fechaDesdeDate.Value.ToString();
+                    titulo += "\n" + fechaHastaLabel.Text + ": " + fechaHastaDate.Value.ToString();
+                    titulo += "\n" + criticidadLabel.Text + ": " + criticidadBox.SelectedItem.ToString();
+                    titulo += "\n" + usuarioLabel.Text + ": " + ((Usuario)usuarioBox.SelectedItem).nombreUsuario;
                     var filePath = fbd.SelectedPath + "\\Extracto de Bitacora.pdf";
 
                     List<String> columns = new List<string>();
@@ -166,7 +166,7 @@ namespace Genesis
                     columns.Add(descripcion.HeaderText);
                     columns.Add(criticidad.HeaderText);
 
-                    new BitacoraPDF().ExportarPDFARuta(titulo, columns, eventosBitacora.Cast<Object>().ToList(), filePath);
+                    new BitacoraPDF().ExportarPDFARuta(titulo, columns, beneficiosDataGridView.Rows.Cast<Object>().ToList(), filePath);
                     MessageBox.Show(Genesis.Recursos_localizables.StringResources.PDFCreadoSatisfactorio);
                 }
             }

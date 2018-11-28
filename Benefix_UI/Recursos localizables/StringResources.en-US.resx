@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdministracionDeBeneficiosDescripcionRequerida" xml:space="preserve">
+    <value>Es requerida una descripcion_INGLES</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageCrearSatisfactorio" xml:space="preserve">
+    <value>El beneficio se ha creado correctamente_INGLES</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageEliminacionSatisfactorio" xml:space="preserve">
+    <value>El Beneficio se ha eliminado correctamente_INGLES</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageModificarSatisfactorio" xml:space="preserve">
+    <value>El beneficio se ha actualizado correctamente_INGLES</value>
+  </data>
+  <data name="AdministracionDeBEneficiosMessageNombreDuplicado" xml:space="preserve">
+    <value>El nombre ingresado ya se encuentra asociado, por favor ingrese otro_INGLES</value>
+  </data>
   <data name="AdministracionDeFamiliasMessageFamiliaEliminado" xml:space="preserve">
     <value>La familia ha sido eliminada con exito._INGLES</value>
   </data>
@@ -127,7 +142,7 @@
     <value>La familia ha sido creado con existo_INGLES</value>
   </data>
   <data name="AdministracionDeUsuariosMessageContraseñaRestablecida" xml:space="preserve">
-    <value>La contraseña ha sido restablecida: \n_INGLES</value>
+    <value>La contraseña ha sido restablecida en la ruta seleccionada. _INGLES</value>
   </data>
   <data name="AdministracionDeUsuariosMessageEmailInvalido" xml:space="preserve">
     <value>El email ingresado no corresponde a un formato válido._INGLES</value>
@@ -139,7 +154,7 @@
     <value>El nombre es un campo requerido y puede contener solo letras._INGLES</value>
   </data>
   <data name="AdministracionDeUsuariosMessageSatisfactorio" xml:space="preserve">
-    <value>El usuario ha sido creado con existo, por favor guarde su contraseña: \n_INGLES</value>
+    <value>El usuario ha sido creado con existo_INGLES</value>
   </data>
   <data name="AdministracionDeUsuariosMessageUsuarioDuplicado" xml:space="preserve">
     <value>El nombre de usuario ya se encuentra utilizado, se utilizara el nombre: _INGLES</value>
@@ -149,6 +164,9 @@
   </data>
   <data name="AdministracionDeUsuariosMessageUsuarioModificado" xml:space="preserve">
     <value>El usuario ha sido modificado con existo._INGLES</value>
+  </data>
+  <data name="AdministracionPuntajeRequerido" xml:space="preserve">
+    <value>Es requerido ingresar un puntaje entre 1 y 999_INGLES</value>
   </data>
   <data name="AdminsitracionDeFamiliasMessageFamiliaModificado" xml:space="preserve">
     <value>La familia ha sido modificada con exito._INGLES</value>
@@ -240,6 +258,9 @@
   <data name="ButtonAsignarGrupos" xml:space="preserve">
     <value>Asignar grupos_INGLES</value>
   </data>
+  <data name="ButtonAsignarObjetivos" xml:space="preserve">
+    <value>Asignar objetivos_INGLES</value>
+  </data>
   <data name="ButtonAsignarPatentes" xml:space="preserve">
     <value>Asignar patentes_INGLES</value>
   </data>
@@ -263,6 +284,9 @@
   </data>
   <data name="ButtonDesasignar" xml:space="preserve">
     <value>Desasignar &gt;_INGLES</value>
+  </data>
+  <data name="ButtonDesbloquearUsuario" xml:space="preserve">
+    <value>Debloquear usuario_INGLES</value>
   </data>
   <data name="ButtonEliminar" xml:space="preserve">
     <value>Eliminar_INGLES</value>
@@ -300,8 +324,47 @@
   <data name="ButtonSeleccionar" xml:space="preserve">
     <value>Seleccionar_INGLES</value>
   </data>
+  <data name="ConfirmarNuevaContraseñaLabel" xml:space="preserve">
+    <value>Vuelve a escribir tu nueva contraseña_INGLES</value>
+  </data>
+  <data name="ConfirmarNuevaContraseñaNoCoinciden" xml:space="preserve">
+    <value>La nueva contraseña no coincide_INGLES</value>
+  </data>
+  <data name="ConfirmarNuevaContraseñaRequerida" xml:space="preserve">
+    <value>Es necesario ingresar nuevamente tu contraseña_INGLES</value>
+  </data>
   <data name="ContrasenaActualLabel" xml:space="preserve">
     <value>Contraseña actual_INGLES</value>
+  </data>
+  <data name="CrearObjetivo" xml:space="preserve">
+    <value>El objetivo ha sido creado correctamente_INGLES</value>
+  </data>
+  <data name="DebeSeleccionarUnEmpleado" xml:space="preserve">
+    <value>Debe seleccionar un empleado a evaluar_INGLES</value>
+  </data>
+  <data name="DebeSeleccionarUnEquipo" xml:space="preserve">
+    <value>Debe seleccionar un equipo_INGLES</value>
+  </data>
+  <data name="DebeSeleccionarUnObjetivo" xml:space="preserve">
+    <value>Debe seleccionar un objetivo_INGLES</value>
+  </data>
+  <data name="DebeSeleccionarUnPeriodo" xml:space="preserve">
+    <value>Debe seleccionar un periodo_INGLES</value>
+  </data>
+  <data name="DesbloquearUsuarioLabel" xml:space="preserve">
+    <value>Usuario desbloqueado con exito_INGLES</value>
+  </data>
+  <data name="EliminarMdoficado" xml:space="preserve">
+    <value>El objetivo se ha eliminado correctamente_INGLES</value>
+  </data>
+  <data name="EquipoCreado" xml:space="preserve">
+    <value>Equipo creado satisfactoriamente_INGLES</value>
+  </data>
+  <data name="EquipoEliminado" xml:space="preserve">
+    <value>El equipo se ha eliminado correctamente_INGLES</value>
+  </data>
+  <data name="EquipoModificado" xml:space="preserve">
+    <value>El equipo se ha actualizado correctamente_INGLES</value>
   </data>
   <data name="FormularioApellido" xml:space="preserve">
     <value>Apellido_INGLES</value>
@@ -348,6 +411,15 @@
   <data name="FormularioUsuario" xml:space="preserve">
     <value>Usuario_INGLES</value>
   </data>
+  <data name="GrupoCreado" xml:space="preserve">
+    <value>El grupo ha sido creado satisfactoriamente_INGLES</value>
+  </data>
+  <data name="GrupoEliminado" xml:space="preserve">
+    <value>El grupo sa ha eliminado correctamente_INGLES</value>
+  </data>
+  <data name="GrupoModificado" xml:space="preserve">
+    <value>El grupo se ha a ctualizado correctamente_INGLES</value>
+  </data>
   <data name="IdiomaLabel" xml:space="preserve">
     <value>¿Desea modificar el idioma? Es necesario reiniciar la aplicación para visualizar el cambio._INGLES</value>
   </data>
@@ -384,6 +456,21 @@
   <data name="NuevaContraseñaLabel" xml:space="preserve">
     <value>Nueva contraseña_INGLES</value>
   </data>
+  <data name="ObjetivoEvaluadoCorrectamente" xml:space="preserve">
+    <value>Objetivo evaluado correctamente_INGLES</value>
+  </data>
+  <data name="ObjetivoMdoficado" xml:space="preserve">
+    <value>El objetivo se ha actualizado correctamente_INGLES</value>
+  </data>
+  <data name="ObjetivoYaCumplido" xml:space="preserve">
+    <value>Este objetivo ya se ha cumplido_INGLES</value>
+  </data>
+  <data name="ObjetivoYaIncumplido" xml:space="preserve">
+    <value>MessageBox.Show("Este objetivo ya se encuentra incumplido.");_INGLES</value>
+  </data>
+  <data name="PDFCreadoSatisfactorio" xml:space="preserve">
+    <value>PDF creado con exito!_INGLES</value>
+  </data>
   <data name="RestoreMessageError" xml:space="preserve">
     <value>Ha ocurrido un error realizando el restore, por favor comuniquese con el administrador del sistema._INGLES</value>
   </data>
@@ -395,6 +482,18 @@
   </data>
   <data name="RestoreMessageVacio" xml:space="preserve">
     <value>Sebe seleccionar un archivo backup para importar._INGLES</value>
+  </data>
+  <data name="SinBeneficiosParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran beneficios para el periodo y el empleado seleccionado_INGLES</value>
+  </data>
+  <data name="SinEmpleadosParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran empleados para el periodo y el equipo seleccionado._INGLES</value>
+  </data>
+  <data name="SinEquiposAsignados" xml:space="preserve">
+    <value>Usted no tiene equipos asignados_INGLES</value>
+  </data>
+  <data name="SinEquiposParaElPeriodo" xml:space="preserve">
+    <value>No se encuentran equipos y o objetivos para el periodo y el empleado seleccionado_INGLES</value>
   </data>
   <data name="SistemaMenuItemAdministracion" xml:space="preserve">
     <value>Administración_INGLES</value>
@@ -504,6 +603,9 @@
   <data name="TableObjetivos" xml:space="preserve">
     <value>Objetivos_INGLES</value>
   </data>
+  <data name="TableObjetivosAsignados" xml:space="preserve">
+    <value>Objetivos asignados_INGLES</value>
+  </data>
   <data name="TableOtorgado" xml:space="preserve">
     <value>Otorgado_INGLES</value>
   </data>
@@ -537,4 +639,197 @@
   <data name="TitleModificarIdioma" xml:space="preserve">
     <value>Modificar idioma_INGLES</value>
   </data>
+  <data name="LimpiarButton" xml:space="preserve">
+    <value>Limpia el formulario_INGLES</value>
+  </data>
+  <data name="CrearBeneficioButton" xml:space="preserve">
+    <value>Crea un nuevo beneficio_INGLES</value>
+  </data>
+  <data name="ModificarBeneficioButton" xml:space="preserve">
+    <value>Modifica el beneficio seleccionado_INGLES</value>
+  </data>
+  <data name="EliminarBeneficioButton" xml:space="preserve">
+    <value>Elimina el beneficio seleccionado_INGLES</value>
+  </data>
+  <data name="CrearEquipoButton" xml:space="preserve">
+    <value>Crea un nuevo equipo_INGLES</value>
+  </data>
+  <data name="ModificarEquipoButton" xml:space="preserve">
+    <value>Modifica el equipo seleccionado_INGLES</value>
+  </data>
+  <data name="EliminarEquipoButton" xml:space="preserve">
+    <value>Elimina el equipo seleccionado_INGLES</value>
+  </data>
+  <data name="PuntajeBeneficio" xml:space="preserve">
+    <value>Indica el puntaje necesario para que sea otorgado el beneficio_INGLES</value>
+  </data>
+  <data name="PuntajeObjetivo" xml:space="preserve">
+    <value>Indica el puntaje que otorgara cumplir el objetivo_INGLES</value>
+  </data>
+  <data name="EquipoAsignarCoordinadorTooltip" xml:space="preserve">
+    <value>Permite asignar quien coordinara el equipo y evaluara los objetivos de los empleados asignados_INGLES</value>
+  </data>
+  <data name="EquipoAsignarEmpleadoTooltip" xml:space="preserve">
+    <value>Permite asignar empleados al equipo seleccionado_INGLES</value>
+  </data>
+  <data name="EquipoAsignarGrupoTooltip" xml:space="preserve">
+    <value>Permite asignar grupos de beneficios al equipo seleccionado_INGLES</value>
+  </data>
+  <data name="EquipoAsignarObjetivosTooltip" xml:space="preserve">
+    <value>Permite asignar objetivos al equipo seleccionado por los cuales se evaluaran a los empleados_INGLES</value>
+  </data>
+  <data name="CrearFamiliaButton" xml:space="preserve">
+    <value>Crea una nueva familia_INGLES</value>
+  </data>
+  <data name="ModificarFamiliaButton" xml:space="preserve">
+    <value>Modifica la familia seleccionada_INGLES</value>
+  </data>
+  <data name="EliminarFamiliaButton" xml:space="preserve">
+    <value>Elimina la familia seleccionada_INGLES</value>
+  </data>
+  <data name="FamiliaAsignarPatentesTooltip" xml:space="preserve">
+    <value>Permite asignar patentes para asignar permisos a los usuarios_INGLES</value>
+  </data>
+  <data name="FamiliaAsignarUsuariosTooltip" xml:space="preserve">
+    <value>Permite asignar usuarios a la familia seleccionada_INGLES</value>
+  </data>
+  <data name="CrearGrupoButton" xml:space="preserve">
+    <value>Crea un nuevo grupo_INGLES</value>
+  </data>
+  <data name="ModificarGrupoButton" xml:space="preserve">
+    <value>Modifica el grupo seleccionado_INGLES</value>
+  </data>
+  <data name="EliminarGrupoButton" xml:space="preserve">
+    <value>Elimina el grupo seleccionado_INGLES</value>
+  </data>
+  <data name="FamiliaAsignarBeneficiosTooltip" xml:space="preserve">
+    <value>Permite asignar beneficios al grupo seleccionado_INGLES</value>
+  </data>
+  <data name="CrearObjetivoButton" xml:space="preserve">
+    <value>Crea un nuevo objetivo_INGLES</value>
+  </data>
+  <data name="ModificarObjetivoButton" xml:space="preserve">
+    <value>Modifica el objetivo seleccionado_INGLES</value>
+  </data>
+  <data name="EliminarObjetivoButton" xml:space="preserve">
+    <value>Elimina el objetivo seleccionado_INGLES</value>
+  </data>
+  <data name="AsignarBeneficioTooltip" xml:space="preserve">
+    <value>Asigna el beneficio seleccionada al grupo_INGLES</value>
+  </data>
+  <data name="DesasignarBeneficioTooltip" xml:space="preserve">
+    <value>Desasigna el beneficio seleccionada al grupo_INGLES</value>
+  </data>
+  <data name="GuardarButtonTooltip" xml:space="preserve">
+    <value>Guarda las asignaciones realizadas_INGLES</value>
+  </data>
+  <data name="AsignarEmpleadoButtonTooltip" xml:space="preserve">
+    <value>Asigna el empleado seleccionado al equipo_INGLES</value>
+  </data>
+  <data name="AsignarGrupoButtonTooltip" xml:space="preserve">
+    <value>Asigna el grupo seleccionado al equipo_INGLES</value>
+  </data>
+  <data name="AsignarPatenteUsuarioTooltip" xml:space="preserve">
+    <value>Permite asignar patentes para asignar y denegar permisos a los usuarios_INGLES</value>
+  </data>
+  <data name="CoordinadorTooltip" xml:space="preserve">
+    <value>Selecciona el empleado que se encaraga de coordinar y evaluar el equipo_INGLES</value>
+  </data>
+  <data name="CrearUsuarioNuevo" xml:space="preserve">
+    <value>Crea un nuevo usuario_INGLES</value>
+  </data>
+  <data name="DeasignarGrupoButtonTooltip" xml:space="preserve">
+    <value>Desasigna el grupo seleccionado al equipo_INGLES</value>
+  </data>
+  <data name="DesasignarEmpleadoButtonTooltip" xml:space="preserve">
+    <value>Desasigna el empleado seleccionado al equipo_INGLES</value>
+  </data>
+  <data name="DesbloquearUsuarioTooltip" xml:space="preserve">
+    <value>Restablece la contraseña del usuario seleccionado en una ruta especificada_INGLES</value>
+  </data>
+  <data name="EliminarUsuarioNuevo" xml:space="preserve">
+    <value>Modifica el usuario seleccionado_INGLES</value>
+  </data>
+  <data name="ModificarUsuarioNuevo" xml:space="preserve">
+    <value>Elimina el usuario seleccionado_INGLES</value>
+  </data>
+  <data name="PermisivaButtonTooltip" xml:space="preserve">
+    <value>Indica que el usuario podra acceder a la funcionalidad seleccionada_INGLES</value>
+  </data>
+  <data name="RestablecerContraseñaTooltip" xml:space="preserve">
+    <value>Restablece la contraseña del usuario seleccionado en una ruta especificada_INGLES</value>
+  </data>
+  <data name="RestrictivaButtonTooltip" xml:space="preserve">
+    <value>Indica que el usuario no podra acceder a la funcionalidad seleccionada_INGLES</value>
+  </data>
+  <data name="RestablecerContraseñaTooltip" xml:space="preserve">
+	<value>Restablece la contraseña del usuario seleccionado en una ruta especificada_INGLES</value>
+  </data>
+  
+   <data name="AsignarObjetivoButtonTooltip" xml:space="preserve"><value>Asigna el objetivo seleccionado al equipo_INGLES</value>
+</data>
+   <data name="DesasignarObjetivoButtonTooltip" xml:space="preserve"><value>Desasigna el objetivo seleccionado al equipo_INGLES</value>
+</data>
+   <data name="AsignarpatenteafamiliaButtonTooltip" xml:space="preserve"><value>Asigna la patente seleccionada a la familia_INGLES</value>
+</data>
+   <data name="DesasignarpatenteafamiliaButtonTooltip" xml:space="preserve"><value>Desasigna el beneficio seleccionada a la familia_INGLES</value>
+</data>
+   <data name="AsignarpatenteusuarioButtonTooltip" xml:space="preserve"><value>Asigna la patente seleccionada al usuario_INGLES</value>
+</data>
+   <data name="DesasignarpatenteusuarioButtonTooltip" xml:space="preserve"><value>Desasigna la patente seleccionada al usuario_INGLES</value>
+</data>
+   <data name="AsignarusuaroafamiliaButtonTooltip" xml:space="preserve"><value>Asigna el usuario seleccionado a la familia_INGLES</value>
+</data>
+   <data name="DesasignarusuaroafamiliaButtonTooltip" xml:space="preserve"><value>Desasigna el usuario seleccionado a la familia_INGLES</value>
+</data>
+   <data name="ComenzarButtonTooltip" xml:space="preserve"><value>Guarda el string de conexion para realizar el acceso a la base de datos_INGLES</value>
+</data>
+   <data name="CriticidadBoxTooltip" xml:space="preserve"><value>Criticidad del evento que deseas consultar_INGLES</value>
+</data>
+   <data name="UsuarioBoxTooltip" xml:space="preserve"><value>Usuario en sesion_INGLES</value>
+</data>
+   <data name="ConsultarBitacoraButtonTooltip" xml:space="preserve"><value>Consulta los eventos existentes para los filtros seleccionados_INGLES</value>
+</data>
+   <data name="ExportarBitacoraPdfButtonTooltip" xml:space="preserve"><value>Exporta los eventos encontrados en un documento PDF_INGLES</value>
+</data>
+   <data name="AlcanzadoButtonTooltip" xml:space="preserve"><value>Indica que el objetivo seleccionado ha sido alcanzado_INGLES</value>
+</data>
+   <data name="IncumplidoButtonTooltip" xml:space="preserve"><value>Indica que el objetivo seleccionado no ha sido alcanzado_INGLES</value>
+</data>
+   <data name="GuardarEvaluacionesButtonTooltip" xml:space="preserve"><value>Guarda las evaluaciones realizadas_INGLES</value>
+</data>
+   <data name="EvaluarButtonTooltip" xml:space="preserve"><value>Evaluar los objetivos del empleado seleccionado_INGLES</value>
+</data>
+   <data name="IngresarButtonTooltip" xml:space="preserve"><value>Ingresa a la aplicacion con los datos de ingreso_INGLES</value>
+</data>
+   <data name="ModificarStringButtonTooltip" xml:space="preserve"><value>Modifica el string de conexion para el acceso a la base de datos_INGLES</value>
+</data>
+   <data name="RecalcularDigitosButtonTooltip" xml:space="preserve"><value>Reconstruye la integridad de la base de datos_INGLES</value>
+</data>
+   <data name="ModificarContraseñaButtonTooltip" xml:space="preserve"><value>Actualiza la contraseña por la ingresada_INGLES</value>
+</data>
+   <data name="ConfirmarIdiomaButtonTooltip" xml:space="preserve"><value>Modifica el idioma asignado_INGLES</value>
+</data>
+   <data name="GuardarStringdeconexionButtonTooltip" xml:space="preserve"><value>Modifica el string de conexion al acceso a la base de datos_INGLES</value>
+</data>
+   <data name="SeleccionarRutaDestinoButtonTooltip" xml:space="preserve"><value>Selecciona la ruta donde depositar el backup_INGLES</value>
+</data>
+   <data name="CantidadDeVolumenesComboBoxTooltip" xml:space="preserve"><value>Indica la cantidad de particiones que representara el backup_INGLES</value>
+</data>
+   <data name="ExportarButtonTooltip" xml:space="preserve"><value>Realiza el backup de la base de datos en la ruta seleccionada y en la cantidad de particiones ingresadas_INGLES</value>
+</data>
+   <data name="SeleccionarArchivoTooltip" xml:space="preserve"><value>Selecciona el archivo rar que representa el backup a restaurar_INGLES</value>
+</data>
+   <data name="ImportarButtonTooltip" xml:space="preserve"><value>Restaura la base de datos a partir del archivo seleccionado_INGLES</value>
+</data>
+   <data name="ConsultarBeneficiosButtonTooltip" xml:space="preserve"><value>Consulta los beneficios otorgados al empleado seleccionado en el periodo indicado_INGLES</value>
+</data>
+   <data name="PeriodoBoxTooltip" xml:space="preserve"><value>Periodo en el cual se evaluaron los empleados_INGLES</value>
+</data>
+   <data name="ExportarPdfButtonTooltip" xml:space="preserve"><value>Exporta el reporte en un documento PDF_INGLES</value>
+</data>
+   <data name="ConsultarObjetivosEmpleadoButtonTooltip" xml:space="preserve"><value>Consulta el estado de cumplimiento de objetivos del empleado seleccionado_INGLES</value>
+</data>
+   <data name="ConsultarPorcentajeButtonTooltip" xml:space="preserve"><value>Consulta el porcentaje cumplimiento de objetivos de los empleados asignados al equipo seleccionado_INGLES</value>
+</data>
 </root>

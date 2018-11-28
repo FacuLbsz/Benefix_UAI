@@ -45,14 +45,14 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
-            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo usuario");
-            toolTip1.SetToolTip(this.modificarButton, "Modifica el usuario seleccionado");
-            toolTip1.SetToolTip(this.eliminarButton, "Elimina el usuario seleccionado");
+            toolTip1.SetToolTip(this.limpiarButton, Genesis.Recursos_localizables.StringResources.LimpiarButton);
+            toolTip1.SetToolTip(this.crearButton, Genesis.Recursos_localizables.StringResources.CrearUsuarioNuevo);
+            toolTip1.SetToolTip(this.modificarButton, Genesis.Recursos_localizables.StringResources.ModificarUsuarioNuevo);
+            toolTip1.SetToolTip(this.eliminarButton, Genesis.Recursos_localizables.StringResources.EliminarUsuarioNuevo);
 
-            toolTip1.SetToolTip(this.asignarPatentesButton, "Permite asignar patentes para asignar y denegar permisos a los usuarios");
-            toolTip1.SetToolTip(this.desbloquearUsuarioButton, "Debloquea el acceso al usuario seleccionado");
-            toolTip1.SetToolTip(this.restablecerContraseñaButton, "Restablece la contraseña del usuario seleccionado en una ruta especificada");
+            toolTip1.SetToolTip(this.asignarPatentesButton, Genesis.Recursos_localizables.StringResources.AsignarPatenteUsuarioTooltip);
+            toolTip1.SetToolTip(this.desbloquearUsuarioButton, Genesis.Recursos_localizables.StringResources.DesbloquearUsuarioTooltip);
+            toolTip1.SetToolTip(this.restablecerContraseñaButton, Genesis.Recursos_localizables.StringResources.RestablecerContraseñaTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
@@ -147,7 +147,40 @@ namespace Genesis
                 try
                 {
                     gestorDeUsuarios.CrearUsuario(usuario);
-                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageSatisfactorio + " " + contrasena);
+
+                    using (var fbd = new FolderBrowserDialog())
+                    {
+                        fbd.Description = "Selecciona donde depositar tu contraseña";
+                        DialogResult result = fbd.ShowDialog();
+
+                        if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                        {
+
+                            var filePath = fbd.SelectedPath + "\\" + nombreDeUsuarioText.Text + "_contraseña.txt";
+
+                            if (!File.Exists(filePath))
+                            {
+                                File.Create(filePath).Dispose();
+
+                                using (TextWriter tw = new StreamWriter(filePath))
+                                {
+                                    tw.WriteLine(contrasena);
+                                }
+
+                            }
+                            else if (File.Exists(filePath))
+                            {
+                                using (TextWriter tw = new StreamWriter(filePath))
+                                {
+                                    tw.WriteLine(contrasena);
+                                }
+                            }
+
+                        }
+                    }
+
+
+                    MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageSatisfactorio);
                     LimpiarFormulario();
                     ListarUsuarios();
                 }
@@ -215,6 +248,7 @@ namespace Genesis
             asignarPatentesButton.Enabled = false;
             modificarButton.Enabled = false;
             eliminarButton.Enabled = false;
+            desbloquearUsuarioButton.Enabled = false;
 
             crearButton.Enabled = true;
 
@@ -274,6 +308,7 @@ namespace Genesis
             asignarPatentesButton.Enabled = true;
             modificarButton.Enabled = true;
             eliminarButton.Enabled = true;
+            desbloquearUsuarioButton.Enabled = true;
 
             crearButton.Enabled = false;
 
@@ -319,10 +354,18 @@ namespace Genesis
 
         private void eliminarButton_Click(object sender, EventArgs e)
         {
-            gestorDeUsuarios.EliminarUsuario(new Usuario() { identificador = usuarioSeleccionado });
-            MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioEliminado);
-            LimpiarFormulario();
-            ListarUsuarios();
+            try
+            {
+                gestorDeUsuarios.EliminarUsuario(new Usuario() { identificador = usuarioSeleccionado });
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AdministracionDeUsuariosMessageUsuarioEliminado);
+                LimpiarFormulario();
+                ListarUsuarios();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("No es posible eliminar el usuario debido a que la patente " + exc.Message + " no se encuentra asignada a otro usuario.");
+
+            }
         }
 
         private void desbloquearUsuarioButton_Click(object sender, EventArgs e)

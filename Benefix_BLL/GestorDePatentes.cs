@@ -53,6 +53,18 @@ public class GestorDePatentes
         return registros;
     }
 
+    public List<Patente> ObtenerPatentesParaUnaFamilia(Familia familia)
+    {
+        List<Patente> patentes = new List<Patente>();
+        DataTable familiapatenteTable = baseDeDatos.ConsultarBase(String.Format("SELECT patente.idPatente, patente.nombre FROM familiapatente INNER JOIN PATENTE on familiapatente.Patente_idPatente = PATENTE.idPatente WHERE Familia_idFamilia = {0}", familia.identificador));
+        foreach (DataRow familiapatenteRow in familiapatenteTable.Rows)
+        {
+            Patente patente = new Patente() { identificador = Convert.ToInt32(familiapatenteRow["idPatente"]), nombre = Convert.ToString(familiapatenteRow["nombre"]) };
+            patentes.Add(patente);
+        }
+        return patentes;
+    }
+
     public int DesasignarAUnUsuario(Usuario usuario, Patente patente)
     {
 
@@ -98,6 +110,23 @@ public class GestorDePatentes
         return patentes;
     }
 
+    public List<PatenteUsuario> ObtenerPatentesParaUnUsuarioPorFamilia(Usuario usuario)
+    {
+        var dataTable = baseDeDatos.ConsultarBase(String.Format("select patente.nombre, familiapatente.Patente_idPatente from familiapatente inner join patente on patente.idPatente = familiapatente.Patente_idPatente INNER JOIN familiausuario on familiausuario.familia_idFamilia = familiapatente.familia_idFamilia WHERE familiausuario.Usuario_idUsuario = {0}", usuario.identificador));
+        List<PatenteUsuario> patenteUsuarios = new List<PatenteUsuario>();
+        foreach (DataRow row in dataTable.Rows)
+        {
+            PatenteUsuario patenteUsuario = new PatenteUsuario();
+
+            patenteUsuario.patente = new Patente() { identificador = Convert.ToInt32(row["Patente_idPatente"]), nombre = Convert.ToString(row["nombre"]) };
+            patenteUsuario.usuario = usuario;
+            patenteUsuario.esPermisivo = true;
+
+            patenteUsuarios.Add(patenteUsuario);
+        }
+
+        return patenteUsuarios;
+    }
     //SDC Modificar parametro de salida como Lista de PatenteUsuario
     public List<PatenteUsuario> ObtenerPatentesParaUnUsuario(Usuario usuario)
     {
@@ -137,8 +166,14 @@ public class GestorDePatentes
         return patentes;
     }
 
+    public int VerificarPatenteEscencialEnDesasignacion(Patente patente, Usuario usuario)
+    {
+
+        return 0;
+    }
+
     //SDC agregar nuevos parametros de entrada
-    public int VerificarPatenteEscencial(Patente patente, Usuario usuario, Familia familia)
+    public int VerificarPatenteEscencial(Patente patente, Usuario usuario, Familia familia, bool esDesasignacionPorUsuario)
     {
         var selectCantidadDeAsignacionesAUsuario = String.Format("select * FROM PATENTEUSUARIO inner join usuario on usuario.idUsuario = patenteusuario.Usuario_idUsuario WHERE PATENTEUSUARIO.Patente_idPatente = {0} AND esPermisiva = 1 AND Usuario.habilitado = 1", patente.identificador);
         if (usuario != null)
@@ -167,7 +202,21 @@ public class GestorDePatentes
         int usuariosConEsaPatenteSegunFamilia = 0;
         foreach (DataRow familiasPatente in familiasPatenteDataTable.Rows)
         {
-            usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE FAMILIAUSUARIO.Familia_idFamilia = {0} AND usuario.habilitado = 1", familiasPatente["Familia_idFamilia"].ToString())).Rows.Count;
+            if (!esDesasignacionPorUsuario)
+            {
+                usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE FAMILIAUSUARIO.Familia_idFamilia = {0} AND usuario.habilitado = 1 {1}", familiasPatente["Familia_idFamilia"].ToString(), usuario != null ? " AND usuario.idUsuario !=" + usuario.identificador : "")).Rows.Count;
+
+            }
+            else
+            {
+                usuariosConEsaPatenteSegunFamilia = usuariosConEsaPatenteSegunFamilia + baseDeDatos.ConsultarBase(String.Format("select * FROM FAMILIAUSUARIO INNER JOIN USUARIO on familiausuario.Usuario_idUsuario = USUARIO.idUsuario WHERE FAMILIAUSUARIO.Familia_idFamilia = {0} AND usuario.habilitado = 1", familiasPatente["Familia_idFamilia"].ToString())).Rows.Count;
+            }
+        }
+
+        //¿La patente que deseo desasignar ya la tengo asignada via familia?
+        if (usuariosConEsaPatenteSegunFamilia == 0 && usuario != null)
+        {
+
         }
 
         return usuariosConEsaPatenteSegunFamilia >= 1 ? 1 : 0;

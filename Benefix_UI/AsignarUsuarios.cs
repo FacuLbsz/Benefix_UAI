@@ -35,7 +35,11 @@ namespace Genesis
         {
             if (usuariosDataGridView.SelectedRows.Count > 0 && usuariosDataGridView.Rows[usuariosDataGridView.SelectedRows[0].Index].DataBoundItem != null)
             {
+
                 var usuario = (Usuario)usuariosDataGridView.Rows[usuariosDataGridView.CurrentCell.RowIndex].DataBoundItem;
+
+                gestorDeFamilias.AsignarUsuario(usuario, familia);
+
                 usuarioAsignados.Add(usuario);
                 usuariosAsignadosDataGridView.AutoGenerateColumns = false;
                 var binding1 = new BindingSource();
@@ -64,20 +68,30 @@ namespace Genesis
             {
                 var usuario = (Usuario)usuariosAsignadosDataGridView.Rows[usuariosAsignadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
 
-                usuariosNoAsignados.Add(usuario);
-                usuariosDataGridView.AutoGenerateColumns = false;
-                var binding = new BindingSource();
-                binding.DataSource = usuariosNoAsignados;
-                usuariosDataGridView.DataSource = binding;
+                try
+                {
+                    gestorDeFamilias.DesasignarUsuario(usuario, familia);
 
-                usuarioAsignados.Remove(usuario);
-                usuariosAsignadosDataGridView.AutoGenerateColumns = false;
-                var binding1 = new BindingSource();
-                binding1.DataSource = usuarioAsignados;
-                usuariosAsignadosDataGridView.DataSource = binding1;
+                    usuariosNoAsignados.Add(usuario);
+                    usuariosDataGridView.AutoGenerateColumns = false;
+                    var binding = new BindingSource();
+                    binding.DataSource = usuariosNoAsignados;
+                    usuariosDataGridView.DataSource = binding;
 
+                    usuarioAsignados.Remove(usuario);
+                    usuariosAsignadosDataGridView.AutoGenerateColumns = false;
+                    var binding1 = new BindingSource();
+                    binding1.DataSource = usuarioAsignados;
+                    usuariosAsignadosDataGridView.DataSource = binding1;
+
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
                 usuariosAsignadosDataGridView.ClearSelection();
                 usuariosDataGridView.ClearSelection();
+
             }
             else
             {
@@ -87,22 +101,6 @@ namespace Genesis
 
         private void guardarButton_Click(object sender, EventArgs e)
         {
-
-            var usuariosADesasignar = usuarioAsignadosFixed.Except(usuarioAsignados).ToList();
-
-
-            foreach (Usuario usuario in usuariosADesasignar)
-            {
-                gestorDeFamilias.DesasignarUsuario(usuario, familia);
-            }
-
-            var usuariosAAsignar = usuarioAsignados.Except(usuarioAsignadosFixed).ToList();
-
-            foreach (Usuario usuario in usuariosAAsignar)
-            {
-                gestorDeFamilias.AsignarUsuario(usuario, familia);
-            }
-
             MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioSatisfactorio);
             this.Close();
         }
@@ -122,9 +120,9 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.asignarButton, "Asigna el usuario seleccionado a la familia");
-            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el usuario seleccionado a la familia");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
+            toolTip1.SetToolTip(this.asignarButton, Genesis.Recursos_localizables.StringResources.AsignarusuaroafamiliaButtonTooltip);
+            toolTip1.SetToolTip(this.desasignarButton, Genesis.Recursos_localizables.StringResources.DesasignarusuaroafamiliaButtonTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

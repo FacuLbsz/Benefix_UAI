@@ -25,11 +25,6 @@ namespace Genesis
             gestorDeFamilias = GestorDeFamilias.ObtenerInstancia();
 
             this.familia = familia;
-            this.patentesAsignadas = familia.patentesAsignadas;
-
-            this.patentesNoAsignadas = gestorDePatentes.ObtenerPatentes().Except(patentesAsignadas).ToList();
-            this.patentesAsignadasFixed = new List<Patente>();
-            this.patentesAsignadasFixed.AddRange(patentesAsignadas);
 
 
             InitializeComponent();
@@ -37,6 +32,12 @@ namespace Genesis
 
         private void AsignarPatentesAFamilias_Load(object sender, EventArgs e)
         {
+
+            this.patentesAsignadas = gestorDePatentes.ObtenerPatentesParaUnaFamilia(familia);
+
+            this.patentesNoAsignadas = gestorDePatentes.ObtenerPatentes().Except(patentesAsignadas).ToList();
+            this.patentesAsignadasFixed = new List<Patente>();
+            this.patentesAsignadasFixed.AddRange(patentesAsignadas);
 
             patentesDataGridView.AutoGenerateColumns = false;
             patentesDataGridView.DataSource = patentesNoAsignadas;
@@ -51,9 +52,9 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.asignarButton, "Asigna la patente seleccionada a la familia");
-            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el beneficio seleccionada a la familia");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
+            toolTip1.SetToolTip(this.asignarButton, Genesis.Recursos_localizables.StringResources.AsignarpatenteafamiliaButtonTooltip);
+            toolTip1.SetToolTip(this.desasignarButton, Genesis.Recursos_localizables.StringResources.DesasignarpatenteafamiliaButtonTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
@@ -135,7 +136,7 @@ namespace Genesis
 
             foreach (Patente patente in patentesADesasignar)
             {
-                if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia) == 0)
+                if (gestorDePatentes.VerificarPatenteEscencial(patente, null, familia, false) == 0)
                 {
                     MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AsignarPatentesAFamiliasMessageDesasignarError, patente.nombre));
                     return;

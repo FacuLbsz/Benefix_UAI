@@ -52,9 +52,9 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.asignarButton, "Asigna el beneficio seleccionada al grupo");
-            toolTip1.SetToolTip(this.desasignarButton, "Desasigna el beneficio seleccionada al grupo");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
+            toolTip1.SetToolTip(this.asignarButton, Genesis.Recursos_localizables.StringResources.AsignarBeneficioTooltip);
+            toolTip1.SetToolTip(this.desasignarButton, Genesis.Recursos_localizables.StringResources.DesasignarBeneficioTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

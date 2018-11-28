@@ -101,7 +101,7 @@
             // descripcionText
             // 
             this.descripcionText.Location = new System.Drawing.Point(317, 114);
-            this.descripcionText.MaxLength = 60;
+            this.descripcionText.MaxLength = 45;
             this.descripcionText.Multiline = true;
             this.descripcionText.Name = "descripcionText";
             this.descripcionText.Size = new System.Drawing.Size(242, 140);

@@ -68,7 +68,7 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.modificarButton, "Actualiza la contraseña por la ingresada");
+            toolTip1.SetToolTip(this.modificarButton, Genesis.Recursos_localizables.StringResources.ModificarContraseñaButtonTooltip);
         }
     }
 }

@@ -147,13 +147,13 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
-            toolTip1.SetToolTip(this.crearButton, "Crea una nueva familia");
-            toolTip1.SetToolTip(this.modificarButton, "Modifica la familia seleccionada");
-            toolTip1.SetToolTip(this.eliminarButton, "Elimina la familia seleccionada");
+            toolTip1.SetToolTip(this.limpiarButton, Genesis.Recursos_localizables.StringResources.LimpiarButton);
+            toolTip1.SetToolTip(this.crearButton, Genesis.Recursos_localizables.StringResources.CrearFamiliaButton);
+            toolTip1.SetToolTip(this.modificarButton, Genesis.Recursos_localizables.StringResources.ModificarFamiliaButton);
+            toolTip1.SetToolTip(this.eliminarButton, Genesis.Recursos_localizables.StringResources.EliminarFamiliaButton);
 
-            toolTip1.SetToolTip(this.asignarPatentesButton, "Permite asignar patentes para asignar permisos a los usuarios");
-            toolTip1.SetToolTip(this.asignarUsuariosButton, "Permite asignar usuarios a la familia seleccionada");
+            toolTip1.SetToolTip(this.asignarPatentesButton, Genesis.Recursos_localizables.StringResources.FamiliaAsignarPatentesTooltip);
+            toolTip1.SetToolTip(this.asignarUsuariosButton, Genesis.Recursos_localizables.StringResources.FamiliaAsignarUsuariosTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

@@ -30,12 +30,12 @@ namespace Genesis
             {
                 Usuario coordinador = (Usuario)coordinadorBox.SelectedItem;
                 gestorDeEquipos.AsignarCoordinador(coordinador, equipo);
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarPatentesAFamiliasMessageDesasignarError);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioSatisfactorio);
                 this.Close();
             }
             else
             {
-                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarPatentesAFamiliasMessageDesasignarError);
+                MessageBox.Show(Genesis.Recursos_localizables.StringResources.AsignarUsuariosMessageUsuarioAsignarRequerido);
             }
         }
 
@@ -64,8 +64,8 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.coordinadorBox, "Selecciona el empleado que se encaraga de coordinar y evaluar el equipo");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda la asignacion realizada");
+            toolTip1.SetToolTip(this.coordinadorBox, Genesis.Recursos_localizables.StringResources.CoordinadorTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

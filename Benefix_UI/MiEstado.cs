@@ -81,7 +81,7 @@ namespace Genesis
             this.beneficioss.ToolTipText = "Beneficios asignados a los equipos que pertenece el usuario en sesion";
             this.puntajee.ToolTipText = "Puntaje obtenido de los objetivos cumplidos respecto del puntaje necesario para acceder al beneficio";
 
-            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
+            toolTip1.SetToolTip(this.exportarPdfButton, Genesis.Recursos_localizables.StringResources.ExportarPdfButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

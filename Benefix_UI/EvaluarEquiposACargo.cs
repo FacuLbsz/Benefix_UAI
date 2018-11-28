@@ -60,7 +60,7 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.evaluarButton, "Evaluar los objetivos del empleado seleccionado");
+            toolTip1.SetToolTip(this.evaluarButton, Genesis.Recursos_localizables.StringResources.EvaluarButtonTooltip);
             this.equipos.ToolTipText = "Equipos coordinados por el usuario en sesion";
             this.empleados.ToolTipText = "Empleados del equipo seleccionado";
 

@@ -58,9 +58,9 @@ namespace Genesis
             this.equipo.ToolTipText = "Objetivos asignados a los equipos que pertenece el usuario seleccionado";
             this.cumplimiento.ToolTipText = "Indica si el usuario cumplio el objetivo";
 
-            toolTip1.SetToolTip(this.exportarPdfButton, "Exporta el reporte en un documento PDF");
-            toolTip1.SetToolTip(this.consultarButton, "Consulta el estado de cumplimiento de objetivos del empleado seleccionado");
-            toolTip1.SetToolTip(this.periodoBox, "Periodo en el cual se evaluaron los empleados");
+            toolTip1.SetToolTip(this.exportarPdfButton, Genesis.Recursos_localizables.StringResources.ExportarPdfButtonTooltip);
+            toolTip1.SetToolTip(this.consultarButton, Genesis.Recursos_localizables.StringResources.ConsultarObjetivosEmpleadoButtonTooltip);
+            toolTip1.SetToolTip(this.periodoBox, Genesis.Recursos_localizables.StringResources.PeriodoBoxTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

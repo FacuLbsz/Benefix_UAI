@@ -63,7 +63,7 @@ public class GestorSistema
             {{"idFamiliaPatente" , new List<String>() { "Patente_idPatente", "Familia_idFamilia" } } });
         map.Add("BENEFICIO",
             new Dictionary<String, List<String>>()
-            {{"idBeneficio" , new List<String>() { "descripcion", "puntaje" } } });
+            {{"idBeneficio" , new List<String>() { "nombre", "puntaje" } } });
         //SDC Modificar campos que contendran DVH en la tabla EVALUACION
         map.Add("EVALUACION",
             new Dictionary<String, List<String>>()
@@ -127,7 +127,7 @@ public class GestorSistema
         map.Add("USUARIO", new List<String>() { "nombreUsuario", "nombre", "apellido", "contrasena" });
         map.Add("PATENTEUSUARIO", new List<String>() { "esPermisiva", "Patente_idPatente", "Usuario_idUsuario" });
         map.Add("FAMILIAPATENTE", new List<String>() { "Patente_idPatente", "Familia_idFamilia" });
-        map.Add("BENEFICIO", new List<String>() { "descripcion", "puntaje" });
+        map.Add("BENEFICIO", new List<String>() { "nombre", "puntaje" });
         //SDC Modificar campos que contendran DVH en la tabla EVALUACION
         map.Add("EVALUACION", new List<String>() { "puntaje", "periodo" });
 
@@ -329,7 +329,7 @@ public class GestorSistema
         }
 
 
-        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se realiza la restauracion de la base de datos", criticidad = 1, funcionalidad = "REALIZAR RESTORE", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
+        EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "El usuario " + GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion().nombreUsuario + " realiza la restauracion de la base de datos", criticidad = 1, funcionalidad = "REALIZAR RESTORE" };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
 
         return 1;

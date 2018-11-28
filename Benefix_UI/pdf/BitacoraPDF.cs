@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Windows.Forms;
 
 namespace Genesis.pdf
 {
@@ -14,8 +15,16 @@ namespace Genesis.pdf
         {
             objectLists.ForEach(obj =>
             {
-                EventoBitacora eventoBitacora = (EventoBitacora)obj;
+                DataGridViewRow row = (DataGridViewRow) obj;
 
+                foreach(DataGridViewCell cell in row.Cells)
+                {
+                    PdfPCell rowCell = new PdfPCell(new Phrase(cell.Value.ToString(), _standardFont));
+                    rowCell.BorderWidth = 0;
+                    tabla.AddCell(rowCell);
+                    
+                }
+                /*
                 PdfPCell rowCell = new PdfPCell(new Phrase(eventoBitacora.usuario.nombreUsuario, _standardFont));
                 rowCell.BorderWidth = 0;
                 tabla.AddCell(rowCell);
@@ -47,7 +56,7 @@ namespace Genesis.pdf
                 }
                 rowCell = new PdfPCell(new Phrase(criticidadString, _standardFont));
                 rowCell.BorderWidth = 0;
-                tabla.AddCell(rowCell);
+                tabla.AddCell(rowCell);*/
             });
         }
     }

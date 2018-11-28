@@ -58,9 +58,9 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.asignarButton, "Asigna la patente seleccionada al usuario");
-            toolTip1.SetToolTip(this.desasignarButton, "Desasigna la patente seleccionada al usuario");
-            toolTip1.SetToolTip(this.guardarButton, "Guarda las asignaciones realizadas");
+            toolTip1.SetToolTip(this.asignarButton, Genesis.Recursos_localizables.StringResources.AsignarpatenteusuarioButtonTooltip);
+            toolTip1.SetToolTip(this.desasignarButton, Genesis.Recursos_localizables.StringResources.DesasignarpatenteusuarioButtonTooltip);
+            toolTip1.SetToolTip(this.guardarButton, Genesis.Recursos_localizables.StringResources.GuardarButtonTooltip);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";
@@ -157,7 +157,7 @@ namespace Genesis
             if (patentesAsignadosDataGridView.CurrentCell != null && patentesAsignadosDataGridView.SelectedRows.Count > 0 && patentesAsignadosDataGridView.Rows[patentesAsignadosDataGridView.SelectedRows[0].Index].DataBoundItem != null)
             {
                 var patenteUsuario = (PatenteUsuario)patentesAsignadosDataGridView.Rows[patentesAsignadosDataGridView.CurrentCell.RowIndex].DataBoundItem;
-
+                patenteUsuario.esPermisivo = true;
                 patentesNoAsignadas.Add(patenteUsuario.patente);
                 patentesDataGridView.AutoGenerateColumns = false;
 
@@ -185,10 +185,14 @@ namespace Genesis
         {
 
             var patentesADesasignar = patentesDelUsuarioFixed.Except(patentesDelUsuario).ToList();
-
+            var patentesParaUsuarioPorFamilia = gestorDePatentes.ObtenerPatentesParaUnUsuarioPorFamilia(usuario);
             foreach (PatenteUsuario patente in patentesADesasignar)
             {
-                if (gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null) == 0)
+
+                var patenteADesasignarCompletamente = !patentesDelUsuario.Any(p => p.patente.identificador == patente.patente.identificador) && patentesParaUsuarioPorFamilia.Contains(patente);
+
+
+                if (!patenteADesasignarCompletamente && gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null, false) == 0)
                 {
                     MessageBox.Show(String.Format(Genesis.Recursos_localizables.StringResources.AsignarPatentesAUsuariosMessageDesasignarError, patente.patente.nombre));
                     return;

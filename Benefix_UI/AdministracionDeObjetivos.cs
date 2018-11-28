@@ -37,11 +37,11 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.limpiarButton, "Limpia el formulario");
-            toolTip1.SetToolTip(this.crearButton, "Crea un nuevo objetivo");
-            toolTip1.SetToolTip(this.modificarButton, "Modifica el objetivo seleccionado");
-            toolTip1.SetToolTip(this.eliminarButton, "Elimina el objetivo seleccionado");
-            toolTip1.SetToolTip(this.puntajeUpDown, "Indica el puntaje que otorgara cumplir el objetivo");
+            toolTip1.SetToolTip(this.limpiarButton, Genesis.Recursos_localizables.StringResources.LimpiarButton);
+            toolTip1.SetToolTip(this.crearButton, Genesis.Recursos_localizables.StringResources.CrearObjetivoButton);
+            toolTip1.SetToolTip(this.modificarButton, Genesis.Recursos_localizables.StringResources.ModificarObjetivoButton);
+            toolTip1.SetToolTip(this.eliminarButton, Genesis.Recursos_localizables.StringResources.EliminarObjetivoButton);
+            toolTip1.SetToolTip(this.puntajeUpDown, Genesis.Recursos_localizables.StringResources.PuntajeObjetivo);
 
             System.Windows.Forms.HelpProvider helpProvider1 = new HelpProvider();
             var applicationFolder = Application.StartupPath + "\\Benefix_mu.chm";

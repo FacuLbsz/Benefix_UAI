@@ -47,7 +47,7 @@ namespace Genesis
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.confirmarButton, "Modifica el idioma asignado");
+            toolTip1.SetToolTip(this.confirmarButton, Genesis.Recursos_localizables.StringResources.ConfirmarIdiomaButtonTooltip);
         }
     }
 }

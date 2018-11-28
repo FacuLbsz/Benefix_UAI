@@ -131,10 +131,11 @@ public class GestorDeUsuarios
     {
 
         var patentesDelUsuario = gestorDePatentes.ObtenerPatentesParaUnUsuario(usuario);
+        patentesDelUsuario.AddRange(gestorDePatentes.ObtenerPatentesParaUnUsuarioPorFamilia(usuario));
 
         foreach (PatenteUsuario patente in patentesDelUsuario)
         {
-            if (gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null) == 0)
+            if (gestorDePatentes.VerificarPatenteEscencial(patente.patente, usuario, null, false) == 0)
             {
                 throw new Exception(patente.patente.nombre);
             }
@@ -144,7 +145,7 @@ public class GestorDeUsuarios
         {
             gestorDePatentes.DesasignarAUnUsuario(usuario, patente.patente);
         });
-        BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("update equipo set coordinador is null where coordinador = {1}", usuario.identificador));
+        BaseDeDatos.ObtenerInstancia().ModificarBase(String.Format("update equipo set coordinador = null where coordinador = {0}", usuario.identificador));
 
         EventoBitacora evento = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se elimino el usuario " + usuario.identificador, criticidad = 1, funcionalidad = "ADMINISTRACION DE USUARIOS", usuario = GestorSistema.ObtenerInstancia().ObtenerUsuarioEnSesion() };
         GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento);
@@ -236,7 +237,7 @@ public class GestorDeUsuarios
         var nombre = usuario.nombreUsuario;
         usuario.nombreUsuario = GestorDeEncriptacion.EncriptarAes(usuario.nombreUsuario);
         usuario.contrasena = GestorDeEncriptacion.EncriptarMD5(usuario.contrasena);
-        DataTable usuarioTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND contrasena = '{1}'", usuario.nombreUsuario, usuario.contrasena));
+        DataTable usuarioTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND contrasena = '{1}' AND habilitado = 1", usuario.nombreUsuario, usuario.contrasena));
 
         if (usuarioTable.Rows.Count > 0)
         {
@@ -245,7 +246,7 @@ public class GestorDeUsuarios
             return usuarioLogin;
         }
 
-        DataTable usuarioSegunNombreTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}'", usuario.nombreUsuario));
+        DataTable usuarioSegunNombreTable = BaseDeDatos.ObtenerInstancia().ConsultarBase(String.Format("SELECT * FROM USUARIO WHERE nombreUsuario = '{0}' AND habilitado = 1", usuario.nombreUsuario));
 
         if (usuarioSegunNombreTable.Rows.Count > 0)
         {
