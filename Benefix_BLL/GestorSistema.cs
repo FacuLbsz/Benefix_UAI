@@ -79,6 +79,9 @@ public class GestorSistema
                 RecalcularDigitosVerificadores(tabla, atributos, identificador);
             }
         }
+
+        var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Se recalculan los digitos verificadores", criticidad = 1, funcionalidad = "INTEGRIDAD DE BASE DATOS", usuario = null };
+        GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
     }
 
     private void RecalcularDigitosVerificadores(String tabla, List<String> atributos, String identificador)
@@ -151,12 +154,14 @@ public class GestorSistema
         foreach (DataRow eventoBitacora in dataTable.Rows)
         {
             List<String> argumentos = new List<String>();
+            Dictionary<String, String> columnRow = new Dictionary<string, string>();
             foreach (String atributo in atributos)
             {
                 if (DBNull.Value != eventoBitacora[atributo])
                 {
-
-                    argumentos.Add(Convert.ToString(eventoBitacora[atributo]));
+                    String argumento = Convert.ToString(eventoBitacora[atributo]);
+                    columnRow.Add(atributo, argumento);
+                    argumentos.Add(argumento);
                 }
                 else
                 {
@@ -168,6 +173,13 @@ public class GestorSistema
 
             if (!digitoVH.Equals(Convert.ToString(eventoBitacora["digitoVerificadorH"])))
             {
+                var columns = "";
+                foreach (String key in columnRow.Keys)
+                {
+                    columns = columns + " Columna: " + key;
+                }
+                var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Error de digito verificador horizontal en la tabla " + tabla + columns, criticidad = 1, funcionalidad = "INTEGRIDAD DE BASE DATOS", usuario = null };
+                GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
                 return 0;
             }
 
@@ -186,11 +198,15 @@ public class GestorSistema
             {
                 if (!Convert.ToString(dataTable.Rows[0]["digitoVerificador"]).Equals(digitoVV.ToString()))
                 {
+                    var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "El digito verificador de la tabla " + tabla + " no coincide con el calculado por el sistema.", criticidad = 1, funcionalidad = "INTEGRIDAD DE BASE DATOS", usuario = null };
+                    GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
                     return 0;
                 }
             }
             else
             {
+                var evento1 = new EventoBitacora() { fecha = DateTime.Now, descripcion = "Error de integridad de datos en la tabla " + tabla + ", no existe digito vertical.", criticidad = 1, funcionalidad = "INTEGRIDAD DE BASE DATOS", usuario = null };
+                GestorDeBitacora.ObtenerInstancia().RegistrarEvento(evento1);
                 return 0;
             }
         }
@@ -337,7 +353,7 @@ public class GestorSistema
 
     public bool ConsultarPatentePorUsuario(String patente)
     {
-        var patenteUsuarios = baseDeDatos.ConsultarBase(String.Format("select esPermisiva from patenteusuario inner join patente on patente.idPatente = patenteusuario.Patente_idPatente where patenteusuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente));
+        var patenteUsuarios = baseDeDatos.ConsultarBase(String.Format("select esPermisiva from patenteusuario inner join patente on patente.idPatente = patenteusuario.Patente_idPatente inner join usuario on patenteusuario.Usuario_idUsuario = usuario.idUsuario where patenteusuario.Usuario_idUsuario = {0} and patente.nombre = '{1}' and usuario.habilitado = 1", usuarioEnSesion.identificador, patente));
         if (patenteUsuarios.Rows.Count > 0)
         {
             foreach (DataRow row in patenteUsuarios.Rows)
@@ -345,6 +361,6 @@ public class GestorSistema
                 return Convert.ToBoolean(row["esPermisiva"]);
             }
         }
-        return baseDeDatos.ConsultarBase(String.Format("select * from familiausuario inner join familiapatente on familiapatente.Familia_idFamilia = familiausuario.Familia_idFamilia inner join patente on patente.idPatente = familiapatente.Patente_idPatente where familiausuario.Usuario_idUsuario = {0} and patente.nombre = '{1}'", usuarioEnSesion.identificador, patente)).Rows.Count > 0;
+        return baseDeDatos.ConsultarBase(String.Format("select * from familiausuario inner join familiapatente on familiapatente.Familia_idFamilia = familiausuario.Familia_idFamilia inner join patente on patente.idPatente = familiapatente.Patente_idPatente inner join familia on familiapatente.Familia_idFamilia = familia.idFamilia inner join usuario on familiausuario.Usuario_idUsuario = usuario.idUsuario where familiausuario.Usuario_idUsuario = {0} and patente.nombre = '{1}' and familia.habilitado = 1 and usuario.habilitado = 1", usuarioEnSesion.identificador, patente)).Rows.Count > 0;
     }
 }

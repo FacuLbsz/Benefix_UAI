@@ -33,8 +33,12 @@ public class GestorDeFamilias
 
     public int AsignarPatente(Patente patente, Familia familia)
     {
-        var registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO familiapatente (Patente_idPatente,Familia_idFamilia ,digitoVerificadorH) VALUES ({0} ,{1} ,'{2}')", patente.identificador, familia.identificador, GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { patente.identificador.ToString(), familia.identificador.ToString() })));
-        m_GestorDeDigitoVerificador.ModificarDigitoVV("familiapatente");
+        var registros = 0;
+        if (baseDeDatos.ConsultarBase(String.Format("SELECT * FROM FAMILIAPATENTE WHERE PATENTE_IDPATENTE = {0} AND FAMILIA_IDFAMILIA = {1}", patente.identificador, familia.identificador)).Rows.Count == 0)
+        {
+            registros = baseDeDatos.ModificarBase(String.Format("INSERT INTO familiapatente (Patente_idPatente,Familia_idFamilia ,digitoVerificadorH) VALUES ({0} ,{1} ,'{2}')", patente.identificador, familia.identificador, GestorDeDigitoVerificador.ObtenerDigitoVH(new List<String>() { patente.identificador.ToString(), familia.identificador.ToString() })));
+            m_GestorDeDigitoVerificador.ModificarDigitoVV("familiapatente");
+        }
         return registros;
     }
 
